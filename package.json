@@ -1,5 +1,5 @@
 {
-  "name": "root-uxr-onboarding",
+  "name": "root-uxr-internship-handoff",
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@11.9.0",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "next": "16.2.6",
+    "next-auth": "5.0.0-beta.32",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },

@@ -1,35 +1,45 @@
 import type { Metadata } from "next";
+import { requireRootSession } from "@/auth";
 import { notFound } from "next/navigation";
-import { getOnboardingPage, onboardingPages } from "../onboarding";
+import { getHandoffPage } from "../handoff";
 import { ArticlePage } from "../site-components";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return onboardingPages.map((page) => ({ slug: page.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const page = getOnboardingPage(slug);
+  const page = getHandoffPage(slug);
 
   if (!page) return {};
 
   return {
     title: page.title,
     description: page.summary,
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 
-export default async function OnboardingArticle({ params }: PageProps) {
+export default async function HandoffArticle({ params }: PageProps) {
   const { slug } = await params;
-  const page = getOnboardingPage(slug);
+  const page = getHandoffPage(slug);
 
   if (!page) notFound();
 
-  return <ArticlePage page={page} />;
+  const session = await requireRootSession(`/${slug}`);
+
+  return (
+    <ArticlePage
+      page={page}
+      viewerEmail={session.user.email ?? "Root employee"}
+    />
+  );
 }

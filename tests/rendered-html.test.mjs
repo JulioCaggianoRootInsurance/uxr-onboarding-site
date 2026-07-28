@@ -1,124 +1,142 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
+import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
-async function render(pathname = "/") {
-  const fileName =
-    pathname === "/" ? "index.html" : `${pathname.slice(1)}.html`;
-  const fileUrl = new URL(`../.next/server/app/${fileName}`, import.meta.url);
-  const html = await readFile(fileUrl, "utf8");
+const projectRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+);
 
-  return new Response(html, {
-    status: 200,
-    headers: { "content-type": "text/html; charset=utf-8" },
-  });
+async function readProjectFile(relativePath) {
+  return readFile(path.join(projectRoot, relativePath), "utf8");
 }
 
-test("server-renders the onboarding index", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+async function filesBelow(directory) {
+  const entries = await readdir(directory);
+  const files = [];
 
-  const html = await response.text();
-  assert.match(
-    html,
-    /<title>Root UX Research Onboarding<\/title>/i,
-  );
-  assert.match(html, /Root UX Research Onboarding/);
-  assert.match(html, /Last Updated: Jul 27, 2026/);
-  assert.match(
-    html,
-    /Prepared by UXR Interns Layilah Campbell and Julio Caggiano/,
-  );
-  assert.match(
-    html,
-    /Have any questions\? Feel free to slack the @director of research/,
-  );
-  assert.match(html, /Insurance basics/);
-  assert.match(html, /Voice of the Customer/);
-  assert.match(html, /VOC analysis workflow/);
-  assert.match(html, /Customer Quote Library/);
-  assert.match(html, /AI-assisted research/);
-  assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
-});
-
-test("server-renders every onboarding route", async () => {
-  const routes = [
-    "/insurance-basics",
-    "/team",
-    "/operating-procedures",
-    "/voice-of-customer",
-    "/customer-retention",
-    "/voc-analysis-workflow",
-    "/nps-worked-example",
-    "/evidence-storytelling",
-    "/ai-research-playbook",
-    "/customer-quote-library",
-    "/slack-directories",
-    "/knowledge-repositories",
-    "/voc-technical-appendix",
-  ];
-  const visualCaptions = new Map([
-    ["/insurance-basics", /shared pool of risk/],
-    ["/team", /shared direction/],
-    ["/operating-procedures", /six-week decision cycle/],
-    ["/voice-of-customer", /direct customer evidence/],
-    ["/customer-retention", /protect retention across the journey/],
-  ]);
-
-  for (const route of routes) {
-    const response = await render(route);
-    assert.equal(response.status, 200, route);
-    const html = await response.text();
-    assert.match(html, /Return to index/, route);
-    assert.match(html, /Last Updated: Jul 27, 2026/, route);
-    assert.doesNotMatch(html, /\[cite:|\\longrightarrow|\\text\{/i, route);
-    if (visualCaptions.has(route)) {
-      assert.match(html, visualCaptions.get(route), route);
+  for (const entry of entries) {
+    const fullPath = path.join(directory, entry);
+    const details = await stat(fullPath);
+    if (details.isDirectory()) {
+      files.push(...(await filesBelow(fullPath)));
+    } else {
+      files.push(fullPath);
     }
   }
+
+  return files;
+}
+
+test("defines the six handoff chapters and removes stale onboarding content", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const slugs = [...content.matchAll(/slug: "([^"]+)"/g)].map(
+    (match) => match[1],
+  );
+
+  assert.deepEqual(slugs, [
+    "voc-report-redesign",
+    "customer-evidence-library",
+    "voc-dashboard-exploration",
+    "research-and-stakeholders",
+    "internship-reflection",
+    "handoff",
+  ]);
+  assert.equal(new Set(slugs).size, slugs.length);
+
+  assert.match(content, /Prepared by Julio Caggiano for Hala Daher/);
+  assert.match(content, /Last Updated: Jul 27, 2026/);
+  assert.match(content, /Delivered/);
+  assert.match(content, /Prototype/);
+  assert.match(content, /In progress/);
+  assert.match(content, /Recommendation/);
+  assert.match(content, /TBD/);
+
+  assert.doesNotMatch(content, /Layilah Campbell/);
+  assert.doesNotMatch(content, /Insurance basics/);
+  assert.doesNotMatch(content, /Meet the team/);
+  assert.doesNotMatch(content, /\[cite:|\\longrightarrow|\\text\{/i);
+  assert.doesNotMatch(content, /magic_link=/i);
 });
 
-test("renders a governed quote library with embedded customer reels", async () => {
-  const response = await render("/customer-quote-library");
-  assert.equal(response.status, 200);
-  const html = await response.text();
+test("keeps future dashboard work explicitly separate from completed work", async () => {
+  const content = await readProjectFile("app/handoff.ts");
 
-  assert.match(html, /Q1 2026 customer recordings/);
-  assert.match(html, /Open the full Lookback session/);
-  assert.match(html, /lookback\.io\/play\/qpzK47AyZGPfTzDE7/);
-  assert.match(html, /lookback\.io\/play\/PAg8bd26jergevcv5/);
-  assert.match(html, /lookback\.io\/play\/hbdMNbJCUJm3LMxhH/);
+  assert.match(content, /placeholder data/);
+  assert.match(content, /GitHub should become the source of truth/);
+  assert.match(content, /git fetch origin/);
+  assert.match(content, /git pull origin main/);
+  assert.match(content, /git push origin <branch-name>/);
+  assert.match(content, /Vercel preview/);
+  assert.match(content, /Future AI-assisted update flow/);
+  assert.match(content, /should not overwrite production directly/);
+  assert.match(content, /human researcher reviews/i);
   assert.match(
-    html,
-    /drive\.google\.com\/file\/d\/1zX5uhypEBVEzfPXiRcfPjVcfGoE0y-93\/preview/,
+    content,
+    /Final Q2 report, live dashboard, NPS studies, in-product surveys, and journey-map platform/,
   );
-  assert.match(
-    html,
-    /drive\.google\.com\/file\/d\/1Qkp1MLWJ1rWzsgqu4TV0nGZH2X7SNmoi\/preview/,
-  );
-  assert.match(
-    html,
-    /drive\.google\.com\/file\/d\/1mQQmWUzw4wainZ4P2-NrJKuXnHOejvqi\/preview/,
-  );
-  assert.equal((html.match(/<iframe\b/g) ?? []).length, 21);
-  assert.doesNotMatch(html, /Jasmine Anderson|Dawn Collins|Adan/);
-  assert.match(html, /Payment flexibility/);
-  assert.match(html, /Quotes explain the experience|A memorable line/);
 });
 
-test("renders readable NPS formulas and audited examples", async () => {
-  const npsResponse = await render("/nps-worked-example");
-  const npsHtml = await npsResponse.text();
-  assert.match(
-    npsHtml,
-    /NPS = 100 × \(Promoters − Detractors\) ÷ valid responses/,
+test("retains a deidentified, governed library of 21 customer clips", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const driveIds = [...content.matchAll(/driveId: "([^"]+)"/g)].map(
+    (match) => match[1],
   );
-  assert.match(npsHtml, /DTC benchmark — Root current customers/);
-  assert.match(npsHtml, /NPS = \+15\.4/);
 
-  const appendixResponse = await render("/voc-technical-appendix");
-  const appendixHtml = await appendixResponse.text();
-  assert.match(appendixHtml, /Standard error = 100 × √/);
-  assert.match(appendixHtml, /DataQualityScore/);
+  assert.equal(driveIds.length, 21);
+  assert.equal(new Set(driveIds).size, 21);
+  assert.match(content, /Participant 1/);
+  assert.match(content, /Participant 2/);
+  assert.match(content, /Participant 3/);
+  assert.match(content, /lookback\.io\/play\/qpzK47AyZGPfTzDE7/);
+  assert.match(content, /lookback\.io\/play\/PAg8bd26jergevcv5/);
+  assert.match(content, /lookback\.io\/play\/hbdMNbJCUJm3LMxhH/);
+  assert.doesNotMatch(content, /Jasmine Anderson|Dawn Collins|Adan/);
+  assert.match(content, /Confirm consent and approved use/);
+});
+
+test("keeps private prose server-only and interactive navigation isolated", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const components = await readProjectFile("app/site-components.tsx");
+  const navigation = await readProjectFile("app/article-navigation.tsx");
+
+  assert.match(content, /^import "server-only";/);
+  assert.doesNotMatch(components, /^"use client";/);
+  assert.match(navigation, /^"use client";/);
+  assert.doesNotMatch(components, /from "\.\/onboarding"/);
+});
+
+test("enforces the confirmed Root Workspace domain on the server", async () => {
+  const auth = await readProjectFile("auth.ts");
+  const proxy = await readProjectFile("proxy.ts");
+
+  assert.match(auth, /ROOT_WORKSPACE_DOMAIN = "joinroot\.com"/);
+  assert.match(auth, /email_verified === true/);
+  assert.match(auth, /googleProfile\.hd/);
+  assert.match(auth, /workspaceDomain === ROOT_WORKSPACE_DOMAIN/);
+  assert.match(auth, /NODE_ENV === "development"/);
+  assert.match(auth, /AUTH_DEV_BYPASS === "true"/);
+  assert.match(auth, /rootAuthorized/);
+  assert.match(proxy, /api\/auth/);
+  assert.match(proxy, /auth as proxy/);
+});
+
+test("does not emit the development auth secret into browser assets", async () => {
+  const staticDirectory = path.join(projectRoot, ".next", "static");
+  const files = await filesBelow(staticDirectory);
+  const browserText = (
+    await Promise.all(
+      files
+        .filter((file) => /\.(?:js|css|map)$/.test(file))
+        .map((file) => readFile(file, "utf8")),
+    )
+  ).join("\n");
+
+  assert.doesNotMatch(
+    browserText,
+    /root-uxr-local-development-auth-bypass-only/,
+  );
+  assert.doesNotMatch(browserText, /AUTH_GOOGLE_SECRET|AUTH_SECRET/);
 });

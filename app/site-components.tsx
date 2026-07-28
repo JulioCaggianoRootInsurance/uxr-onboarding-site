@@ -1,32 +1,45 @@
-"use client";
-
 import Link from "next/link";
+import type { CSSProperties, ReactNode } from "react";
+import { signOut } from "@/auth";
+import { ArticleNavigation } from "./article-navigation";
 import {
-  useEffect,
-  useMemo,
-  useState,
-  type CSSProperties,
-  type ReactNode,
-} from "react";
-import {
-  onboardingGroups,
-  onboardingPages,
+  handoffGroups,
+  handoffPages,
+  siteUpdated,
   type ContentBlock,
-  type OnboardingPage,
-  type VisualKind,
-} from "./onboarding";
+  type HandoffPage,
+  type HandoffStatus,
+} from "./handoff";
 
-const updatedLabel = "Last Updated: Jul 27, 2026";
+function statusClass(status: HandoffStatus): string {
+  return `status-${status.toLowerCase().replaceAll(" ", "-")}`;
+}
 
-function SiteFooter() {
+function StatusPill({ status }: { status: HandoffStatus }) {
+  return (
+    <span className={`status-pill ${statusClass(status)}`}>{status}</span>
+  );
+}
+
+function SiteFooter({ viewerEmail }: { viewerEmail: string }) {
   return (
     <footer className="site-footer">
       <div className="footer-rule" />
       <div className="footer-row">
-        <p>Have any questions? Feel free to slack the @director of research</p>
-        <span className="footer-mark" aria-hidden="true">
-          root
-        </span>
+        <div className="footer-copy">
+          <p>Prepared by Julio Caggiano for Hala Daher</p>
+          <small>Root internal · {viewerEmail}</small>
+        </div>
+        <form
+          action={async () => {
+            "use server";
+            await signOut({ redirectTo: "/login" });
+          }}
+        >
+          <button className="sign-out-link" type="submit">
+            Sign out
+          </button>
+        </form>
       </div>
     </footer>
   );
@@ -34,21 +47,20 @@ function SiteFooter() {
 
 function IndexList() {
   return (
-    <section className="index-section" aria-labelledby="onboarding-heading">
-      <h2 className="index-title" id="onboarding-heading">
-        Onboarding
+    <section className="index-section" aria-labelledby="handoff-heading">
+      <h2 className="index-title" id="handoff-heading">
+        Internship handoff
       </h2>
       <ul className="index-groups">
-        {onboardingGroups.map((group) => {
-          const pages = onboardingPages.filter((page) => page.group === group);
+        {handoffGroups.map((group) => {
+          const pages = handoffPages.filter((page) => page.group === group);
           const shortGroup =
-            group === "Start here"
-              ? "Start"
-              : group === "Research programs"
-                ? "Research"
-                : group === "Training"
-                  ? "Training"
-                  : "Tools";
+            group === "Core work"
+              ? "Work"
+              : group === "Research practice"
+                ? "Practice"
+                : "Next";
+
           return (
             <li className="index-group" key={group}>
               <span className="group-label">
@@ -60,13 +72,18 @@ function IndexList() {
                   <li key={page.slug}>
                     <Link href={`/${page.slug}`} className="index-link">
                       <span className="index-name">
-                        {page.title}
+                        <span>{page.title}</span>
                         {page.order === 1 ? (
                           <span className="start-note">Start here</span>
                         ) : null}
                       </span>
-                      <span className="index-number">
-                        {String(page.order).padStart(2, "0")}
+                      <span className="index-meta">
+                        <span className={`index-status ${statusClass(page.status)}`}>
+                          {page.status}
+                        </span>
+                        <span className="index-number">
+                          {String(page.order).padStart(2, "0")}
+                        </span>
                       </span>
                     </Link>
                   </li>
@@ -80,35 +97,57 @@ function IndexList() {
   );
 }
 
-export function HomePage() {
+function HomeStatusOverview() {
+  return (
+    <section className="home-status-overview" aria-label="Handoff status">
+      <div>
+        <span>Delivered</span>
+        <strong>3</strong>
+        <small>report framework, evidence inventory, stakeholder record</small>
+      </div>
+      <div>
+        <span>Prototype</span>
+        <strong>2</strong>
+        <small>dashboard and reusable presentation direction</small>
+      </div>
+      <div>
+        <span>Future focus</span>
+        <strong>4</strong>
+        <small>governance, deployment, automation, ownership</small>
+      </div>
+    </section>
+  );
+}
+
+export function HomePage({ viewerEmail }: { viewerEmail: string }) {
   const introChildren = [
     <header className="article-header" key="header">
-      <h1>Root UX Research Onboarding</h1>
-      <time dateTime="2026-07-27">{updatedLabel}</time>
+      <h1>Julio Caggiano · UX Research Internship Handoff</h1>
+      <time dateTime="2026-07-27">{siteUpdated}</time>
     </header>,
-    <p key="welcome">
-      Welcome to the Root User Experience team. Our mission is to humanize
-      insurance through deep user empathy, rigorous data validation, and
-      strategic storytelling.
+    <p key="summary">
+      This is a manager-facing record of what I delivered, explored, and
+      recommend carrying forward from my 2026 internship on Root&apos;s Voice
+      of the Customer work.
     </p>,
-    <p key="role">
-      As a UX Researcher at Root, you will help dismantle unfair, archaic, and
-      complicated parts of the traditional insurance model by turning raw
-      behavioral data into actionable product strategy.
+    <p key="narrative">
+      I translated an open-ended VOC storytelling assignment into reusable
+      reporting guidance, organized customer evidence, and a scalable dashboard
+      direction—while documenting the feedback and unresolved work needed for
+      continuation.
     </p>,
-    <p key="purpose">
-      This site is your foundational onboarding playbook, research-methods
-      training guide, and departmental operating manual.
+    <p key="dates">
+      UX Research Intern, VOC · June 1–August 14, 2026
     </p>,
     <p className="byline" key="byline">
-      Prepared by UXR Interns Layilah Campbell and Julio Caggiano
+      Prepared by Julio Caggiano for Hala Daher
     </p>,
   ];
 
   return (
     <div className="page-shell homepage">
-      <a className="skip-link" href="#onboarding-heading">
-        Skip to onboarding chapters
+      <a className="skip-link" href="#handoff-heading">
+        Skip to handoff chapters
       </a>
       <article className="article home-article">
         {introChildren.map((child, index) => (
@@ -123,6 +162,12 @@ export function HomePage() {
       </article>
       <div
         className="stagger-item"
+        style={{ "--delay": "250ms" } as CSSProperties}
+      >
+        <HomeStatusOverview />
+      </div>
+      <div
+        className="stagger-item"
         style={{ "--delay": "300ms" } as CSSProperties}
       >
         <IndexList />
@@ -131,7 +176,7 @@ export function HomePage() {
         className="stagger-item"
         style={{ "--delay": "350ms" } as CSSProperties}
       >
-        <SiteFooter />
+        <SiteFooter viewerEmail={viewerEmail} />
       </div>
     </div>
   );
@@ -140,6 +185,7 @@ export function HomePage() {
 function splitLabel(text: string): ReactNode {
   const colon = text.indexOf(":");
   if (colon < 1) return text;
+
   return (
     <>
       <strong>{text.slice(0, colon + 1)}</strong>
@@ -163,11 +209,14 @@ function Block({ block }: { block: ContentBlock }) {
     );
   }
 
-  if (block.kind === "flow") {
+  if (block.kind === "steps") {
     return (
-      <ol className="funnel" aria-label="Customer journey funnel">
-        {block.items.map((item) => (
-          <li key={item}>{item}</li>
+      <ol className="article-steps">
+        {block.items.map((item, index) => (
+          <li key={item}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>{item}</p>
+          </li>
         ))}
       </ol>
     );
@@ -177,13 +226,13 @@ function Block({ block }: { block: ContentBlock }) {
     return <h3>{block.text}</h3>;
   }
 
-  if (block.kind === "formula") {
+  if (block.kind === "callout") {
     return (
-      <div className="formula-card">
-        <span>Formula</span>
-        <p className="formula-expression">{block.expression}</p>
-        <p>{block.description}</p>
-      </div>
+      <aside className={`handoff-callout ${statusClass(block.status)}`}>
+        <StatusPill status={block.status} />
+        <h3>{block.title}</h3>
+        <p>{block.text}</p>
+      </aside>
     );
   }
 
@@ -313,6 +362,55 @@ function Block({ block }: { block: ContentBlock }) {
     );
   }
 
+  if (block.kind === "statusGrid") {
+    return (
+      <div className="status-grid">
+        {block.items.map((item) => (
+          <article className="status-card" key={`${item.status}-${item.title}`}>
+            <StatusPill status={item.status} />
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    );
+  }
+
+  if (block.kind === "commands") {
+    return (
+      <div className="command-list">
+        {block.items.map((item) => (
+          <article className="command-card" key={item.command}>
+            <code>{item.command}</code>
+            <div>
+              <h3>{item.label}</h3>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    );
+  }
+
+  if (block.kind === "pipeline") {
+    return (
+      <figure className="deployment-pipeline">
+        <ol>
+          {block.items.map((item, index) => (
+            <li key={`${item.label}-${index}`}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{item.label}</strong>
+              <small>{item.detail}</small>
+            </li>
+          ))}
+        </ol>
+        <figcaption>
+          Each handoff point stays visible, reviewable, and reversible.
+        </figcaption>
+      </figure>
+    );
+  }
+
   return (
     <blockquote>
       <span>{block.label}</span>
@@ -321,255 +419,28 @@ function Block({ block }: { block: ContentBlock }) {
   );
 }
 
-function ConceptVisual({ kind }: { kind: VisualKind }) {
-  if (kind === "insurance-loop") {
-    return (
-      <figure className="concept-visual insurance-visual">
-        <div className="visual-stage" aria-hidden="true">
-          <span className="visual-eyebrow">The insurance loop</span>
-          <ol className="insurance-flow">
-            <li>
-              <span>01</span>
-              <strong>Premium</strong>
-              <small>funds coverage</small>
-            </li>
-            <li>
-              <span>02</span>
-              <strong>Shared pool</strong>
-              <small>spreads risk</small>
-            </li>
-            <li>
-              <span>03</span>
-              <strong>Loss event</strong>
-              <small>creates a claim</small>
-            </li>
-            <li>
-              <span>04</span>
-              <strong>Recovery</strong>
-              <small>coverage responds</small>
-            </li>
-          </ol>
-          <span className="insurance-signal" />
-        </div>
-        <figcaption>
-          Premiums create a shared pool of risk that makes recovery possible
-          when a covered loss occurs.
-        </figcaption>
-      </figure>
-    );
-  }
-
-  if (kind === "team-network") {
-    return (
-      <figure className="concept-visual team-visual">
-        <div className="visual-stage" aria-hidden="true">
-          <span className="visual-eyebrow">Research is connective tissue</span>
-          <div className="team-network">
-            <span className="team-node team-product">Product</span>
-            <span className="team-node team-design">Design</span>
-            <span className="team-node team-research">
-              UX
-              <br />
-              Research
-            </span>
-            <span className="team-node team-data">Data</span>
-            <span className="team-node team-operations">Operations</span>
-            <span className="network-pulse network-pulse-one" />
-            <span className="network-pulse network-pulse-two" />
-          </div>
-        </div>
-        <figcaption>
-          Research turns signals from product, design, data, and operations into
-          shared direction.
-        </figcaption>
-      </figure>
-    );
-  }
-
-  if (kind === "research-rhythm") {
-    return (
-      <figure className="concept-visual rhythm-visual">
-        <div className="visual-stage" aria-hidden="true">
-          <div className="visual-heading-row">
-            <span className="visual-eyebrow">One six-week cycle</span>
-            <span className="script-note">keep moving</span>
-          </div>
-          <ol className="rhythm-track">
-            <li>
-              <span>01</span>
-              <strong>Align</strong>
-              <small>brief + outcomes</small>
-            </li>
-            <li>
-              <span>02</span>
-              <strong>Fieldwork</strong>
-              <small>listen + observe</small>
-            </li>
-            <li>
-              <span>03</span>
-              <strong>Synthesize</strong>
-              <small>pattern + stance</small>
-            </li>
-            <li>
-              <span>04</span>
-              <strong>Share</strong>
-              <small>decision + backlog</small>
-            </li>
-          </ol>
-        </div>
-        <figcaption>
-          Research stays useful when the learning rhythm lands inside the
-          product team’s six-week decision cycle.
-        </figcaption>
-      </figure>
-    );
-  }
-
-  if (kind === "evidence-triangulation") {
-    return (
-      <figure className="concept-visual evidence-visual">
-        <div className="visual-stage" aria-hidden="true">
-          <span className="visual-eyebrow">Triangulate before you conclude</span>
-          <div className="evidence-grid">
-            <div className="evidence-source">
-              <span>Quantitative</span>
-              <strong>What is happening?</strong>
-              <small>benchmarks · reviews · intercepts</small>
-            </div>
-            <div className="evidence-source">
-              <span>Qualitative</span>
-              <strong>Why is it happening?</strong>
-              <small>interviews · clips · verbatims</small>
-            </div>
-            <div className="evidence-merge">
-              <span className="merge-dot merge-dot-left" />
-              <span className="merge-dot merge-dot-right" />
-            </div>
-            <div className="evidence-outcome">
-              <span>Root’s stance</span>
-              <strong>Decisive customer narrative</strong>
-            </div>
-          </div>
-        </div>
-        <figcaption>
-          Scale identifies the pattern; direct customer evidence explains the
-          cause; together they support a decisive narrative.
-        </figcaption>
-      </figure>
-    );
-  }
-
-  return (
-    <figure className="concept-visual retention-visual">
-      <div className="visual-stage" aria-hidden="true">
-        <div className="visual-heading-row">
-          <span className="visual-eyebrow">The retention journey</span>
-          <span className="script-note">friction compounds</span>
-        </div>
-        <ol className="journey-track">
-          <li>
-            <span>01</span>
-            <strong>Quote</strong>
-          </li>
-          <li>
-            <span>02</span>
-            <strong>Onboard</strong>
-          </li>
-          <li>
-            <span>03</span>
-            <strong>Drive</strong>
-          </li>
-          <li>
-            <span>04</span>
-            <strong>Renew</strong>
-          </li>
-          <li>
-            <span>05</span>
-            <strong>Stay</strong>
-          </li>
-        </ol>
-        <div className="journey-baseline">
-          <span className="journey-progress" />
-          <span className="journey-marker" />
-        </div>
-        <div className="journey-signals">
-          <span>clarity</span>
-          <span>trust</span>
-          <span>flexibility</span>
-        </div>
-      </div>
-      <figcaption>
-        Clarity, trust, and payment flexibility protect retention across the
-        journey—not only at renewal.
-      </figcaption>
-    </figure>
-  );
-}
-
-function ArticleNavigation({ page }: { page: OnboardingPage }) {
-  const [activeId, setActiveId] = useState(page.sections[0]?.id ?? "");
-  const ids = useMemo(
-    () => page.sections.map((section) => section.id),
-    [page.sections],
-  );
-
-  useEffect(() => {
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((element): element is HTMLElement => Boolean(element));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
-          );
-        if (visible[0]?.target.id) setActiveId(visible[0].target.id);
-      },
-      { rootMargin: "-24% 0px -65% 0px", threshold: 0 },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, [ids]);
-
-  return (
-    <aside className="article-aside">
-      <Link className="back-link" href="/">
-        <span aria-hidden="true">←</span> Index
-      </Link>
-      <div className="toc">
-        <h2>{page.title}</h2>
-        <nav aria-label={`${page.title} sections`}>
-          <ul>
-            {page.sections.map((section) => (
-              <li key={section.id}>
-                <a
-                  aria-current={activeId === section.id ? "location" : undefined}
-                  className={activeId === section.id ? "active" : undefined}
-                  href={`#${section.id}`}
-                >
-                  {section.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </aside>
-  );
-}
-
-export function ArticlePage({ page }: { page: OnboardingPage }) {
+export function ArticlePage({
+  page,
+  viewerEmail,
+}: {
+  page: HandoffPage;
+  viewerEmail: string;
+}) {
   return (
     <div className="page-shell article-page">
-      <ArticleNavigation page={page} />
+      <ArticleNavigation
+        title={page.title}
+        sections={page.sections.map(({ id, title }) => ({ id, title }))}
+      />
       <main id="main-content">
         <article className="article">
           <header className="article-header article-intro">
+            <div className="article-kicker">
+              <StatusPill status={page.status} />
+              <span>{page.group}</span>
+            </div>
             <h1>{page.title}</h1>
-            <time>{page.updated}</time>
+            <time dateTime="2026-07-27">{page.updated}</time>
             <p>{page.summary}</p>
           </header>
 
@@ -588,18 +459,18 @@ export function ArticlePage({ page }: { page: OnboardingPage }) {
               {section.blocks.map((block, blockIndex) => (
                 <Block block={block} key={`${section.id}-${blockIndex}`} />
               ))}
-              {section.visual ? <ConceptVisual kind={section.visual} /> : null}
             </section>
           ))}
 
           <footer className="article-end">
-            <p>Continue exploring the onboarding index.</p>
+            <p>Continue through Julio&apos;s internship handoff.</p>
             <Link className="basic-link" href="/">
               Return to index
             </Link>
           </footer>
         </article>
       </main>
+      <SiteFooter viewerEmail={viewerEmail} />
     </div>
   );
 }
