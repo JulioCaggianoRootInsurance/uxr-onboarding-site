@@ -87,19 +87,32 @@ test("server-renders every onboarding route", async () => {
   }
 });
 
-test("renders a governed quote library with secure recording links", async () => {
+test("renders a governed quote library with embedded customer reels", async () => {
   const response = await render("/customer-quote-library");
   assert.equal(response.status, 200);
   const html = await response.text();
 
   assert.match(html, /Q1 2026 customer recordings/);
-  assert.match(html, /Open secure recording/);
+  assert.match(html, /Open the full Lookback session/);
   assert.match(html, /lookback\.io\/play\/qpzK47AyZGPfTzDE7/);
   assert.match(html, /lookback\.io\/play\/PAg8bd26jergevcv5/);
   assert.match(html, /lookback\.io\/play\/hbdMNbJCUJm3LMxhH/);
+  assert.match(
+    html,
+    /drive\.google\.com\/file\/d\/1zX5uhypEBVEzfPXiRcfPjVcfGoE0y-93\/preview/,
+  );
+  assert.match(
+    html,
+    /drive\.google\.com\/file\/d\/1Qkp1MLWJ1rWzsgqu4TV0nGZH2X7SNmoi\/preview/,
+  );
+  assert.match(
+    html,
+    /drive\.google\.com\/file\/d\/1mQQmWUzw4wainZ4P2-NrJKuXnHOejvqi\/preview/,
+  );
+  assert.equal((html.match(/<iframe\b/g) ?? []).length, 21);
+  assert.doesNotMatch(html, /Jasmine Anderson|Dawn Collins|Adan/);
   assert.match(html, /Payment flexibility/);
   assert.match(html, /Quotes explain the experience|A memorable line/);
-  assert.doesNotMatch(html, /<iframe\b/i);
 });
 
 test("renders readable NPS formulas and audited examples", async () => {

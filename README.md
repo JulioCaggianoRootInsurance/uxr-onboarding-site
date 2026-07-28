@@ -45,9 +45,9 @@ npm start
 - Shared index and article templates live in `app/site-components.tsx`.
 - Styling, responsive behavior, motion, focus states, and print-free layout live
   in `app/globals.css`.
-- The Customer Quote Library includes curated, deidentified excerpts and secure
-  outbound links to access-controlled Lookback recordings. Recordings are not
-  embedded because the provider disallows third-party framing.
+- The Customer Quote Library includes curated, deidentified excerpts and 21
+  embedded, access-controlled Google Drive customer reels. Each participant
+  collection also links to its full Lookback session.
 - The social-preview image is `public/og.png`.
 - Tests verify the index and every article route.
 

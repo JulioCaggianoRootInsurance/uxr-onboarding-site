@@ -671,66 +671,38 @@ blockquote span {
   line-height: 0.85rem;
 }
 
-.recording-grid {
-  display: grid;
-  gap: 0.65rem;
+.video-library {
+  display: flex;
+  flex-direction: column;
   padding-top: 1rem;
+  border-bottom: 1px solid var(--line-strong);
 }
 
-.recording-card {
-  display: grid;
-  overflow: hidden;
-  grid-template-columns: 7.25rem minmax(0, 1fr);
-  min-height: 8.75rem;
-  border: 1px solid #e8e8e4;
-  border-radius: 0.8rem;
-  background: #f8f8f5;
-  transition:
-    border-color 0.15s ease,
-    transform 0.15s ease;
+.video-collection {
+  border-top: 1px solid var(--line-strong);
 }
 
-.recording-card:hover {
-  border-color: rgba(0, 0, 0, 0.28);
-  transform: translateY(-0.12rem);
+.video-collection > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0.15rem;
+  cursor: pointer;
+  list-style: none;
 }
 
-.recording-preview {
-  display: grid;
-  position: relative;
-  place-items: center;
-  background: #1b1b1b;
+.video-collection > summary::-webkit-details-marker {
+  display: none;
 }
 
-.recording-number {
-  position: absolute;
-  top: 0.7rem;
-  left: 0.7rem;
-  color: rgba(255, 255, 255, 0.42);
-  font-size: 0.5625rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.play-button {
-  display: grid;
-  width: 2.4rem;
-  height: 2.4rem;
-  place-items: center;
-  padding-left: 0.12rem;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-size: 0.65rem;
-}
-
-.recording-copy {
+.video-summary-copy {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding: 0.9rem 1rem;
 }
 
-.recording-copy small {
+.video-summary-copy small {
   color: var(--soft);
   font-size: 0.5625rem;
   font-weight: 560;
@@ -739,27 +711,106 @@ blockquote span {
   text-transform: uppercase;
 }
 
-.recording-copy strong {
-  padding-top: 0.35rem;
+.video-summary-copy strong {
+  padding-top: 0.25rem;
   font-size: 0.8125rem;
   font-weight: 590;
   line-height: 1rem;
 }
 
-.recording-copy > span {
-  padding-top: 0.45rem;
+.video-summary-copy > span {
+  max-width: 28rem;
+  padding-top: 0.35rem;
   color: rgba(0, 0, 0, 0.52);
   font-size: 0.6875rem;
   font-weight: 460;
   line-height: 0.95rem;
 }
 
-.recording-copy em {
-  margin-top: auto;
-  padding-top: 0.65rem;
-  color: var(--accent);
+.clip-count {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--soft);
   font-size: 0.625rem;
-  font-style: normal;
+  font-weight: 520;
+}
+
+.clip-count::after {
+  content: "+";
+  display: grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  border: 1px solid #e4e4e0;
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 0.85rem;
+  transition: transform 0.16s ease;
+}
+
+.video-collection[open] .clip-count::after {
+  transform: rotate(45deg);
+}
+
+.embedded-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  padding: 0.2rem 0 1rem;
+}
+
+.embedded-video-card {
+  overflow: hidden;
+  border: 1px solid #e8e8e4;
+  border-radius: 0.75rem;
+  background: #f8f8f5;
+}
+
+.embedded-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #171717;
+}
+
+.embedded-video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #171717;
+}
+
+.embedded-video-card figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.embedded-video-card figcaption span,
+.embedded-video-card figcaption a {
+  font-size: 0.625rem;
+  font-weight: 520;
+  line-height: 0.8rem;
+}
+
+.embedded-video-card figcaption span {
+  color: rgba(0, 0, 0, 0.52);
+}
+
+.embedded-video-card figcaption a,
+.full-session-link {
+  color: var(--accent);
+}
+
+.full-session-link {
+  display: inline-block;
+  margin: 0 0 1.15rem 0.15rem;
+  font-size: 0.6875rem;
   font-weight: 560;
 }
 
@@ -1490,16 +1541,21 @@ blockquote span {
     align-items: flex-end;
   }
 
-  .recording-card {
-    grid-template-columns: 5rem minmax(0, 1fr);
-  }
-
-  .recording-copy {
-    padding: 0.8rem;
-  }
-
   .customer-quote-card {
     min-height: 0;
+  }
+
+  .video-collection > summary {
+    align-items: flex-start;
+  }
+
+  .clip-count {
+    flex-direction: column-reverse;
+    gap: 0.2rem;
+  }
+
+  .embedded-video-grid {
+    grid-template-columns: 1fr;
   }
 
   .visual-stage {

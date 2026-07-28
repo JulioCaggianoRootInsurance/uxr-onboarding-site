@@ -12,12 +12,18 @@ export type CustomerQuoteEntry = {
   context?: string;
 };
 
-export type RecordingEntry = {
-  title: string;
+export type VideoClip = {
+  label: string;
+  driveId: string;
+};
+
+export type VideoCollection = {
+  participant: string;
   period: string;
   theme: string;
   summary: string;
-  href: string;
+  fullSessionHref: string;
+  clips: VideoClip[];
 };
 
 export type ContentBlock =
@@ -29,7 +35,7 @@ export type ContentBlock =
   | { kind: "formula"; expression: string; description: string }
   | { kind: "links"; items: ResourceLink[] }
   | { kind: "quoteGrid"; items: CustomerQuoteEntry[] }
-  | { kind: "recordings"; items: RecordingEntry[] };
+  | { kind: "videoLibrary"; collections: VideoCollection[] };
 
 export type VisualKind =
   | "insurance-loop"
@@ -691,34 +697,127 @@ export const onboardingPages: OnboardingPage[] = [
         blocks: [
           {
             kind: "paragraph",
-            text: "The three access-controlled Lookback sessions below open in the recording provider. Use them to understand tone, hesitation, and context; cite a timestamp before reusing a clip.",
+            text: "These access-controlled customer reels play directly on this page from Google Drive. Use them to understand tone, hesitation, and context; cite the participant, clip number, and timestamp before reusing an excerpt.",
           },
           {
-            kind: "recordings",
-            items: [
+            kind: "videoLibrary",
+            collections: [
               {
-                title: "Participant 1 · Test-drive skepticism",
+                participant: "Participant 1",
                 period: "Q1 2026",
                 theme: "Telematics trust",
                 summary:
-                  "A customer describes skepticism about Root’s required driving trial and a rejected first attempt.",
-                href: "https://lookback.io/play/qpzK47AyZGPfTzDE7",
+                  "Seven edited reels explore test-drive skepticism, price expectations, and the clarity customers need before trusting telematics.",
+                fullSessionHref:
+                  "https://lookback.io/play/qpzK47AyZGPfTzDE7",
+                clips: [
+                  {
+                    label: "Clip 01",
+                    driveId: "1zX5uhypEBVEzfPXiRcfPjVcfGoE0y-93",
+                  },
+                  {
+                    label: "Clip 02",
+                    driveId: "1-a5Yzuevq_fig2Jg81vHWigUK8-uVpkc",
+                  },
+                  {
+                    label: "Clip 03",
+                    driveId: "16peTyTmEd3ZNQ3t6JoSZD5yT18cqz7d9",
+                  },
+                  {
+                    label: "Clip 05",
+                    driveId: "1MSA0fe6kCrhkXYaAAPLuOyl84NAeJ2OS",
+                  },
+                  {
+                    label: "Clip 06",
+                    driveId: "1EU86VViVlQVXsasesSNoghuE4TXLFvx7",
+                  },
+                  {
+                    label: "Clip 07",
+                    driveId: "1go8uHXsrOX5k_BjxiEKxiaZIY-Tkr2ud",
+                  },
+                  {
+                    label: "Clip 08",
+                    driveId: "175VYmVU_6WBnxi8f-4zPGulGR9P7pJYb",
+                  },
+                ],
               },
               {
-                title: "Participant 2 · Human support",
+                participant: "Participant 2",
                 period: "Q1 2026",
                 theme: "Service access",
                 summary:
-                  "A customer explains why chatbot-only help feels inadequate and why speaking with a person still matters.",
-                href: "https://lookback.io/play/PAg8bd26jergevcv5",
+                  "Eleven edited reels cover everyday driving decisions, chatbot limitations, support expectations, and the value of speaking with a person.",
+                fullSessionHref:
+                  "https://lookback.io/play/PAg8bd26jergevcv5",
+                clips: [
+                  {
+                    label: "Clip 01",
+                    driveId: "10Ht7ZTTJWLhYcXUZhrQfXa7PdFbbhHZM",
+                  },
+                  {
+                    label: "Clip 02",
+                    driveId: "1mE91Z4N1_wZ1vifBWeGBfB4b-ku3WhnY",
+                  },
+                  {
+                    label: "Clip 03",
+                    driveId: "1UCtxvxXj81xo9y9nFJMKezdrZ6KLAd7x",
+                  },
+                  {
+                    label: "Clip 04",
+                    driveId: "1hmhhFrfCXFwbW6NWDKh4hpAYReUe7auP",
+                  },
+                  {
+                    label: "Clip 05",
+                    driveId: "1L9PIFvx9I7MlCcgn2EOBuu1p8WaHRT92",
+                  },
+                  {
+                    label: "Clip 06",
+                    driveId: "14S68a8r-sePz-DfUz2GUzZKAndCv7mn-",
+                  },
+                  {
+                    label: "Clip 07",
+                    driveId: "1zszB3xOuZbnO0czEmtV62PoW6EA1cBrj",
+                  },
+                  {
+                    label: "Clip 08",
+                    driveId: "1GqhCQsWZ7Bv1IcRvs-UTiZTRF5UUI-_J",
+                  },
+                  {
+                    label: "Clip 09",
+                    driveId: "1WLgW9Mr-n-NuJvMzYRzYe0ZExQkIyxVY",
+                  },
+                  {
+                    label: "Clip 10",
+                    driveId: "1QQkGfzVxB1tuJiLpDAF0_210XoZDAM0a",
+                  },
+                  {
+                    label: "Clip 11",
+                    driveId: "1Qkp1MLWJ1rWzsgqu4TV0nGZH2X7SNmoi",
+                  },
+                ],
               },
               {
-                title: "Participant 3 · Monitoring & care",
+                participant: "Participant 3",
                 period: "Q1 2026",
                 theme: "Trust and reassurance",
                 summary:
-                  "A customer refuses to download the app because of monitoring concerns, then describes the proactive help that would feel caring.",
-                href: "https://lookback.io/play/hbdMNbJCUJm3LMxhH",
+                  "Three edited reels capture app-monitoring concerns and the proactive, human guidance that would make an insurer feel caring.",
+                fullSessionHref:
+                  "https://lookback.io/play/hbdMNbJCUJm3LMxhH",
+                clips: [
+                  {
+                    label: "Clip 01",
+                    driveId: "1NznGvh0BHvIP_vvwHT9beayAhIbdv6ZK",
+                  },
+                  {
+                    label: "Clip 02",
+                    driveId: "1wYsm3iAAL0Fz1J3O1ahHS5GOMp-w8Ir5",
+                  },
+                  {
+                    label: "Clip 03",
+                    driveId: "1mQQmWUzw4wainZ4P2-NrJKuXnHOejvqi",
+                  },
+                ],
               },
             ],
           },

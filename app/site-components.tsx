@@ -248,32 +248,66 @@ function Block({ block }: { block: ContentBlock }) {
     );
   }
 
-  if (block.kind === "recordings") {
+  if (block.kind === "videoLibrary") {
     return (
-      <div className="recording-grid">
-        {block.items.map((item, index) => (
-          <a
-            className="recording-card"
-            href={item.href}
-            key={item.href}
-            rel="noreferrer"
-            target="_blank"
+      <div className="video-library">
+        {block.collections.map((collection, collectionIndex) => (
+          <details
+            className="video-collection"
+            key={collection.participant}
+            open={collectionIndex === 0}
           >
-            <span className="recording-preview" aria-hidden="true">
-              <span className="recording-number">
-                {String(index + 1).padStart(2, "0")}
+            <summary>
+              <span className="video-summary-copy">
+                <small>
+                  {collection.period} · {collection.theme}
+                </small>
+                <strong>{collection.participant}</strong>
+                <span>{collection.summary}</span>
               </span>
-              <span className="play-button">▶</span>
-            </span>
-            <span className="recording-copy">
-              <small>
-                {item.period} · {item.theme}
-              </small>
-              <strong>{item.title}</strong>
-              <span>{item.summary}</span>
-              <em>Open secure recording ↗</em>
-            </span>
-          </a>
+              <span className="clip-count">
+                {collection.clips.length} clips
+              </span>
+            </summary>
+
+            <div className="embedded-video-grid">
+              {collection.clips.map((clip) => (
+                <figure className="embedded-video-card" key={clip.driveId}>
+                  <div className="embedded-video-frame">
+                    <iframe
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      src={`https://drive.google.com/file/d/${clip.driveId}/preview`}
+                      title={`${collection.participant} ${clip.label}`}
+                    />
+                  </div>
+                  <figcaption>
+                    <span>
+                      {collection.participant} · {clip.label}
+                    </span>
+                    <a
+                      href={`https://drive.google.com/file/d/${clip.driveId}/view`}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      Open in Drive ↗
+                    </a>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <a
+              className="full-session-link"
+              href={collection.fullSessionHref}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Open the full Lookback session ↗
+            </a>
+          </details>
         ))}
       </div>
     );
