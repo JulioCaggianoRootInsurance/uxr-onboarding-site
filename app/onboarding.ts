@@ -697,7 +697,7 @@ export const onboardingPages: OnboardingPage[] = [
         blocks: [
           {
             kind: "paragraph",
-            text: "These access-controlled customer reels play directly on this page from Google Drive. Use them to understand tone, hesitation, and context; cite the participant, clip number, and timestamp before reusing an excerpt.",
+            text: "These access-controlled customer reels play directly on this page from Google Drive. Playback inherits the original Drive permissions; if a player is unavailable, use “Open in Drive” to sign in or request access. Use the reels to understand tone, hesitation, and context, and cite the participant, clip number, and timestamp before reusing an excerpt.",
           },
           {
             kind: "videoLibrary",
