@@ -1,25 +1,17 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(pathname = "/") {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+  const fileName =
+    pathname === "/" ? "index.html" : `${pathname.slice(1)}.html`;
+  const fileUrl = new URL(`../.next/server/app/${fileName}`, import.meta.url);
+  const html = await readFile(fileUrl, "utf8");
 
-  return worker.fetch(
-    new Request(`http://localhost${pathname}`, {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
+  return new Response(html, {
+    status: 200,
+    headers: { "content-type": "text/html; charset=utf-8" },
+  });
 }
 
 test("server-renders the onboarding index", async () => {
@@ -30,7 +22,7 @@ test("server-renders the onboarding index", async () => {
   const html = await response.text();
   assert.match(
     html,
-    /<title>Root UX Research Onboarding · Root UX Research<\/title>/i,
+    /<title>Root UX Research Onboarding<\/title>/i,
   );
   assert.match(html, /Root UX Research Onboarding/);
   assert.match(html, /Last Updated: Jul 27, 2026/);

@@ -1,16 +1,16 @@
 # Root UX Research Onboarding
 
-A local, static onboarding website for the Root UX Research team. Its editorial
-shell follows the approved Benji.org reference while its content comes from the
-reviewed UX Research onboarding Google Doc.
+A Vercel-ready Next.js onboarding website for the Root UX Research team. Its
+editorial shell follows the approved Benji.org reference while its content comes
+from the reviewed UX Research onboarding Google Doc.
 
 ## Run locally
 
-Node.js 22.13 or newer is required.
+Node.js 22 is required.
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
@@ -18,9 +18,20 @@ Open [http://localhost:3000](http://localhost:3000).
 For a production-style local preview:
 
 ```bash
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
+
+## Deploy to Vercel
+
+1. Push this folder as the root of the GitHub repository.
+2. Import the repository in Vercel and use the **Next.js** framework preset.
+3. Leave Build Command at its default (`pnpm build`) and leave Output Directory
+   blank.
+4. Redeploy. The native build creates the `.next` directory Vercel expects.
+
+`NEXT_PUBLIC_SITE_URL` is optional. Set it to the final production URL if you
+want social-preview links to use a custom domain immediately.
 
 ## Routes
 
@@ -51,5 +62,6 @@ npm start
 - The social-preview image is `public/og.png`.
 - Tests verify the index and every article route.
 
-This version has no authentication, database, external API, production
-deployment, or automatic Google Doc synchronization.
+This version has no application authentication, database, persistent API, or
+automatic Google Doc synchronization. Embedded customer reels continue to use
+their existing Google Drive permissions.
