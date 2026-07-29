@@ -1,62 +1,98 @@
-import NextAuth, {
-  type DefaultSession,
-  type Profile,
-  type Session,
-} from "next-auth";
-import Google, { type GoogleProfile } from "next-auth/providers/google";
+import NextAuth, { type DefaultSession, type Session } from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 import { redirect } from "next/navigation";
 
-export const ROOT_WORKSPACE_DOMAIN = "joinroot.com";
+const SHARED_ACCESS_USER_ID = "uxr-handoff-shared-access";
+const MINIMUM_PASSWORD_LENGTH = 12;
 
 declare module "next-auth" {
   interface Session {
     user: DefaultSession["user"] & {
-      rootAuthorized: boolean;
-      workspaceDomain?: string;
+      handoffAuthorized: boolean;
     };
   }
 }
 
-export function isAuthDevBypassEnabled(): boolean {
-  return (
-    process.env.NODE_ENV === "development" &&
-    process.env.AUTH_DEV_BYPASS === "true"
-  );
+function configuredPassword(): string | null {
+  const password = process.env.HANDOFF_PASSWORD;
+
+  if (
+    typeof password !== "string" ||
+    password.length < MINIMUM_PASSWORD_LENGTH
+  ) {
+    return null;
+  }
+
+  return password;
 }
 
-export function isAuthorizedRootGoogleProfile(
-  profile: Profile | undefined,
-): boolean {
-  const googleProfile = profile as Partial<GoogleProfile> | undefined;
-  const email =
-    typeof googleProfile?.email === "string"
-      ? googleProfile.email.trim().toLowerCase()
-      : "";
-  const workspaceDomain =
-    typeof googleProfile?.hd === "string"
-      ? googleProfile.hd.trim().toLowerCase()
-      : "";
-
-  return (
-    googleProfile?.email_verified === true &&
-    workspaceDomain === ROOT_WORKSPACE_DOMAIN &&
-    email.endsWith(`@${ROOT_WORKSPACE_DOMAIN}`)
-  );
+export function isPasswordAccessConfigured(): boolean {
+  return configuredPassword() !== null;
 }
 
-const developmentSecret = isAuthDevBypassEnabled()
-  ? "root-uxr-local-development-auth-bypass-only"
-  : undefined;
+async function digest(value: string): Promise<Uint8Array> {
+  const encoded = new TextEncoder().encode(value);
+  const result = await globalThis.crypto.subtle.digest("SHA-256", encoded);
+  return new Uint8Array(result);
+}
+
+async function passwordsMatch(
+  suppliedPassword: string,
+  expectedPassword: string,
+): Promise<boolean> {
+  const [suppliedDigest, expectedDigest] = await Promise.all([
+    digest(suppliedPassword),
+    digest(expectedPassword),
+  ]);
+
+  let difference = 0;
+
+  for (let index = 0; index < expectedDigest.length; index += 1) {
+    difference |= suppliedDigest[index] ^ expectedDigest[index];
+  }
+
+  return difference === 0;
+}
+
+const developmentSecret =
+  process.env.NODE_ENV === "development"
+    ? "root-uxr-local-development-cookie-secret-only"
+    : undefined;
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET ?? developmentSecret,
+  trustHost:
+    process.env.NODE_ENV === "development" ||
+    process.env.VERCEL === "1" ||
+    process.env.AUTH_TRUST_HOST === "true",
   providers: [
-    Google({
-      authorization: {
-        params: {
-          hd: ROOT_WORKSPACE_DOMAIN,
-          prompt: "select_account",
+    Credentials({
+      name: "Shared password",
+      credentials: {
+        password: {
+          label: "Password",
+          type: "password",
         },
+      },
+      async authorize(credentials) {
+        const expectedPassword = configuredPassword();
+        const suppliedPassword =
+          typeof credentials.password === "string"
+            ? credentials.password
+            : "";
+
+        if (
+          !expectedPassword ||
+          suppliedPassword.length < MINIMUM_PASSWORD_LENGTH ||
+          !(await passwordsMatch(suppliedPassword, expectedPassword))
+        ) {
+          return null;
+        }
+
+        return {
+          id: SHARED_ACCESS_USER_ID,
+          name: "Authorized handoff viewer",
+        };
       },
     }),
   ],
@@ -69,29 +105,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     error: "/login",
   },
   callbacks: {
-    signIn({ account, profile }) {
-      return (
-        account?.provider === "google" &&
-        isAuthorizedRootGoogleProfile(profile)
-      );
-    },
-    jwt({ token, account, profile }) {
-      if (account?.provider === "google") {
-        const rootAuthorized = isAuthorizedRootGoogleProfile(profile);
-        token.rootAuthorized = rootAuthorized;
-        token.workspaceDomain = rootAuthorized
-          ? ROOT_WORKSPACE_DOMAIN
-          : undefined;
+    jwt({ token, user }) {
+      if (user?.id === SHARED_ACCESS_USER_ID) {
+        token.handoffAuthorized = true;
       }
 
       return token;
     },
     session({ session, token }) {
-      session.user.rootAuthorized = token.rootAuthorized === true;
-      session.user.workspaceDomain =
-        typeof token.workspaceDomain === "string"
-          ? token.workspaceDomain
-          : undefined;
+      session.user.handoffAuthorized = token.handoffAuthorized === true;
       return session;
     },
     authorized({ auth: session, request }) {
@@ -99,47 +121,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return true;
       }
 
-      if (isAuthDevBypassEnabled()) {
-        return true;
-      }
-
-      return isRootSession(session);
+      return isHandoffSession(session);
     },
   },
 });
 
-export function isRootSession(session: Session | null): session is Session {
-  const email = session?.user?.email?.trim().toLowerCase() ?? "";
-  const workspaceDomain =
-    session?.user?.workspaceDomain?.trim().toLowerCase() ?? "";
-
-  return (
-    session?.user?.rootAuthorized === true &&
-    workspaceDomain === ROOT_WORKSPACE_DOMAIN &&
-    email.endsWith(`@${ROOT_WORKSPACE_DOMAIN}`)
-  );
+export function isHandoffSession(session: Session | null): session is Session {
+  return session?.user?.handoffAuthorized === true;
 }
 
-function localDevelopmentSession(): Session {
-  return {
-    user: {
-      name: "Local development",
-      email: `local-development@${ROOT_WORKSPACE_DOMAIN}`,
-      image: null,
-      rootAuthorized: true,
-      workspaceDomain: ROOT_WORKSPACE_DOMAIN,
-    },
-    expires: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
-  };
-}
-
-export async function getRootSession(): Promise<Session | null> {
-  if (isAuthDevBypassEnabled()) {
-    return localDevelopmentSession();
-  }
-
+export async function getHandoffSession(): Promise<Session | null> {
   const session = await auth();
-  return isRootSession(session) ? session : null;
+  return isHandoffSession(session) ? session : null;
 }
 
 export function safeReturnTo(
@@ -170,10 +163,10 @@ export function safeReturnTo(
   }
 }
 
-export async function requireRootSession(
+export async function requireHandoffSession(
   returnTo = "/",
 ): Promise<Session> {
-  const session = await getRootSession();
+  const session = await getHandoffSession();
 
   if (!session) {
     redirect(

@@ -30,31 +30,48 @@ async function filesBelow(directory) {
   return files;
 }
 
-test("defines the six handoff chapters and removes stale onboarding content", async () => {
+test("defines the full internship handoff architecture", async () => {
   const content = await readProjectFile("app/handoff.ts");
   const slugs = [...content.matchAll(/slug: "([^"]+)"/g)].map(
     (match) => match[1],
   );
 
   assert.deepEqual(slugs, [
-    "voc-report-redesign",
-    "customer-evidence-library",
-    "voc-dashboard-exploration",
-    "research-and-stakeholders",
+    "q1-voc-report",
+    "q2-voc-report",
+    "customer-quote-library",
+    "voc-dashboard",
+    "nps-executive-report",
+    "uxr-onboarding-documentation",
+    "sitemap-collaboration",
+    "presentation-template-system",
+    "ai-research-skills",
+    "research-process",
+    "standard-operating-procedures",
+    "internship-insights",
     "internship-reflection",
-    "handoff",
+    "handoff-next-steps",
   ]);
   assert.equal(new Set(slugs).size, slugs.length);
 
   assert.match(content, /Prepared by Julio Caggiano for Hala Daher/);
   assert.match(content, /Last Updated: Jul 27, 2026/);
+  assert.match(content, /"Deliverables"/);
+  assert.match(content, /"Research practice"/);
+  assert.match(content, /"Continuation"/);
+  assert.match(content, /Layilah Campbell/);
+  assert.match(content, /Q1 Voice of Customer report/);
+  assert.match(content, /Q2 Voice of Customer report/);
+  assert.match(content, /NPS executive report/);
+  assert.match(content, /Customer journey sitemap collaboration/);
+  assert.match(content, /VOC presentation template system/);
+  assert.match(content, /AI research skills/);
   assert.match(content, /Delivered/);
   assert.match(content, /Prototype/);
   assert.match(content, /In progress/);
   assert.match(content, /Recommendation/);
   assert.match(content, /TBD/);
 
-  assert.doesNotMatch(content, /Layilah Campbell/);
   assert.doesNotMatch(content, /Insurance basics/);
   assert.doesNotMatch(content, /Meet the team/);
   assert.doesNotMatch(content, /\[cite:|\\longrightarrow|\\text\{/i);
@@ -65,6 +82,7 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   const content = await readProjectFile("app/handoff.ts");
 
   assert.match(content, /placeholder data/);
+  assert.match(content, /Prototype complete; code handoff in progress/);
   assert.match(content, /GitHub should become the source of truth/);
   assert.match(content, /git fetch origin/);
   assert.match(content, /git pull origin main/);
@@ -73,10 +91,21 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   assert.match(content, /Future AI-assisted update flow/);
   assert.match(content, /should not overwrite production directly/);
   assert.match(content, /human researcher reviews/i);
-  assert.match(
-    content,
-    /Final Q2 report, live dashboard, NPS studies, in-product surveys, and journey-map platform/,
-  );
+  assert.match(content, /Q2 VOC report/);
+  assert.match(content, /Completed Q1 2026 executive report delivered to Jill/);
+  assert.match(content, /Google Slides translation still needs finalization/);
+});
+
+test("derives homepage deliverable counts from the content model", async () => {
+  const components = await readProjectFile("app/site-components.tsx");
+
+  assert.match(components, /page\.group === "Deliverables"/);
+  assert.match(components, /\{deliverables\.length\}/);
+  assert.match(components, /\{delivered\.length\}/);
+  assert.match(components, /\{active\.length\}/);
+  assert.doesNotMatch(components, /<strong>3<\/strong>/);
+  assert.doesNotMatch(components, /<strong>2<\/strong>/);
+  assert.doesNotMatch(components, /<strong>4<\/strong>/);
 });
 
 test("retains a deidentified, governed library of 21 customer clips", async () => {
@@ -108,22 +137,50 @@ test("keeps private prose server-only and interactive navigation isolated", asyn
   assert.doesNotMatch(components, /from "\.\/onboarding"/);
 });
 
-test("enforces the confirmed Root Workspace domain on the server", async () => {
+test("enforces a server-side shared-password session", async () => {
   const auth = await readProjectFile("auth.ts");
   const proxy = await readProjectFile("proxy.ts");
+  const login = await readProjectFile("app/login/page.tsx");
+  const loginActions = await readProjectFile("app/login/actions.ts");
+  const loginForm = await readProjectFile("app/login/login-form.tsx");
+  const toast = await readProjectFile("app/login-toast.tsx");
 
-  assert.match(auth, /ROOT_WORKSPACE_DOMAIN = "joinroot\.com"/);
-  assert.match(auth, /email_verified === true/);
-  assert.match(auth, /googleProfile\.hd/);
-  assert.match(auth, /workspaceDomain === ROOT_WORKSPACE_DOMAIN/);
-  assert.match(auth, /NODE_ENV === "development"/);
-  assert.match(auth, /AUTH_DEV_BYPASS === "true"/);
-  assert.match(auth, /rootAuthorized/);
+  assert.match(auth, /Credentials/);
+  assert.match(auth, /process\.env\.HANDOFF_PASSWORD/);
+  assert.match(auth, /MINIMUM_PASSWORD_LENGTH = 12/);
+  assert.match(auth, /crypto\.subtle\.digest/);
+  assert.match(auth, /process\.env\.VERCEL === "1"/);
+  assert.match(auth, /handoffAuthorized/);
+  assert.doesNotMatch(auth, /GoogleProfile|providers\/google|joinroot\.com/);
   assert.match(proxy, /api\/auth/);
   assert.match(proxy, /auth as proxy/);
+  assert.match(login, /className="page-shell login-page"/);
+  assert.match(login, /className="article-header stagger-item"/);
+  assert.match(login, /LoginForm/);
+  assert.doesNotMatch(login, /login-introduction|private-access-title/);
+  assert.match(loginActions, /^"use server";/);
+  assert.match(loginActions, /redirect: false/);
+  assert.match(loginActions, /result\.searchParams\.has\("error"\)/);
+  assert.match(loginActions, /attempt: previousState\.attempt \+ 1/);
+  assert.match(loginActions, /redirect\(returnTo\)/);
+  assert.doesNotMatch(loginActions, /redirect\(`\/login\?error=/);
+  assert.match(loginForm, /^"use client";/);
+  assert.match(loginForm, /useActionState/);
+  assert.match(loginForm, /key=\{state\.attempt\}/);
+  assert.match(loginForm, /passwordInput\.current\.value = ""/);
+  assert.match(loginForm, /passwordInput\.current\.focus\(\)/);
+  assert.match(loginForm, /type="password"/);
+  assert.match(loginForm, /autoComplete="current-password"/);
+  assert.match(loginForm, /className="login-submit"/);
+  assert.match(loginForm, /aria-invalid=\{hasError/);
+  assert.match(loginForm, /That password didn’t match\. Try again\./);
+  assert.match(toast, /^"use client";/);
+  assert.match(toast, /role="alert"/);
+  assert.match(toast, /aria-live="assertive"/);
+  assert.match(toast, /5000/);
 });
 
-test("does not emit the development auth secret into browser assets", async () => {
+test("does not emit authentication secrets into browser assets", async () => {
   const staticDirectory = path.join(projectRoot, ".next", "static");
   const files = await filesBelow(staticDirectory);
   const browserText = (
@@ -138,5 +195,8 @@ test("does not emit the development auth secret into browser assets", async () =
     browserText,
     /root-uxr-local-development-auth-bypass-only/,
   );
-  assert.doesNotMatch(browserText, /AUTH_GOOGLE_SECRET|AUTH_SECRET/);
+  assert.doesNotMatch(
+    browserText,
+    /HANDOFF_PASSWORD|AUTH_GOOGLE_SECRET|AUTH_SECRET/,
+  );
 });

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { requireRootSession } from "@/auth";
+import { requireHandoffSession } from "@/auth";
 import { HomePage } from "./site-components";
 
 export const dynamic = "force-dynamic";
@@ -20,6 +20,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const session = await requireRootSession("/");
-  return <HomePage viewerEmail={session.user.email ?? "Root employee"} />;
+  await requireHandoffSession("/");
+  return <HomePage />;
 }

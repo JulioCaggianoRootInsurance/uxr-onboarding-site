@@ -21,14 +21,14 @@ function StatusPill({ status }: { status: HandoffStatus }) {
   );
 }
 
-function SiteFooter({ viewerEmail }: { viewerEmail: string }) {
+function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-rule" />
       <div className="footer-row">
         <div className="footer-copy">
           <p>Prepared by Julio Caggiano for Hala Daher</p>
-          <small>Root internal · {viewerEmail}</small>
+          <small>Root internal · Password protected</small>
         </div>
         <form
           action={async () => {
@@ -53,19 +53,20 @@ function IndexList() {
       </h2>
       <ul className="index-groups">
         {handoffGroups.map((group) => {
-          const pages = handoffPages.filter((page) => page.group === group);
-          const shortGroup =
-            group === "Core work"
-              ? "Work"
-              : group === "Research practice"
-                ? "Practice"
-                : "Next";
+          const pages = handoffPages
+            .filter((page) => page.group === group)
+            .sort((a, b) => a.order - b.order);
+          const shortGroup: Record<typeof group, string> = {
+            Deliverables: "Work",
+            "Research practice": "Practice",
+            Continuation: "Next",
+          };
 
           return (
             <li className="index-group" key={group}>
               <span className="group-label">
                 <span className="group-label-full">{group}</span>
-                <span className="group-label-short">{shortGroup}</span>
+                <span className="group-label-short">{shortGroup[group]}</span>
               </span>
               <ul>
                 {pages.map((page) => (
@@ -98,43 +99,55 @@ function IndexList() {
 }
 
 function HomeStatusOverview() {
+  const deliverables = handoffPages.filter(
+    (page) => page.group === "Deliverables",
+  );
+  const delivered = deliverables.filter(
+    (page) => page.status === "Delivered",
+  );
+  const active = deliverables.filter(
+    (page) => page.status === "In progress" || page.status === "Prototype",
+  );
+
   return (
     <section className="home-status-overview" aria-label="Handoff status">
       <div>
+        <span>Deliverables</span>
+        <strong>{deliverables.length}</strong>
+        <small>reports, dashboard, evidence, documentation, and systems</small>
+      </div>
+      <div>
         <span>Delivered</span>
-        <strong>3</strong>
-        <small>report framework, evidence inventory, stakeholder record</small>
+        <strong>{delivered.length}</strong>
+        <small>Q1 report, quote library, NPS report, and AI skills</small>
       </div>
       <div>
-        <span>Prototype</span>
-        <strong>2</strong>
-        <small>dashboard and reusable presentation direction</small>
-      </div>
-      <div>
-        <span>Future focus</span>
-        <strong>4</strong>
-        <small>governance, deployment, automation, ownership</small>
+        <span>In progress</span>
+        <strong>{active.length}</strong>
+        <small>Q2, dashboard code, onboarding, sitemap, and template</small>
       </div>
     </section>
   );
 }
 
-export function HomePage({ viewerEmail }: { viewerEmail: string }) {
+export function HomePage() {
   const introChildren = [
     <header className="article-header" key="header">
       <h1>Julio Caggiano · UX Research Internship Handoff</h1>
       <time dateTime="2026-07-27">{siteUpdated}</time>
     </header>,
     <p key="summary">
-      This is a manager-facing record of what I delivered, explored, and
-      recommend carrying forward from my 2026 internship on Root&apos;s Voice
-      of the Customer work.
+      I created this handoff to bring together the work I completed during my
+      2026 internship with Root&apos;s UX Research team. I hope it helps Hala
+      review each project, find its files, and see what should happen next.
     </p>,
     <p key="narrative">
-      I translated an open-ended VOC storytelling assignment into reusable
-      reporting guidance, organized customer evidence, and a scalable dashboard
-      direction—while documenting the feedback and unresolved work needed for
-      continuation.
+      Most of my work supported the Voice of the Customer program. I completed
+      the Q1 VOC Report, NPS Executive Report, Customer Quote Library, and AI
+      Research Skills. I also moved the Q2 VOC Report, VOC Dashboard, UXR
+      Onboarding Documentation, Journey Sitemap, and Presentation Template
+      forward. In each section, I explain what I did, where the work stands,
+      and what still needs attention.
     </p>,
     <p key="dates">
       UX Research Intern, VOC · June 1–August 14, 2026
@@ -176,7 +189,7 @@ export function HomePage({ viewerEmail }: { viewerEmail: string }) {
         className="stagger-item"
         style={{ "--delay": "350ms" } as CSSProperties}
       >
-        <SiteFooter viewerEmail={viewerEmail} />
+        <SiteFooter />
       </div>
     </div>
   );
@@ -421,10 +434,8 @@ function Block({ block }: { block: ContentBlock }) {
 
 export function ArticlePage({
   page,
-  viewerEmail,
 }: {
   page: HandoffPage;
-  viewerEmail: string;
 }) {
   return (
     <div className="page-shell article-page">
@@ -470,7 +481,7 @@ export function ArticlePage({
           </footer>
         </article>
       </main>
-      <SiteFooter viewerEmail={viewerEmail} />
+      <SiteFooter />
     </div>
   );
 }

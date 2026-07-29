@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { requireRootSession } from "@/auth";
+import { requireHandoffSession } from "@/auth";
 import { notFound } from "next/navigation";
 import { getHandoffPage } from "../handoff";
 import { ArticlePage } from "../site-components";
@@ -34,12 +34,7 @@ export default async function HandoffArticle({ params }: PageProps) {
 
   if (!page) notFound();
 
-  const session = await requireRootSession(`/${slug}`);
+  await requireHandoffSession(`/${slug}`);
 
-  return (
-    <ArticlePage
-      page={page}
-      viewerEmail={session.user.email ?? "Root employee"}
-    />
-  );
+  return <ArticlePage page={page} />;
 }

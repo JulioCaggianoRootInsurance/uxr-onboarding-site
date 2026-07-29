@@ -67,7 +67,7 @@ export type ContentBlock =
   | { kind: "pipeline"; items: PipelineItem[] };
 
 export type HandoffGroup =
-  | "Core work"
+  | "Deliverables"
   | "Research practice"
   | "Continuation";
 
@@ -146,12 +146,12 @@ const q1CustomerRecordings: VideoCollection[] = [
 
 export const handoffPages: HandoffPage[] = [
   {
-    slug: "voc-report-redesign",
-    group: "Core work",
+    slug: "q1-voc-report",
+    group: "Deliverables",
     order: 1,
-    title: "Redesigning the VOC report",
+    title: "Q1 Voice of Customer report",
     summary:
-      "How I turned a broad request to improve quarterly customer storytelling into an editable design concept and reusable reporting principles.",
+      "The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework.",
     status: "Delivered",
     updated: siteUpdated,
     sections: [
@@ -162,8 +162,8 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "callout",
             status: "Delivered",
-            title: "Evidence-backed artifact",
-            text: "A linked Q1 VOC/QCR Figma direction and detailed reporting framework exist. The final Q2 report is not represented as complete.",
+            title: "Latest presentation complete",
+            text: "The current Q1 VOC presentation is complete in Figma. This page records the work behind that artifact; the separate Q2 report remains in progress.",
           },
           {
             kind: "paragraph",
@@ -249,6 +249,11 @@ export const handoffPages: HandoffPage[] = [
                 href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
               },
               {
+                label: "Q1 VOC report · V7 PDF",
+                description: "Latest completed report export located in Google Drive.",
+                href: "https://drive.google.com/file/d/1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/view",
+              },
+              {
                 label: "Intern Project Scope Document",
                 description: "Authoritative source record for this handoff.",
                 href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
@@ -272,7 +277,7 @@ export const handoffPages: HandoffPage[] = [
             items: [
               "Confirm the canonical template and its long-term owner.",
               "Create a lightweight review gate for sources, sample bases, claims, and customer evidence.",
-              "Do not describe the final Q2 report as delivered until an approved artifact is identified.",
+              "Carry the accepted Q1 reporting rules into the in-progress Q2 report without assuming every Q1 pattern still applies.",
             ],
           },
         ],
@@ -280,13 +285,123 @@ export const handoffPages: HandoffPage[] = [
     ],
   },
   {
-    slug: "customer-evidence-library",
-    group: "Core work",
+    slug: "q2-voc-report",
+    group: "Deliverables",
     order: 2,
-    title: "Building the customer evidence library",
+    title: "Q2 Voice of Customer report",
     summary:
-      "An organized evidence layer designed to make customer quotes, recordings, and source context easier to find and reuse responsibly.",
+      "The in-progress quarterly report that applies the Q1 storytelling system to the next round of customer evidence.",
     status: "In progress",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "current-state",
+        title: "Current state",
+        blocks: [
+          {
+            kind: "callout",
+            status: "In progress",
+            title: "Draft structure established",
+            text: "The report has a documented outline and source inventory, while several findings and recommendations remain intentionally marked for completion and review.",
+          },
+          {
+            kind: "paragraph",
+            text: "The Q2 report is the operational follow-through to the Q1 redesign. Its purpose is to turn the next quarter’s mixed research inputs into a concise story that distinguishes what the evidence establishes, why the pattern may be happening, and what Root should validate or decide next.",
+          },
+        ],
+      },
+      {
+        id: "what-it-encompasses",
+        title: "What it encompasses",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Executive summary: The most decision-relevant findings, limitations, and next questions.",
+              "Methodology and sources: A transparent record of data periods, samples, source types, and analytical boundaries.",
+              "Key findings: Quantitative patterns separated from the qualitative mechanisms that help explain them.",
+              "Product recommendations: Bounded opportunities connected to evidence, owners, and validation needs.",
+              "Appendix: Supporting tables, definitions, source detail, and material that should remain available without crowding the main narrative.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "evidence-inputs",
+        title: "Evidence inputs",
+        blocks: [
+          {
+            kind: "paragraph",
+            text: "The working record identifies benchmark studies, app-store reviews, three qualitative customer interviews, and potential in-product Sprig feedback as inputs. Every source has a different evidentiary role and should not be presented with equal generalizability.",
+          },
+          {
+            kind: "pipeline",
+            items: [
+              { label: "Inventory", detail: "Confirm period, sample, question, and source owner" },
+              { label: "Validate", detail: "Check quality, exclusions, missingness, and limitations" },
+              { label: "Synthesize", detail: "Separate broad patterns from explanatory evidence" },
+              { label: "Narrate", detail: "Build one defensible through-line" },
+              { label: "Review", detail: "Challenge claims before the report is final" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "my-contribution",
+        title: "My contribution",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Carried the Q1 reporting principles into the Q2 outline.",
+              "Reviewed prior-quarter evidence and documented the sources needed for the next synthesis.",
+              "Established a clearer separation between findings, explanatory customer evidence, and future research questions.",
+              "Created a reusable visual and narrative system through the presentation-template work.",
+            ],
+          },
+          {
+            kind: "links",
+            items: [
+              {
+                label: "Q2 report working record",
+                description: "The Q2 draft tab in the Internship Project Scope Document.",
+                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x2nebw360ab0",
+              },
+              {
+                label: "Q1 reporting system",
+                description: "The completed predecessor and design framework.",
+                href: "/q1-voc-report",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "definition-of-done",
+        title: "Definition of done",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "All included metrics have a confirmed definition, period, sample base, source, and limitation.",
+              "Every headline claim is traceable to evidence and has survived a second-person review.",
+              "Quotes and clips have approved use, exact provenance, and a clear explanatory role.",
+              "Recommendations distinguish observed evidence from proposed product action.",
+              "The approved final deck and editable source are stored at canonical links with an owner.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "customer-quote-library",
+    group: "Deliverables",
+    order: 4,
+    title: "Customer quote and clip library",
+    summary:
+      "A completed, organized evidence layer that makes customer quotes, recordings, and source context easier to find and reuse responsibly.",
+    status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
@@ -296,8 +411,8 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "callout",
             status: "Delivered",
-            title: "Evidence organized and surfaced",
-            text: "The source inventory and 21 access-controlled Q1 recording embeds exist. Governance, attribution, and ownership still need to be completed.",
+            title: "Library delivered",
+            text: "The source inventory and 21 access-controlled Q1 recording embeds are organized and available. Ongoing governance remains an operating responsibility, not an unfinished library feature.",
           },
           {
             kind: "paragraph",
@@ -392,13 +507,13 @@ export const handoffPages: HandoffPage[] = [
     ],
   },
   {
-    slug: "voc-dashboard-exploration",
-    group: "Core work",
+    slug: "voc-dashboard",
+    group: "Deliverables",
     order: 3,
-    title: "Exploring the VOC customer dashboard",
+    title: "VOC customer dashboard",
     summary:
-      "The current dashboard direction, how its website deployment should work, and the future GitHub, Vercel, and AI-assisted workflow.",
-    status: "Prototype",
+      "A nearly complete design prototype and an in-progress coded handoff for a living VOC website powered by a reviewed GitHub-to-Vercel workflow.",
+    status: "In progress",
     updated: siteUpdated,
     sections: [
       {
@@ -408,8 +523,8 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "callout",
             status: "Prototype",
-            title: "A design and code direction—not yet a live analytics product",
-            text: "A lightweight Figma dashboard and Lovable preview exist, but the documented data is placeholder content. Live connections, validated metrics, and an operating owner are not yet established.",
+            title: "Prototype complete; code handoff in progress",
+            text: "The dashboard experience is substantially designed and available as a Figma/Lovable prototype. The coded handoff, production data connection, access model, and repeatable update workflow are the active work.",
           },
           {
             kind: "paragraph",
@@ -431,6 +546,21 @@ export const handoffPages: HandoffPage[] = [
                 label: "Lovable dashboard code preview",
                 description: "Existing prototype referenced in the IPSD.",
                 href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
+              },
+              {
+                label: "Dashboard Figma source",
+                description: "Latest high-fidelity design source located in the shared VOC workspace.",
+                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1563-2647&t=EIOlHXMAH4ey7MR5-1",
+              },
+              {
+                label: "Dashboard prototype · PDF",
+                description: "High-fidelity dashboard artifact in Google Drive.",
+                href: "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view",
+              },
+              {
+                label: "Dashboard code handoff",
+                description: "Current React/Vite implementation notes, QA status, and remaining work.",
+                href: "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view",
               },
               {
                 label: "Dashboard project record",
@@ -615,18 +745,499 @@ export const handoffPages: HandoffPage[] = [
     ],
   },
   {
-    slug: "research-and-stakeholders",
-    group: "Research practice",
-    order: 4,
-    title: "Research and stakeholder inputs",
+    slug: "nps-executive-report",
+    group: "Deliverables",
+    order: 5,
+    title: "NPS executive report",
     summary:
-      "The conversations, artifact reviews, and source analysis that shaped the reporting and dashboard directions.",
+      "The completed Q1 2026 executive readout delivered to Jill, separating customer experience from broader market perception.",
     status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
-        id: "documented-inputs",
-        title: "Documented inputs",
+        id: "delivered-artifact",
+        title: "Delivered artifact",
+        blocks: [
+          {
+            kind: "callout",
+            status: "Delivered",
+            title: "Executive report delivered",
+            text: "The Q1 2026 NPS executive report is available as a completed PDF and was delivered to Jill. The working design lives in the VOC Figma workspace.",
+          },
+          {
+            kind: "paragraph",
+            text: "I built the report to answer a narrower executive question than the broader quarterly VOC report: what NPS reveals about Root’s current customers, former customers, and people who have not purchased Root—and which follow-up questions the existing evidence cannot yet answer.",
+          },
+        ],
+      },
+      {
+        id: "what-it-encompasses",
+        title: "What it encompasses",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "An executive summary that states the principal interpretation and the research questions it creates.",
+              "Separate views of aggregate, current-customer, former-customer, and non-customer NPS.",
+              "A directional review of promoter and detractor themes.",
+              "Methodology and sampling notes for the DTC benchmark and Marketing Brand Tracker inputs.",
+              "A next-step plan focused on explaining non-customer sentiment and strengthening future NPS data collection.",
+              "An appendix with carrier comparisons, segment distributions, and supporting tables.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "research-process",
+        title: "Research process",
+        blocks: [
+          {
+            kind: "pipeline",
+            items: [
+              { label: "Segment", detail: "Separate current, former, and non-customers" },
+              { label: "Compare", detail: "Review carrier-level patterns across sources" },
+              { label: "Qualify", detail: "Surface small samples and source limitations" },
+              { label: "Interpret", detail: "Distinguish experience from reputation" },
+              { label: "Recommend", detail: "Name the next research question" },
+            ],
+          },
+          {
+            kind: "paragraph",
+            text: "The central analytical safeguard was to avoid reading aggregate NPS as customer-only experience. The report keeps segment results separate, labels small Root samples, and treats open-ended themes as directional where the available response base is limited.",
+          },
+        ],
+      },
+      {
+        id: "my-contribution",
+        title: "My contribution",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Structured the executive narrative around a clear decision and follow-up question.",
+              "Combined and reconciled the benchmark and brand-tracker perspectives.",
+              "Created the information hierarchy, charts, annotations, disclaimers, and appendix structure.",
+              "Translated analytical limitations into visible reading guidance rather than hiding them in footnotes.",
+            ],
+          },
+          {
+            kind: "links",
+            items: [
+              {
+                label: "NPS executive report · PDF",
+                description: "Completed Q1 2026 executive report in Google Drive.",
+                href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
+              },
+              {
+                label: "VOC Figma workspace",
+                description: "Editable design workspace containing the report work.",
+                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "uxr-onboarding-documentation",
+    group: "Deliverables",
+    order: 6,
+    title: "UXR onboarding documentation",
+    summary:
+      "An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices.",
+    status: "In progress",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "purpose",
+        title: "Purpose",
+        blocks: [
+          {
+            kind: "callout",
+            status: "In progress",
+            title: "A living team playbook",
+            text: "The source document and prototype content exist. Team review, durable ownership, and validation with a future new hire are the remaining steps before it should be treated as the canonical onboarding system.",
+          },
+          {
+            kind: "paragraph",
+            text: "Layilah Campbell and I developed this documentation to reduce the amount of critical research context that new hires must reconstruct through scattered conversations, Slack history, and repository searches.",
+          },
+        ],
+      },
+      {
+        id: "what-it-encompasses",
+        title: "What it encompasses",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Root and auto-insurance context for researchers who are new to the domain.",
+              "Key research partners, team connections, and communication channels.",
+              "Standard operating procedures for intake, planning, evidence handling, analysis, review, and handoff.",
+              "The Voice of the Customer program, its source types, and the way quarterly evidence is processed.",
+              "A worked NPS example that keeps small samples and generalizability visible.",
+              "The customer quote library, retention context, Slack directories, and knowledge repositories.",
+              "A governed workflow for applying the AI research skills to a new dataset.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "my-contribution",
+        title: "My contribution",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Helped define the content architecture and chapter sequence.",
+              "Documented the VOC processing workflow, evidence-story model, and technical QA expectations.",
+              "Connected the customer-evidence library and AI-assisted research guidance to the onboarding journey.",
+              "Translated the documentation into a reviewable website prototype before the internship handoff changed focus.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "how-it-was-built",
+        title: "How it was built",
+        blocks: [
+          {
+            kind: "pipeline",
+            items: [
+              { label: "Collect", detail: "Gather existing SOPs, links, and team context" },
+              { label: "Reconcile", detail: "Resolve conflicting or incomplete guidance" },
+              { label: "Structure", detail: "Move from first-day context to advanced practice" },
+              { label: "Prototype", detail: "Make the material scannable and navigable" },
+              { label: "Validate", detail: "Assign owners and test with a new hire" },
+            ],
+          },
+          {
+            kind: "links",
+            items: [
+              {
+                label: "UXR onboarding source document",
+                description: "The living Google Doc co-developed by the UXR interns.",
+                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
+              },
+              {
+                label: "Internship documentation record",
+                description: "The onboarding deliverable tab in the IPSD.",
+                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.z582zky508qm",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "sitemap-collaboration",
+    group: "Deliverables",
+    order: 7,
+    title: "Customer journey sitemap collaboration",
+    summary:
+      "My in-progress contribution with Jason toward a maintainable, app-backed view of Root’s end-to-end customer journey.",
+    status: "In progress",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "the-problem",
+        title: "The problem",
+        blocks: [
+          {
+            kind: "paragraph",
+            text: "Product teams often have strong visibility into their own feature flows but limited visibility into the entire customer journey. The current-state experience is also difficult to reconstruct from a staging environment because insurance states, customer conditions, and edge cases create many possible branches.",
+          },
+          {
+            kind: "quote",
+            label: "Scope distinction",
+            text: "This is closer to an interactive customer-journey catalog than a conventional marketing-site sitemap.",
+          },
+        ],
+      },
+      {
+        id: "what-it-encompasses",
+        title: "What it encompasses",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "A shared map of in-app and adjacent customer touchpoints.",
+              "A way to organize complex branching states without turning the journey into an unreadable canvas.",
+              "Traceability to the current mobile-app experience and the evidence that confirms each flow.",
+              "A maintenance model that can keep pace with product releases instead of becoming a static artifact.",
+              "Access patterns useful to product, design, research, engineering, QA, and business partners.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "my-contribution",
+        title: "My contribution with Jason",
+        blocks: [
+          {
+            kind: "callout",
+            status: "In progress",
+            title: "Shared exploration",
+            text: "Jason is a collaborator on this effort. My contribution has focused on problem framing, system requirements, AI prompt and architecture exploration, evidence needs, and the handoff questions required before implementation.",
+          },
+          {
+            kind: "pipeline",
+            items: [
+              { label: "Frame", detail: "Clarify audience and visibility gaps" },
+              { label: "Inventory", detail: "Identify flows, variants, and source evidence" },
+              { label: "Architect", detail: "Compare maintainable technical approaches" },
+              { label: "Pilot", detail: "Prove one bounded journey slice" },
+              { label: "Govern", detail: "Assign update and verification ownership" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "artifacts-and-next-step",
+        title: "Artifacts and next step",
+        blocks: [
+          {
+            kind: "links",
+            items: [
+              {
+                label: "Sitemap project record",
+                description: "The working scope and prompt-development tab in the IPSD.",
+                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.69nuk3h4zyt8",
+              },
+              {
+                label: "Journey catalog prompt pack",
+                description: "A reusable project brief and architecture-decision prompt in Google Drive.",
+                href: "https://drive.google.com/file/d/1ix0VGgkWff-qM0vHZBwXkoZ_jG3pMIlH/view",
+              },
+            ],
+          },
+          {
+            kind: "callout",
+            status: "TBD",
+            title: "Next decision",
+            text: "Choose the bounded pilot journey, confirm technical access to the authoritative app state, and name the owner responsible for verifying each release.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "presentation-template-system",
+    group: "Deliverables",
+    order: 8,
+    title: "VOC presentation template system",
+    summary:
+      "A reusable Figma reporting system with expanded components, data-story layouts, a Root-aligned photography direction, and a Google Slides adaptation still being finalized.",
+    status: "In progress",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "delivered-system",
+        title: "Delivered system",
+        blocks: [
+          {
+            kind: "callout",
+            status: "In progress",
+            title: "Figma system built; Slides finalization in progress",
+            text: "The reusable design system and presentation export exist. The Google Slides counterpart is accessible, but the final translation and team-ready handoff still need to be completed.",
+          },
+          {
+            kind: "paragraph",
+            text: "I expanded the reporting direction into a practical system rather than a single polished deck. The templates create repeatable structures for executive summaries, key findings, charts, customer evidence, section breaks, and appendices.",
+          },
+        ],
+      },
+      {
+        id: "what-it-encompasses",
+        title: "What it encompasses",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Reusable components and page archetypes for Figma.",
+              "Executive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.",
+              "Chart patterns with places for research questions, sample bases, sources, scales, and limitations.",
+              "A broader Root-aligned photography identity and image treatment for research storytelling.",
+              "A Google Slides translation designed for team access and repeatable editing.",
+              "Guidance that favors one primary message, concise supporting text, and visible methodological context.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "design-process",
+        title: "Design process",
+        blocks: [
+          {
+            kind: "pipeline",
+            items: [
+              { label: "Audit", detail: "Review brand materials and existing report patterns" },
+              { label: "Define", detail: "Set hierarchy, chart, quote, and evidence rules" },
+              { label: "Componentize", detail: "Build reusable Figma structures" },
+              { label: "Translate", detail: "Adapt the system for Google Slides" },
+              { label: "Test", detail: "Use the components in real report work" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "artifacts",
+        title: "Artifacts",
+        blocks: [
+          {
+            kind: "links",
+            items: [
+              {
+                label: "VOC presentation template",
+                description: "Reusable presentation-system export in Google Drive.",
+                href: "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view",
+              },
+              {
+                label: "Root presentation template · Google Slides",
+                description: "Team-editable Slides counterpart.",
+                href: "https://docs.google.com/presentation/d/1tz9gRhXxqwDqUxjK_v49NnoqW3Fbp58AZ3EZ6-fgggM/edit",
+              },
+              {
+                label: "VOC Figma workspace",
+                description: "Editable design system and report workspace.",
+                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ai-research-skills",
+    group: "Deliverables",
+    order: 9,
+    title: "AI research skills",
+    summary:
+      "Reusable AI workflows for standardized research-data processing, cross-source synthesis, and Root’s new brand voice.",
+    status: "Delivered",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "skill-set",
+        title: "The skill set",
+        blocks: [
+          {
+            kind: "callout",
+            status: "Delivered",
+            title: "Three complementary roles",
+            text: "The workflow separates evidence processing, research synthesis, and brand-voice editing so a polished tone cannot silently change the underlying analysis.",
+          },
+          {
+            kind: "statusGrid",
+            items: [
+              {
+                status: "Delivered",
+                title: "research-viz",
+                text: "Profiles standardized quantitative data, establishes metric contracts, checks quality, and proposes evidence-faithful visualizations.",
+              },
+              {
+                status: "Delivered",
+                title: "research-synthesis",
+                text: "Connects claims across approved sources while retaining locators, confidence, limitations, and disconfirming evidence.",
+              },
+              {
+                status: "Delivered",
+                title: "root-brand-voice",
+                text: "Rewrites stable, reviewed findings in Root’s new brand voice without changing numbers, evidence boundaries, or research meaning.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "how-they-work-together",
+        title: "How they work together",
+        blocks: [
+          {
+            kind: "pipeline",
+            items: [
+              { label: "research-viz", detail: "Inspect and express the evidence" },
+              { label: "research-synthesis", detail: "Assemble supported findings" },
+              { label: "Human review", detail: "Challenge claims and edge cases" },
+              { label: "root-brand-voice", detail: "Refine approved communication" },
+            ],
+          },
+          {
+            kind: "quote",
+            label: "Operating rule",
+            text: "Voice should never outrun validity.",
+          },
+        ],
+      },
+      {
+        id: "data-processing-workflow",
+        title: "Data-processing workflow",
+        blocks: [
+          {
+            kind: "steps",
+            items: [
+              "Frame the stakeholder decision, target population, and required evidence.",
+              "Use only a Root-approved environment and provide the minimum necessary data.",
+              "Profile fields, identifiers, missingness, duplicates, bases, and quality flags.",
+              "Lock the metric definition, denominator, filters, segment rules, and rounding.",
+              "Use AI to propose code or coding—not to replace evidence review.",
+              "Review low-confidence cases, disagreements, and disconfirming evidence.",
+              "Preserve reproducible transformations and a claim-to-source evidence matrix.",
+              "Apply the brand-voice skill only after the claims are stable.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "artifacts-and-boundary",
+        title: "Artifacts and handoff boundary",
+        blocks: [
+          {
+            kind: "links",
+            items: [
+              {
+                label: "Packaged AI Skills folder",
+                description: "Research visualization, research synthesis, and Root brand-voice skill packages.",
+                href: "https://drive.google.com/drive/folders/1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ",
+              },
+              {
+                label: "AI-assisted research playbook",
+                description: "Exported workflow covering skill order, a new-dataset process, and the data-handling gate.",
+                href: "https://drive.google.com/file/d/1mPK7svpy8ShLSMtdH7qjapY_136u30Xy/view",
+              },
+              {
+                label: "UXR onboarding document",
+                description: "The team-facing context for using Julio’s AI skills on a new dataset.",
+                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
+              },
+            ],
+          },
+          {
+            kind: "callout",
+            status: "Recommendation",
+            title: "Confirm the canonical packages",
+            text: "Before the internship ends, record the approved installation location, owner, version, example input, expected output, and update process for each skill package.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "research-process",
+    group: "Research practice",
+    order: 10,
+    title: "Research process",
+    summary:
+      "The repeatable path I used to turn an open brief, mixed research evidence, and stakeholder feedback into reviewable deliverables.",
+    status: "Delivered",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "inputs-and-collaboration",
+        title: "Inputs and collaboration",
         blocks: [
           {
             kind: "list",
@@ -707,9 +1318,208 @@ export const handoffPages: HandoffPage[] = [
     ],
   },
   {
+    slug: "standard-operating-procedures",
+    group: "Research practice",
+    order: 11,
+    title: "Standard operating procedures",
+    summary:
+      "The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff.",
+    status: "Delivered",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "operating-rhythm",
+        title: "Operating rhythm",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Start the week by confirming the decision, deliverable, dependencies, and definition of done.",
+              "Use focused work blocks for deep analysis and design rather than fragmenting core synthesis across meetings.",
+              "Share concise asynchronous progress updates so blockers and scope changes remain visible.",
+              "Use scheduled critique or manager review to challenge the work before it becomes expensive to change.",
+              "End the week by recording decisions, open questions, owners, links, and the next concrete step.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "intake-and-planning",
+        title: "Intake and planning",
+        blocks: [
+          {
+            kind: "steps",
+            items: [
+              "Write the stakeholder decision the research or artifact must support.",
+              "Define the target audience, research question, scope boundary, and delivery format.",
+              "Inventory existing evidence before proposing new collection.",
+              "Identify source owners, access constraints, review partners, and timing risks.",
+              "Agree on what completion means and which claims require approval.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "evidence-and-analysis",
+        title: "Evidence and analysis",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Provenance: Preserve source, period, population, question wording, sample, filters, and exact locator.",
+              "Quantitative QA: Confirm units, denominators, exclusions, missing values, segment definitions, and rounding before charting.",
+              "Qualitative QA: Retain transcript or clip locators, consent boundaries, existing codes, contrary evidence, and researcher review.",
+              "Evidence hierarchy: Use broad quantitative sources to establish patterns and qualitative sources to explain mechanisms and lived experience.",
+              "Claim discipline: Keep observations, interpretations, recommendations, and unresolved questions visibly distinct.",
+            ],
+          },
+          {
+            kind: "quote",
+            label: "Review rule",
+            text: "A memorable quote can make a verified pattern understandable; it cannot establish prevalence by itself.",
+          },
+        ],
+      },
+      {
+        id: "review-and-publishing",
+        title: "Review and publishing",
+        blocks: [
+          {
+            kind: "pipeline",
+            items: [
+              { label: "Self-review", detail: "Check evidence, logic, language, and accessibility" },
+              { label: "Peer review", detail: "Challenge claims and missing context" },
+              { label: "Stakeholder review", detail: "Confirm decision relevance and ownership" },
+              { label: "Artifact QA", detail: "Verify links, permissions, layouts, and data labels" },
+              { label: "Handoff", detail: "Record status, owner, source, and next step" },
+            ],
+          },
+          {
+            kind: "list",
+            items: [
+              "Use a branch and preview for code changes; do not publish directly from an unreviewed AI session.",
+              "Keep credentials, customer identifiers, unrestricted recordings, and private source data out of repositories and browser assets.",
+              "Treat the editable source and approved final artifact as separate, canonical links.",
+              "Record what changed after review so future researchers can distinguish accepted guidance from discarded exploration.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "source-playbook",
+        title: "Source playbook",
+        blocks: [
+          {
+            kind: "links",
+            items: [
+              {
+                label: "UXR onboarding and SOP source",
+                description: "The living onboarding document containing the broader team operating guidance.",
+                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
+              },
+              {
+                label: "AI research workflow",
+                description: "The governed data-processing and synthesis sequence.",
+                href: "/ai-research-skills",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "internship-insights",
+    group: "Research practice",
+    order: 12,
+    title: "Internship insights",
+    summary:
+      "The practical lessons that emerged across reporting, evidence systems, stakeholder collaboration, design, and code.",
+    status: "Delivered",
+    updated: siteUpdated,
+    sections: [
+      {
+        id: "research-is-a-system",
+        title: "Research impact is a system",
+        blocks: [
+          {
+            kind: "paragraph",
+            text: "A strong finding is only one part of impact. The source must be findable, the claim must be reviewable, the story must be understandable, the decision must have an owner, and the artifact must be maintainable after its original author leaves.",
+          },
+          {
+            kind: "pipeline",
+            items: [
+              { label: "Evidence", detail: "Reliable and traceable" },
+              { label: "Meaning", detail: "Bounded interpretation" },
+              { label: "Story", detail: "Clear to the intended audience" },
+              { label: "Decision", detail: "Connected to an owner" },
+              { label: "System", detail: "Reusable and maintainable" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "clarity-and-rigor",
+        title: "Clarity and rigor reinforce each other",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "Visible sample sizes, source labels, and limitations make a decisive story more credible—not less engaging.",
+              "Separating the quantitative “what” from the qualitative “why” protects both forms of evidence.",
+              "One primary message per view creates space for a stronger claim and clearer supporting context.",
+              "A report should surface consequential friction even when the evidence is uncomfortable or incomplete.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "prototypes-create-alignment",
+        title: "Prototypes create alignment",
+        blocks: [
+          {
+            kind: "paragraph",
+            text: "The dashboard and presentation-system work showed that a tangible prototype can make an abstract reporting conversation concrete. Stakeholders can react to hierarchy, navigation, evidence density, and maintenance expectations before a team commits to production.",
+          },
+          {
+            kind: "callout",
+            status: "Recommendation",
+            title: "Prototype the decision, not only the interface",
+            text: "Every prototype review should ask what decision becomes easier, which source supports it, how often it changes, and who will maintain it.",
+          },
+        ],
+      },
+      {
+        id: "ai-needs-boundaries",
+        title: "AI is useful when its boundaries are explicit",
+        blocks: [
+          {
+            kind: "list",
+            items: [
+              "AI can accelerate profiling, transformations, visual exploration, synthesis drafts, and code implementation.",
+              "A researcher still owns data classification, metric definitions, sample judgments, claim strength, consent, and final approval.",
+              "Branch-based previews and evidence matrices make AI-assisted work easier to inspect and reverse.",
+              "Brand voice belongs at the end of the workflow, after the analysis has stabilized.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "shared-ownership",
+        title: "Shared ownership should remain visible",
+        blocks: [
+          {
+            kind: "paragraph",
+            text: "The internship work depended on managers, researchers, designers, vendors, data owners, and fellow interns. A credible handoff names my contribution without absorbing collaborators’ research, decisions, or artifacts into an individual claim of ownership.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     slug: "internship-reflection",
     group: "Research practice",
-    order: 5,
+    order: 13,
     title: "Internship reflection",
     summary:
       "What the work taught me about turning research evidence into clear stories, reusable systems, and responsible handoffs.",
@@ -788,9 +1598,9 @@ export const handoffPages: HandoffPage[] = [
     ],
   },
   {
-    slug: "handoff",
+    slug: "handoff-next-steps",
     group: "Continuation",
-    order: 6,
+    order: 14,
     title: "Handoff and next steps",
     summary:
       "A clear inventory of what exists, what remains unfinished, and what the next owner should decide.",
@@ -806,38 +1616,53 @@ export const handoffPages: HandoffPage[] = [
             items: [
               {
                 status: "Delivered",
-                title: "VOC report framework",
-                text: "Q1 critique, storytelling principles, and linked Figma design artifacts.",
-              },
-              {
-                status: "Delivered",
-                title: "Customer evidence inventory",
-                text: "Multi-source evidence organization and access points for 21 Q1 clips.",
-              },
-              {
-                status: "Delivered",
-                title: "Stakeholder record",
-                text: "Notes and feedback that shaped the report and dashboard directions.",
-              },
-              {
-                status: "Prototype",
-                title: "VOC dashboard",
-                text: "Figma and Lovable directions using placeholder rather than production data.",
+                title: "Q1 VOC report",
+                text: "Completed Figma presentation, V7 export, and reusable reporting principles.",
               },
               {
                 status: "In progress",
-                title: "Evidence governance",
-                text: "Permissions, provenance, review metadata, and long-term ownership.",
+                title: "Q2 VOC report",
+                text: "Working structure and source inventory established; findings and final review remain open.",
               },
               {
-                status: "Recommendation",
-                title: "GitHub and Vercel workflow",
-                text: "Private previews, reviewed merges, automated deployment, and future AI assistance.",
+                status: "Prototype",
+                title: "VOC dashboard design",
+                text: "High-fidelity Figma and Lovable direction; the current values remain placeholder data.",
               },
               {
-                status: "TBD",
-                title: "Unverified completion",
-                text: "Final Q2 report, live dashboard, NPS studies, in-product surveys, and journey-map platform.",
+                status: "In progress",
+                title: "VOC dashboard code handoff",
+                text: "Repository, production data, Vercel workflow, access, and maintenance SOP are active work.",
+              },
+              {
+                status: "Delivered",
+                title: "Customer quote library",
+                text: "Multi-source evidence inventory and access points for 21 deidentified Q1 clips.",
+              },
+              {
+                status: "Delivered",
+                title: "NPS executive report",
+                text: "Completed Q1 2026 executive report delivered to Jill.",
+              },
+              {
+                status: "In progress",
+                title: "UXR onboarding documentation",
+                text: "Living onboarding and operating playbook co-developed with Layilah Campbell.",
+              },
+              {
+                status: "In progress",
+                title: "Customer journey sitemap",
+                text: "Shared problem framing, architecture exploration, and feasibility planning with Jason.",
+              },
+              {
+                status: "In progress",
+                title: "Presentation template system",
+                text: "Figma system and export exist; the Google Slides translation still needs finalization.",
+              },
+              {
+                status: "Delivered",
+                title: "AI research skills",
+                text: "Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook.",
               },
             ],
           },
@@ -861,14 +1686,34 @@ export const handoffPages: HandoffPage[] = [
                 href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
               },
               {
-                label: "Dashboard code preview",
-                description: "Lovable prototype; not a production system.",
-                href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
+                label: "NPS executive report",
+                description: "Completed Q1 2026 PDF in Google Drive.",
+                href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
               },
               {
                 label: "Customer evidence library",
                 description: "This handoff’s access-controlled recording and governance chapter.",
-                href: "/customer-evidence-library",
+                href: "/customer-quote-library",
+              },
+              {
+                label: "VOC dashboard handoff",
+                description: "Prototype, deployment model, and remaining code work.",
+                href: "/voc-dashboard",
+              },
+              {
+                label: "UXR onboarding documentation",
+                description: "Living Google Doc co-developed with Layilah Campbell.",
+                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
+              },
+              {
+                label: "Presentation template system",
+                description: "Template artifacts and Google Slides handoff state.",
+                href: "/presentation-template-system",
+              },
+              {
+                label: "AI Skills folder",
+                description: "Packaged research skills in Google Drive.",
+                href: "https://drive.google.com/drive/folders/1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ",
               },
             ],
           },
@@ -882,11 +1727,13 @@ export const handoffPages: HandoffPage[] = [
             kind: "steps",
             items: [
               "Confirm one canonical link and long-term owner for every artifact.",
-              "Verify access to Figma, Drive recordings, research notes, the GitHub repository, and Vercel.",
-              "Complete evidence-library permissions and provenance fields.",
-              "Replace dashboard placeholder data only after metric and source validation.",
-              "Confirm whether the dashboard was sent to Klew and record any resulting feedback.",
-              "Record which reporting recommendations were accepted and what follow-up they require.",
+              "Complete the Q2 report’s evidence review, final claims, and approved artifact.",
+              "Finalize the Google Slides presentation template and document how the team should extend it.",
+              "Verify access to Figma, Drive recordings, research notes, the AI Skills folder, the dashboard GitHub repository, and Vercel.",
+              "Connect the dashboard only to validated metrics and approved, deidentified sources.",
+              "Finish the dashboard repository, preview, authentication, CSV maintenance, and deployment SOP.",
+              "Pilot the onboarding documentation with a new team member and assign chapter owners.",
+              "Select a bounded journey-catalog feasibility pilot with Jason and name its source-of-truth owner.",
             ],
           },
         ],
@@ -905,10 +1752,12 @@ export const handoffPages: HandoffPage[] = [
             kind: "list",
             items: [
               "Which artifact should become the official reusable VOC reporting template?",
-              "Who will own the evidence library and its permission reviews?",
-              "Should the dashboard remain a presentation prototype or move toward a live product?",
-              "Which data sources and metrics must be validated before the dashboard can be operational?",
-              "Which unfinished opportunity, if any, should be prioritized after the internship?",
+              "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
+              "Which Q2 findings require another research round before publication?",
+              "Should the dashboard move from a presentation prototype to a maintained internal product?",
+              "Which data sources and metrics are approved for the first operational dashboard version?",
+              "Should the journey catalog proceed to a bounded feasibility spike, and who should partner with Jason?",
+              "Where should the AI skill packages be installed, versioned, reviewed, and maintained?",
             ],
           },
         ],
@@ -933,11 +1782,20 @@ export const handoffPages: HandoffPage[] = [
 ];
 
 export const handoffGroups: HandoffGroup[] = [
-  "Core work",
+  "Deliverables",
   "Research practice",
   "Continuation",
 ];
 
+const legacySlugAliases: Record<string, string> = {
+  "voc-report-redesign": "q1-voc-report",
+  "customer-evidence-library": "customer-quote-library",
+  "voc-dashboard-exploration": "voc-dashboard",
+  "research-and-stakeholders": "research-process",
+  handoff: "handoff-next-steps",
+};
+
 export function getHandoffPage(slug: string): HandoffPage | undefined {
-  return handoffPages.find((page) => page.slug === slug);
+  const canonicalSlug = legacySlugAliases[slug] ?? slug;
+  return handoffPages.find((page) => page.slug === canonicalSlug);
 }
