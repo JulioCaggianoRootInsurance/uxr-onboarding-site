@@ -147,7 +147,6 @@ export function HomePage() {
       program. Throughout each section, you will find an explanation of what I
       did, where the work stands, and what still needs attention.
     </p>,
-    <p key="dates">June 1 -&gt; August 14, 2026</p>,
     <p className="byline" key="byline">
       Prepared by Julio Caggiano
     </p>,
