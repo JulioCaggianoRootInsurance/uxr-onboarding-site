@@ -85,6 +85,22 @@ test("defines the full internship handoff architecture", async () => {
   assert.match(content, /Quarterly Report \(Q1-26\)/);
   assert.match(content, /title: "Project Brief"/);
   assert.doesNotMatch(content, /title: "The brief"/);
+  assert.match(
+    content,
+    /On the other hand, qualitative evidence explains why it is happening and how customers experience it/,
+  );
+  assert.doesNotMatch(content, /1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/);
+  assert.match(
+    content,
+    /label: "Documentation",\n\s+description: "Source notes and research context in the IPSD\."/,
+  );
+  assert.match(content, /label: "Find quantitative patterns"/);
+  assert.match(content, /label: "Investigate through qualitative evidence"/);
+  assert.match(content, /label: "Validate findings with stakeholders"/);
+  assert.match(
+    content,
+    /label: "Report viable next steps for product development"/,
+  );
   assert.match(content, /Quarterly Report \(Q2-26\)/);
   assert.match(content, /VOC Dashboard/);
   assert.match(content, /Customer Quote Library/);

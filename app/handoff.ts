@@ -167,17 +167,12 @@ export const handoffPages: HandoffPage[] = [
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
       },
       {
-        label: "Final PDF",
-        description: "Latest report export in Google Drive.",
-        href: "https://drive.google.com/file/d/1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/view",
-      },
-      {
         label: "Supporting files",
         description: "Shared research inputs and working artifacts for the report.",
         href: "https://drive.google.com/drive/folders/15YrTTyQ_I1F_-Tph1LR0bo3ZHjkoOpCc",
       },
       {
-        label: "Project record",
+        label: "Documentation",
         description: "Source notes and research context in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.7momns81mgpm",
       },
@@ -223,7 +218,7 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "quote",
             label: "Working principle",
-            text: "Quantitative evidence establishes what is happening. Qualitative evidence explains why it happens and how it feels.",
+            text: "Quantitative evidence establishes what is happening. On the other hand, qualitative evidence explains why it is happening and how customers experience it.",
           },
         ],
       },
@@ -247,10 +242,22 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "pipeline",
             items: [
-              { label: "Signal", detail: "Metric, trend, or recurring pattern" },
-              { label: "Mechanism", detail: "Customer evidence explains why" },
-              { label: "Stance", detail: "A clear, bounded interpretation" },
-              { label: "Decision", detail: "Owner, action, or question" },
+              {
+                label: "Find quantitative patterns",
+                detail: "Start with trends and recurring signals.",
+              },
+              {
+                label: "Investigate through qualitative evidence",
+                detail: "Use customer evidence to understand why.",
+              },
+              {
+                label: "Validate findings with stakeholders",
+                detail: "Review the interpretation, limits, and priority.",
+              },
+              {
+                label: "Report viable next steps for product development",
+                detail: "Connect the evidence to a feasible product decision.",
+              },
             ],
           },
         ],
