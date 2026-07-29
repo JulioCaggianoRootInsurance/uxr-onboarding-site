@@ -77,10 +77,10 @@ test("defines the full internship handoff architecture", async () => {
   ]);
 
   assert.match(content, /Prepared by Julio Caggiano/);
-  assert.match(content, /Last Updated: Jul 27, 2026/);
+  assert.match(content, /Last Updated: Jul 29, 2026/);
   assert.match(content, /"Deliverables"/);
   assert.match(content, /"Research practice"/);
-  assert.match(content, /"Continuation"/);
+  assert.match(content, /"Future"/);
   assert.match(content, /Layilah Campbell/);
   assert.match(content, /Quarterly Report \(Q1-26\)/);
   assert.match(content, /Quarterly Report \(Q2-26\)/);
@@ -157,6 +157,13 @@ test("derives homepage deliverable counts from the content model", async () => {
   assert.match(components, /\{deliverables\.length\}/);
   assert.match(components, /\{delivered\.length\}/);
   assert.match(components, /\{active\.length\}/);
+  assert.match(components, /Internship Handoff/);
+  assert.match(components, /Total Deliverables/);
+  assert.match(
+    components,
+    /Includes quarterly reports, dashboards, documentation, and system\s+improvements/,
+  );
+  assert.equal((components.match(/Includes quarterly reports/g) ?? []).length, 1);
   assert.doesNotMatch(components, /<strong>3<\/strong>/);
   assert.doesNotMatch(components, /<strong>2<\/strong>/);
   assert.doesNotMatch(components, /<strong>4<\/strong>/);

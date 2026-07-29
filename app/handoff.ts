@@ -69,7 +69,7 @@ export type ContentBlock =
 export type HandoffGroup =
   | "Deliverables"
   | "Research practice"
-  | "Continuation";
+  | "Future";
 
 export type HandoffSection = {
   id: string;
@@ -89,7 +89,7 @@ export type HandoffPage = {
   sections: HandoffSection[];
 };
 
-export const siteUpdated = "Last Updated: Jul 27, 2026";
+export const siteUpdated = "Last Updated: Jul 29, 2026";
 
 const q1CustomerRecordings: VideoCollection[] = [
   {
@@ -1516,7 +1516,7 @@ export const handoffPages: HandoffPage[] = [
   },
   {
     slug: "handoff-next-steps",
-    group: "Continuation",
+    group: "Future",
     order: 12,
     title: "Next Steps",
     summary:
@@ -1693,7 +1693,7 @@ export const handoffPages: HandoffPage[] = [
 export const handoffGroups: HandoffGroup[] = [
   "Deliverables",
   "Research practice",
-  "Continuation",
+  "Future",
 ];
 
 const legacySlugAliases: Record<string, string> = {

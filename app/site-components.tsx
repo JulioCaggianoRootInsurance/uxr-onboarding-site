@@ -50,7 +50,7 @@ function IndexList() {
   return (
     <section className="index-section" aria-labelledby="handoff-heading">
       <h2 className="index-title" id="handoff-heading">
-        Internship handoff
+        Internship Handoff
       </h2>
       <ul className="index-groups">
         {handoffGroups.map((group) => {
@@ -60,7 +60,7 @@ function IndexList() {
           const shortGroup: Record<typeof group, string> = {
             Deliverables: "Work",
             "Research practice": "Practice",
-            Continuation: "Next",
+            Future: "Future",
           };
 
           return (
@@ -113,9 +113,12 @@ function HomeStatusOverview() {
   return (
     <section className="home-status-overview" aria-label="Handoff status">
       <div>
-        <span>Deliverables</span>
+        <span>Total Deliverables</span>
         <strong>{deliverables.length}</strong>
-        <small>reports, dashboard, evidence, documentation, and systems</small>
+        <small>
+          Includes quarterly reports, dashboards, documentation, and system
+          improvements
+        </small>
       </div>
       <div>
         <span>Delivered</span>
@@ -135,7 +138,7 @@ export function HomePage() {
   const introChildren = [
     <header className="article-header" key="header">
       <h1>UXR Internship Handoff</h1>
-      <time dateTime="2026-07-27">{siteUpdated}</time>
+      <time dateTime="2026-07-29">{siteUpdated}</time>
     </header>,
     <p key="summary">
       Hello! I developed this website to document the work I completed during
@@ -517,7 +520,7 @@ export function ArticlePage({
               <span>{page.group}</span>
             </div>
             <h1>{page.title}</h1>
-            <time dateTime="2026-07-27">{page.updated}</time>
+            <time dateTime="2026-07-29">{page.updated}</time>
             <p>{page.summary}</p>
           </header>
 

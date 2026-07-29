@@ -36,7 +36,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       <main className="article login-article" aria-labelledby="login-title">
         <header className="article-header stagger-item">
           <h1 id="login-title">UXR Internship Handoff</h1>
-          <time dateTime="2026-07-27">{siteUpdated}</time>
+          <time dateTime="2026-07-29">{siteUpdated}</time>
         </header>
 
         <section
