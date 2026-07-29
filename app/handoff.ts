@@ -85,6 +85,7 @@ export type HandoffPage = {
   summary: string;
   status: HandoffStatus;
   updated: string;
+  primaryLinks?: ResourceLink[];
   sections: HandoffSection[];
 };
 
@@ -154,6 +155,33 @@ export const handoffPages: HandoffPage[] = [
       "The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework.",
     status: "Delivered",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the interactive Figma prototype",
+        description: "Navigate the completed Q1-26 presentation in prototype mode.",
+        href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1200-2707&viewport=-1835%2C243%2C0.49&t=6A7bVxpvy0kxtf1x-1&scaling=scale-down&content-scaling=fixed",
+      },
+      {
+        label: "Open the editable Figma file",
+        description: "Review or continue the report in the shared VOC workspace.",
+        href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
+      },
+      {
+        label: "Open the completed Q1-26 PDF",
+        description: "Latest report export in Google Drive.",
+        href: "https://drive.google.com/file/d/1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/view",
+      },
+      {
+        label: "Open the Q1-26 supporting Drive folder",
+        description: "Shared research inputs and working artifacts for the report.",
+        href: "https://drive.google.com/drive/folders/15YrTTyQ_I1F_-Tph1LR0bo3ZHjkoOpCc",
+      },
+      {
+        label: "Open the Q1-26 project record",
+        description: "Source notes and research context in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.7momns81mgpm",
+      },
+    ],
     sections: [
       {
         id: "the-brief",
@@ -235,31 +263,6 @@ export const handoffPages: HandoffPage[] = [
             kind: "paragraph",
             text: "The result was more than a text critique: it created an editable design direction and a reusable set of standards for future VOC report reviews.",
           },
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Q1 VOC presentation prototype",
-                description: "Interactive Figma prototype referenced by the project record.",
-                href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1200-2707&viewport=-1835%2C243%2C0.49&t=6A7bVxpvy0kxtf1x-1&scaling=scale-down&content-scaling=fixed",
-              },
-              {
-                label: "Quarterly Report (Q1-26) · Editable Figma file",
-                description: "Design source for continuing the reporting direction.",
-                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
-              },
-              {
-                label: "Quarterly Report (Q1-26) · V7 PDF",
-                description: "Latest completed report export located in Google Drive.",
-                href: "https://drive.google.com/file/d/1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/view",
-              },
-              {
-                label: "Intern Project Scope Document",
-                description: "Authoritative source record for this handoff.",
-                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
-              },
-            ],
-          },
         ],
       },
       {
@@ -293,6 +296,18 @@ export const handoffPages: HandoffPage[] = [
       "The in-progress quarterly report that applies the Q1 storytelling system to the next round of customer evidence.",
     status: "In progress",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the Q2-26 working record",
+        description: "Current outline, source inventory, and open work in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x2nebw360ab0",
+      },
+      {
+        label: "Review the completed Q1-26 report",
+        description: "The reporting framework that the Q2 draft builds upon.",
+        href: "/q1-voc-report",
+      },
+    ],
     sections: [
       {
         id: "current-state",
@@ -359,21 +374,6 @@ export const handoffPages: HandoffPage[] = [
               "Created a reusable visual and narrative system through the presentation-template work.",
             ],
           },
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Quarterly Report (Q2-26) · Working record",
-                description: "The Q2 draft tab in the Internship Project Scope Document.",
-                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x2nebw360ab0",
-              },
-              {
-                label: "Quarterly Report (Q1-26)",
-                description: "The completed predecessor and design framework.",
-                href: "/q1-voc-report",
-              },
-            ],
-          },
         ],
       },
       {
@@ -403,6 +403,23 @@ export const handoffPages: HandoffPage[] = [
       "A completed, organized evidence layer that makes customer quotes, recordings, and source context easier to find and reuse responsibly.",
     status: "Delivered",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the Customer Quote Library record",
+        description: "The source inventory and supporting links in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.vwocc5k1v4db",
+      },
+      {
+        label: "Open the customer interview reels folder",
+        description: "Shared Drive folder containing the P1, P2, and P3 recordings.",
+        href: "https://drive.google.com/drive/folders/1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm",
+      },
+      {
+        label: "Browse the embedded customer recordings",
+        description: "Jump to the deidentified Q1-26 clips available on this page.",
+        href: "/customer-quote-library#recordings",
+      },
+    ],
     sections: [
       {
         id: "purpose",
@@ -515,6 +532,33 @@ export const handoffPages: HandoffPage[] = [
       "A nearly complete design prototype and an in-progress coded handoff for a living VOC website powered by a reviewed GitHub-to-Vercel workflow.",
     status: "In progress",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the working dashboard preview",
+        description: "Interactive Lovable prototype used to test the website direction.",
+        href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
+      },
+      {
+        label: "Open the dashboard Figma source",
+        description: "Latest high-fidelity design in the shared VOC workspace.",
+        href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1563-2647&t=EIOlHXMAH4ey7MR5-1",
+      },
+      {
+        label: "Open the dashboard prototype PDF",
+        description: "High-fidelity dashboard artifact in Google Drive.",
+        href: "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view",
+      },
+      {
+        label: "Open the dashboard code handoff",
+        description: "Implementation notes, QA status, and remaining code work.",
+        href: "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view",
+      },
+      {
+        label: "Open the dashboard project record",
+        description: "The dashboard brief and working notes in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.eh4wx17fdlej",
+      },
+    ],
     sections: [
       {
         id: "current-direction",
@@ -537,36 +581,6 @@ export const handoffPages: HandoffPage[] = [
               "Created a Lovable code preview to test the report as a website.",
               "Explored a reusable, non-variable slideshow system with responsive icons and an expanded photo library.",
               "Collected direction and feedback from Jill and Klew.",
-            ],
-          },
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Lovable dashboard code preview",
-                description: "Existing prototype referenced in the IPSD.",
-                href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
-              },
-              {
-                label: "Dashboard Figma source",
-                description: "Latest high-fidelity design source located in the shared VOC workspace.",
-                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1563-2647&t=EIOlHXMAH4ey7MR5-1",
-              },
-              {
-                label: "Dashboard prototype · PDF",
-                description: "High-fidelity dashboard artifact in Google Drive.",
-                href: "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view",
-              },
-              {
-                label: "Dashboard code handoff",
-                description: "Current React/Vite implementation notes, QA status, and remaining work.",
-                href: "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view",
-              },
-              {
-                label: "Dashboard project record",
-                description: "The VOC Dashboard tab in the internship scope document.",
-                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.eh4wx17fdlej",
-              },
             ],
           },
         ],
@@ -753,6 +767,23 @@ export const handoffPages: HandoffPage[] = [
       "The completed Q1 2026 executive readout delivered to Jill, separating customer experience from broader market perception.",
     status: "Delivered",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the completed NPS executive report",
+        description: "Final Q1-26 executive report PDF in Google Drive.",
+        href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
+      },
+      {
+        label: "Open the editable Figma workspace",
+        description: "Design source containing the report work.",
+        href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
+      },
+      {
+        label: "Open the NPS project record",
+        description: "Research process and delivery notes in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.p5vqlrzgpbt5",
+      },
+    ],
     sections: [
       {
         id: "delivered-artifact",
@@ -820,21 +851,6 @@ export const handoffPages: HandoffPage[] = [
               "Translated analytical limitations into visible reading guidance rather than hiding them in footnotes.",
             ],
           },
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Executive Report NPS (Q1-26) · PDF",
-                description: "Completed Q1 2026 executive report in Google Drive.",
-                href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
-              },
-              {
-                label: "VOC Figma workspace",
-                description: "Editable design workspace containing the report work.",
-                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
-              },
-            ],
-          },
         ],
       },
     ],
@@ -848,6 +864,18 @@ export const handoffPages: HandoffPage[] = [
       "An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices.",
     status: "In progress",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the UXR onboarding document",
+        description: "Living Google Doc co-developed by the UXR interns.",
+        href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
+      },
+      {
+        label: "Open the onboarding project record",
+        description: "Scope, progress, and continuation notes in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.z582zky508qm",
+      },
+    ],
     sections: [
       {
         id: "purpose",
@@ -912,21 +940,6 @@ export const handoffPages: HandoffPage[] = [
               { label: "Validate", detail: "Assign owners and test with a new hire" },
             ],
           },
-          {
-            kind: "links",
-            items: [
-              {
-                label: "UXR onboarding source document",
-                description: "The living Google Doc co-developed by the UXR interns.",
-                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
-              },
-              {
-                label: "Internship documentation record",
-                description: "The onboarding deliverable tab in the IPSD.",
-                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.z582zky508qm",
-              },
-            ],
-          },
         ],
       },
     ],
@@ -940,6 +953,28 @@ export const handoffPages: HandoffPage[] = [
       "A completed reusable presentation system with expanded components, data-story layouts, and a Root-aligned photography direction.",
     status: "Delivered",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the presentation template in Drive",
+        description: "Completed presentation-system export.",
+        href: "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view",
+      },
+      {
+        label: "Open the team-owned Figma template",
+        description: "New Brand Figma Slides Template in UX Team resources.",
+        href: "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1",
+      },
+      {
+        label: "Open the original VOC design system",
+        description: "Editable component system and report workspace in Figma.",
+        href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1",
+      },
+      {
+        label: "Open the presentation-template project record",
+        description: "Deliverable notes and source context in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s",
+      },
+    ],
     sections: [
       {
         id: "delivered-system",
@@ -990,32 +1025,6 @@ export const handoffPages: HandoffPage[] = [
           },
         ],
       },
-      {
-        id: "artifacts",
-        title: "Artifacts",
-        blocks: [
-          {
-            kind: "links",
-            items: [
-              {
-                label: "VOC presentation template · Google Drive",
-                description: "The completed July 28 presentation-system export.",
-                href: "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view",
-              },
-              {
-                label: "New Brand Figma Slides Template",
-                description: "Team-owned copy in UX Team → Processes and Templates.",
-                href: "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1",
-              },
-              {
-                label: "VOC Figma design system",
-                description: "Julio’s original editable component system and report workspace.",
-                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1",
-              },
-            ],
-          },
-        ],
-      },
     ],
   },
   {
@@ -1027,6 +1036,38 @@ export const handoffPages: HandoffPage[] = [
       "Reusable AI workflows for standardized research-data processing, cross-source synthesis, and Root’s new brand voice.",
     status: "Delivered",
     updated: siteUpdated,
+    primaryLinks: [
+      {
+        label: "Open the packaged AI Skills folder",
+        description: "Canonical Drive folder for the three research skill packages.",
+        href: "https://drive.google.com/drive/folders/1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ",
+      },
+      {
+        label: "Download the research-synthesis skill",
+        description: "Packaged workflow for cross-source research synthesis.",
+        href: "https://drive.google.com/file/d/1V_W6ERl6x_cYkLtVYy9-L_MF_p4A0tVW/view",
+      },
+      {
+        label: "Download the Root brand-voice skill",
+        description: "Packaged writing guidance for Root’s updated voice.",
+        href: "https://drive.google.com/file/d/1pLnFe6CPhkBGI-QKrk646YvkUfyFEQFc/view",
+      },
+      {
+        label: "Download the research-visualization skill",
+        description: "Packaged workflow for research charts and visual communication.",
+        href: "https://drive.google.com/file/d/14rJ2R0HVKT5mafL4txP91-2Cn7k_dmqt/view",
+      },
+      {
+        label: "Open the AI-assisted research playbook",
+        description: "Workflow order, data-handling gate, and handoff guidance.",
+        href: "https://drive.google.com/file/d/1mPK7svpy8ShLSMtdH7qjapY_136u30Xy/view",
+      },
+      {
+        label: "Open the AI Skills project record",
+        description: "Deliverable notes and package inventory in the IPSD.",
+        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.1i5wqpu8xsw",
+      },
+    ],
     sections: [
       {
         id: "skill-set",
@@ -1103,26 +1144,6 @@ export const handoffPages: HandoffPage[] = [
         id: "artifacts-and-boundary",
         title: "Artifacts and handoff boundary",
         blocks: [
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Packaged AI Skills folder",
-                description: "Research visualization, research synthesis, and Root brand-voice skill packages.",
-                href: "https://drive.google.com/drive/folders/1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ",
-              },
-              {
-                label: "AI-assisted research playbook",
-                description: "Exported workflow covering skill order, a new-dataset process, and the data-handling gate.",
-                href: "https://drive.google.com/file/d/1mPK7svpy8ShLSMtdH7qjapY_136u30Xy/view",
-              },
-              {
-                label: "UXR onboarding document",
-                description: "The team-facing context for using Julio’s AI skills on a new dataset.",
-                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
-              },
-            ],
-          },
           {
             kind: "callout",
             status: "Recommendation",

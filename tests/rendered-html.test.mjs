@@ -99,6 +99,10 @@ test("defines the full internship handoff architecture", async () => {
     content,
     /"internship-insights": "internship-reflection"/,
   );
+  assert.equal((content.match(/primaryLinks: \[/g) ?? []).length, 8);
+  assert.match(content, /Open the interactive Figma prototype/);
+  assert.match(content, /1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm/);
+  assert.match(content, /1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ/);
   assert.match(content, /Delivered/);
   assert.match(content, /Prototype/);
   assert.match(content, /In progress/);
@@ -147,6 +151,20 @@ test("derives homepage deliverable counts from the content model", async () => {
   assert.doesNotMatch(components, /<strong>3<\/strong>/);
   assert.doesNotMatch(components, /<strong>2<\/strong>/);
   assert.doesNotMatch(components, /<strong>4<\/strong>/);
+});
+
+test("surfaces canonical deliverable links with an editorial treatment", async () => {
+  const components = await readProjectFile("app/site-components.tsx");
+  const styles = await readProjectFile("app/globals.css");
+
+  assert.match(components, /page\.primaryLinks\?\.length/);
+  assert.match(components, /className="primary-resources stagger-item"/);
+  assert.match(components, /<p>Deliverable links<\/p>/);
+  assert.match(components, /<ResourceLinks items=\{page\.primaryLinks\} \/>/);
+  assert.match(styles, /\.handoff-callout \{[\s\S]*border-left: 1px solid/);
+  assert.match(styles, /\.handoff-callout \{[\s\S]*background: transparent/);
+  assert.match(styles, /\.status-pill::before/);
+  assert.match(styles, /text-decoration-color: var\(--accent\)/);
 });
 
 test("retains a deidentified, governed library of 21 customer clips", async () => {

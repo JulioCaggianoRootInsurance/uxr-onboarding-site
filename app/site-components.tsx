@@ -9,6 +9,7 @@ import {
   type ContentBlock,
   type HandoffPage,
   type HandoffStatus,
+  type ResourceLink,
 } from "./handoff";
 
 function statusClass(status: HandoffStatus): string {
@@ -202,6 +203,45 @@ function splitLabel(text: string): ReactNode {
   );
 }
 
+function ResourceLinks({ items }: { items: ResourceLink[] }) {
+  return (
+    <ul className="resource-links">
+      {items.map((item) => {
+        const content = (
+          <>
+            <span>
+              <strong>{item.label}</strong>
+              <small>{item.description}</small>
+            </span>
+            <span className="resource-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </>
+        );
+
+        return (
+          <li key={item.href}>
+            {item.href.startsWith("/") ? (
+              <Link className="resource-link" href={item.href}>
+                {content}
+              </Link>
+            ) : (
+              <a
+                className="resource-link"
+                href={item.href}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {content}
+              </a>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 function Block({ block }: { block: ContentBlock }) {
   if (block.kind === "paragraph") {
     return <p>{block.text}</p>;
@@ -245,42 +285,7 @@ function Block({ block }: { block: ContentBlock }) {
   }
 
   if (block.kind === "links") {
-    return (
-      <ul className="resource-links">
-        {block.items.map((item) => {
-          const content = (
-            <>
-              <span>
-                <strong>{item.label}</strong>
-                <small>{item.description}</small>
-              </span>
-              <span className="resource-arrow" aria-hidden="true">
-                ↗
-              </span>
-            </>
-          );
-
-          return (
-            <li key={item.href}>
-              {item.href.startsWith("/") ? (
-                <Link className="resource-link" href={item.href}>
-                  {content}
-                </Link>
-              ) : (
-                <a
-                  className="resource-link"
-                  href={item.href}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  {content}
-                </a>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    );
+    return <ResourceLinks items={block.items} />;
   }
 
   if (block.kind === "quoteGrid") {
@@ -449,6 +454,17 @@ export function ArticlePage({
             <time dateTime="2026-07-27">{page.updated}</time>
             <p>{page.summary}</p>
           </header>
+
+          {page.primaryLinks?.length ? (
+            <nav
+              aria-label={`${page.title} deliverable links`}
+              className="primary-resources stagger-item"
+              style={{ "--delay": "50ms" } as CSSProperties}
+            >
+              <p>Deliverable links</p>
+              <ResourceLinks items={page.primaryLinks} />
+            </nav>
+          ) : null}
 
           {page.sections.map((section, sectionIndex) => (
             <section
