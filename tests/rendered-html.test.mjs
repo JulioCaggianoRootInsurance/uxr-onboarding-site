@@ -173,8 +173,15 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(components, /className="resource-link-description"/);
   assert.match(components, /className="resource-link-url"/);
   assert.match(components, /resourceDisplayUrl\(item\.href\)/);
+  assert.match(components, /resourceProvider\(item\.href\)/);
+  assert.match(components, /provider-\$\{provider\.id\}/);
+  assert.match(components, /\/provider-icons\/figma\.svg/);
+  assert.match(components, /\/provider-icons\/google-drive\.png/);
+  assert.match(components, /\/provider-icons\/google-docs\.png/);
+  assert.match(components, /\/provider-icons\/lovable\.ico/);
   assert.match(styles, /\.resource-link \{[\s\S]*border: 1px solid/);
   assert.match(styles, /\.resource-link \{[\s\S]*border-radius: 0\.625rem/);
+  assert.match(styles, /\.resource-provider-icon \{[\s\S]*place-items: center/);
   assert.match(styles, /\.resource-links \{[\s\S]*display: grid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*border-left: 1px solid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*background: transparent/);

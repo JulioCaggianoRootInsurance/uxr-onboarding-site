@@ -214,20 +214,87 @@ function resourceDisplayUrl(href: string): string {
   }
 }
 
+type ResourceProvider = {
+  icon: string;
+  id: "docs" | "drive" | "external" | "figma" | "handoff" | "lovable";
+  name: string;
+};
+
+function resourceProvider(href: string): ResourceProvider {
+  if (href.startsWith("/")) {
+    return {
+      icon: "/favicon.svg",
+      id: "handoff",
+      name: "UXR handoff",
+    };
+  }
+
+  if (href.includes("figma.com")) {
+    return {
+      icon: "/provider-icons/figma.svg",
+      id: "figma",
+      name: "Figma",
+    };
+  }
+
+  if (href.includes("docs.google.com")) {
+    return {
+      icon: "/provider-icons/google-docs.png",
+      id: "docs",
+      name: "Google Docs",
+    };
+  }
+
+  if (href.includes("drive.google.com")) {
+    return {
+      icon: "/provider-icons/google-drive.png",
+      id: "drive",
+      name: "Google Drive",
+    };
+  }
+
+  if (href.includes("lovable.dev")) {
+    return {
+      icon: "/provider-icons/lovable.ico",
+      id: "lovable",
+      name: "Lovable",
+    };
+  }
+
+  return {
+    icon: "/favicon.svg",
+    id: "external",
+    name: "External link",
+  };
+}
+
 function ResourceLinks({ items }: { items: ResourceLink[] }) {
   return (
     <ul className="resource-links">
       {items.map((item) => {
+        const provider = resourceProvider(item.href);
         const content = (
-          <span className="resource-link-copy">
-            <strong>{item.label}</strong>
-            <span className="resource-link-description">
-              {item.description}
+          <>
+            <span
+              aria-hidden="true"
+              className={`resource-provider-icon provider-${provider.id}`}
+            >
+              <img alt="" height="24" src={provider.icon} width="24" />
             </span>
-            <small className="resource-link-url" title={item.href}>
-              {resourceDisplayUrl(item.href)}
-            </small>
-          </span>
+            <span className="resource-link-copy">
+              <strong>{item.label}</strong>
+              <span className="resource-link-description">
+                {item.description}
+              </span>
+              <small className="resource-link-meta" title={item.href}>
+                <span className="resource-provider-name">{provider.name}</span>
+                <span aria-hidden="true">·</span>
+                <span className="resource-link-url">
+                  {resourceDisplayUrl(item.href)}
+                </span>
+              </small>
+            </span>
+          </>
         );
 
         return (

@@ -1075,7 +1075,10 @@ blockquote span {
 }
 
 .resource-link {
-  display: block;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.875rem;
   min-width: 0;
   min-height: 5.25rem;
   overflow: hidden;
@@ -1086,6 +1089,34 @@ blockquote span {
   transition:
     border-color 0.15s ease,
     background-color 0.15s ease;
+}
+
+.resource-provider-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  align-self: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  background: #f7f7f5;
+}
+
+.resource-provider-icon img {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+}
+
+.provider-figma img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.provider-handoff img {
+  width: 1.55rem;
+  height: 1.55rem;
 }
 
 .resource-link-copy {
@@ -1113,15 +1144,27 @@ blockquote span {
   overflow-wrap: anywhere;
 }
 
-.resource-link-url {
-  display: block;
+.resource-link-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
   min-width: 0;
-  overflow: hidden;
   padding-top: 0.08rem;
   color: var(--softer);
   font-size: 0.6875rem;
   font-weight: 450;
   line-height: 0.95rem;
+  white-space: nowrap;
+}
+
+.resource-provider-name {
+  flex: 0 0 auto;
+}
+
+.resource-link-url {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -2180,6 +2223,17 @@ blockquote span {
 }
 
 @media screen and (max-width: 520px) {
+  .resource-link {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.875rem;
+  }
+
+  .resource-provider-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
   .login-field-row {
     grid-template-columns: minmax(0, 1fr) auto;
     padding-top: 0.75rem;
