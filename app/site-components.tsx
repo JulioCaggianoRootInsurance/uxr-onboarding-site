@@ -203,17 +203,6 @@ function splitLabel(text: string): ReactNode {
   );
 }
 
-function resourceDisplayUrl(href: string): string {
-  if (href.startsWith("/")) return href;
-
-  try {
-    const url = new URL(href);
-    return `${url.protocol}//${url.host}${url.pathname}`;
-  } catch {
-    return href;
-  }
-}
-
 type ResourceProvider = {
   icon: string;
   id: "docs" | "drive" | "external" | "figma" | "handoff" | "lovable";
@@ -278,6 +267,7 @@ function ResourceLinks({ items }: { items: ResourceLink[] }) {
             <span
               aria-hidden="true"
               className={`resource-provider-icon provider-${provider.id}`}
+              title={provider.name}
             >
               <img alt="" height="24" src={provider.icon} width="24" />
             </span>
@@ -286,13 +276,6 @@ function ResourceLinks({ items }: { items: ResourceLink[] }) {
               <span className="resource-link-description">
                 {item.description}
               </span>
-              <small className="resource-link-meta" title={item.href}>
-                <span className="resource-provider-name">{provider.name}</span>
-                <span aria-hidden="true">·</span>
-                <span className="resource-link-url">
-                  {resourceDisplayUrl(item.href)}
-                </span>
-              </small>
             </span>
           </>
         );
@@ -301,7 +284,7 @@ function ResourceLinks({ items }: { items: ResourceLink[] }) {
           <li key={item.href}>
             {item.href.startsWith("/") ? (
               <Link
-                aria-label={`${item.label}. ${item.description}`}
+                aria-label={`${item.label}. ${item.description}. ${provider.name}.`}
                 className="resource-link"
                 href={item.href}
               >
@@ -309,7 +292,7 @@ function ResourceLinks({ items }: { items: ResourceLink[] }) {
               </Link>
             ) : (
               <a
-                aria-label={`${item.label}. ${item.description}. Opens in a new tab.`}
+                aria-label={`${item.label}. ${item.description}. ${provider.name}. Opens in a new tab.`}
                 className="resource-link"
                 href={item.href}
                 rel="noreferrer"
