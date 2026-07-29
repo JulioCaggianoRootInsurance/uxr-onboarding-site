@@ -162,7 +162,7 @@ test("derives homepage deliverable counts from the content model", async () => {
   assert.doesNotMatch(components, /<strong>4<\/strong>/);
 });
 
-test("surfaces canonical deliverable links with an editorial treatment", async () => {
+test("surfaces canonical deliverable links as Notion-style bookmarks", async () => {
   const components = await readProjectFile("app/site-components.tsx");
   const styles = await readProjectFile("app/globals.css");
 
@@ -170,10 +170,16 @@ test("surfaces canonical deliverable links with an editorial treatment", async (
   assert.match(components, /className="primary-resources stagger-item"/);
   assert.match(components, /<p>Deliverable links<\/p>/);
   assert.match(components, /<ResourceLinks items=\{page\.primaryLinks\} \/>/);
+  assert.match(components, /className="resource-link-description"/);
+  assert.match(components, /className="resource-link-url"/);
+  assert.match(components, /resourceDisplayUrl\(item\.href\)/);
+  assert.match(styles, /\.resource-link \{[\s\S]*border: 1px solid/);
+  assert.match(styles, /\.resource-link \{[\s\S]*border-radius: 0\.625rem/);
+  assert.match(styles, /\.resource-links \{[\s\S]*display: grid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*border-left: 1px solid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*background: transparent/);
   assert.match(styles, /\.status-pill::before/);
-  assert.match(styles, /text-decoration-color: var\(--accent\)/);
+  assert.match(styles, /\.resource-link:focus-visible \{[\s\S]*255, 103, 43/);
 });
 
 test("retains a deidentified, governed library of 21 customer clips", async () => {

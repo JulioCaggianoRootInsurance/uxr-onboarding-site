@@ -203,30 +203,46 @@ function splitLabel(text: string): ReactNode {
   );
 }
 
+function resourceDisplayUrl(href: string): string {
+  if (href.startsWith("/")) return href;
+
+  try {
+    const url = new URL(href);
+    return `${url.protocol}//${url.host}${url.pathname}`;
+  } catch {
+    return href;
+  }
+}
+
 function ResourceLinks({ items }: { items: ResourceLink[] }) {
   return (
     <ul className="resource-links">
       {items.map((item) => {
         const content = (
-          <>
-            <span>
-              <strong>{item.label}</strong>
-              <small>{item.description}</small>
+          <span className="resource-link-copy">
+            <strong>{item.label}</strong>
+            <span className="resource-link-description">
+              {item.description}
             </span>
-            <span className="resource-arrow" aria-hidden="true">
-              ↗
-            </span>
-          </>
+            <small className="resource-link-url" title={item.href}>
+              {resourceDisplayUrl(item.href)}
+            </small>
+          </span>
         );
 
         return (
           <li key={item.href}>
             {item.href.startsWith("/") ? (
-              <Link className="resource-link" href={item.href}>
+              <Link
+                aria-label={`${item.label}. ${item.description}`}
+                className="resource-link"
+                href={item.href}
+              >
                 {content}
               </Link>
             ) : (
               <a
+                aria-label={`${item.label}. ${item.description}. Opens in a new tab.`}
                 className="resource-link"
                 href={item.href}
                 rel="noreferrer"
