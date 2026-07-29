@@ -27,7 +27,7 @@ function SiteFooter() {
       <div className="footer-rule" />
       <div className="footer-row">
         <div className="footer-copy">
-          <p>Prepared by Julio Caggiano for Hala Daher</p>
+          <p>Prepared by Julio Caggiano</p>
           <small>Root internal · Password protected</small>
         </div>
         <form
@@ -133,7 +133,7 @@ function HomeStatusOverview() {
 export function HomePage() {
   const introChildren = [
     <header className="article-header" key="header">
-      <h1>Julio Caggiano · UX Research Internship Handoff</h1>
+      <h1>UXR Internship Handoff</h1>
       <time dateTime="2026-07-27">{siteUpdated}</time>
     </header>,
     <p key="summary">
@@ -149,7 +149,7 @@ export function HomePage() {
     </p>,
     <p key="dates">June 1 -&gt; August 14, 2026</p>,
     <p className="byline" key="byline">
-      Prepared by Julio Caggiano for Hala Daher
+      Prepared by Julio Caggiano
     </p>,
   ];
 

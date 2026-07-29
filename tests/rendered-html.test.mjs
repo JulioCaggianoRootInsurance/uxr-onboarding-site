@@ -54,7 +54,7 @@ test("defines the full internship handoff architecture", async () => {
   ]);
   assert.equal(new Set(slugs).size, slugs.length);
 
-  assert.match(content, /Prepared by Julio Caggiano for Hala Daher/);
+  assert.match(content, /Prepared by Julio Caggiano/);
   assert.match(content, /Last Updated: Jul 27, 2026/);
   assert.match(content, /"Deliverables"/);
   assert.match(content, /"Research practice"/);

@@ -5,7 +5,7 @@ import { HomePage } from "./site-components";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Julio Caggiano · UX Research Internship Handoff",
+  title: "UXR Internship Handoff",
   description:
     "A private, manager-facing record of Julio Caggiano’s UX Research internship work.",
   robots: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     follow: false,
   },
   openGraph: {
-    title: "UX Research Internship Handoff",
+    title: "UXR Internship Handoff",
     description: "A private Root research handoff.",
     images: ["/og.png"],
   },

@@ -12,7 +12,7 @@ const deploymentUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(deploymentUrl),
   title: {
-    default: "UX Research Internship Handoff",
+    default: "UXR Internship Handoff",
     template: "%s · Julio Caggiano",
   },
   description:
@@ -24,20 +24,20 @@ export const metadata: Metadata = {
     nosnippet: true,
   },
   openGraph: {
-    title: "UX Research Internship Handoff",
+    title: "UXR Internship Handoff",
     description: "A private Root research handoff.",
     images: [
       {
         url: "/og.png",
         width: 1730,
         height: 909,
-        alt: "UX Research Internship Handoff",
+        alt: "UXR Internship Handoff",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "UX Research Internship Handoff",
+    title: "UXR Internship Handoff",
     description: "A private Root research handoff.",
     images: ["/og.png"],
   },

@@ -1772,7 +1772,7 @@ export const handoffPages: HandoffPage[] = [
           },
           {
             kind: "quote",
-            label: "Prepared by Julio Caggiano for Hala Daher",
+            label: "Prepared by Julio Caggiano",
             text: "The goal is not only to preserve what I made, but to preserve the reasoning, limitations, and next decisions that make the work usable.",
           },
         ],
