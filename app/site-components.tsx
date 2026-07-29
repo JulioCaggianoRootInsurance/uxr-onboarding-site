@@ -137,21 +137,17 @@ export function HomePage() {
       <time dateTime="2026-07-27">{siteUpdated}</time>
     </header>,
     <p key="summary">
-      I created this handoff to bring together the work I completed during my
-      2026 internship with Root&apos;s UX Research team. I hope it helps Hala
-      review each project, find its files, and see what should happen next.
+      Hello! I developed this website to document the work I completed during
+      my 2026 summer internship with the UX Research team at Root Insurance.
+      Its primary goal is to help the research team review each deliverable,
+      find the latest versions, and see what should happen next.
     </p>,
     <p key="narrative">
-      Most of my work supported the Voice of the Customer program. I completed
-      the Q1 VOC Report, NPS Executive Report, Customer Quote Library, and AI
-      Research Skills. I also moved the Q2 VOC Report, VOC Dashboard, UXR
-      Onboarding Documentation, Journey Sitemap, and Presentation Template
-      forward. In each section, I explain what I did, where the work stands,
-      and what still needs attention.
+      Please note that most of my work supported the Voice of Customer (VoC)
+      program. Throughout each section, you will find an explanation of what I
+      did, where the work stands, and what still needs attention.
     </p>,
-    <p key="dates">
-      UX Research Intern, VOC · June 1–August 14, 2026
-    </p>,
+    <p key="dates">June 1 -&gt; August 14, 2026</p>,
     <p className="byline" key="byline">
       Prepared by Julio Caggiano for Hala Daher
     </p>,
