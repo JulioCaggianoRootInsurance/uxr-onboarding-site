@@ -83,6 +83,8 @@ test("defines the full internship handoff architecture", async () => {
   assert.match(content, /"Future"/);
   assert.match(content, /Layilah Campbell/);
   assert.match(content, /Quarterly Report \(Q1-26\)/);
+  assert.match(content, /title: "Project Brief"/);
+  assert.doesNotMatch(content, /title: "The brief"/);
   assert.match(content, /Quarterly Report \(Q2-26\)/);
   assert.match(content, /VOC Dashboard/);
   assert.match(content, /Customer Quote Library/);

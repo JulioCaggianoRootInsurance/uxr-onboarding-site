@@ -185,7 +185,7 @@ export const handoffPages: HandoffPage[] = [
     sections: [
       {
         id: "the-brief",
-        title: "The brief",
+        title: "Project Brief",
         blocks: [
           {
             kind: "callout",
