@@ -427,57 +427,6 @@ ol {
   letter-spacing: -0.00125rem;
 }
 
-.home-status-overview {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  padding-top: 2rem;
-  border-bottom: 1px solid var(--line-strong);
-}
-
-.home-status-overview > div {
-  display: flex;
-  min-height: 7.25rem;
-  flex-direction: column;
-  padding: 0.8rem 1rem 0.8rem 0;
-  border-top: 1px solid var(--line-strong);
-  background: transparent;
-}
-
-.home-status-overview > div + div {
-  padding-left: 1rem;
-  border-left: 1px solid var(--line);
-}
-
-.home-status-overview span {
-  color: var(--soft);
-  font-size: 0.5625rem;
-  font-weight: 580;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.home-status-overview strong {
-  padding-top: 0.8rem;
-  color: var(--ink);
-  font-size: 1rem;
-  font-weight: 560;
-  line-height: 1;
-}
-
-.home-status-overview > div:nth-child(2) strong {
-  color: var(--accent);
-}
-
-.home-status-overview small {
-  margin-top: auto;
-  padding-top: 0.65rem;
-  color: rgba(0, 0, 0, 0.42);
-  font-size: 0.625rem;
-  font-weight: 460;
-  line-height: 0.85rem;
-}
-
 .stagger-item {
   animation: stagger-in 0.5s ease both;
   animation-delay: var(--delay, 0ms);
@@ -2245,20 +2194,6 @@ blockquote span {
   .login-footer-row {
     gap: 0.5rem;
     font-size: 0.625rem;
-  }
-
-  .home-status-overview {
-    grid-template-columns: 1fr;
-  }
-
-  .home-status-overview > div {
-    min-height: 0;
-    padding: 0.8rem 0;
-  }
-
-  .home-status-overview > div + div {
-    padding-left: 0;
-    border-left: 0;
   }
 
   .index-group {

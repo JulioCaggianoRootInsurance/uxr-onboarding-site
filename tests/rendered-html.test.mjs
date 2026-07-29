@@ -150,23 +150,15 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   assert.doesNotMatch(content, /Google Slides translation still needs finalization/);
 });
 
-test("derives homepage deliverable counts from the content model", async () => {
+test("keeps the homepage focused on the introduction and chapter index", async () => {
   const components = await readProjectFile("app/site-components.tsx");
+  const styles = await readProjectFile("app/globals.css");
 
-  assert.match(components, /page\.group === "Deliverables"/);
-  assert.match(components, /\{deliverables\.length\}/);
-  assert.match(components, /\{delivered\.length\}/);
-  assert.match(components, /\{active\.length\}/);
   assert.match(components, /Internship Handoff/);
-  assert.match(components, /Total Deliverables/);
-  assert.match(
-    components,
-    /Includes quarterly reports, dashboards, documentation, and system\s+improvements/,
-  );
-  assert.equal((components.match(/Includes quarterly reports/g) ?? []).length, 1);
-  assert.doesNotMatch(components, /<strong>3<\/strong>/);
-  assert.doesNotMatch(components, /<strong>2<\/strong>/);
-  assert.doesNotMatch(components, /<strong>4<\/strong>/);
+  assert.match(components, /<IndexList \/>/);
+  assert.doesNotMatch(components, /HomeStatusOverview|home-status-overview/);
+  assert.doesNotMatch(components, /Total Deliverables|Includes quarterly reports/);
+  assert.doesNotMatch(styles, /\.home-status-overview/);
 });
 
 test("surfaces canonical deliverable links as Notion-style bookmarks", async () => {

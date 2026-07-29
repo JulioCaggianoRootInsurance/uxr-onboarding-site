@@ -99,41 +99,6 @@ function IndexList() {
   );
 }
 
-function HomeStatusOverview() {
-  const deliverables = handoffPages.filter(
-    (page) => page.group === "Deliverables",
-  );
-  const delivered = deliverables.filter(
-    (page) => page.status === "Delivered",
-  );
-  const active = deliverables.filter(
-    (page) => page.status === "In progress" || page.status === "Prototype",
-  );
-
-  return (
-    <section className="home-status-overview" aria-label="Handoff status">
-      <div>
-        <span>Total Deliverables</span>
-        <strong>{deliverables.length}</strong>
-        <small>
-          Includes quarterly reports, dashboards, documentation, and system
-          improvements
-        </small>
-      </div>
-      <div>
-        <span>Delivered</span>
-        <strong>{delivered.length}</strong>
-        <small>Q1-26, quote library, NPS, presentation template, and AI skills</small>
-      </div>
-      <div>
-        <span>In progress</span>
-        <strong>{active.length}</strong>
-        <small>Q2-26, VOC dashboard, and onboarding</small>
-      </div>
-    </section>
-  );
-}
-
 export function HomePage() {
   const introChildren = [
     <header className="article-header" key="header">
@@ -176,17 +141,11 @@ export function HomePage() {
         className="stagger-item"
         style={{ "--delay": "250ms" } as CSSProperties}
       >
-        <HomeStatusOverview />
-      </div>
-      <div
-        className="stagger-item"
-        style={{ "--delay": "300ms" } as CSSProperties}
-      >
         <IndexList />
       </div>
       <div
         className="stagger-item"
-        style={{ "--delay": "350ms" } as CSSProperties}
+        style={{ "--delay": "300ms" } as CSSProperties}
       >
         <SiteFooter />
       </div>
