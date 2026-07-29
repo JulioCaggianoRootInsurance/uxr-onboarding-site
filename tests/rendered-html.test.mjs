@@ -100,7 +100,16 @@ test("defines the full internship handoff architecture", async () => {
     /"internship-insights": "internship-reflection"/,
   );
   assert.equal((content.match(/primaryLinks: \[/g) ?? []).length, 8);
-  assert.match(content, /Open the interactive Figma prototype/);
+  assert.match(content, /label: "Interactive prototype"/);
+  assert.match(content, /node-id=1305-1457/);
+  assert.match(content, /starting-point-node-id=327%3A725/);
+  assert.doesNotMatch(content, /node-id=1200-2707/);
+  const primaryLinkBlocks =
+    content.match(/primaryLinks: \[[\s\S]*?\n    \],\n    sections:/g) ?? [];
+  assert.equal(primaryLinkBlocks.length, 8);
+  for (const block of primaryLinkBlocks) {
+    assert.doesNotMatch(block, /label: "(?:Open|Review|Browse|Download) /);
+  }
   assert.match(content, /1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm/);
   assert.match(content, /1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ/);
   assert.match(content, /Delivered/);

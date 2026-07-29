@@ -157,27 +157,27 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the interactive Figma prototype",
+        label: "Interactive prototype",
         description: "Navigate the completed Q1-26 presentation in prototype mode.",
-        href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1200-2707&viewport=-1835%2C243%2C0.49&t=6A7bVxpvy0kxtf1x-1&scaling=scale-down&content-scaling=fixed",
+        href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1305-1457&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=contain&content-scaling=fixed&starting-point-node-id=327%3A725",
       },
       {
-        label: "Open the editable Figma file",
+        label: "Figma source",
         description: "Review or continue the report in the shared VOC workspace.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
       },
       {
-        label: "Open the completed Q1-26 PDF",
+        label: "Final PDF",
         description: "Latest report export in Google Drive.",
         href: "https://drive.google.com/file/d/1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/view",
       },
       {
-        label: "Open the Q1-26 supporting Drive folder",
+        label: "Supporting files",
         description: "Shared research inputs and working artifacts for the report.",
         href: "https://drive.google.com/drive/folders/15YrTTyQ_I1F_-Tph1LR0bo3ZHjkoOpCc",
       },
       {
-        label: "Open the Q1-26 project record",
+        label: "Project record",
         description: "Source notes and research context in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.7momns81mgpm",
       },
@@ -298,12 +298,12 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the Q2-26 working record",
+        label: "Working record",
         description: "Current outline, source inventory, and open work in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x2nebw360ab0",
       },
       {
-        label: "Review the completed Q1-26 report",
+        label: "Q1 report reference",
         description: "The reporting framework that the Q2 draft builds upon.",
         href: "/q1-voc-report",
       },
@@ -405,17 +405,17 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the Customer Quote Library record",
+        label: "Library record",
         description: "The source inventory and supporting links in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.vwocc5k1v4db",
       },
       {
-        label: "Open the customer interview reels folder",
+        label: "Customer interview reels",
         description: "Shared Drive folder containing the P1, P2, and P3 recordings.",
         href: "https://drive.google.com/drive/folders/1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm",
       },
       {
-        label: "Browse the embedded customer recordings",
+        label: "Embedded recordings",
         description: "Jump to the deidentified Q1-26 clips available on this page.",
         href: "/customer-quote-library#recordings",
       },
@@ -534,27 +534,27 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the working dashboard preview",
+        label: "Interactive prototype",
         description: "Interactive Lovable prototype used to test the website direction.",
         href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
       },
       {
-        label: "Open the dashboard Figma source",
+        label: "Figma source",
         description: "Latest high-fidelity design in the shared VOC workspace.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1563-2647&t=EIOlHXMAH4ey7MR5-1",
       },
       {
-        label: "Open the dashboard prototype PDF",
+        label: "Prototype PDF",
         description: "High-fidelity dashboard artifact in Google Drive.",
         href: "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view",
       },
       {
-        label: "Open the dashboard code handoff",
+        label: "Code handoff",
         description: "Implementation notes, QA status, and remaining code work.",
         href: "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view",
       },
       {
-        label: "Open the dashboard project record",
+        label: "Project record",
         description: "The dashboard brief and working notes in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.eh4wx17fdlej",
       },
@@ -769,17 +769,17 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the completed NPS executive report",
+        label: "Final PDF",
         description: "Final Q1-26 executive report PDF in Google Drive.",
         href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
       },
       {
-        label: "Open the editable Figma workspace",
-        description: "Design source containing the report work.",
+        label: "VOC Figma workspace",
+        description: "Shared design workspace containing the report work.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
       },
       {
-        label: "Open the NPS project record",
+        label: "Project record",
         description: "Research process and delivery notes in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.p5vqlrzgpbt5",
       },
@@ -866,12 +866,12 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the UXR onboarding document",
+        label: "Onboarding document",
         description: "Living Google Doc co-developed by the UXR interns.",
         href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
       },
       {
-        label: "Open the onboarding project record",
+        label: "Project record",
         description: "Scope, progress, and continuation notes in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.z582zky508qm",
       },
@@ -955,22 +955,22 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the presentation template in Drive",
+        label: "Presentation template",
         description: "Completed presentation-system export.",
         href: "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view",
       },
       {
-        label: "Open the team-owned Figma template",
+        label: "Team Figma template",
         description: "New Brand Figma Slides Template in UX Team resources.",
         href: "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1",
       },
       {
-        label: "Open the original VOC design system",
+        label: "VOC design system",
         description: "Editable component system and report workspace in Figma.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1",
       },
       {
-        label: "Open the presentation-template project record",
+        label: "Project record",
         description: "Deliverable notes and source context in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s",
       },
@@ -1038,32 +1038,32 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Open the packaged AI Skills folder",
+        label: "AI Skills folder",
         description: "Canonical Drive folder for the three research skill packages.",
         href: "https://drive.google.com/drive/folders/1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ",
       },
       {
-        label: "Download the research-synthesis skill",
+        label: "Research synthesis",
         description: "Packaged workflow for cross-source research synthesis.",
         href: "https://drive.google.com/file/d/1V_W6ERl6x_cYkLtVYy9-L_MF_p4A0tVW/view",
       },
       {
-        label: "Download the Root brand-voice skill",
+        label: "Root brand voice",
         description: "Packaged writing guidance for Root’s updated voice.",
         href: "https://drive.google.com/file/d/1pLnFe6CPhkBGI-QKrk646YvkUfyFEQFc/view",
       },
       {
-        label: "Download the research-visualization skill",
+        label: "Research visualization",
         description: "Packaged workflow for research charts and visual communication.",
         href: "https://drive.google.com/file/d/14rJ2R0HVKT5mafL4txP91-2Cn7k_dmqt/view",
       },
       {
-        label: "Open the AI-assisted research playbook",
+        label: "Research playbook",
         description: "Workflow order, data-handling gate, and handoff guidance.",
         href: "https://drive.google.com/file/d/1mPK7svpy8ShLSMtdH7qjapY_136u30Xy/view",
       },
       {
-        label: "Open the AI Skills project record",
+        label: "Project record",
         description: "Deliverable notes and package inventory in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.1i5wqpu8xsw",
       },
