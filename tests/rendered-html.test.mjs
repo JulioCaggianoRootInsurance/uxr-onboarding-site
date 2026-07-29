@@ -47,11 +47,34 @@ test("defines the full internship handoff architecture", async () => {
     "ai-research-skills",
     "research-process",
     "standard-operating-procedures",
-    "internship-insights",
     "internship-reflection",
     "handoff-next-steps",
   ]);
   assert.equal(new Set(slugs).size, slugs.length);
+
+  const orderedTitles = [
+    ...content.matchAll(/order: (\d+),\n\s+title: "([^"]+)"/g),
+  ]
+    .map((match) => ({
+      order: Number(match[1]),
+      title: match[2],
+    }))
+    .sort((a, b) => a.order - b.order);
+
+  assert.deepEqual(orderedTitles, [
+    { order: 1, title: "Quarterly Report (Q1-26)" },
+    { order: 2, title: "Quarterly Report (Q2-26)" },
+    { order: 3, title: "VOC Dashboard" },
+    { order: 4, title: "Customer Quote Library" },
+    { order: 5, title: "Executive Report NPS (Q1-26)" },
+    { order: 6, title: "UXR Onboarding Documentation" },
+    { order: 7, title: "Presentation Template" },
+    { order: 8, title: "AI Skills" },
+    { order: 9, title: "Research Process" },
+    { order: 10, title: "Standard Operating Procedures (SOPs)" },
+    { order: 11, title: "Reflection" },
+    { order: 12, title: "Next Steps" },
+  ]);
 
   assert.match(content, /Prepared by Julio Caggiano/);
   assert.match(content, /Last Updated: Jul 27, 2026/);
@@ -59,11 +82,23 @@ test("defines the full internship handoff architecture", async () => {
   assert.match(content, /"Research practice"/);
   assert.match(content, /"Continuation"/);
   assert.match(content, /Layilah Campbell/);
-  assert.match(content, /Q1 Voice of Customer report/);
-  assert.match(content, /Q2 Voice of Customer report/);
-  assert.match(content, /NPS executive report/);
-  assert.match(content, /VOC presentation template system/);
-  assert.match(content, /AI research skills/);
+  assert.match(content, /Quarterly Report \(Q1-26\)/);
+  assert.match(content, /Quarterly Report \(Q2-26\)/);
+  assert.match(content, /VOC Dashboard/);
+  assert.match(content, /Customer Quote Library/);
+  assert.match(content, /Executive Report NPS \(Q1-26\)/);
+  assert.match(content, /UXR Onboarding Documentation/);
+  assert.match(content, /Presentation Template/);
+  assert.match(content, /AI Skills/);
+  assert.match(content, /Research Process/);
+  assert.match(content, /Standard Operating Procedures \(SOPs\)/);
+  assert.match(content, /Reflection/);
+  assert.match(content, /Next Steps/);
+  assert.doesNotMatch(content, /slug: "internship-insights"/);
+  assert.match(
+    content,
+    /"internship-insights": "internship-reflection"/,
+  );
   assert.match(content, /Delivered/);
   assert.match(content, /Prototype/);
   assert.match(content, /In progress/);
@@ -93,7 +128,7 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   assert.match(content, /Future AI-assisted update flow/);
   assert.match(content, /should not overwrite production directly/);
   assert.match(content, /human researcher reviews/i);
-  assert.match(content, /Q2 VOC report/);
+  assert.match(content, /Quarterly Report \(Q2-26\)/);
   assert.match(content, /Completed Q1 2026 executive report delivered to Jill/);
   assert.match(content, /Presentation system complete/);
   assert.match(content, /1OshHDffRLd2498_qE3Nqkty_gHhTy6So/);

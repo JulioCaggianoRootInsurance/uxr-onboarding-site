@@ -149,7 +149,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "q1-voc-report",
     group: "Deliverables",
     order: 1,
-    title: "Q1 Voice of Customer report",
+    title: "Quarterly Report (Q1-26)",
     summary:
       "The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework.",
     status: "Delivered",
@@ -244,12 +244,12 @@ export const handoffPages: HandoffPage[] = [
                 href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1200-2707&viewport=-1835%2C243%2C0.49&t=6A7bVxpvy0kxtf1x-1&scaling=scale-down&content-scaling=fixed",
               },
               {
-                label: "Q1 VOC editable Figma file",
+                label: "Quarterly Report (Q1-26) · Editable Figma file",
                 description: "Design source for continuing the reporting direction.",
                 href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
               },
               {
-                label: "Q1 VOC report · V7 PDF",
+                label: "Quarterly Report (Q1-26) · V7 PDF",
                 description: "Latest completed report export located in Google Drive.",
                 href: "https://drive.google.com/file/d/1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/view",
               },
@@ -288,7 +288,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "q2-voc-report",
     group: "Deliverables",
     order: 2,
-    title: "Q2 Voice of Customer report",
+    title: "Quarterly Report (Q2-26)",
     summary:
       "The in-progress quarterly report that applies the Q1 storytelling system to the next round of customer evidence.",
     status: "In progress",
@@ -363,12 +363,12 @@ export const handoffPages: HandoffPage[] = [
             kind: "links",
             items: [
               {
-                label: "Q2 report working record",
+                label: "Quarterly Report (Q2-26) · Working record",
                 description: "The Q2 draft tab in the Internship Project Scope Document.",
                 href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x2nebw360ab0",
               },
               {
-                label: "Q1 reporting system",
+                label: "Quarterly Report (Q1-26)",
                 description: "The completed predecessor and design framework.",
                 href: "/q1-voc-report",
               },
@@ -398,7 +398,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "customer-quote-library",
     group: "Deliverables",
     order: 4,
-    title: "Customer quote and clip library",
+    title: "Customer Quote Library",
     summary:
       "A completed, organized evidence layer that makes customer quotes, recordings, and source context easier to find and reuse responsibly.",
     status: "Delivered",
@@ -510,7 +510,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "voc-dashboard",
     group: "Deliverables",
     order: 3,
-    title: "VOC customer dashboard",
+    title: "VOC Dashboard",
     summary:
       "A nearly complete design prototype and an in-progress coded handoff for a living VOC website powered by a reviewed GitHub-to-Vercel workflow.",
     status: "In progress",
@@ -748,7 +748,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "nps-executive-report",
     group: "Deliverables",
     order: 5,
-    title: "NPS executive report",
+    title: "Executive Report NPS (Q1-26)",
     summary:
       "The completed Q1 2026 executive readout delivered to Jill, separating customer experience from broader market perception.",
     status: "Delivered",
@@ -824,7 +824,7 @@ export const handoffPages: HandoffPage[] = [
             kind: "links",
             items: [
               {
-                label: "NPS executive report · PDF",
+                label: "Executive Report NPS (Q1-26) · PDF",
                 description: "Completed Q1 2026 executive report in Google Drive.",
                 href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
               },
@@ -843,7 +843,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "uxr-onboarding-documentation",
     group: "Deliverables",
     order: 6,
-    title: "UXR onboarding documentation",
+    title: "UXR Onboarding Documentation",
     summary:
       "An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices.",
     status: "In progress",
@@ -935,7 +935,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "presentation-template-system",
     group: "Deliverables",
     order: 7,
-    title: "VOC presentation template system",
+    title: "Presentation Template",
     summary:
       "A completed reusable presentation system with expanded components, data-story layouts, and a Root-aligned photography direction.",
     status: "Delivered",
@@ -1022,7 +1022,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "ai-research-skills",
     group: "Deliverables",
     order: 8,
-    title: "AI research skills",
+    title: "AI Skills",
     summary:
       "Reusable AI workflows for standardized research-data processing, cross-source synthesis, and Root’s new brand voice.",
     status: "Delivered",
@@ -1137,7 +1137,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "research-process",
     group: "Research practice",
     order: 9,
-    title: "Research process",
+    title: "Research Process",
     summary:
       "The repeatable path I used to turn an open brief, mixed research evidence, and stakeholder feedback into reviewable deliverables.",
     status: "Delivered",
@@ -1229,7 +1229,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "standard-operating-procedures",
     group: "Research practice",
     order: 10,
-    title: "Standard operating procedures",
+    title: "Standard Operating Procedures (SOPs)",
     summary:
       "The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff.",
     status: "Delivered",
@@ -1337,12 +1337,12 @@ export const handoffPages: HandoffPage[] = [
     ],
   },
   {
-    slug: "internship-insights",
+    slug: "internship-reflection",
     group: "Research practice",
     order: 11,
-    title: "Internship insights",
+    title: "Reflection",
     summary:
-      "The practical lessons that emerged across reporting, evidence systems, stakeholder collaboration, design, and code.",
+      "The practical lessons and personal reflection that emerged across reporting, evidence systems, stakeholder collaboration, design, and code.",
     status: "Delivered",
     updated: siteUpdated,
     sections: [
@@ -1422,18 +1422,6 @@ export const handoffPages: HandoffPage[] = [
           },
         ],
       },
-    ],
-  },
-  {
-    slug: "internship-reflection",
-    group: "Research practice",
-    order: 12,
-    title: "Internship reflection",
-    summary:
-      "What the work taught me about turning research evidence into clear stories, reusable systems, and responsible handoffs.",
-    status: "Delivered",
-    updated: siteUpdated,
-    sections: [
       {
         id: "from-report-to-system",
         title: "From a report to a system",
@@ -1508,8 +1496,8 @@ export const handoffPages: HandoffPage[] = [
   {
     slug: "handoff-next-steps",
     group: "Continuation",
-    order: 13,
-    title: "Handoff and next steps",
+    order: 12,
+    title: "Next Steps",
     summary:
       "A clear inventory of what exists, what remains unfinished, and what the next owner should decide.",
     status: "In progress",
@@ -1524,47 +1512,47 @@ export const handoffPages: HandoffPage[] = [
             items: [
               {
                 status: "Delivered",
-                title: "Q1 VOC report",
+                title: "Quarterly Report (Q1-26)",
                 text: "Completed Figma presentation, V7 export, and reusable reporting principles.",
               },
               {
                 status: "In progress",
-                title: "Q2 VOC report",
+                title: "Quarterly Report (Q2-26)",
                 text: "Working structure and source inventory established; findings and final review remain open.",
               },
               {
                 status: "Prototype",
-                title: "VOC dashboard design",
+                title: "VOC Dashboard · Prototype",
                 text: "High-fidelity Figma and Lovable direction; the current values remain placeholder data.",
               },
               {
                 status: "In progress",
-                title: "VOC dashboard code handoff",
+                title: "VOC Dashboard · Code Handoff",
                 text: "Repository, production data, Vercel workflow, access, and maintenance SOP are active work.",
               },
               {
                 status: "Delivered",
-                title: "Customer quote library",
+                title: "Customer Quote Library",
                 text: "Multi-source evidence inventory and access points for 21 deidentified Q1 clips.",
               },
               {
                 status: "Delivered",
-                title: "NPS executive report",
+                title: "Executive Report NPS (Q1-26)",
                 text: "Completed Q1 2026 executive report delivered to Jill.",
               },
               {
                 status: "In progress",
-                title: "UXR onboarding documentation",
+                title: "UXR Onboarding Documentation",
                 text: "Living onboarding and operating playbook co-developed with Layilah Campbell.",
               },
               {
                 status: "Delivered",
-                title: "Presentation template system",
+                title: "Presentation Template",
                 text: "Completed Drive export, team-owned Figma template, and editable VOC design-system workspace.",
               },
               {
                 status: "Delivered",
-                title: "AI research skills",
+                title: "AI Skills",
                 text: "Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook.",
               },
             ],
@@ -1584,32 +1572,32 @@ export const handoffPages: HandoffPage[] = [
                 href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
               },
               {
-                label: "Q1 VOC editable Figma file",
+                label: "Quarterly Report (Q1-26) · Editable Figma file",
                 description: "Reporting redesign source.",
                 href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
               },
               {
-                label: "NPS executive report",
+                label: "Executive Report NPS (Q1-26)",
                 description: "Completed Q1 2026 PDF in Google Drive.",
                 href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
               },
               {
-                label: "Customer evidence library",
+                label: "Customer Quote Library",
                 description: "This handoff’s access-controlled recording and governance chapter.",
                 href: "/customer-quote-library",
               },
               {
-                label: "VOC dashboard handoff",
+                label: "VOC Dashboard",
                 description: "Prototype, deployment model, and remaining code work.",
                 href: "/voc-dashboard",
               },
               {
-                label: "UXR onboarding documentation",
+                label: "UXR Onboarding Documentation",
                 description: "Living Google Doc co-developed with Layilah Campbell.",
                 href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
               },
               {
-                label: "Presentation template system",
+                label: "Presentation Template",
                 description: "Completed Drive and Figma template artifacts.",
                 href: "/presentation-template-system",
               },
@@ -1692,6 +1680,7 @@ const legacySlugAliases: Record<string, string> = {
   "customer-evidence-library": "customer-quote-library",
   "voc-dashboard-exploration": "voc-dashboard",
   "research-and-stakeholders": "research-process",
+  "internship-insights": "internship-reflection",
   handoff: "handoff-next-steps",
 };
 
