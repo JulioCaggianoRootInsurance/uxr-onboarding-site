@@ -182,7 +182,7 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(styles, /\.resource-link \{[\s\S]*border: 1px solid/);
   assert.match(styles, /\.resource-link \{[\s\S]*border-radius: 0\.625rem/);
   assert.match(styles, /\.resource-provider-icon \{[\s\S]*place-items: center/);
-  assert.match(styles, /\.resource-provider-icon \{[\s\S]*background: #2e2e2e/);
+  assert.match(styles, /\.resource-provider-icon \{[\s\S]*background: #f1f1ee/);
   assert.doesNotMatch(styles, /\.resource-link-meta/);
   assert.match(styles, /\.resource-links \{[\s\S]*display: grid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*border-left: 1px solid/);
