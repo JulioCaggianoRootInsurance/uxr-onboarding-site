@@ -932,105 +932,13 @@ export const handoffPages: HandoffPage[] = [
     ],
   },
   {
-    slug: "sitemap-collaboration",
-    group: "Deliverables",
-    order: 7,
-    title: "Customer journey sitemap collaboration",
-    summary:
-      "My in-progress contribution with Jason toward a maintainable, app-backed view of Root’s end-to-end customer journey.",
-    status: "In progress",
-    updated: siteUpdated,
-    sections: [
-      {
-        id: "the-problem",
-        title: "The problem",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "Product teams often have strong visibility into their own feature flows but limited visibility into the entire customer journey. The current-state experience is also difficult to reconstruct from a staging environment because insurance states, customer conditions, and edge cases create many possible branches.",
-          },
-          {
-            kind: "quote",
-            label: "Scope distinction",
-            text: "This is closer to an interactive customer-journey catalog than a conventional marketing-site sitemap.",
-          },
-        ],
-      },
-      {
-        id: "what-it-encompasses",
-        title: "What it encompasses",
-        blocks: [
-          {
-            kind: "list",
-            items: [
-              "A shared map of in-app and adjacent customer touchpoints.",
-              "A way to organize complex branching states without turning the journey into an unreadable canvas.",
-              "Traceability to the current mobile-app experience and the evidence that confirms each flow.",
-              "A maintenance model that can keep pace with product releases instead of becoming a static artifact.",
-              "Access patterns useful to product, design, research, engineering, QA, and business partners.",
-            ],
-          },
-        ],
-      },
-      {
-        id: "my-contribution",
-        title: "My contribution with Jason",
-        blocks: [
-          {
-            kind: "callout",
-            status: "In progress",
-            title: "Shared exploration",
-            text: "Jason is a collaborator on this effort. My contribution has focused on problem framing, system requirements, AI prompt and architecture exploration, evidence needs, and the handoff questions required before implementation.",
-          },
-          {
-            kind: "pipeline",
-            items: [
-              { label: "Frame", detail: "Clarify audience and visibility gaps" },
-              { label: "Inventory", detail: "Identify flows, variants, and source evidence" },
-              { label: "Architect", detail: "Compare maintainable technical approaches" },
-              { label: "Pilot", detail: "Prove one bounded journey slice" },
-              { label: "Govern", detail: "Assign update and verification ownership" },
-            ],
-          },
-        ],
-      },
-      {
-        id: "artifacts-and-next-step",
-        title: "Artifacts and next step",
-        blocks: [
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Sitemap project record",
-                description: "The working scope and prompt-development tab in the IPSD.",
-                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.69nuk3h4zyt8",
-              },
-              {
-                label: "Journey catalog prompt pack",
-                description: "A reusable project brief and architecture-decision prompt in Google Drive.",
-                href: "https://drive.google.com/file/d/1ix0VGgkWff-qM0vHZBwXkoZ_jG3pMIlH/view",
-              },
-            ],
-          },
-          {
-            kind: "callout",
-            status: "TBD",
-            title: "Next decision",
-            text: "Choose the bounded pilot journey, confirm technical access to the authoritative app state, and name the owner responsible for verifying each release.",
-          },
-        ],
-      },
-    ],
-  },
-  {
     slug: "presentation-template-system",
     group: "Deliverables",
-    order: 8,
+    order: 7,
     title: "VOC presentation template system",
     summary:
-      "A reusable Figma reporting system with expanded components, data-story layouts, a Root-aligned photography direction, and a Google Slides adaptation still being finalized.",
-    status: "In progress",
+      "A completed reusable presentation system with expanded components, data-story layouts, and a Root-aligned photography direction.",
+    status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
@@ -1039,9 +947,9 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "callout",
-            status: "In progress",
-            title: "Figma system built; Slides finalization in progress",
-            text: "The reusable design system and presentation export exist. The Google Slides counterpart is accessible, but the final translation and team-ready handoff still need to be completed.",
+            status: "Delivered",
+            title: "Presentation system complete",
+            text: "The reusable design system, presentation template, and team-ready handoff are complete. The source artifacts are linked below for continued use.",
           },
           {
             kind: "paragraph",
@@ -1060,7 +968,7 @@ export const handoffPages: HandoffPage[] = [
               "Executive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.",
               "Chart patterns with places for research questions, sample bases, sources, scales, and limitations.",
               "A broader Root-aligned photography identity and image treatment for research storytelling.",
-              "A Google Slides translation designed for team access and repeatable editing.",
+              "A team-owned Figma template and presentation export for repeatable editing and broader access.",
               "Guidance that favors one primary message, concise supporting text, and visible methodological context.",
             ],
           },
@@ -1076,7 +984,7 @@ export const handoffPages: HandoffPage[] = [
               { label: "Audit", detail: "Review brand materials and existing report patterns" },
               { label: "Define", detail: "Set hierarchy, chart, quote, and evidence rules" },
               { label: "Componentize", detail: "Build reusable Figma structures" },
-              { label: "Translate", detail: "Adapt the system for Google Slides" },
+              { label: "Package", detail: "Create team-owned Figma and Drive versions" },
               { label: "Test", detail: "Use the components in real report work" },
             ],
           },
@@ -1090,19 +998,19 @@ export const handoffPages: HandoffPage[] = [
             kind: "links",
             items: [
               {
-                label: "VOC presentation template",
-                description: "Reusable presentation-system export in Google Drive.",
+                label: "VOC presentation template · Google Drive",
+                description: "The completed July 28 presentation-system export.",
                 href: "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view",
               },
               {
-                label: "Root presentation template · Google Slides",
-                description: "Team-editable Slides counterpart.",
-                href: "https://docs.google.com/presentation/d/1tz9gRhXxqwDqUxjK_v49NnoqW3Fbp58AZ3EZ6-fgggM/edit",
+                label: "New Brand Figma Slides Template",
+                description: "Team-owned copy in UX Team → Processes and Templates.",
+                href: "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1",
               },
               {
-                label: "VOC Figma workspace",
-                description: "Editable design system and report workspace.",
-                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
+                label: "VOC Figma design system",
+                description: "Julio’s original editable component system and report workspace.",
+                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1",
               },
             ],
           },
@@ -1113,7 +1021,7 @@ export const handoffPages: HandoffPage[] = [
   {
     slug: "ai-research-skills",
     group: "Deliverables",
-    order: 9,
+    order: 8,
     title: "AI research skills",
     summary:
       "Reusable AI workflows for standardized research-data processing, cross-source synthesis, and Root’s new brand voice.",
@@ -1228,7 +1136,7 @@ export const handoffPages: HandoffPage[] = [
   {
     slug: "research-process",
     group: "Research practice",
-    order: 10,
+    order: 9,
     title: "Research process",
     summary:
       "The repeatable path I used to turn an open brief, mixed research evidence, and stakeholder feedback into reviewable deliverables.",
@@ -1320,7 +1228,7 @@ export const handoffPages: HandoffPage[] = [
   {
     slug: "standard-operating-procedures",
     group: "Research practice",
-    order: 11,
+    order: 10,
     title: "Standard operating procedures",
     summary:
       "The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff.",
@@ -1431,7 +1339,7 @@ export const handoffPages: HandoffPage[] = [
   {
     slug: "internship-insights",
     group: "Research practice",
-    order: 12,
+    order: 11,
     title: "Internship insights",
     summary:
       "The practical lessons that emerged across reporting, evidence systems, stakeholder collaboration, design, and code.",
@@ -1519,7 +1427,7 @@ export const handoffPages: HandoffPage[] = [
   {
     slug: "internship-reflection",
     group: "Research practice",
-    order: 13,
+    order: 12,
     title: "Internship reflection",
     summary:
       "What the work taught me about turning research evidence into clear stories, reusable systems, and responsible handoffs.",
@@ -1600,7 +1508,7 @@ export const handoffPages: HandoffPage[] = [
   {
     slug: "handoff-next-steps",
     group: "Continuation",
-    order: 14,
+    order: 13,
     title: "Handoff and next steps",
     summary:
       "A clear inventory of what exists, what remains unfinished, and what the next owner should decide.",
@@ -1650,14 +1558,9 @@ export const handoffPages: HandoffPage[] = [
                 text: "Living onboarding and operating playbook co-developed with Layilah Campbell.",
               },
               {
-                status: "In progress",
-                title: "Customer journey sitemap",
-                text: "Shared problem framing, architecture exploration, and feasibility planning with Jason.",
-              },
-              {
-                status: "In progress",
+                status: "Delivered",
                 title: "Presentation template system",
-                text: "Figma system and export exist; the Google Slides translation still needs finalization.",
+                text: "Completed Drive export, team-owned Figma template, and editable VOC design-system workspace.",
               },
               {
                 status: "Delivered",
@@ -1707,7 +1610,7 @@ export const handoffPages: HandoffPage[] = [
               },
               {
                 label: "Presentation template system",
-                description: "Template artifacts and Google Slides handoff state.",
+                description: "Completed Drive and Figma template artifacts.",
                 href: "/presentation-template-system",
               },
               {
@@ -1728,12 +1631,10 @@ export const handoffPages: HandoffPage[] = [
             items: [
               "Confirm one canonical link and long-term owner for every artifact.",
               "Complete the Q2 report’s evidence review, final claims, and approved artifact.",
-              "Finalize the Google Slides presentation template and document how the team should extend it.",
               "Verify access to Figma, Drive recordings, research notes, the AI Skills folder, the dashboard GitHub repository, and Vercel.",
               "Connect the dashboard only to validated metrics and approved, deidentified sources.",
               "Finish the dashboard repository, preview, authentication, CSV maintenance, and deployment SOP.",
               "Pilot the onboarding documentation with a new team member and assign chapter owners.",
-              "Select a bounded journey-catalog feasibility pilot with Jason and name its source-of-truth owner.",
             ],
           },
         ],
@@ -1751,12 +1652,11 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "list",
             items: [
-              "Which artifact should become the official reusable VOC reporting template?",
+              "Who will own the completed VOC presentation system and approve future changes?",
               "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
               "Which Q2 findings require another research round before publication?",
               "Should the dashboard move from a presentation prototype to a maintained internal product?",
               "Which data sources and metrics are approved for the first operational dashboard version?",
-              "Should the journey catalog proceed to a bounded feasibility spike, and who should partner with Jason?",
               "Where should the AI skill packages be installed, versioned, reviewed, and maintained?",
             ],
           },

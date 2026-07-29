@@ -119,12 +119,12 @@ function HomeStatusOverview() {
       <div>
         <span>Delivered</span>
         <strong>{delivered.length}</strong>
-        <small>Q1 report, quote library, NPS report, and AI skills</small>
+        <small>Q1, quote library, NPS, template system, and AI skills</small>
       </div>
       <div>
         <span>In progress</span>
         <strong>{active.length}</strong>
-        <small>Q2, dashboard code, onboarding, sitemap, and template</small>
+        <small>Q2 report, dashboard code, and onboarding</small>
       </div>
     </section>
   );

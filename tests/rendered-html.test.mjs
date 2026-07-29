@@ -43,7 +43,6 @@ test("defines the full internship handoff architecture", async () => {
     "voc-dashboard",
     "nps-executive-report",
     "uxr-onboarding-documentation",
-    "sitemap-collaboration",
     "presentation-template-system",
     "ai-research-skills",
     "research-process",
@@ -63,7 +62,6 @@ test("defines the full internship handoff architecture", async () => {
   assert.match(content, /Q1 Voice of Customer report/);
   assert.match(content, /Q2 Voice of Customer report/);
   assert.match(content, /NPS executive report/);
-  assert.match(content, /Customer journey sitemap collaboration/);
   assert.match(content, /VOC presentation template system/);
   assert.match(content, /AI research skills/);
   assert.match(content, /Delivered/);
@@ -74,6 +72,10 @@ test("defines the full internship handoff architecture", async () => {
 
   assert.doesNotMatch(content, /Insurance basics/);
   assert.doesNotMatch(content, /Meet the team/);
+  assert.doesNotMatch(
+    content,
+    /sitemap-collaboration|Customer journey sitemap|journey catalog|journey-catalog/i,
+  );
   assert.doesNotMatch(content, /\[cite:|\\longrightarrow|\\text\{/i);
   assert.doesNotMatch(content, /magic_link=/i);
 });
@@ -93,7 +95,11 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   assert.match(content, /human researcher reviews/i);
   assert.match(content, /Q2 VOC report/);
   assert.match(content, /Completed Q1 2026 executive report delivered to Jill/);
-  assert.match(content, /Google Slides translation still needs finalization/);
+  assert.match(content, /Presentation system complete/);
+  assert.match(content, /1OshHDffRLd2498_qE3Nqkty_gHhTy6So/);
+  assert.match(content, /liCQw8Mv0VVnPMLacbEixP/);
+  assert.match(content, /cN9IgxIRTOnBOMJf4tKMeH/);
+  assert.doesNotMatch(content, /Google Slides translation still needs finalization/);
 });
 
 test("derives homepage deliverable counts from the content model", async () => {
