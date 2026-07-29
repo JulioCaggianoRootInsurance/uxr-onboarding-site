@@ -479,7 +479,6 @@ export function ArticlePage({
               <span>{page.group}</span>
             </div>
             <h1>{page.title}</h1>
-            <time dateTime="2026-07-29">{page.updated}</time>
             <p>{page.summary}</p>
           </header>
 

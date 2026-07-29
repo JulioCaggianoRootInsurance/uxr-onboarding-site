@@ -161,6 +161,13 @@ test("keeps the homepage focused on the introduction and chapter index", async (
   assert.doesNotMatch(styles, /\.home-status-overview/);
 });
 
+test("shows the update date on the homepage but not expanded pages", async () => {
+  const components = await readProjectFile("app/site-components.tsx");
+
+  assert.match(components, /<time dateTime="2026-07-29">\{siteUpdated\}<\/time>/);
+  assert.doesNotMatch(components, /\{page\.updated\}/);
+});
+
 test("surfaces canonical deliverable links as Notion-style bookmarks", async () => {
   const components = await readProjectFile("app/site-components.tsx");
   const styles = await readProjectFile("app/globals.css");
