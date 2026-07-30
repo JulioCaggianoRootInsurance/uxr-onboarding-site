@@ -758,7 +758,7 @@ ol {
   padding-bottom: 0.55rem;
 }
 
-.article-kicker > span:last-child {
+.article-group {
   color: var(--soft);
   font-size: 0.625rem;
   font-weight: 560;
@@ -1063,9 +1063,10 @@ blockquote span {
   height: 1.2rem;
 }
 
-.provider-handoff img {
-  width: 1.55rem;
-  height: 1.55rem;
+.provider-handoff img,
+.provider-external img {
+  width: 2rem;
+  height: auto;
   border-radius: 0.32rem;
 }
 
@@ -1253,8 +1254,8 @@ blockquote span {
 
 .embedded-video-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   padding: 0.2rem 0 1rem;
 }
 
@@ -2249,10 +2250,6 @@ blockquote span {
   .clip-count {
     flex-direction: column-reverse;
     gap: 0.2rem;
-  }
-
-  .embedded-video-grid {
-    grid-template-columns: 1fr;
   }
 
   .status-grid {

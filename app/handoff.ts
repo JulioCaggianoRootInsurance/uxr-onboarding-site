@@ -74,6 +74,7 @@ export type HandoffGroup =
 export type HandoffSection = {
   id: string;
   title: string;
+  showTitle?: boolean;
   blocks: ContentBlock[];
 };
 
@@ -422,6 +423,11 @@ export const handoffPages: HandoffPage[] = [
         href: "https://drive.google.com/drive/folders/1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm",
       },
       {
+        label: "Lookback reels and insights",
+        description: "Lookback workspace where the interview reels and insights were created.",
+        href: "https://lookback.io/org/root-inc-2/projects/root-voc-customer-interviews/reels",
+      },
+      {
         label: "Embedded recordings",
         description: "Jump to the deidentified Q1-26 clips available on this page.",
         href: "/customer-quote-library#recordings",
@@ -457,11 +463,8 @@ export const handoffPages: HandoffPage[] = [
       {
         id: "recordings",
         title: "Q1 customer recordings",
+        showTitle: false,
         blocks: [
-          {
-            kind: "paragraph",
-            text: "These reels play from Google Drive and inherit the original Drive permissions. The library confirms that I organized and surfaced the clips; it does not claim that I personally edited every reel. Before reuse, verify the participant, clip number, timestamp, consent, and approved audience.",
-          },
           {
             kind: "videoLibrary",
             collections: q1CustomerRecordings,

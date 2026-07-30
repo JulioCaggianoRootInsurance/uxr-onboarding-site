@@ -174,7 +174,7 @@ type ResourceProvider = {
 function resourceProvider(href: string): ResourceProvider {
   if (href.startsWith("/")) {
     return {
-      icon: "/favicon.svg",
+      icon: "/provider-icons/root-official.png",
       id: "handoff",
       name: "UXR handoff",
     };
@@ -213,7 +213,7 @@ function resourceProvider(href: string): ResourceProvider {
   }
 
   return {
-    icon: "/favicon.svg",
+    icon: "/provider-icons/root-official.png",
     id: "external",
     name: "External link",
   };
@@ -475,8 +475,8 @@ export function ArticlePage({
         <article className="article">
           <header className="article-header article-intro">
             <div className="article-kicker">
+              <span className="article-group">{page.group}</span>
               <StatusPill status={page.status} />
-              <span>{page.group}</span>
             </div>
             <h1>{page.title}</h1>
             <p>{page.summary}</p>
@@ -495,6 +495,9 @@ export function ArticlePage({
 
           {page.sections.map((section, sectionIndex) => (
             <section
+              aria-label={
+                section.showTitle === false ? section.title : undefined
+              }
               className="content-section stagger-item"
               id={section.id}
               key={section.id}
@@ -504,7 +507,7 @@ export function ArticlePage({
                 } as CSSProperties
               }
             >
-              <h2>{section.title}</h2>
+              {section.showTitle !== false ? <h2>{section.title}</h2> : null}
               {section.blocks.map((block, blockIndex) => (
                 <Block block={block} key={`${section.id}-${blockIndex}`} />
               ))}

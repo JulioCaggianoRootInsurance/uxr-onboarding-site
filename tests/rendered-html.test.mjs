@@ -203,9 +203,24 @@ test("shows the update date on the homepage but not expanded pages", async () =>
   assert.doesNotMatch(components, /\{page\.updated\}/);
 });
 
+test("orders each article category before its status", async () => {
+  const components = await readProjectFile("app/site-components.tsx");
+  const styles = await readProjectFile("app/globals.css");
+
+  assert.match(
+    components,
+    /<span className="article-group">\{page\.group\}<\/span>\s+<StatusPill status=\{page\.status\} \/>/,
+  );
+  assert.match(styles, /\.article-group \{/);
+  assert.doesNotMatch(styles, /\.article-kicker > span:last-child/);
+});
+
 test("surfaces canonical deliverable links as Notion-style bookmarks", async () => {
   const components = await readProjectFile("app/site-components.tsx");
   const styles = await readProjectFile("app/globals.css");
+  const rootLogo = await stat(
+    path.join(projectRoot, "public/provider-icons/root-official.png"),
+  );
 
   assert.match(components, /page\.primaryLinks\?\.length/);
   assert.match(components, /className="primary-resources stagger-item"/);
@@ -220,10 +235,17 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(components, /\/provider-icons\/google-drive\.png/);
   assert.match(components, /\/provider-icons\/google-docs\.png/);
   assert.match(components, /\/provider-icons\/lovable\.ico/);
+  assert.match(components, /\/provider-icons\/root-official\.png/);
+  assert.doesNotMatch(components, /icon: "\/favicon\.svg"/);
+  assert.ok(rootLogo.size > 0);
   assert.match(styles, /\.resource-link \{[\s\S]*border: 1px solid/);
   assert.match(styles, /\.resource-link \{[\s\S]*border-radius: 0\.625rem/);
   assert.match(styles, /\.resource-provider-icon \{[\s\S]*place-items: center/);
   assert.match(styles, /\.resource-provider-icon \{[\s\S]*background: #f1f1ee/);
+  assert.match(
+    styles,
+    /\.provider-handoff img,\n\.provider-external img \{[\s\S]*width: 2rem;[\s\S]*height: auto;/,
+  );
   assert.doesNotMatch(styles, /\.resource-link-meta/);
   assert.match(styles, /\.resource-links \{[\s\S]*display: grid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*border-left: 1px solid/);
@@ -234,6 +256,11 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
 
 test("retains a deidentified, governed library of 21 customer clips", async () => {
   const content = await readProjectFile("app/handoff.ts");
+  const components = await readProjectFile("app/site-components.tsx");
+  const styles = await readProjectFile("app/globals.css");
+  const videoGridBlocks = [
+    ...styles.matchAll(/\.embedded-video-grid \{([^}]*)\}/g),
+  ].map((match) => match[1]);
   const driveIds = [...content.matchAll(/driveId: "([^"]+)"/g)].map(
     (match) => match[1],
   );
@@ -246,6 +273,28 @@ test("retains a deidentified, governed library of 21 customer clips", async () =
   assert.match(content, /lookback\.io\/play\/qpzK47AyZGPfTzDE7/);
   assert.match(content, /lookback\.io\/play\/PAg8bd26jergevcv5/);
   assert.match(content, /lookback\.io\/play\/hbdMNbJCUJm3LMxhH/);
+  assert.match(
+    content,
+    /lookback\.io\/org\/root-inc-2\/projects\/root-voc-customer-interviews\/reels/,
+  );
+  assert.match(content, /label: "Lookback reels and insights"/);
+  assert.match(
+    content,
+    /id: "recordings",\n\s+title: "Q1 customer recordings",\n\s+showTitle: false/,
+  );
+  assert.doesNotMatch(content, /These reels play from Google Drive/);
+  assert.match(
+    components,
+    /section\.showTitle !== false \? <h2>\{section\.title\}<\/h2> : null/,
+  );
+  assert.match(
+    components,
+    /section\.showTitle === false \? section\.title : undefined/,
+  );
+  assert.match(components, /allowFullScreen/);
+  assert.match(components, /\/preview`}/);
+  assert.ok(videoGridBlocks.length >= 1);
+  assert.match(videoGridBlocks[0], /grid-template-columns: 1fr/);
   assert.doesNotMatch(content, /Jasmine Anderson|Dawn Collins|Adan/);
   assert.match(content, /Confirm consent and approved use/);
 });
