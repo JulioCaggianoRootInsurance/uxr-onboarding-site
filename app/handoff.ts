@@ -1,5 +1,6 @@
 import "server-only";
 
+import { customerQuotes } from "./customer-quotes";
 import { getSiteUpdated } from "./site-updated";
 
 export type HandoffStatus =
@@ -62,6 +63,11 @@ export type ContentBlock =
   | { kind: "quote"; label: string; text: string }
   | { kind: "callout"; status: HandoffStatus; title: string; text: string }
   | { kind: "links"; items: ResourceLink[] }
+  | {
+      kind: "customerEvidenceLibrary";
+      quotes: CustomerQuoteEntry[];
+      collections: VideoCollection[];
+    }
   | { kind: "quoteGrid"; items: CustomerQuoteEntry[] }
   | { kind: "videoLibrary"; collections: VideoCollection[] }
   | { kind: "statusGrid"; items: StatusItem[] }
@@ -153,7 +159,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "q1-voc-report",
     group: "Deliverables",
     order: 1,
-    title: "Quarterly Report (Q1-26)",
+    title: "VOC Quarterly Report (Q1-26)",
     summary:
       "The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework.",
     status: "Delivered",
@@ -273,7 +279,7 @@ export const handoffPages: HandoffPage[] = [
             kind: "list",
             items: [
               "Confirm the long-term owner responsible for applying this new framework to future report iterations.",
-              "Continue improving and expanding long-term sources of data insight, such as the Customer Quote Library.",
+              "Continue improving and expanding long-term sources of data insight, such as the VOC Customer Quote Library.",
               "Strengthen the next-steps section by connecting recommendations directly to Product Design roadmaps through a dedicated communication channel or recurring review session with Clu and Ryan Farnham, Director of Product Design.",
             ],
           },
@@ -285,7 +291,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "q2-voc-report",
     group: "Deliverables",
     order: 2,
-    title: "Quarterly Report (Q2-26)",
+    title: "VOC Quarterly Report (Q2-26)",
     summary:
       "This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August.",
     status: "In progress",
@@ -409,9 +415,9 @@ export const handoffPages: HandoffPage[] = [
     slug: "customer-quote-library",
     group: "Deliverables",
     order: 4,
-    title: "Customer Quote Library",
+    title: "VOC Customer Quote Library",
     summary:
-      "A completed, organized evidence layer that makes customer quotes, recordings, and source context easier to find and reuse responsibly.",
+      "A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources.",
     status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
@@ -430,90 +436,27 @@ export const handoffPages: HandoffPage[] = [
         description: "Access the overall VOC-specific qualitative interviews.",
         href: "https://lookback.io/org/root-inc-2/projects/root-voc-customer-interviews/reels",
       },
-      {
-        label: "Embedded recordings",
-        description: "Find the deidentified Q1-26 clips available on this page.",
-        href: "/customer-quote-library#recordings",
-      },
     ],
     sections: [
       {
-        id: "purpose",
-        title: "Purpose and contribution",
+        id: "customer-quotes",
+        title: "Customer Quotes",
         blocks: [
           {
-            kind: "paragraph",
-            text: "I organized customer quotes to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources.",
-          },
-        ],
-      },
-      {
-        id: "recordings",
-        title: "Q1 customer recordings",
-        showTitle: false,
-        blocks: [
-          {
-            kind: "videoLibrary",
+            kind: "customerEvidenceLibrary",
+            quotes: customerQuotes,
             collections: q1CustomerRecordings,
           },
         ],
       },
       {
-        id: "representative-evidence",
-        title: "Representative evidence",
+        id: "next-steps",
+        title: "Next steps",
         blocks: [
-          {
-            kind: "quoteGrid",
-            items: [
-              {
-                quote:
-                  "What I heard is that some apps monitor your driving, and they just find ways to make your rate go up.",
-                theme: "Telematics trust",
-                source: "VOC interview · Participant 3",
-                period: "Q1 2026",
-                context:
-                  "Explains resistance to monitoring; not a prevalence estimate.",
-              },
-              {
-                quote:
-                  "I feel appreciated when I can contact a human being quickly.",
-                theme: "Human support",
-                source: "VOC interview · Participant 3",
-                period: "Q1 2026",
-                context:
-                  "Illustrates how service access can communicate care.",
-              },
-              {
-                quote:
-                  "If I had been able to manage the payment by maybe paying it twice a month, I think I probably still would be with Root right now.",
-                theme: "Payment flexibility",
-                source: "Billing and Payments Vision Research",
-                period: "Q3 2025",
-                context:
-                  "A retention mechanism from one participant; connect to broader evidence before generalizing.",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "governance",
-        title: "Governance still required",
-        blocks: [
-          {
-            kind: "callout",
-            status: "In progress",
-            title: "A useful library also needs rules",
-            text: "Playback access is only one layer. Every entry should carry its source, allowed use, evidence role, limitation, and reviewer.",
-          },
           {
             kind: "list",
             items: [
-              "Confirm consent and approved use for every quote and recording.",
-              "Preserve exact source locators, timestamps, study dates, and deidentified context.",
-              "Record the connected quantitative pattern, evidence role, limitation, reviewer, and review date.",
-              "Assign a long-term owner and one canonical repository.",
-              "Treat memorable quotes as illustrations of verified findings, not estimates of prevalence.",
+              "Assign the long-term owner of the customer quote library, responsible for quarterly updates",
             ],
           },
         ],
@@ -759,9 +702,9 @@ export const handoffPages: HandoffPage[] = [
     slug: "nps-executive-report",
     group: "Deliverables",
     order: 5,
-    title: "Executive Report NPS (Q1-26)",
+    title: "NPS Executive Report (Q1-26)",
     summary:
-      "The completed Q1 2026 executive readout delivered to Jill, separating customer experience from broader market perception.",
+      "An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program.",
     status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
@@ -773,7 +716,7 @@ export const handoffPages: HandoffPage[] = [
       {
         label: "VOC Figma workspace",
         description: "Shared design workspace containing the report work.",
-        href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
+        href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed",
       },
       {
         label: "Project record",
@@ -783,34 +726,18 @@ export const handoffPages: HandoffPage[] = [
     ],
     sections: [
       {
-        id: "delivered-artifact",
-        title: "Delivered artifact",
-        blocks: [
-          {
-            kind: "callout",
-            status: "Delivered",
-            title: "Executive report delivered",
-            text: "The Q1 2026 NPS executive report is available as a completed PDF and was delivered to Jill. The working design lives in the VOC Figma workspace.",
-          },
-          {
-            kind: "paragraph",
-            text: "I built the report to answer a narrower executive question than the broader quarterly VOC report: what NPS reveals about Root’s current customers, former customers, and people who have not purchased Root—and which follow-up questions the existing evidence cannot yet answer.",
-          },
-        ],
-      },
-      {
         id: "what-it-encompasses",
         title: "What it encompasses",
         blocks: [
           {
             kind: "list",
             items: [
-              "An executive summary that states the principal interpretation and the research questions it creates.",
-              "Separate views of aggregate, current-customer, former-customer, and non-customer NPS.",
-              "A directional review of promoter and detractor themes.",
-              "Methodology and sampling notes for the DTC benchmark and Marketing Brand Tracker inputs.",
-              "A next-step plan focused on explaining non-customer sentiment and strengthening future NPS data collection.",
-              "An appendix with carrier comparisons, segment distributions, and supporting tables.",
+              "Executive summary: A quick overview of the key findings and future steps for leadership.",
+              "NPS segment views: Separate views of aggregate, current-customer, former-customer, and non-customer performance.",
+              "Promoter and detractor themes: A directional review of the experiences shaping positive and negative sentiment.",
+              "Methodology and sampling: Source definitions, sampling context, and limitations for the 10/10 Benchmark Survey and Marketing Brand Tracking Study.",
+              "Follow-up strategy: A focused plan for explaining non-customer sentiment and strengthening future NPS data collection.",
+              "Appendix: Carrier comparisons, segment distributions, and supporting tables for deeper review.",
             ],
           },
         ],
@@ -831,7 +758,7 @@ export const handoffPages: HandoffPage[] = [
           },
           {
             kind: "paragraph",
-            text: "The central analytical safeguard was to avoid reading aggregate NPS as customer-only experience. The report keeps segment results separate, labels small Root samples, and treats open-ended themes as directional where the available response base is limited.",
+            text: "The central research workflow examined each NPS tracking source independently to clarify performance differences between current-customer and non-customer samples. Comparing results at the segment and study level helped explain the diverging scores and reconcile the apparent discrepancy between the Marketing Brand Tracking Study and the 10/10 Benchmark Survey.",
           },
         ],
       },
@@ -842,8 +769,10 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "list",
             items: [
-              "Structured the executive narrative around a clear decision and follow-up question.",
-              "Combined and reconciled the benchmark and brand-tracker perspectives.",
+              "Structured the report narrative for an executive audience that needed concise explanations and a clear follow-up strategy.",
+              "Iterated the document’s storytelling and formatting through multiple rounds of review with leadership stakeholders.",
+              "Investigated a common source of confusion across multiple NPS tracking studies and their diverging results.",
+              "Compared and reconciled the 10/10 Benchmark Survey and Marketing Brand Tracking Study perspectives.",
               "Created the information hierarchy, charts, annotations, disclaimers, and appendix structure.",
               "Translated analytical limitations into visible reading guidance rather than hiding them in footnotes.",
             ],
@@ -856,7 +785,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "uxr-onboarding-documentation",
     group: "Deliverables",
     order: 6,
-    title: "UXR Onboarding Documentation",
+    title: "UXR Documentation",
     summary:
       "An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices.",
     status: "In progress",
@@ -947,48 +876,32 @@ export const handoffPages: HandoffPage[] = [
     order: 7,
     title: "Presentation Template",
     summary:
-      "A completed reusable presentation system with expanded components, data-story layouts, and a Root-aligned photography direction.",
+      "I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.",
     status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Presentation template",
+        label: "Google Slides Template",
         description: "Completed presentation-system export.",
         href: "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view",
       },
       {
-        label: "Team Figma template",
-        description: "New Brand Figma Slides Template in UX Team resources.",
+        label: "Figma Template",
+        description: "Completed Figma presentation template.",
         href: "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1",
       },
       {
-        label: "VOC design system",
+        label: "Design System",
         description: "Editable component system and report workspace in Figma.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1",
       },
       {
-        label: "Project record",
+        label: "Project Documentation",
         description: "Deliverable notes and source context in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s",
       },
     ],
     sections: [
-      {
-        id: "delivered-system",
-        title: "Delivered system",
-        blocks: [
-          {
-            kind: "callout",
-            status: "Delivered",
-            title: "Presentation system complete",
-            text: "The reusable design system, presentation template, and team-ready handoff are complete. The source artifacts are linked below for continued use.",
-          },
-          {
-            kind: "paragraph",
-            text: "I expanded the reporting direction into a practical system rather than a single polished deck. The templates create repeatable structures for executive summaries, key findings, charts, customer evidence, section breaks, and appendices.",
-          },
-        ],
-      },
       {
         id: "what-it-encompasses",
         title: "What it encompasses",
@@ -996,12 +909,12 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "list",
             items: [
-              "Reusable components and page archetypes for Figma.",
+              "Reusable components and design elements for product and research teams.",
               "Executive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.",
               "Chart patterns with places for research questions, sample bases, sources, scales, and limitations.",
-              "A broader Root-aligned photography identity and image treatment for research storytelling.",
-              "A team-owned Figma template and presentation export for repeatable editing and broader access.",
-              "Guidance that favors one primary message, concise supporting text, and visible methodological context.",
+              "An expansion of Root’s photography identity for non-commercial use, grounded in its brand principles.",
+              "Two separate templates: Figma (for designers and technical team members) and Google Slides (for non-technical stakeholders, such as Human Resources partners).",
+              "Structural workflow guidance that clarifies storytelling by focusing each slide on one primary image or message, supported by concise text and visible methodological context.",
             ],
           },
         ],
@@ -1030,77 +943,35 @@ export const handoffPages: HandoffPage[] = [
     order: 8,
     title: "AI Skills",
     summary:
-      "Reusable AI workflows for standardized research-data processing, cross-source synthesis, and Root’s new brand voice.",
+      "To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops.",
     status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "AI Skills folder",
-        description: "Canonical Drive folder for the three research skill packages.",
-        href: "https://drive.google.com/drive/folders/1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ",
-      },
-      {
-        label: "Research synthesis",
-        description: "Packaged workflow for cross-source research synthesis.",
-        href: "https://drive.google.com/file/d/1V_W6ERl6x_cYkLtVYy9-L_MF_p4A0tVW/view",
-      },
-      {
-        label: "Root brand voice",
-        description: "Packaged writing guidance for Root’s updated voice.",
-        href: "https://drive.google.com/file/d/1pLnFe6CPhkBGI-QKrk646YvkUfyFEQFc/view",
-      },
-      {
-        label: "Research visualization",
+        label: "/research-viz",
         description: "Packaged workflow for research charts and visual communication.",
         href: "https://drive.google.com/file/d/14rJ2R0HVKT5mafL4txP91-2Cn7k_dmqt/view",
       },
       {
-        label: "Research playbook",
-        description: "Workflow order, data-handling gate, and handoff guidance.",
-        href: "https://drive.google.com/file/d/1mPK7svpy8ShLSMtdH7qjapY_136u30Xy/view",
+        label: "/research-synthesis",
+        description: "Packaged workflow for cross-source research synthesis.",
+        href: "https://drive.google.com/file/d/1V_W6ERl6x_cYkLtVYy9-L_MF_p4A0tVW/view",
       },
       {
-        label: "Project record",
+        label: "/root-brand-voice",
+        description: "Packaged writing guidance for Root’s updated voice.",
+        href: "https://drive.google.com/file/d/1pLnFe6CPhkBGI-QKrk646YvkUfyFEQFc/view",
+      },
+      {
+        label: "Project Documentation",
         description: "Deliverable notes and package inventory in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.1i5wqpu8xsw",
       },
     ],
     sections: [
       {
-        id: "skill-set",
-        title: "The skill set",
-        blocks: [
-          {
-            kind: "callout",
-            status: "Delivered",
-            title: "Three complementary roles",
-            text: "The workflow separates evidence processing, research synthesis, and brand-voice editing so a polished tone cannot silently change the underlying analysis.",
-          },
-          {
-            kind: "statusGrid",
-            items: [
-              {
-                status: "Delivered",
-                title: "research-viz",
-                text: "Profiles standardized quantitative data, establishes metric contracts, checks quality, and proposes evidence-faithful visualizations.",
-              },
-              {
-                status: "Delivered",
-                title: "research-synthesis",
-                text: "Connects claims across approved sources while retaining locators, confidence, limitations, and disconfirming evidence.",
-              },
-              {
-                status: "Delivered",
-                title: "root-brand-voice",
-                text: "Rewrites stable, reviewed findings in Root’s new brand voice without changing numbers, evidence boundaries, or research meaning.",
-              },
-            ],
-          },
-        ],
-      },
-      {
         id: "how-they-work-together",
-        title: "How they work together",
+        title: "Research Process",
         blocks: [
           {
             kind: "pipeline",
@@ -1110,11 +981,6 @@ export const handoffPages: HandoffPage[] = [
               { label: "Human review", detail: "Challenge claims and edge cases" },
               { label: "root-brand-voice", detail: "Refine approved communication" },
             ],
-          },
-          {
-            kind: "quote",
-            label: "Operating rule",
-            text: "Voice should never outrun validity.",
           },
         ],
       },
@@ -1137,18 +1003,6 @@ export const handoffPages: HandoffPage[] = [
           },
         ],
       },
-      {
-        id: "artifacts-and-boundary",
-        title: "Artifacts and handoff boundary",
-        blocks: [
-          {
-            kind: "callout",
-            status: "Recommendation",
-            title: "Confirm the canonical packages",
-            text: "Before the internship ends, record the approved installation location, owner, version, example input, expected output, and update process for each skill package.",
-          },
-        ],
-      },
     ],
   },
   {
@@ -1156,29 +1010,14 @@ export const handoffPages: HandoffPage[] = [
     group: "Research practice",
     order: 9,
     title: "Research Process",
-    summary:
-      "The repeatable path I used to turn an open brief, mixed research evidence, and stakeholder feedback into reviewable deliverables.",
+    summary: "",
     status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
-        id: "inputs-and-collaboration",
-        title: "Inputs and collaboration",
-        blocks: [
-          {
-            kind: "list",
-            items: [
-              "June 3 and June 12, 2026: project direction and reporting questions involving Anna Nguyen.",
-              "June 9, 2026: input involving Julie Harrison, Hala Daher, 10:10 Research, and Jill Kellett.",
-              "June 24, 2026: dashboard, presentation-system, and research-role feedback from Klew Still.",
-              "July 2, 2026: dashboard feedback documented from Jill Kellett.",
-            ],
-          },
-        ],
-      },
-      {
         id: "how-inputs-shaped-work",
-        title: "How the inputs shaped the work",
+        title: "Research workflow",
+        showTitle: false,
         blocks: [
           {
             kind: "pipeline",
@@ -1187,57 +1026,28 @@ export const handoffPages: HandoffPage[] = [
               { label: "Compare", detail: "Audit reports, tools, and evidence" },
               { label: "Translate", detail: "Turn feedback into design criteria" },
               { label: "Prototype", detail: "Make the direction reviewable" },
-              { label: "Record", detail: "Preserve decisions and open work" },
+              { label: "Iterate", detail: "Implement feedback and improve" },
             ],
-          },
-          {
-            kind: "list",
-            items: [
-              "Reporting direction: Feedback reinforced the need for clearer claims, stronger evidence hierarchy, and a direct path to decision relevance.",
-              "Dashboard direction: Product teams—not only executives—were identified as the primary audience for self-service VOC context.",
-              "Research boundary: The VOC team should define problems and their scale without presenting unsupported product solutions as research conclusions.",
-              "Operating model: Vendor efficiency can support collection and initial analysis, while Root retains validation, business context, prioritization, and storytelling.",
-            ],
+            caption:
+              "My UX research workflow is experimental, iterative, and informed by established human-centered design methods.",
           },
         ],
       },
       {
         id: "research-foundation",
-        title: "Research foundation reviewed",
+        title: "Research philosophy",
         blocks: [
           {
             kind: "paragraph",
-            text: "The appendix records a broad review of VOC reports, survey plans and datasets, telematics research, customer segmentation, product and research repositories, business reporting, presentation templates, and stakeholder notes. This review created the context needed to critique the report and explore the dashboard responsibly.",
+            text: "My research approach begins with observable behavior. Self-reported attitudes can help explain meaning and motivation, but they are not a substitute for seeing what people actually do in context. I look first for behavioral phenomena—task completion, hesitation, errors, workarounds, abandonment, recurring support needs, and changes over time—then use interviews and open-ended feedback to understand the mechanisms behind those patterns.",
           },
           {
-            kind: "list",
-            items: [
-              "VOC program strategy, survey catalog, quarterly report, and project brief.",
-              "DTC and Independent Agent benchmarking materials.",
-              "Qualitative interviews, Lookback recordings, and Sprig feedback.",
-              "Telematics history, customer-choice testing, and product-domain research.",
-              "Business context including CX metrics, retention questions, and company reporting.",
-            ],
-          },
-        ],
-      },
-      {
-        id: "attribution-boundary",
-        title: "Attribution boundary",
-        blocks: [
-          {
-            kind: "callout",
-            status: "In progress",
-            title: "Preserve shared ownership",
-            text: "The record confirms that the conversations and notes informed my work. It does not by itself establish that I led every session or owned collaborators’ research, data, or decisions.",
+            kind: "paragraph",
+            text: "The metrics that matter depend on the decision, but I prioritize measures that connect experience to action: success rate, time on task, assistance required, error frequency, conversion or drop-off, retention signals, and the recurrence and severity of customer problems. I interpret these measures alongside sample quality, segment differences, and source limitations; a metric is useful only when its definition and relationship to the decision are clear.",
           },
           {
-            kind: "list",
-            items: [
-              "Confirm whether I led, co-led, attended, or synthesized each documented conversation.",
-              "Link to canonical notes instead of reproducing sensitive discussion details.",
-              "Attach accepted recommendations to a decision, owner, date, and outcome.",
-            ],
+            kind: "paragraph",
+            text: "I treat customer empathy as an active research practice rather than a statement of intent. For example, instead of asking whether a prototype seems appropriate, I would use an unmoderated usability study to observe whether participants can complete the intended behavior without guidance from the research team. Watching where they pause, adapt, or fail reveals friction that a direct opinion question may miss. Follow-up questions can then explain why the behavior occurred and what the experience meant to the participant.",
           },
         ],
       },
@@ -1530,12 +1340,12 @@ export const handoffPages: HandoffPage[] = [
             items: [
               {
                 status: "Delivered",
-                title: "Quarterly Report (Q1-26)",
+                title: "VOC Quarterly Report (Q1-26)",
                 text: "Completed Figma presentation, V7 export, and reusable reporting principles.",
               },
               {
                 status: "In progress",
-                title: "Quarterly Report (Q2-26)",
+                title: "VOC Quarterly Report (Q2-26)",
                 text: "Working structure and source inventory established; findings and final review remain open.",
               },
               {
@@ -1550,17 +1360,17 @@ export const handoffPages: HandoffPage[] = [
               },
               {
                 status: "Delivered",
-                title: "Customer Quote Library",
+                title: "VOC Customer Quote Library",
                 text: "Multi-source evidence inventory and access points for 21 deidentified Q1 clips.",
               },
               {
                 status: "Delivered",
-                title: "Executive Report NPS (Q1-26)",
+                title: "NPS Executive Report (Q1-26)",
                 text: "Completed Q1 2026 executive report delivered to Jill.",
               },
               {
                 status: "In progress",
-                title: "UXR Onboarding Documentation",
+                title: "UXR Documentation",
                 text: "Living onboarding and operating playbook co-developed with Layilah Campbell.",
               },
               {
@@ -1590,17 +1400,17 @@ export const handoffPages: HandoffPage[] = [
                 href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
               },
               {
-                label: "Quarterly Report (Q1-26) · Editable Figma file",
+                label: "VOC Quarterly Report (Q1-26) · Editable Figma file",
                 description: "Reporting redesign source.",
                 href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
               },
               {
-                label: "Executive Report NPS (Q1-26)",
+                label: "NPS Executive Report (Q1-26)",
                 description: "Completed Q1 2026 PDF in Google Drive.",
                 href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
               },
               {
-                label: "Customer Quote Library",
+                label: "VOC Customer Quote Library",
                 description: "This handoff’s access-controlled recording and governance chapter.",
                 href: "/customer-quote-library",
               },
@@ -1610,7 +1420,7 @@ export const handoffPages: HandoffPage[] = [
                 href: "/voc-dashboard",
               },
               {
-                label: "UXR Onboarding Documentation",
+                label: "UXR Documentation",
                 description: "Living Google Doc co-developed with Layilah Campbell.",
                 href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
               },

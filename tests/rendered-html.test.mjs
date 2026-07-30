@@ -62,12 +62,12 @@ test("defines the full internship handoff architecture", async () => {
     .sort((a, b) => a.order - b.order);
 
   assert.deepEqual(orderedTitles, [
-    { order: 1, title: "Quarterly Report (Q1-26)" },
-    { order: 2, title: "Quarterly Report (Q2-26)" },
+    { order: 1, title: "VOC Quarterly Report (Q1-26)" },
+    { order: 2, title: "VOC Quarterly Report (Q2-26)" },
     { order: 3, title: "VOC Dashboard" },
-    { order: 4, title: "Customer Quote Library" },
-    { order: 5, title: "Executive Report NPS (Q1-26)" },
-    { order: 6, title: "UXR Onboarding Documentation" },
+    { order: 4, title: "VOC Customer Quote Library" },
+    { order: 5, title: "NPS Executive Report (Q1-26)" },
+    { order: 6, title: "UXR Documentation" },
     { order: 7, title: "Presentation Template" },
     { order: 8, title: "AI Skills" },
     { order: 9, title: "Research Process" },
@@ -82,7 +82,7 @@ test("defines the full internship handoff architecture", async () => {
   assert.match(content, /"Research practice"/);
   assert.match(content, /"Future"/);
   assert.match(content, /Layilah Campbell/);
-  assert.match(content, /Quarterly Report \(Q1-26\)/);
+  assert.match(content, /VOC Quarterly Report \(Q1-26\)/);
   assert.match(content, /title: "Project Brief"/);
   assert.doesNotMatch(content, /title: "The brief"/);
   assert.match(
@@ -101,11 +101,11 @@ test("defines the full internship handoff architecture", async () => {
     content,
     /label: "Report viable next steps for product development"/,
   );
-  assert.match(content, /Quarterly Report \(Q2-26\)/);
+  assert.match(content, /VOC Quarterly Report \(Q2-26\)/);
   assert.match(content, /VOC Dashboard/);
-  assert.match(content, /Customer Quote Library/);
-  assert.match(content, /Executive Report NPS \(Q1-26\)/);
-  assert.match(content, /UXR Onboarding Documentation/);
+  assert.match(content, /VOC Customer Quote Library/);
+  assert.match(content, /NPS Executive Report \(Q1-26\)/);
+  assert.match(content, /UXR Documentation/);
   assert.match(content, /Presentation Template/);
   assert.match(content, /AI Skills/);
   assert.match(content, /Research Process/);
@@ -159,9 +159,9 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   assert.match(content, /Future AI-assisted update flow/);
   assert.match(content, /should not overwrite production directly/);
   assert.match(content, /human researcher reviews/i);
-  assert.match(content, /Quarterly Report \(Q2-26\)/);
+  assert.match(content, /VOC Quarterly Report \(Q2-26\)/);
   assert.match(content, /Completed Q1 2026 executive report delivered to Jill/);
-  assert.match(content, /Presentation system complete/);
+  assert.match(content, /practical system for yearly reporting/);
   assert.match(content, /1OshHDffRLd2498_qE3Nqkty_gHhTy6So/);
   assert.match(content, /liCQw8Mv0VVnPMLacbEixP/);
   assert.match(content, /cN9IgxIRTOnBOMJf4tKMeH/);
@@ -201,6 +201,285 @@ test("reflects the Q2 report’s stakeholder dependency and current Figma source
   assert.match(content, /title: "Research Process"/);
   assert.doesNotMatch(content, /title: "Draft structure established"/);
   assert.doesNotMatch(content, /Product recommendations: Bounded opportunities/);
+});
+
+test("frames the NPS report for product and executive audiences", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const npsPage = content.slice(
+    content.indexOf('slug: "nps-executive-report"'),
+    content.indexOf('slug: "uxr-onboarding-documentation"'),
+  );
+  const figmaPrototype =
+    "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed";
+
+  assert.ok(npsPage.includes(`href: "${figmaPrototype}"`));
+  assert.match(
+    npsPage,
+    /helps the product team navigate Root’s current NPS performance/,
+  );
+  for (const label of [
+    "Executive summary:",
+    "NPS segment views:",
+    "Promoter and detractor themes:",
+    "Methodology and sampling:",
+    "Follow-up strategy:",
+    "Appendix:",
+  ]) {
+    assert.match(npsPage, new RegExp(label));
+  }
+  assert.match(npsPage, /key findings and future steps for leadership/);
+  assert.match(
+    npsPage,
+    /central research workflow examined each NPS tracking source independently/,
+  );
+  assert.match(npsPage, /current-customer and non-customer samples/);
+  assert.match(
+    npsPage,
+    /Marketing Brand Tracking Study and the 10\/10 Benchmark Survey/,
+  );
+  assert.match(
+    npsPage,
+    /Structured the report narrative for an executive audience/,
+  );
+  assert.match(
+    npsPage,
+    /multiple rounds of review with leadership stakeholders/,
+  );
+  assert.match(
+    npsPage,
+    /common source of confusion across multiple NPS tracking studies/,
+  );
+  assert.doesNotMatch(
+    npsPage,
+    /The completed Q1 2026 executive readout delivered to Jill/,
+  );
+  assert.doesNotMatch(npsPage, /id: "delivered-artifact"/);
+  assert.doesNotMatch(npsPage, /title: "Delivered artifact"/);
+  assert.doesNotMatch(npsPage, /Executive report delivered/);
+  assert.doesNotMatch(npsPage, /The central analytical safeguard/);
+  assert.doesNotMatch(npsPage, /node-id=311-2741/);
+});
+
+test("presents the reporting templates as one reusable system", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const templatePage = content.slice(
+    content.indexOf('slug: "presentation-template-system"'),
+    content.indexOf('slug: "ai-research-skills"'),
+  );
+
+  assert.match(templatePage, /label: "Google Slides Template"/);
+  assert.match(templatePage, /label: "Figma Template"/);
+  assert.match(
+    templatePage,
+    /description: "Completed Figma presentation template\."/,
+  );
+  assert.match(templatePage, /label: "Design System"/);
+  assert.match(templatePage, /label: "Project Documentation"/);
+  assert.match(
+    templatePage,
+    /I expanded the rebrand into a practical system for yearly reporting/,
+  );
+  assert.match(templatePage, /repeatable structures for executive summaries/);
+  assert.match(
+    templatePage,
+    /research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework/,
+  );
+  assert.match(
+    templatePage,
+    /Reusable components and design elements for product and research teams/,
+  );
+  assert.match(
+    templatePage,
+    /Root’s photography identity for non-commercial use, grounded in its brand principles/,
+  );
+  assert.match(
+    templatePage,
+    /Two separate templates: Figma \(for designers and technical team members\) and Google Slides \(for non-technical stakeholders, such as Human Resources partners\)/,
+  );
+  assert.match(
+    templatePage,
+    /focusing each slide on one primary image or message/,
+  );
+  assert.doesNotMatch(templatePage, /id: "delivered-system"/);
+  assert.doesNotMatch(templatePage, /Presentation system complete/);
+  assert.doesNotMatch(
+    templatePage,
+    /I expanded the reporting direction into a practical system/,
+  );
+  assert.doesNotMatch(templatePage, /label: "Team Figma template"/);
+  assert.doesNotMatch(templatePage, /label: "VOC design system"/);
+  assert.doesNotMatch(templatePage, /label: "Presentation template"/);
+  assert.doesNotMatch(templatePage, /label: "Project record"/);
+  assert.doesNotMatch(
+    templatePage,
+    /New Brand Figma Slides Template in UX Team resources/,
+  );
+});
+
+test("keeps the AI skills page focused on the research process", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const styles = await readProjectFile("app/globals.css");
+  const aiSkillsPage = content.slice(
+    content.indexOf('slug: "ai-research-skills"'),
+    content.indexOf('slug: "research-process"'),
+  );
+  const primaryLinks = aiSkillsPage.slice(
+    aiSkillsPage.indexOf("primaryLinks: ["),
+    aiSkillsPage.indexOf("sections: ["),
+  );
+
+  assert.match(
+    primaryLinks,
+    /primaryLinks: \[\s+\{\s+label: "\/research-viz"/,
+  );
+  for (const label of [
+    "/research-viz",
+    "/research-synthesis",
+    "/root-brand-voice",
+    "Project Documentation",
+  ]) {
+    assert.match(primaryLinks, new RegExp(`label: "${label}"`));
+  }
+  assert.equal((primaryLinks.match(/^\s+label:/gm) ?? []).length, 4);
+  assert.doesNotMatch(primaryLinks, /label: "AI Skills folder"/);
+  assert.doesNotMatch(primaryLinks, /label: "Project record"/);
+  assert.doesNotMatch(primaryLinks, /label: "Research playbook"/);
+  assert.doesNotMatch(primaryLinks, /label: "Research visualization"/);
+  assert.doesNotMatch(primaryLinks, /label: "Research synthesis"/);
+  assert.doesNotMatch(primaryLinks, /label: "Root brand voice"/);
+  assert.match(
+    aiSkillsPage,
+    /streamline research across diverse data sources/,
+  );
+  assert.match(aiSkillsPage, /Python-based visualization/);
+  assert.match(aiSkillsPage, /reliable handling of CSV files/);
+  assert.match(aiSkillsPage, /CSV files\.\\nThe packages/);
+  assert.match(aiSkillsPage, /spend more time interpreting results/);
+  assert.doesNotMatch(
+    aiSkillsPage,
+    /instead of repeating manual spreadsheet work/,
+  );
+  assert.match(aiSkillsPage, /Root brand-voice skill/);
+  assert.match(aiSkillsPage, /evolving experiment/);
+  assert.match(aiSkillsPage, /AI-written language/);
+  assert.match(
+    styles,
+    /\.article-intro > p\s*\{[^}]*white-space: pre-line;/s,
+  );
+  assert.match(
+    aiSkillsPage,
+    /id: "how-they-work-together",\s+title: "Research Process"/,
+  );
+  assert.match(aiSkillsPage, /id: "data-processing-workflow"/);
+  assert.match(aiSkillsPage, /title: "Data-processing workflow"/);
+  assert.doesNotMatch(aiSkillsPage, /id: "skill-set"|The skill set/);
+  assert.doesNotMatch(aiSkillsPage, /Three complementary roles/);
+  assert.doesNotMatch(aiSkillsPage, /How they work together/);
+  assert.doesNotMatch(aiSkillsPage, /Operating rule/);
+  assert.doesNotMatch(aiSkillsPage, /Voice should never outrun validity/);
+  assert.doesNotMatch(
+    aiSkillsPage,
+    /id: "artifacts-and-boundary"|Artifacts and handoff boundary/,
+  );
+  assert.doesNotMatch(aiSkillsPage, /Confirm the canonical packages/);
+});
+
+test("keeps the research process focused on an iterative workflow", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const components = await readProjectFile("app/site-components.tsx");
+  const styles = await readProjectFile("app/globals.css");
+  const researchProcessPage = content.slice(
+    content.indexOf('slug: "research-process"'),
+    content.indexOf('slug: "standard-operating-procedures"'),
+  );
+
+  assert.match(researchProcessPage, /title: "Research Process",\s+summary: ""/);
+  assert.doesNotMatch(
+    researchProcessPage,
+    /The repeatable path I used to turn an open brief/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /id: "inputs-and-collaboration"|Inputs and collaboration/,
+  );
+  assert.doesNotMatch(researchProcessPage, /June 3 and June 12, 2026/);
+  assert.match(
+    researchProcessPage,
+    /id: "how-inputs-shaped-work",\s+title: "Research workflow",\s+showTitle: false/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /How the inputs shaped the work/,
+  );
+  assert.match(
+    researchProcessPage,
+    /label: "Iterate", detail: "Implement feedback and improve"/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /label: "Record"|Preserve decisions and open work/,
+  );
+  assert.match(
+    researchProcessPage,
+    /My UX research workflow is experimental, iterative, and informed by established human-centered design methods\./,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /Reporting direction:|Dashboard direction:|Research boundary:|Operating model:/,
+  );
+  assert.match(
+    researchProcessPage,
+    /id: "research-foundation",\s+title: "Research philosophy"/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /Research foundation reviewed|The appendix records a broad review/,
+  );
+  assert.match(
+    researchProcessPage,
+    /My research approach begins with observable behavior\./,
+  );
+  assert.match(
+    researchProcessPage,
+    /Self-reported attitudes can help explain meaning and motivation/,
+  );
+  assert.match(
+    researchProcessPage,
+    /success rate, time on task, assistance required, error frequency/,
+  );
+  assert.match(
+    researchProcessPage,
+    /customer empathy as an active research practice/,
+  );
+  assert.match(
+    researchProcessPage,
+    /unmoderated usability study/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /id: "attribution-boundary"|Attribution boundary/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /Preserve shared ownership|Confirm whether I led, co-led, attended, or synthesized/,
+  );
+  assert.match(
+    components,
+    /\.filter\(\(section\) => section\.showTitle !== false\)/,
+  );
+  assert.match(components, /content-section-untitled/);
+  assert.match(
+    components,
+    /\{page\.summary \? <p>\{page\.summary\}<\/p> : null\}/,
+  );
+  assert.match(
+    styles,
+    /\.content-section-untitled\s*\{\s*padding-top: 0\.75rem;/s,
+  );
+  assert.match(
+    styles,
+    /\.content-section-untitled > :first-child\s*\{\s*margin-top: 0;/s,
+  );
 });
 
 test("keeps the homepage focused on the introduction and chapter index", async () => {
@@ -276,7 +555,7 @@ test("reflects the refined Q1 brief and aligned callout rule", async () => {
     /id: "continuation",\s+title: "What should happen next",\s+blocks: \[\s+\{\s+kind: "list"/,
   );
   assert.match(content, /applying this new framework to future report iterations/);
-  assert.match(content, /Customer Quote Library/);
+  assert.match(content, /VOC Customer Quote Library/);
   assert.match(content, /Clu and Ryan Farnham, Director of Product Design/);
   assert.match(
     styles,
@@ -331,13 +610,19 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(styles, /\.resource-link:focus-visible \{[\s\S]*255, 103, 43/);
 });
 
-test("retains a deidentified, governed library of 21 customer clips", async () => {
+test("keeps the customer quote library synchronized, ordered, and deidentified", async () => {
   const content = await readProjectFile("app/handoff.ts");
+  const quotes = await readProjectFile("app/customer-quotes.ts");
   const components = await readProjectFile("app/site-components.tsx");
+  const evidenceLibrary = await readProjectFile(
+    "app/customer-evidence-library.tsx",
+  );
   const styles = await readProjectFile("app/globals.css");
-  const videoGridBlocks = [
-    ...styles.matchAll(/\.embedded-video-grid \{([^}]*)\}/g),
-  ].map((match) => match[1]);
+  const customerPage = content.slice(
+    content.indexOf('slug: "customer-quote-library"'),
+    content.indexOf('slug: "voc-dashboard"'),
+  );
+  const quoteRecords = quotes.match(/^\s{8}quote:/gm) ?? [];
   const driveIds = [...content.matchAll(/driveId: "([^"]+)"/g)].map(
     (match) => match[1],
   );
@@ -357,14 +642,53 @@ test("retains a deidentified, governed library of 21 customer clips", async () =
   assert.match(content, /label: "Customer support library"/);
   assert.match(content, /label: "Lookback reels and insights"/);
   assert.match(content, /Access the overall VOC-specific qualitative interviews/);
-  assert.match(content, /Find the deidentified Q1-26 clips available on this page/);
-  assert.match(content, /I organized customer quotes to support future quarterly reports/);
-  assert.match(content, /connecting quantitative data patterns to direct customer experiences/);
-  assert.match(content, /app reviews, long-form survey responses, customer feedback/);
+  assert.doesNotMatch(customerPage, /Embedded recordings/);
+  assert.doesNotMatch(
+    customerPage,
+    /Find the deidentified Q1-26 clips available on this page/,
+  );
   assert.match(
     content,
-    /id: "recordings",\n\s+title: "Q1 customer recordings",\n\s+showTitle: false/,
+    /A complete, organized customer quote library to support future quarterly reports/,
   );
+  assert.match(
+    content,
+    /workflow of connecting quantitative data patterns to direct customer experiences/,
+  );
+  assert.match(
+    content,
+    /interviews, app reviews, long-form survey responses, customer feedback, and other research resources/,
+  );
+  assert.match(customerPage, /id: "customer-quotes"/);
+  assert.match(customerPage, /title: "Customer Quotes"/);
+  assert.doesNotMatch(customerPage, /id: "purpose"|Purpose and contribution/);
+  assert.doesNotMatch(customerPage, /representative-evidence|Representative evidence/);
+  assert.match(customerPage, /kind: "customerEvidenceLibrary"/);
+  assert.match(customerPage, /quotes: customerQuotes/);
+  assert.match(customerPage, /collections: q1CustomerRecordings/);
+  assert.doesNotMatch(customerPage, /id: "recordings"/);
+  assert.ok(
+    customerPage.indexOf('id: "customer-quotes"') <
+      customerPage.indexOf('id: "next-steps"'),
+  );
+  assert.match(
+    customerPage,
+    /id: "next-steps",\s+title: "Next steps",\s+blocks: \[\s+\{\s+kind: "list",\s+items: \[\s+"Assign the long-term owner of the customer quote library, responsible for quarterly updates"/,
+  );
+  assert.doesNotMatch(
+    customerPage,
+    /Governance still required|A useful library also needs rules|Playback access is only one layer|Confirm consent and approved use|Preserve exact source locators|Record the connected quantitative pattern|Treat memorable quotes as illustrations/,
+  );
+  assert.equal(quoteRecords.length, 45);
+  assert.match(quotes, /tabId: "t\.vwocc5k1v4db"/);
+  assert.match(quotes, /syncedOn: "2026-07-30"/);
+  assert.match(quotes, /VOC Customer Interview · Participant 1/);
+  assert.match(quotes, /Q1 VOC Report · App reviews/);
+  assert.match(quotes, /Rebrand Consumer Interview · Participant 8/);
+  assert.match(quotes, /In-App Survey Pilot at Sprig/);
+  assert.match(quotes, /Customer Survey/);
+  assert.match(quotes, /Customer Choice Survey/);
+  assert.match(quotes, /Billing and Payments Vision Research/);
   assert.doesNotMatch(content, /label: "Library record"/);
   assert.doesNotMatch(content, /Jump to the deidentified/);
   assert.doesNotMatch(content, /title: "Library delivered"/);
@@ -372,27 +696,76 @@ test("retains a deidentified, governed library of 21 customer clips", async () =
   assert.doesNotMatch(content, /These reels play from Google Drive/);
   assert.match(
     components,
-    /section\.showTitle !== false \? <h2>\{section\.title\}<\/h2> : null/,
+    /import \{ CustomerEvidenceLibrary \} from "\.\/customer-evidence-library"/,
   );
   assert.match(
     components,
-    /section\.showTitle === false \? section\.title : undefined/,
+    /<CustomerEvidenceLibrary\s+collections=\{block\.collections\}\s+quotes=\{block\.quotes\}/,
   );
-  assert.match(components, /allowFullScreen/);
-  assert.match(components, /\/preview`}/);
-  assert.ok(videoGridBlocks.length >= 1);
-  assert.match(videoGridBlocks[0], /grid-template-columns: 1fr/);
+  assert.match(evidenceLibrary, /^"use client";/);
+  assert.match(evidenceLibrary, /function roundRobinClips/);
+  assert.match(evidenceLibrary, /function buildEvidenceStream/);
+  assert.match(evidenceLibrary, /baseQuotesPerClip/);
+  assert.match(evidenceLibrary, /extraQuoteCount/);
+  assert.match(
+    evidenceLibrary,
+    /Math\.floor\(\(extraIndex \* clips\.length\) \/ extraQuoteCount\)/,
+  );
+  assert.match(evidenceLibrary, /allowFullScreen/);
+  assert.match(evidenceLibrary, /\/preview`}/);
+  assert.match(evidenceLibrary, />\s*Search quotes\s*<\/button>/);
+  assert.match(evidenceLibrary, />\s*Search\s*<\/label>/);
+  assert.match(evidenceLibrary, /Keyword, theme, or idea/);
+  assert.match(evidenceLibrary, />Affinities<\/p>/);
+  assert.match(evidenceLibrary, /function isWithinEditDistance/);
+  assert.match(evidenceLibrary, /function affinityMatchesQueryToken/);
+  assert.match(evidenceLibrary, /function quoteMatchesQuery/);
+  assert.match(evidenceLibrary, /aria-expanded=\{isSearchOpen\}/);
+  assert.match(evidenceLibrary, /aria-pressed=\{isSelected\}/);
+  assert.match(evidenceLibrary, /aria-live="polite"/);
+  for (const affinity of [
+    "Trust",
+    "Pricing",
+    "Payments",
+    "Support",
+    "Telematics / data",
+    "Cancellation / retention",
+    "Shopping / quotes",
+    "App experience",
+    "Brand / messaging",
+  ]) {
+    assert.match(evidenceLibrary, new RegExp(`label: "${affinity}"`));
+  }
+  assert.match(styles, /\.customer-evidence-stream \{/);
+  assert.match(styles, /\.evidence-search-toggle \{/);
+  assert.match(styles, /\.evidence-search-panel \{/);
+  assert.match(styles, /\.evidence-affinity-chip\.is-selected \{/);
+  const searchPanel =
+    styles.match(/\.evidence-search-panel \{([^}]*)\}/)?.[1] ?? "";
+  const searchControls =
+    styles.match(
+      /\.evidence-affinity-chip,\n\.evidence-search-clear \{([^}]*)\}/,
+    )?.[1] ?? "";
+  assert.match(searchPanel, /border: 0/);
+  assert.match(searchPanel, /border-radius: 0/);
+  assert.match(searchPanel, /background: transparent/);
+  assert.match(searchControls, /border-radius: 0/);
+  assert.doesNotMatch(searchControls, /999px/);
   assert.doesNotMatch(content, /Jasmine Anderson|Dawn Collins|Adan/);
-  assert.match(content, /Confirm consent and approved use/);
+  assert.doesNotMatch(quotes, /Jasmine Anderson|Dawn Collins|Adan/);
 });
 
 test("keeps private prose server-only and interactive navigation isolated", async () => {
   const content = await readProjectFile("app/handoff.ts");
   const components = await readProjectFile("app/site-components.tsx");
+  const evidenceLibrary = await readProjectFile(
+    "app/customer-evidence-library.tsx",
+  );
   const navigation = await readProjectFile("app/article-navigation.tsx");
 
   assert.match(content, /^import "server-only";/);
   assert.doesNotMatch(components, /^"use client";/);
+  assert.match(evidenceLibrary, /^"use client";/);
   assert.match(navigation, /^"use client";/);
   assert.doesNotMatch(components, /from "\.\/onboarding"/);
 });

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { signOut } from "@/auth";
 import { ArticleNavigation } from "./article-navigation";
+import { CustomerEvidenceLibrary } from "./customer-evidence-library";
 import {
   handoffGroups,
   handoffPages,
@@ -313,6 +314,15 @@ function Block({ block }: { block: ContentBlock }) {
     return <ResourceLinks items={block.items} />;
   }
 
+  if (block.kind === "customerEvidenceLibrary") {
+    return (
+      <CustomerEvidenceLibrary
+        collections={block.collections}
+        quotes={block.quotes}
+      />
+    );
+  }
+
   if (block.kind === "quoteGrid") {
     return (
       <div className="quote-library-grid">
@@ -467,7 +477,9 @@ export function ArticlePage({
     <div className="page-shell article-page">
       <ArticleNavigation
         title={page.title}
-        sections={page.sections.map(({ id, title }) => ({ id, title }))}
+        sections={page.sections
+          .filter((section) => section.showTitle !== false)
+          .map(({ id, title }) => ({ id, title }))}
       />
       <main id="main-content">
         <article className="article">
@@ -477,7 +489,7 @@ export function ArticlePage({
               <span className="article-group">{page.group}</span>
               <StatusPill status={page.status} />
             </div>
-            <p>{page.summary}</p>
+            {page.summary ? <p>{page.summary}</p> : null}
           </header>
 
           {page.primaryLinks?.length ? (
@@ -496,7 +508,9 @@ export function ArticlePage({
               aria-label={
                 section.showTitle === false ? section.title : undefined
               }
-              className="content-section stagger-item"
+              className={`content-section stagger-item${
+                section.showTitle === false ? " content-section-untitled" : ""
+              }`}
               id={section.id}
               key={section.id}
               style={

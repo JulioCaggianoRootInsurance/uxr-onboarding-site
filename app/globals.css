@@ -767,11 +767,20 @@ ol {
 
 .article-intro > p {
   color: rgba(0, 0, 0, 0.68);
+  white-space: pre-line;
 }
 
 .content-section {
   scroll-margin-top: 5.25rem;
   padding-top: 3.25rem;
+}
+
+.content-section-untitled {
+  padding-top: 0.75rem;
+}
+
+.content-section-untitled > :first-child {
+  margin-top: 0;
 }
 
 .content-section > h2 {
@@ -1187,6 +1196,233 @@ blockquote span {
   line-height: 0.85rem;
 }
 
+.customer-evidence-library {
+  padding-top: 0.75rem;
+}
+
+.evidence-library-tools {
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.evidence-search-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.75rem 0.15rem;
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.62);
+  font: inherit;
+  font-size: 0.6875rem;
+  font-weight: 560;
+  cursor: pointer;
+}
+
+.evidence-search-toggle::after {
+  content: "↓";
+  color: var(--accent);
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: transform 0.16s ease;
+}
+
+.evidence-search-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.evidence-search-toggle:hover {
+  color: var(--ink);
+}
+
+.evidence-search-panel {
+  margin: 0;
+  padding: 0 0.15rem 0.9rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.evidence-search-field,
+.evidence-affinity-filters {
+  display: grid;
+  grid-template-columns: 6.75rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.evidence-search-field {
+  align-items: start;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.evidence-search-label {
+  padding-top: 0.5rem;
+  color: var(--soft);
+  font-size: 0.625rem;
+  font-weight: 520;
+  line-height: 0.85rem;
+}
+
+.evidence-search-control {
+  min-width: 0;
+}
+
+.evidence-search-input {
+  width: 100%;
+  min-height: 2rem;
+  padding: 0.35rem 0 0.45rem;
+  border: 0;
+  border-bottom: 1px solid #cfcfca;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.1rem;
+}
+
+.evidence-search-input::placeholder {
+  color: rgba(0, 0, 0, 0.32);
+}
+
+.evidence-search-input:focus {
+  border-color: var(--accent);
+}
+
+.evidence-search-hint {
+  padding-top: 0.4rem;
+  color: rgba(0, 0, 0, 0.42);
+  font-size: 0.625rem;
+  line-height: 0.9rem;
+}
+
+.evidence-affinity-filters {
+  align-items: start;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.evidence-affinity-filters > p {
+  padding-top: 0.15rem;
+  color: var(--soft);
+  font-size: 0.625rem;
+  font-weight: 520;
+  line-height: 0.85rem;
+}
+
+.evidence-affinity-chips {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+}
+
+.evidence-affinity-chip,
+.evidence-search-clear {
+  border: 0;
+  border-bottom: 1px solid #d9d9d4;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.48);
+  font: inherit;
+  font-size: 0.625rem;
+  font-weight: 520;
+  cursor: pointer;
+}
+
+.evidence-affinity-chip {
+  min-height: 1.55rem;
+  padding: 0.2rem 0;
+}
+
+.evidence-affinity-chip:hover,
+.evidence-affinity-chip:focus-visible,
+.evidence-search-clear:hover,
+.evidence-search-clear:focus-visible {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.evidence-affinity-chip.is-selected {
+  border-color: var(--accent);
+  background: transparent;
+  color: var(--ink);
+}
+
+.customer-evidence-stream {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+.evidence-video-card {
+  margin: 0.4rem 0 0.75rem;
+  background: #ffffff;
+}
+
+.evidence-video-caption,
+.evidence-video-links {
+  display: flex;
+}
+
+.evidence-video-caption {
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.evidence-video-caption strong {
+  color: rgba(0, 0, 0, 0.62);
+  font-weight: 590;
+}
+
+.evidence-video-caption small {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.5625rem;
+  font-weight: 500;
+}
+
+.evidence-video-links {
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.evidence-filtered-view {
+  padding-top: 0.6rem;
+}
+
+.evidence-search-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.15rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.evidence-search-summary p {
+  color: rgba(0, 0, 0, 0.52);
+  font-size: 0.6875rem;
+  font-weight: 550;
+}
+
+.evidence-search-clear {
+  padding: 0.2rem 0;
+}
+
+.evidence-search-empty {
+  padding: 1.5rem 0;
+  color: rgba(0, 0, 0, 0.46);
+  font-size: 0.75rem;
+  line-height: 1.1rem;
+}
+
 .video-library {
   display: flex;
   flex-direction: column;
@@ -1254,20 +1490,19 @@ blockquote span {
 }
 
 .clip-count::after {
-  content: "+";
-  display: grid;
-  width: 1.5rem;
-  height: 1.5rem;
-  place-items: center;
-  border: 1px solid #e4e4e0;
-  border-radius: 50%;
+  content: "›";
+  display: inline-block;
+  width: auto;
+  height: auto;
+  border: 0;
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 1rem;
+  line-height: 1;
   transition: transform 0.16s ease;
 }
 
 .video-collection[open] .clip-count::after {
-  transform: rotate(45deg);
+  transform: rotate(90deg);
 }
 
 .embedded-video-grid {
@@ -2261,13 +2496,39 @@ blockquote span {
     min-height: 0;
   }
 
-  .video-collection > summary {
-    align-items: flex-start;
+  .evidence-search-toggle {
+    padding-right: 0;
+    padding-left: 0;
   }
 
-  .clip-count {
-    flex-direction: column-reverse;
-    gap: 0.2rem;
+  .evidence-search-panel {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .evidence-search-field,
+  .evidence-affinity-filters {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .evidence-search-label,
+  .evidence-affinity-filters > p {
+    padding-top: 0;
+  }
+
+  .embedded-video-card.evidence-video-card figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .evidence-video-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .video-collection > summary {
+    align-items: flex-start;
   }
 
   .status-grid {
