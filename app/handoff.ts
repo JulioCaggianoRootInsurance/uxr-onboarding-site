@@ -1,5 +1,7 @@
 import "server-only";
 
+import { getSiteUpdated } from "./site-updated";
+
 export type HandoffStatus =
   | "Delivered"
   | "Prototype"
@@ -64,7 +66,7 @@ export type ContentBlock =
   | { kind: "videoLibrary"; collections: VideoCollection[] }
   | { kind: "statusGrid"; items: StatusItem[] }
   | { kind: "commands"; items: CommandItem[] }
-  | { kind: "pipeline"; items: PipelineItem[] };
+  | { kind: "pipeline"; items: PipelineItem[]; caption?: string };
 
 export type HandoffGroup =
   | "Deliverables"
@@ -90,7 +92,7 @@ export type HandoffPage = {
   sections: HandoffSection[];
 };
 
-export const siteUpdated = "Last Updated: Jul 29, 2026";
+export const siteUpdated = getSiteUpdated().label;
 
 const q1CustomerRecordings: VideoCollection[] = [
   {
@@ -191,14 +193,14 @@ export const handoffPages: HandoffPage[] = [
           },
           {
             kind: "paragraph",
-            text: "My primary internship mandate was to enhance storytelling for Voice of the Customer and the Quarterly Customer Report. I reviewed the existing Q1 approach, documented its communication gaps, and translated the critique into an editable redesign direction.",
+            text: "My primary internship objective was to improve the storytelling techniques and data accuracy of the VOC Quarterly Customer Report. To do so, I reviewed the existing research approach, documented its communication gaps, and translated that critique into a comprehensive direction for future research iterations.",
           },
           {
             kind: "list",
             items: [
-              "Problem: Important findings competed for attention instead of forming one narrative.",
-              "Audience need: Product and leadership stakeholders needed a faster path from evidence to the “so what.”",
-              "My role: Audit the existing report, develop reporting standards, and prototype a clearer storytelling direction.",
+              "Problem: Important findings competed for attention within a confusing narrative and data-analysis format.",
+              "Target audience: Product leadership needed a quicker pathway from data interpretation to actionable product insights.",
+              "My role: Audit the existing report, develop reporting standards, revise the data-analysis workflow, and prototype a clear storytelling direction.",
             ],
           },
         ],
@@ -264,31 +266,15 @@ export const handoffPages: HandoffPage[] = [
         ],
       },
       {
-        id: "artifacts",
-        title: "Artifacts and value",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "The result was more than a text critique: it created an editable design direction and a reusable set of standards for future VOC report reviews.",
-          },
-        ],
-      },
-      {
         id: "continuation",
         title: "What should happen next",
         blocks: [
           {
-            kind: "callout",
-            status: "Recommendation",
-            title: "Turn the framework into team infrastructure",
-            text: "Convert the principles into an approved QCR template and review checklist, then record which recommendations are adopted and which decisions they influence.",
-          },
-          {
             kind: "list",
             items: [
-              "Confirm the canonical template and its long-term owner.",
-              "Create a lightweight review gate for sources, sample bases, claims, and customer evidence.",
-              "Carry the accepted Q1 reporting rules into the in-progress Q2 report without assuming every Q1 pattern still applies.",
+              "Confirm the long-term owner responsible for applying this new framework to future report iterations.",
+              "Continue improving and expanding long-term sources of data insight, such as the Customer Quote Library.",
+              "Strengthen the next-steps section by connecting recommendations directly to Product Design roadmaps through a dedicated communication channel or recurring review session with Clu and Ryan Farnham, Director of Product Design.",
             ],
           },
         ],
@@ -325,11 +311,11 @@ export const handoffPages: HandoffPage[] = [
             kind: "callout",
             status: "In progress",
             title: "Waiting for stakeholder datasets",
-            text: "Seven datasets must be collected and reviewed. We are waiting for stakeholders to share the remaining files before synthesis can continue.",
+            text: "Seven datasets must be collected and reviewed (10-10 Direct-to-Consumer Benchmark Survey, 10-10 Independent Agents Survey, app reviews, Marketing Brand Tracker, qualitative customer interviews, SPRIG Index Surveys, and VOC Auto Shopping Survey). We are waiting for stakeholders to share the remaining files before synthesis can continue.",
           },
           {
             kind: "paragraph",
-            text: "The Q2 report builds on the Q1 redesign. It turns new research inputs into a clear story: what the evidence shows, why the pattern may be happening, and what Root should do next.",
+            text: "To deliver the report during my final internship week, we are accelerating data collection and will use survey data that ends approximately two weeks earlier than the intended late-August cutoff. This timing tradeoff should be documented as a limitation. Future VOC reporting should operate as an ongoing monitoring program—independent of internship timelines—with fixed, comparable collection windows and precise cutoff dates across the May-to-late-August period.",
           },
         ],
       },
@@ -355,17 +341,34 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "paragraph",
-            text: "The research process starts by collecting and reviewing seven datasets from external stakeholders. Inputs may include benchmark studies, app-store reviews, qualitative interviews, and in-product Sprig feedback. Each source has a different evidentiary role and must be evaluated before synthesis.",
+            text: "My research process begins at the system level: I scan broad behavioral and attitudinal signals—such as a rise in negative app reviews—to identify where the customer experience may be changing. I then move from the quantitative “what” to the qualitative “why,” using interviews, customer conversations, and thematic analysis of verbatims to test competing explanations and surface context. Finally, I integrate evidence across sources, document contradictions and limitations, and translate the most defensible patterns into a clear narrative and focused questions for stakeholders.",
           },
           {
             kind: "pipeline",
             items: [
-              { label: "Inventory", detail: "Confirm period, sample, question, and source owner" },
-              { label: "Validate", detail: "Check quality, exclusions, missingness, and limitations" },
-              { label: "Synthesize", detail: "Separate broad patterns from explanatory evidence" },
-              { label: "Narrate", detail: "Build one defensible through-line" },
-              { label: "Review", detail: "Challenge claims before the report is final" },
+              {
+                label: "Scan systemic signals",
+                detail: "Find shifts across surveys, reviews, trackers, and behavioral data",
+              },
+              {
+                label: "Select what needs explaining",
+                detail: "Prioritize consequential patterns, segments, and contradictions",
+              },
+              {
+                label: "Conduct customer conversations",
+                detail: "Probe the context and mechanisms behind the quantitative signal",
+              },
+              {
+                label: "Develop verbatim themes",
+                detail: "Code recurring language, tensions, and counterevidence",
+              },
+              {
+                label: "Integrate the evidence",
+                detail: "Combine scale and meaning into a bounded narrative and next questions",
+              },
             ],
+            caption:
+              "UX research adaptation of Creswell and Plano Clark’s explanatory sequential mixed-methods design: quantitative patterns → qualitative explanation → integrated interpretation.",
           },
         ],
       },
@@ -376,7 +379,7 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "list",
             items: [
-              "Carried the Q1 reporting principles into the Q2 outline.",
+              "Translated the new VOC storytelling framework into the Q2 2026 data.",
               "Reviewed prior-quarter evidence and documented the sources needed for the next synthesis.",
               "Established a clearer separation between findings, explanatory customer evidence, and future research questions.",
               "Created a reusable visual and narrative system through the presentation-template work.",
@@ -413,7 +416,7 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Library record",
+        label: "Customer support library",
         description: "The source inventory and supporting links in the IPSD.",
         href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.vwocc5k1v4db",
       },
@@ -424,12 +427,12 @@ export const handoffPages: HandoffPage[] = [
       },
       {
         label: "Lookback reels and insights",
-        description: "Lookback workspace where the interview reels and insights were created.",
+        description: "Access the overall VOC-specific qualitative interviews.",
         href: "https://lookback.io/org/root-inc-2/projects/root-voc-customer-interviews/reels",
       },
       {
         label: "Embedded recordings",
-        description: "Jump to the deidentified Q1-26 clips available on this page.",
+        description: "Find the deidentified Q1-26 clips available on this page.",
         href: "/customer-quote-library#recordings",
       },
     ],
@@ -439,24 +442,8 @@ export const handoffPages: HandoffPage[] = [
         title: "Purpose and contribution",
         blocks: [
           {
-            kind: "callout",
-            status: "Delivered",
-            title: "Library delivered",
-            text: "The source inventory and 21 access-controlled Q1 recording embeds are organized and available. Ongoing governance remains an operating responsibility, not an unfinished library feature.",
-          },
-          {
             kind: "paragraph",
-            text: "I organized customer evidence so future reporting could connect quantitative patterns to direct customer language without losing provenance. The library spans interviews, reports, surveys, Sprig feedback, customer-choice research, and billing or retention work.",
-          },
-          {
-            kind: "list",
-            items: [
-              "Q1 customer interviews and the Q1 VOC report.",
-              "Q2 rebrand interviews.",
-              "In-product Sprig feedback.",
-              "Customer survey and Customer Choice research.",
-              "Billing, payments, and retention research.",
-            ],
+            text: "I organized customer quotes to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources.",
           },
         ],
       },

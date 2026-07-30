@@ -5,7 +5,7 @@ import {
   safeReturnTo,
   signOut,
 } from "@/auth";
-import { siteUpdated } from "../handoff";
+import { getSiteUpdated } from "../site-updated";
 import { LoginForm } from "./login-form";
 
 export const dynamic = "force-dynamic";
@@ -26,6 +26,7 @@ type LoginPageProps = {
 };
 
 export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const siteUpdated = getSiteUpdated();
   const params = await searchParams;
   const returnTo = safeReturnTo(params.returnTo ?? params.callbackUrl);
   const session = await getHandoffSession();
@@ -36,7 +37,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       <main className="article login-article" aria-labelledby="login-title">
         <header className="article-header stagger-item">
           <h1 id="login-title">UXR Internship Handoff</h1>
-          <time dateTime="2026-07-29">{siteUpdated}</time>
+          <time dateTime={siteUpdated.dateTime}>{siteUpdated.label}</time>
         </header>
 
         <section

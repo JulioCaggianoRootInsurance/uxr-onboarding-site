@@ -5,12 +5,12 @@ import { ArticleNavigation } from "./article-navigation";
 import {
   handoffGroups,
   handoffPages,
-  siteUpdated,
   type ContentBlock,
   type HandoffPage,
   type HandoffStatus,
   type ResourceLink,
 } from "./handoff";
+import { getSiteUpdated } from "./site-updated";
 
 function statusClass(status: HandoffStatus): string {
   return `status-${status.toLowerCase().replaceAll(" ", "-")}`;
@@ -100,21 +100,18 @@ function IndexList() {
 }
 
 export function HomePage() {
+  const siteUpdated = getSiteUpdated();
   const introChildren = [
     <header className="article-header" key="header">
       <h1>UXR Internship Handoff</h1>
-      <time dateTime="2026-07-29">{siteUpdated}</time>
+      <time dateTime={siteUpdated.dateTime}>{siteUpdated.label}</time>
     </header>,
     <p key="summary">
       Hello! I developed this website to document the work I completed during
       my 2026 summer internship with the UX Research team at Root Insurance.
-      Its primary goal is to help the research team review each deliverable,
-      find the latest versions, and see what should happen next.
-    </p>,
-    <p key="narrative">
-      Please note that most of my work supported the Voice of Customer (VoC)
-      program. Throughout each section, you will find an explanation of what I
-      did, where the work stands, and what still needs attention.
+      Its primary goal is to help the research team review each of my internship
+      deliverables, find the latest versions, understand where each project
+      stands, and see what should happen next.
     </p>,
     <p className="byline" key="byline">
       Prepared by Julio Caggiano
@@ -446,7 +443,8 @@ function Block({ block }: { block: ContentBlock }) {
           ))}
         </ol>
         <figcaption>
-          Each handoff point stays visible, reviewable, and reversible.
+          {block.caption ??
+            "Each handoff point stays visible, reviewable, and reversible."}
         </figcaption>
       </figure>
     );
@@ -474,11 +472,11 @@ export function ArticlePage({
       <main id="main-content">
         <article className="article">
           <header className="article-header article-intro">
+            <h1>{page.title}</h1>
             <div className="article-kicker">
               <span className="article-group">{page.group}</span>
               <StatusPill status={page.status} />
             </div>
-            <h1>{page.title}</h1>
             <p>{page.summary}</p>
           </header>
 

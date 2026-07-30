@@ -77,7 +77,7 @@ test("defines the full internship handoff architecture", async () => {
   ]);
 
   assert.match(content, /Prepared by Julio Caggiano/);
-  assert.match(content, /Last Updated: Jul 29, 2026/);
+  assert.doesNotMatch(content, /Last Updated: Jul 29, 2026/);
   assert.match(content, /"Deliverables"/);
   assert.match(content, /"Research practice"/);
   assert.match(content, /"Future"/);
@@ -174,11 +174,29 @@ test("reflects the Q2 report’s stakeholder dependency and current Figma source
   assert.match(content, /delivery expected in mid-August/);
   assert.match(content, /node-id=2546-1804/);
   assert.match(content, /title: "Waiting for stakeholder datasets"/);
-  assert.match(content, /Seven datasets must be collected and reviewed/);
+  assert.match(content, /10-10 Direct-to-Consumer Benchmark Survey/);
+  assert.match(content, /10-10 Independent Agents Survey/);
+  assert.match(content, /app reviews/);
+  assert.match(content, /Marketing Brand Tracker/);
+  assert.match(content, /qualitative customer interviews/);
+  assert.match(content, /SPRIG Index Surveys/);
+  assert.match(content, /VOC Auto Shopping Survey/);
+  assert.match(content, /approximately two weeks earlier/);
+  assert.match(content, /ongoing monitoring program/);
+  assert.match(content, /May-to-late-August period/);
+  assert.match(content, /begins at the system level/);
+  assert.match(content, /quantitative “what” to the qualitative “why/);
+  assert.match(content, /Scan systemic signals/);
+  assert.match(content, /Conduct customer conversations/);
+  assert.match(content, /Develop verbatim themes/);
+  assert.match(content, /Integrate the evidence/);
+  assert.match(content, /explanatory sequential mixed-methods design/);
   assert.match(
     content,
-    /The Q2 report builds on the Q1 redesign\. It turns new research inputs into a clear story/,
+    /Translated the new VOC storytelling framework into the Q2 2026 data\./,
   );
+  assert.doesNotMatch(content, /The Q2 report builds on the Q1 redesign/);
+  assert.doesNotMatch(content, /starts by collecting and reviewing seven datasets/);
   assert.match(content, /Next steps: Bounded opportunities/);
   assert.match(content, /title: "Research Process"/);
   assert.doesNotMatch(content, /title: "Draft structure established"/);
@@ -190,6 +208,10 @@ test("keeps the homepage focused on the introduction and chapter index", async (
   const styles = await readProjectFile("app/globals.css");
 
   assert.match(components, /Internship Handoff/);
+  assert.match(components, /review each of my internship\s+deliverables/);
+  assert.match(components, /understand where each project\s+stands/);
+  assert.doesNotMatch(components, /most of my work supported the Voice of Customer/);
+  assert.doesNotMatch(components, /key="narrative"/);
   assert.match(components, /<IndexList \/>/);
   assert.doesNotMatch(components, /HomeStatusOverview|home-status-overview/);
   assert.doesNotMatch(components, /Total Deliverables|Includes quarterly reports/);
@@ -198,21 +220,72 @@ test("keeps the homepage focused on the introduction and chapter index", async (
 
 test("shows the update date on the homepage but not expanded pages", async () => {
   const components = await readProjectFile("app/site-components.tsx");
+  const login = await readProjectFile("app/login/page.tsx");
+  const updater = await readProjectFile("app/site-updated.ts");
 
-  assert.match(components, /<time dateTime="2026-07-29">\{siteUpdated\}<\/time>/);
+  assert.match(components, /const siteUpdated = getSiteUpdated\(\)/);
+  assert.match(
+    components,
+    /<time dateTime=\{siteUpdated\.dateTime\}>\{siteUpdated\.label\}<\/time>/,
+  );
+  assert.match(login, /const siteUpdated = getSiteUpdated\(\)/);
+  assert.match(
+    login,
+    /<time dateTime=\{siteUpdated\.dateTime\}>\{siteUpdated\.label\}<\/time>/,
+  );
+  assert.match(updater, /const updatedAt = new Date\(\)/);
+  assert.doesNotMatch(
+    updater,
+    /node:fs|process\.cwd\(\)|readdirSync|statSync|latestProjectModification/,
+  );
+  assert.match(updater, /timeZone: "America\/Los_Angeles"/);
+  assert.doesNotMatch(updater, /Jul 29, 2026/);
   assert.doesNotMatch(components, /\{page\.updated\}/);
 });
 
-test("orders each article category before its status", async () => {
+test("places article metadata below the title with compact spacing", async () => {
   const components = await readProjectFile("app/site-components.tsx");
   const styles = await readProjectFile("app/globals.css");
 
   assert.match(
     components,
-    /<span className="article-group">\{page\.group\}<\/span>\s+<StatusPill status=\{page\.status\} \/>/,
+    /<h1>\{page\.title\}<\/h1>\s+<div className="article-kicker">\s+<span className="article-group">\{page\.group\}<\/span>\s+<StatusPill status=\{page\.status\} \/>/,
   );
   assert.match(styles, /\.article-group \{/);
+  assert.match(
+    styles,
+    /\.article-header \{[\s\S]*gap: 0\.25rem;/,
+  );
+  assert.doesNotMatch(styles, /\.article-kicker \{[^}]*padding/);
   assert.doesNotMatch(styles, /\.article-kicker > span:last-child/);
+});
+
+test("reflects the refined Q1 brief and aligned callout rule", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const styles = await readProjectFile("app/globals.css");
+
+  assert.match(content, /My primary internship objective was to improve/);
+  assert.match(content, /storytelling techniques and data accuracy/);
+  assert.match(content, /comprehensive direction for future research iterations/);
+  assert.match(content, /confusing narrative and data-analysis format/);
+  assert.match(content, /Target audience: Product leadership/);
+  assert.match(content, /data interpretation to actionable product insights/);
+  assert.match(content, /revise the data-analysis workflow/);
+  assert.match(
+    content,
+    /id: "continuation",\s+title: "What should happen next",\s+blocks: \[\s+\{\s+kind: "list"/,
+  );
+  assert.match(content, /applying this new framework to future report iterations/);
+  assert.match(content, /Customer Quote Library/);
+  assert.match(content, /Clu and Ryan Farnham, Director of Product Design/);
+  assert.match(
+    styles,
+    /\.handoff-callout\.status-delivered::before \{[\s\S]*top: 0\.8rem;[\s\S]*bottom: 0\.1rem;[\s\S]*width: 1px;/,
+  );
+  assert.doesNotMatch(content, /primary internship mandate/);
+  assert.doesNotMatch(content, /Audience need:/);
+  assert.doesNotMatch(content, /id: "artifacts"/);
+  assert.doesNotMatch(content, /Turn the framework into team infrastructure/);
 });
 
 test("surfaces canonical deliverable links as Notion-style bookmarks", async () => {
@@ -244,7 +317,11 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(styles, /\.resource-provider-icon \{[\s\S]*background: #f1f1ee/);
   assert.match(
     styles,
-    /\.provider-handoff img,\n\.provider-external img \{[\s\S]*width: 2rem;[\s\S]*height: auto;/,
+    /\.provider-handoff img,\n\.provider-external img \{[\s\S]*width: 100%;[\s\S]*height: 100%;[\s\S]*object-fit: cover;/,
+  );
+  assert.match(
+    styles,
+    /\.provider-handoff,\n\.provider-external \{[\s\S]*background: var\(--accent\);[\s\S]*box-shadow: none;/,
   );
   assert.doesNotMatch(styles, /\.resource-link-meta/);
   assert.match(styles, /\.resource-links \{[\s\S]*display: grid/);
@@ -277,11 +354,21 @@ test("retains a deidentified, governed library of 21 customer clips", async () =
     content,
     /lookback\.io\/org\/root-inc-2\/projects\/root-voc-customer-interviews\/reels/,
   );
+  assert.match(content, /label: "Customer support library"/);
   assert.match(content, /label: "Lookback reels and insights"/);
+  assert.match(content, /Access the overall VOC-specific qualitative interviews/);
+  assert.match(content, /Find the deidentified Q1-26 clips available on this page/);
+  assert.match(content, /I organized customer quotes to support future quarterly reports/);
+  assert.match(content, /connecting quantitative data patterns to direct customer experiences/);
+  assert.match(content, /app reviews, long-form survey responses, customer feedback/);
   assert.match(
     content,
     /id: "recordings",\n\s+title: "Q1 customer recordings",\n\s+showTitle: false/,
   );
+  assert.doesNotMatch(content, /label: "Library record"/);
+  assert.doesNotMatch(content, /Jump to the deidentified/);
+  assert.doesNotMatch(content, /title: "Library delivered"/);
+  assert.doesNotMatch(content, /Q2 rebrand interviews/);
   assert.doesNotMatch(content, /These reels play from Google Drive/);
   assert.match(
     components,
