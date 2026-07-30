@@ -300,14 +300,14 @@ export const handoffPages: HandoffPage[] = [
     order: 2,
     title: "Quarterly Report (Q2-26)",
     summary:
-      "The in-progress quarterly report that applies the Q1 storytelling system to the next round of customer evidence.",
+      "This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August.",
     status: "In progress",
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Working record",
-        description: "Current outline, source inventory, and open work in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x2nebw360ab0",
+        label: "Figma source",
+        description: "Current Q2 report workspace and draft structure.",
+        href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804",
       },
       {
         label: "Q1 report reference",
@@ -323,12 +323,12 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "callout",
             status: "In progress",
-            title: "Draft structure established",
-            text: "The report has a documented outline and source inventory, while several findings and recommendations remain intentionally marked for completion and review.",
+            title: "Waiting for stakeholder datasets",
+            text: "Seven datasets must be collected and reviewed. We are waiting for stakeholders to share the remaining files before synthesis can continue.",
           },
           {
             kind: "paragraph",
-            text: "The Q2 report is the operational follow-through to the Q1 redesign. Its purpose is to turn the next quarter’s mixed research inputs into a concise story that distinguishes what the evidence establishes, why the pattern may be happening, and what Root should validate or decide next.",
+            text: "The Q2 report builds on the Q1 redesign. It turns new research inputs into a clear story: what the evidence shows, why the pattern may be happening, and what Root should do next.",
           },
         ],
       },
@@ -342,7 +342,7 @@ export const handoffPages: HandoffPage[] = [
               "Executive summary: The most decision-relevant findings, limitations, and next questions.",
               "Methodology and sources: A transparent record of data periods, samples, source types, and analytical boundaries.",
               "Key findings: Quantitative patterns separated from the qualitative mechanisms that help explain them.",
-              "Product recommendations: Bounded opportunities connected to evidence, owners, and validation needs.",
+              "Next steps: Bounded opportunities connected to evidence, owners, and validation needs.",
               "Appendix: Supporting tables, definitions, source detail, and material that should remain available without crowding the main narrative.",
             ],
           },
@@ -350,11 +350,11 @@ export const handoffPages: HandoffPage[] = [
       },
       {
         id: "evidence-inputs",
-        title: "Evidence inputs",
+        title: "Research Process",
         blocks: [
           {
             kind: "paragraph",
-            text: "The working record identifies benchmark studies, app-store reviews, three qualitative customer interviews, and potential in-product Sprig feedback as inputs. Every source has a different evidentiary role and should not be presented with equal generalizability.",
+            text: "The research process starts by collecting and reviewing seven datasets from external stakeholders. Inputs may include benchmark studies, app-store reviews, qualitative interviews, and in-product Sprig feedback. Each source has a different evidentiary role and must be evaluated before synthesis.",
           },
           {
             kind: "pipeline",

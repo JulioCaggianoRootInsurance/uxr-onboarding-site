@@ -168,6 +168,23 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   assert.doesNotMatch(content, /Google Slides translation still needs finalization/);
 });
 
+test("reflects the Q2 report’s stakeholder dependency and current Figma source", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+
+  assert.match(content, /delivery expected in mid-August/);
+  assert.match(content, /node-id=2546-1804/);
+  assert.match(content, /title: "Waiting for stakeholder datasets"/);
+  assert.match(content, /Seven datasets must be collected and reviewed/);
+  assert.match(
+    content,
+    /The Q2 report builds on the Q1 redesign\. It turns new research inputs into a clear story/,
+  );
+  assert.match(content, /Next steps: Bounded opportunities/);
+  assert.match(content, /title: "Research Process"/);
+  assert.doesNotMatch(content, /title: "Draft structure established"/);
+  assert.doesNotMatch(content, /Product recommendations: Bounded opportunities/);
+});
+
 test("keeps the homepage focused on the introduction and chapter index", async () => {
   const components = await readProjectFile("app/site-components.tsx");
   const styles = await readProjectFile("app/globals.css");
