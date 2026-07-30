@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { LoginToast } from "../login-toast";
 import { type LoginActionState, unlockHandoff } from "./actions";
 
@@ -20,6 +20,7 @@ export function LoginForm({ returnTo }: LoginFormProps) {
     initialLoginState,
   );
   const passwordInput = useRef<HTMLInputElement>(null);
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const hasError = state.status === "error" && Boolean(state.message);
 
   useEffect(() => {
@@ -44,23 +45,35 @@ export function LoginForm({ returnTo }: LoginFormProps) {
           <label className="login-label" htmlFor="handoff-password">
             Password
           </label>
-          <input
-            ref={passwordInput}
-            className="login-input"
-            id="handoff-password"
-            name="password"
-            type="password"
-            required
-            autoComplete="current-password"
-            placeholder="Enter shared password"
-            aria-invalid={hasError ? "true" : undefined}
-            aria-describedby={
-              hasError
-                ? "login-password-help login-error"
-                : "login-password-help"
-            }
-            autoFocus
-          />
+          <div className="login-password-control">
+            <input
+              ref={passwordInput}
+              className="login-input"
+              id="handoff-password"
+              name="password"
+              type={passwordVisible ? "text" : "password"}
+              required
+              autoComplete="current-password"
+              placeholder="Enter shared password"
+              aria-invalid={hasError ? "true" : undefined}
+              aria-describedby={
+                hasError
+                  ? "login-password-help login-error"
+                  : "login-password-help"
+              }
+              autoFocus
+            />
+            <button
+              className="login-password-toggle"
+              type="button"
+              aria-controls="handoff-password"
+              aria-label={passwordVisible ? "Hide password" : "Show password"}
+              aria-pressed={passwordVisible}
+              onClick={() => setPasswordVisible((visible) => !visible)}
+            >
+              {passwordVisible ? "Hide" : "Show"}
+            </button>
+          </div>
           <button
             className="login-submit"
             type="submit"

@@ -802,7 +802,13 @@ test("enforces a server-side shared-password session", async () => {
   assert.match(loginForm, /key=\{state\.attempt\}/);
   assert.match(loginForm, /passwordInput\.current\.value = ""/);
   assert.match(loginForm, /passwordInput\.current\.focus\(\)/);
-  assert.match(loginForm, /type="password"/);
+  assert.match(loginForm, /useState\(false\)/);
+  assert.match(loginForm, /type=\{passwordVisible \? "text" : "password"\}/);
+  assert.match(loginForm, /className="login-password-toggle"/);
+  assert.match(loginForm, /type="button"/);
+  assert.match(loginForm, /aria-controls="handoff-password"/);
+  assert.match(loginForm, /"Hide password" : "Show password"/);
+  assert.match(loginForm, /\{passwordVisible \? "Hide" : "Show"\}/);
   assert.match(loginForm, /autoComplete="current-password"/);
   assert.match(loginForm, /className="login-submit"/);
   assert.match(loginForm, /aria-invalid=\{hasError/);

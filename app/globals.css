@@ -332,6 +332,31 @@ ol {
   outline: none;
 }
 
+.login-password-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-width: 0;
+}
+
+.login-password-toggle {
+  min-height: 2.75rem;
+  padding: 0.75rem 0.25rem 0.75rem 0.75rem;
+  background: transparent;
+  color: var(--soft);
+  font-family: var(--font-primary);
+  font-size: 0.6875rem;
+  font-weight: 460;
+  line-height: 1rem;
+  cursor: pointer;
+  transition: color 0.14s;
+}
+
+.login-password-toggle:hover,
+.login-password-toggle:focus-visible {
+  color: var(--ink);
+}
+
 .login-submit {
   display: inline-flex;
   align-items: center;
