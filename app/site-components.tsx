@@ -110,7 +110,7 @@ export function HomePage() {
     <p key="summary">
       Hello! I developed this website to document the work I completed during
       my 2026 summer internship with the UX Research team at Root Insurance.
-      Its primary goal is to help the research team review each of my internship
+      Its primary goal is to help stakeholders review each of my internship
       deliverables, find the latest versions, understand where each project
       stands, and see what should happen next.
     </p>,
@@ -270,7 +270,15 @@ function ResourceLinks({ items }: { items: ResourceLink[] }) {
 
 function Block({ block }: { block: ContentBlock }) {
   if (block.kind === "paragraph") {
-    return <p>{block.text}</p>;
+    return (
+      <p className={block.emphasis ? "article-paragraph-emphasis" : undefined}>
+        {block.text}
+      </p>
+    );
+  }
+
+  if (block.kind === "signature") {
+    return <p className="closing-signature">{block.text}</p>;
   }
 
   if (block.kind === "list") {
@@ -413,13 +421,43 @@ function Block({ block }: { block: ContentBlock }) {
   if (block.kind === "statusGrid") {
     return (
       <div className="status-grid">
-        {block.items.map((item) => (
-          <article className="status-card" key={`${item.status}-${item.title}`}>
-            <StatusPill status={item.status} />
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-          </article>
-        ))}
+        {block.items.map((item) => {
+          const isInternal = item.href.startsWith("/");
+          const content = (
+            <>
+              <StatusPill status={item.status} />
+              <div className="status-card-heading">
+                <h3>{item.title}</h3>
+                <span aria-hidden="true" className="status-card-action">
+                  {isInternal ? "Open →" : "Open ↗"}
+                </span>
+              </div>
+              <p>{item.text}</p>
+            </>
+          );
+
+          return isInternal ? (
+            <Link
+              aria-label={`${item.title}. ${item.text}. Open in this handoff.`}
+              className="status-card"
+              href={item.href}
+              key={`${item.status}-${item.title}`}
+            >
+              {content}
+            </Link>
+          ) : (
+            <a
+              aria-label={`${item.title}. ${item.text}. Opens in a new tab.`}
+              className="status-card"
+              href={item.href}
+              key={`${item.status}-${item.title}`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {content}
+            </a>
+          );
+        })}
       </div>
     );
   }

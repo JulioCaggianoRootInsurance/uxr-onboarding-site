@@ -42,6 +42,7 @@ export type StatusItem = {
   status: HandoffStatus;
   title: string;
   text: string;
+  href: string;
 };
 
 export type CommandItem = {
@@ -56,7 +57,8 @@ export type PipelineItem = {
 };
 
 export type ContentBlock =
-  | { kind: "paragraph"; text: string }
+  | { kind: "paragraph"; text: string; emphasis?: boolean }
+  | { kind: "signature"; text: string }
   | { kind: "list"; items: string[] }
   | { kind: "steps"; items: string[] }
   | { kind: "subheading"; text: string }
@@ -191,12 +193,6 @@ export const handoffPages: HandoffPage[] = [
         id: "the-brief",
         title: "Project Brief",
         blocks: [
-          {
-            kind: "callout",
-            status: "Delivered",
-            title: "Latest presentation complete",
-            text: "The current Q1 VOC presentation is complete in Figma. This page records the work behind that artifact; the separate Q2 report remains in progress.",
-          },
           {
             kind: "paragraph",
             text: "My primary internship objective was to improve the storytelling techniques and data accuracy of the VOC Quarterly Customer Report. To do so, I reviewed the existing research approach, documented its communication gaps, and translated that critique into a comprehensive direction for future research iterations.",
@@ -1168,35 +1164,25 @@ export const handoffPages: HandoffPage[] = [
     slug: "internship-reflection",
     group: "Research practice",
     order: 11,
-    title: "Reflection",
+    title: "Insights",
     summary:
-      "The practical lessons and personal reflection that emerged across reporting, evidence systems, stakeholder collaboration, design, and code.",
+      "The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use.",
     status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
-        id: "research-is-a-system",
-        title: "Research impact is a system",
+        id: "product-roadmaps",
+        title: "Product Roadmaps",
         blocks: [
           {
             kind: "paragraph",
-            text: "A strong finding is only one part of impact. The source must be findable, the claim must be reviewable, the story must be understandable, the decision must have an owner, and the artifact must be maintainable after its original author leaves.",
-          },
-          {
-            kind: "pipeline",
-            items: [
-              { label: "Evidence", detail: "Reliable and traceable" },
-              { label: "Meaning", detail: "Bounded interpretation" },
-              { label: "Story", detail: "Clear to the intended audience" },
-              { label: "Decision", detail: "Connected to an owner" },
-              { label: "System", detail: "Reusable and maintainable" },
-            ],
+            text: "One of my most important lessons is that a research finding is the beginning of a product journey, not its conclusion. To create impact, I need to work closely with product partners to understand the current roadmap, its constraints, and the quickest credible opportunities to address immediate customer pain points. Learning to connect evidence with sequencing, feasibility, and ownership has made me a stronger researcher and a more thoughtful designer, especially because I work across both disciplines.",
           },
         ],
       },
       {
-        id: "clarity-and-rigor",
-        title: "Clarity and rigor reinforce each other",
+        id: "data-visualization",
+        title: "Data Visualization",
         blocks: [
           {
             kind: "list",
@@ -1210,53 +1196,22 @@ export const handoffPages: HandoffPage[] = [
         ],
       },
       {
-        id: "prototypes-create-alignment",
-        title: "Prototypes create alignment",
+        id: "rapid-iteration",
+        title: "Rapid Iteration",
         blocks: [
           {
             kind: "paragraph",
-            text: "The dashboard and presentation-system work showed that a tangible prototype can make an abstract reporting conversation concrete. Stakeholders can react to hierarchy, navigation, evidence density, and maintenance expectations before a team commits to production.",
-          },
-          {
-            kind: "callout",
-            status: "Recommendation",
-            title: "Prototype the decision, not only the interface",
-            text: "Every prototype review should ask what decision becomes easier, which source supports it, how often it changes, and who will maintain it.",
+            text: "During this internship, I experimented with sharing focused increments every two or three days instead of waiting to present a polished final deliverable for formal review. That rhythm gave my managers more opportunities to shape the work while decisions were still flexible. As an intern, I began with less organizational context than colleagues in full-time roles; frequent reviews helped close that gap, sharpen my understanding of Root, and improve the quality of each deliverable through continuous, incremental refinement.",
           },
         ],
       },
       {
-        id: "ai-needs-boundaries",
-        title: "AI is useful when its boundaries are explicit",
-        blocks: [
-          {
-            kind: "list",
-            items: [
-              "AI can accelerate profiling, transformations, visual exploration, synthesis drafts, and code implementation.",
-              "A researcher still owns data classification, metric definitions, sample judgments, claim strength, consent, and final approval.",
-              "Branch-based previews and evidence matrices make AI-assisted work easier to inspect and reverse.",
-              "Brand voice belongs at the end of the workflow, after the analysis has stabilized.",
-            ],
-          },
-        ],
-      },
-      {
-        id: "shared-ownership",
-        title: "Shared ownership should remain visible",
+        id: "systematic-thinking",
+        title: "Systematic Thinking",
         blocks: [
           {
             kind: "paragraph",
-            text: "The internship work depended on managers, researchers, designers, vendors, data owners, and fellow interns. A credible handoff names my contribution without absorbing collaborators’ research, decisions, or artifacts into an individual claim of ownership.",
-          },
-        ],
-      },
-      {
-        id: "from-report-to-system",
-        title: "From a report to a system",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "The work began as a request to improve a quarterly report and expanded into reusable storytelling guidance, an evidence inventory, a dashboard prototype, and this handoff. That progression taught me that research impact depends not only on finding something important, but also on whether others can locate, understand, review, and reuse the evidence.",
+            text: "The quarterly-report assignment expanded into a broader storytelling system with reusable structures, evidence practices, and visual standards. During a conversation with a senior engineering leader alongside other summer interns, I was encouraged to strengthen this kind of systems thinking. That advice became a defining lesson in how I approached the Voice of Customer program: not as a collection of isolated reports, but as a connected system that helps teams find evidence, communicate it consistently, and carry insights into decisions over time.",
           },
         ],
       },
@@ -1278,44 +1233,16 @@ export const handoffPages: HandoffPage[] = [
         ],
       },
       {
-        id: "evidence-discipline",
-        title: "Evidence discipline",
-        blocks: [
-          {
-            kind: "quote",
-            label: "Research standard",
-            text: "A decisive story becomes credible when its sources, sample, limitations, conflicting evidence, and owner remain visible.",
-          },
-          {
-            kind: "list",
-            items: [
-              "Quantitative evidence should establish what is happening.",
-              "Qualitative evidence should explain why it happens and how it feels.",
-              "Quotes and clips make verified patterns understandable; they do not establish prevalence alone.",
-              "Clear metadata and access rules make evidence reusable beyond one presentation.",
-            ],
-          },
-        ],
-      },
-      {
-        id: "what-i-would-strengthen",
-        title: "What I would strengthen next",
+        id: "what-i-want-to-develop-next",
+        title: "What I Want to Develop Next",
         blocks: [
           {
             kind: "list",
             items: [
-              "Establish ownership and completion criteria at the beginning of each deliverable.",
-              "Connect accepted insights to decisions and follow-up measures.",
-              "Validate production data and metric definitions before moving a dashboard beyond prototype status.",
-              "Build governance into the evidence library rather than adding it after collection.",
-              "Use branches, previews, and review gates so AI-assisted changes remain auditable.",
+              "Extend my AI practice beyond research and design into production, learning how to collaborate with engineering teams to carry work from findings through design iteration and into customer-facing implementation.",
+              "Create artifacts that remain legible and useful across technical and non-technical audiences, adapting the same evidence for executives, product leaders, researchers, designers, and engineers without losing clarity or rigor.",
+              "Expand my professional network and strengthen my confidence presenting work to broader groups, deliberately moving beyond my comfort zone as an introvert so I can communicate the value of my work more effectively.",
             ],
-          },
-          {
-            kind: "callout",
-            status: "TBD",
-            title: "Impact still to verify",
-            text: "Formal adoption, time saved, continued usage, and product or roadmap decisions influenced by the work are not yet established in the source record.",
           },
         ],
       },
@@ -1325,7 +1252,7 @@ export const handoffPages: HandoffPage[] = [
     slug: "handoff-next-steps",
     group: "Future",
     order: 12,
-    title: "Next Steps",
+    title: "Transition Plan",
     summary:
       "A clear inventory of what exists, what remains unfinished, and what the next owner should decide.",
     status: "In progress",
@@ -1342,97 +1269,55 @@ export const handoffPages: HandoffPage[] = [
                 status: "Delivered",
                 title: "VOC Quarterly Report (Q1-26)",
                 text: "Completed Figma presentation, V7 export, and reusable reporting principles.",
+                href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1305-1457&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=contain&content-scaling=fixed&starting-point-node-id=327%3A725",
               },
               {
                 status: "In progress",
                 title: "VOC Quarterly Report (Q2-26)",
                 text: "Working structure and source inventory established; findings and final review remain open.",
+                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804",
               },
               {
                 status: "Prototype",
                 title: "VOC Dashboard · Prototype",
                 text: "High-fidelity Figma and Lovable direction; the current values remain placeholder data.",
+                href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
               },
               {
                 status: "In progress",
                 title: "VOC Dashboard · Code Handoff",
                 text: "Repository, production data, Vercel workflow, access, and maintenance SOP are active work.",
+                href: "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view",
               },
               {
                 status: "Delivered",
                 title: "VOC Customer Quote Library",
                 text: "Multi-source evidence inventory and access points for 21 deidentified Q1 clips.",
+                href: "/customer-quote-library",
               },
               {
                 status: "Delivered",
                 title: "NPS Executive Report (Q1-26)",
                 text: "Completed Q1 2026 executive report delivered to Jill.",
+                href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed",
               },
               {
                 status: "In progress",
                 title: "UXR Documentation",
                 text: "Living onboarding and operating playbook co-developed with Layilah Campbell.",
+                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
               },
               {
                 status: "Delivered",
                 title: "Presentation Template",
                 text: "Completed Drive export, team-owned Figma template, and editable VOC design-system workspace.",
+                href: "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1",
               },
               {
                 status: "Delivered",
                 title: "AI Skills",
                 text: "Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook.",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "artifact-links",
-        title: "Canonical source links",
-        blocks: [
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Intern Project Scope Document",
-                description: "Project scope, drafts, dashboard notes, quote library, and appendix.",
-                href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
-              },
-              {
-                label: "VOC Quarterly Report (Q1-26) · Editable Figma file",
-                description: "Reporting redesign source.",
-                href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1",
-              },
-              {
-                label: "NPS Executive Report (Q1-26)",
-                description: "Completed Q1 2026 PDF in Google Drive.",
-                href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
-              },
-              {
-                label: "VOC Customer Quote Library",
-                description: "This handoff’s access-controlled recording and governance chapter.",
-                href: "/customer-quote-library",
-              },
-              {
-                label: "VOC Dashboard",
-                description: "Prototype, deployment model, and remaining code work.",
-                href: "/voc-dashboard",
-              },
-              {
-                label: "UXR Documentation",
-                description: "Living Google Doc co-developed with Layilah Campbell.",
-                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
-              },
-              {
-                label: "Presentation Template",
-                description: "Completed Drive and Figma template artifacts.",
-                href: "/presentation-template-system",
-              },
-              {
-                label: "AI Skills folder",
-                description: "Packaged research skills in Google Drive.",
-                href: "https://drive.google.com/drive/folders/1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ",
+                href: "/ai-research-skills",
               },
             ],
           },
@@ -1440,7 +1325,7 @@ export const handoffPages: HandoffPage[] = [
       },
       {
         id: "immediate-actions",
-        title: "Immediate handoff actions",
+        title: "Action Required",
         blocks: [
           {
             kind: "steps",
@@ -1453,20 +1338,8 @@ export const handoffPages: HandoffPage[] = [
               "Pilot the onboarding documentation with a new team member and assign chapter owners.",
             ],
           },
-        ],
-      },
-      {
-        id: "manager-decisions",
-        title: "Decisions for Hala",
-        blocks: [
           {
-            kind: "callout",
-            status: "TBD",
-            title: "Choices that determine the next phase",
-            text: "The handoff is designed to make these decisions explicit rather than silently assuming that every prototype should become a production system.",
-          },
-          {
-            kind: "list",
+            kind: "steps",
             items: [
               "Who will own the completed VOC presentation system and approve future changes?",
               "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
@@ -1484,12 +1357,12 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "paragraph",
-            text: "This handoff separates delivered artifacts, prototypes, ongoing work, and future recommendations so the next owner can continue the work without overstating its current state.",
+            emphasis: true,
+            text: "I’m deeply grateful for the opportunity to work with Root’s UX Research team. I have genuinely enjoyed contributing to the team and learned an extraordinary amount from the people, projects, and trust I was given. I’m excited about what comes next and hope to continue contributing to Root throughout my final year of university and after graduation.",
           },
           {
-            kind: "quote",
-            label: "Prepared by Julio Caggiano",
-            text: "The goal is not only to preserve what I made, but to preserve the reasoning, limitations, and next decisions that make the work usable.",
+            kind: "signature",
+            text: "Julio Caggiano",
           },
         ],
       },

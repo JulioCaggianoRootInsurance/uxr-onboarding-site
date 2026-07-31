@@ -840,6 +840,28 @@ ol {
   letter-spacing: -0.00563rem;
 }
 
+.content-section > .article-paragraph-emphasis {
+  color: rgba(18, 18, 18, 0.6);
+  font-family: var(--font-secondary);
+  font-size: 0.9375rem;
+  font-style: italic;
+  font-weight: 430;
+  line-height: 1.35;
+  letter-spacing: 0.01rem;
+}
+
+.content-section > .closing-signature {
+  width: fit-content;
+  padding-top: 0.9rem;
+  color: rgba(18, 18, 18, 0.6);
+  font-family: var(--font-secondary);
+  font-size: 0.9375rem;
+  font-style: italic;
+  font-weight: 430;
+  line-height: 1.35;
+  letter-spacing: 0.01rem;
+}
+
 .content-section h3 {
   font-size: 0.875rem;
   font-weight: 560;
@@ -1611,19 +1633,44 @@ blockquote span {
 }
 
 .status-card {
+  display: block;
   min-height: 0;
   padding: 0.85rem 0.15rem;
   border: 0;
   border-top: 1px solid var(--line-strong);
   border-radius: 0;
   background: transparent;
+  transition:
+    background-color 0.14s,
+    padding-left 0.14s,
+    padding-right 0.14s;
+}
+
+.status-card-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.55rem;
 }
 
 .status-card h3 {
-  padding-top: 0.55rem;
+  padding-top: 0;
   font-size: 0.75rem;
   font-weight: 560;
   line-height: 0.95rem;
+}
+
+.status-card-action {
+  flex: 0 0 auto;
+  color: var(--soft);
+  font-size: 0.5625rem;
+  font-weight: 560;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  transition:
+    color 0.14s,
+    transform 0.14s;
 }
 
 .status-card p {
@@ -1632,6 +1679,19 @@ blockquote span {
   font-size: 0.6875rem;
   font-weight: 460;
   line-height: 0.95rem;
+}
+
+.status-card:hover,
+.status-card:focus-visible {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  background: rgba(0, 0, 0, 0.018);
+}
+
+.status-card:hover .status-card-action,
+.status-card:focus-visible .status-card-action {
+  color: var(--accent);
+  transform: translateX(0.12rem);
 }
 
 .command-list {

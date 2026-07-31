@@ -72,11 +72,11 @@ test("defines the full internship handoff architecture", async () => {
     { order: 8, title: "AI Skills" },
     { order: 9, title: "Research Process" },
     { order: 10, title: "Standard Operating Procedures (SOPs)" },
-    { order: 11, title: "Reflection" },
-    { order: 12, title: "Next Steps" },
+    { order: 11, title: "Insights" },
+    { order: 12, title: "Transition Plan" },
   ]);
 
-  assert.match(content, /Prepared by Julio Caggiano/);
+  assert.match(content, /I’m deeply grateful/);
   assert.doesNotMatch(content, /Last Updated: Jul 29, 2026/);
   assert.match(content, /"Deliverables"/);
   assert.match(content, /"Research practice"/);
@@ -110,8 +110,8 @@ test("defines the full internship handoff architecture", async () => {
   assert.match(content, /AI Skills/);
   assert.match(content, /Research Process/);
   assert.match(content, /Standard Operating Procedures \(SOPs\)/);
-  assert.match(content, /Reflection/);
-  assert.match(content, /Next Steps/);
+  assert.match(content, /title: "Insights"/);
+  assert.match(content, /Transition Plan/);
   assert.doesNotMatch(content, /slug: "internship-insights"/);
   assert.match(
     content,
@@ -129,7 +129,7 @@ test("defines the full internship handoff architecture", async () => {
     assert.doesNotMatch(block, /label: "(?:Open|Review|Browse|Download) /);
   }
   assert.match(content, /1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm/);
-  assert.match(content, /1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ/);
+  assert.doesNotMatch(content, /1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ/);
   assert.match(content, /Delivered/);
   assert.match(content, /Prototype/);
   assert.match(content, /In progress/);
@@ -144,6 +144,178 @@ test("defines the full internship handoff architecture", async () => {
   );
   assert.doesNotMatch(content, /\[cite:|\\longrightarrow|\\text\{/i);
   assert.doesNotMatch(content, /magic_link=/i);
+});
+
+test("frames the internship reflection as actionable insights", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const insightsPage = content.slice(
+    content.indexOf('slug: "internship-reflection"'),
+    content.indexOf('slug: "handoff-next-steps"'),
+  );
+
+  assert.match(insightsPage, /title: "Insights"/);
+  for (const [id, title] of [
+    ["product-roadmaps", "Product Roadmaps"],
+    ["data-visualization", "Data Visualization"],
+    ["rapid-iteration", "Rapid Iteration"],
+    ["systematic-thinking", "Systematic Thinking"],
+    ["skills-developed", "Skills developed"],
+    ["what-i-want-to-develop-next", "What I Want to Develop Next"],
+  ]) {
+    assert.match(
+      insightsPage,
+      new RegExp(`id: "${id}",\\s+title: "${title}"`),
+    );
+  }
+  assert.match(
+    insightsPage,
+    /research finding is the beginning of a product journey/,
+  );
+  assert.match(insightsPage, /current roadmap, its constraints/);
+  assert.match(insightsPage, /stronger researcher and a more thoughtful designer/);
+  assert.match(insightsPage, /every two or three days/);
+  assert.match(insightsPage, /less organizational context/);
+  assert.match(insightsPage, /continuous, incremental refinement/);
+  assert.match(insightsPage, /broader storytelling system/);
+  assert.match(insightsPage, /senior engineering leader/);
+  assert.match(insightsPage, /Voice of Customer program/);
+  assert.match(
+    insightsPage,
+    /Visible sample sizes, source labels, and limitations/,
+  );
+  assert.match(insightsPage, /Qualitative synthesis:/);
+  assert.match(insightsPage, /AI practice beyond research and design into production/);
+  assert.match(insightsPage, /technical and non-technical audiences/);
+  assert.match(insightsPage, /comfort zone as an introvert/);
+  assert.doesNotMatch(
+    insightsPage,
+    /Research impact is a system|Clarity and rigor reinforce each other|Prototypes create alignment/,
+  );
+  assert.doesNotMatch(
+    insightsPage,
+    /id: "ai-needs-boundaries"|AI is useful when its boundaries are explicit/,
+  );
+  assert.doesNotMatch(
+    insightsPage,
+    /id: "shared-ownership"|Shared ownership should remain visible/,
+  );
+  assert.doesNotMatch(
+    insightsPage,
+    /From a report to a system|id: "evidence-discipline"|Evidence discipline/,
+  );
+  assert.doesNotMatch(
+    insightsPage,
+    /What I would strengthen next|Impact still to verify/,
+  );
+});
+
+test("consolidates the transition plan and ends with an italic thank-you", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const components = await readProjectFile("app/site-components.tsx");
+  const styles = await readProjectFile("app/globals.css");
+  const transitionPage = content.slice(
+    content.indexOf('slug: "handoff-next-steps"'),
+  );
+  const actionSection = transitionPage.slice(
+    transitionPage.indexOf('id: "immediate-actions"'),
+    transitionPage.indexOf('id: "closing"'),
+  );
+
+  assert.match(transitionPage, /title: "Transition Plan"/);
+  assert.doesNotMatch(
+    transitionPage,
+    /id: "artifact-links"|title: "Related Resources"/,
+  );
+  assert.match(
+    actionSection,
+    /id: "immediate-actions",\s+title: "Action Required"/,
+  );
+  for (const question of [
+    "Who will own the completed VOC presentation system and approve future changes?",
+    "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
+    "Which Q2 findings require another research round before publication?",
+    "Should the dashboard move from a presentation prototype to a maintained internal product?",
+    "Which data sources and metrics are approved for the first operational dashboard version?",
+    "Where should the AI skill packages be installed, versioned, reviewed, and maintained?",
+  ]) {
+    assert.ok(actionSection.includes(question));
+  }
+  assert.equal((actionSection.match(/kind: "steps"/g) ?? []).length, 2);
+  assert.doesNotMatch(actionSection, /kind: "list"/);
+  assert.doesNotMatch(
+    transitionPage,
+    /id: "manager-decisions"|Decisions for Hala|Choices that determine the next phase/,
+  );
+  assert.match(
+    transitionPage,
+    /kind: "paragraph",\s+emphasis: true,\s+text: "I’m deeply grateful/,
+  );
+  assert.match(
+    transitionPage,
+    /hope to continue contributing to Root throughout my final year of university and after graduation/,
+  );
+  assert.match(
+    transitionPage,
+    /kind: "signature",\s+text: "Julio Caggiano"/,
+  );
+  assert.doesNotMatch(
+    transitionPage,
+    /This handoff separates delivered artifacts|Prepared by Julio Caggiano|The goal is not only to preserve/,
+  );
+  assert.match(
+    components,
+    /className=\{block\.emphasis \? "article-paragraph-emphasis" : undefined\}/,
+  );
+  assert.match(
+    styles,
+    /\.content-section > \.article-paragraph-emphasis\s*\{[^}]*font-family: var\(--font-secondary\);[^}]*font-style: italic;/s,
+  );
+  assert.match(
+    components,
+    /block\.kind === "signature"[\s\S]*className="closing-signature"/,
+  );
+  assert.match(
+    styles,
+    /\.content-section > \.closing-signature\s*\{[^}]*font-family: var\(--font-secondary\);[^}]*font-style: italic;/s,
+  );
+});
+
+test("links every artifact status to its most useful destination", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const components = await readProjectFile("app/site-components.tsx");
+  const styles = await readProjectFile("app/globals.css");
+  const transitionPage = content.slice(
+    content.indexOf('slug: "handoff-next-steps"'),
+  );
+  const statusInventory = transitionPage.slice(
+    transitionPage.indexOf('id: "status-inventory"'),
+    transitionPage.indexOf('id: "immediate-actions"'),
+  );
+
+  assert.match(content, /export type StatusItem = \{[\s\S]*href: string;/);
+  assert.equal((statusInventory.match(/\bhref:/g) ?? []).length, 9);
+  for (const [title, destination] of [
+    ["VOC Quarterly Report (Q1-26)", "node-id=1305-1457"],
+    ["VOC Quarterly Report (Q2-26)", "node-id=2546-1804"],
+    ["VOC Dashboard · Prototype", "lovable.dev/preview/"],
+    ["VOC Dashboard · Code Handoff", "1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs"],
+    ["VOC Customer Quote Library", "/customer-quote-library"],
+    ["NPS Executive Report (Q1-26)", "node-id=1861-3299"],
+    ["UXR Documentation", "1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU"],
+    ["Presentation Template", "liCQw8Mv0VVnPMLacbEixP"],
+    ["AI Skills", "/ai-research-skills"],
+  ]) {
+    assert.ok(statusInventory.includes(`title: "${title}"`));
+    assert.ok(statusInventory.includes(destination));
+  }
+  assert.match(components, /const isInternal = item\.href\.startsWith\("\/"\)/);
+  assert.match(
+    components,
+    /aria-label=\{`\$\{item\.title\}\. \$\{item\.text\}\. Opens in a new tab\.`\}/,
+  );
+  assert.match(components, /rel="noreferrer"\s+target="_blank"/);
+  assert.match(components, /className="status-card-action"/);
+  assert.match(styles, /\.status-card:hover[\s\S]*\.status-card:focus-visible/);
 });
 
 test("keeps future dashboard work explicitly separate from completed work", async () => {
@@ -539,9 +711,13 @@ test("places article metadata below the title with compact spacing", async () =>
   assert.doesNotMatch(styles, /\.article-kicker > span:last-child/);
 });
 
-test("reflects the refined Q1 brief and aligned callout rule", async () => {
+test("reflects the refined Q1 brief without a redundant completion callout", async () => {
   const content = await readProjectFile("app/handoff.ts");
   const styles = await readProjectFile("app/globals.css");
+  const q1Page = content.slice(
+    content.indexOf('slug: "q1-voc-report"'),
+    content.indexOf('slug: "q2-voc-report"'),
+  );
 
   assert.match(content, /My primary internship objective was to improve/);
   assert.match(content, /storytelling techniques and data accuracy/);
@@ -557,6 +733,10 @@ test("reflects the refined Q1 brief and aligned callout rule", async () => {
   assert.match(content, /applying this new framework to future report iterations/);
   assert.match(content, /VOC Customer Quote Library/);
   assert.match(content, /Clu and Ryan Farnham, Director of Product Design/);
+  assert.doesNotMatch(
+    q1Page,
+    /Latest presentation complete|The current Q1 VOC presentation is complete in Figma/,
+  );
   assert.match(
     styles,
     /\.handoff-callout\.status-delivered::before \{[\s\S]*top: 0\.8rem;[\s\S]*bottom: 0\.1rem;[\s\S]*width: 1px;/,
