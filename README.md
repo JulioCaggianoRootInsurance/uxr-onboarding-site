@@ -97,3 +97,24 @@ pnpm build
 pnpm lint
 node --test tests/rendered-html.test.mjs
 ```
+
+## Keep the IPSD in sync
+
+The website content model is also the source for explicitly managed tabs in
+the internship IPSD. Prepare and validate the deterministic sync payload with:
+
+```bash
+pnpm sync:ipsd:prepare
+pnpm sync:ipsd:check
+```
+
+The generator does not store Google credentials or write to Google directly.
+Codex applies the payload through the authenticated Drive connector with exact
+tab IDs, revision locks, and post-write readback. The HR-specific `IPSD` tab,
+the quote-library source tab, the presentation-template native-control tab,
+and the appendix are excluded from automatic rewrites. See
+`sync/README.md` and `ipsd-sync.config.json` for the complete policy.
+
+The standard `pnpm build` and `pnpm test` commands also enforce this contract.
+They fail if the prepared payload is stale or if the recorded verified live
+application does not match the current website source.

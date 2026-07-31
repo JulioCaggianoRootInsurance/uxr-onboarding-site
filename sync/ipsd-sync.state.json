@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "lastAppliedOn": "2026-07-31",
+  "documentRevisionId": "AIroW36rAQ61KNJluUKCywhaAiaTPvCGjF1rY74k2SS1JXhKwXg3LkDRf_ao4sU_CtT4HU7Xkyd-t3MDVpBxfHxCDrgnu_Av8VkRRRzr8eE",
+  "sourceHash": "dc95a20b8b29bb5dfcea5082e5966110011c641bbc2eac1868c1ef8fd33bc78d",
+  "managedTargets": {
+    "t.qa2itxq3djir": "ac9e931a04ac4f7091d1e8499347f4192d32c71bc5b7656bd94983f69c2e9e08",
+    "t.x2nebw360ab0": "e38785267f896f8cec16d86fef08b9068830502e8a2dd88ef3b440dd9a3397d2",
+    "t.7momns81mgpm": "7341dc1e1f161bae9c9a3ce88730542bd6d2b71fc6419c199b1b8777b070db37",
+    "t.eh4wx17fdlej": "0ea9c2c789ebb100350e6474368a3f0a336b7eed1e09ce548868f042ac4e5ff0",
+    "t.z582zky508qm": "c30a624115b4c35eed990fa82a04d3956fcdd12b79679c759ad654104bb4ef6a",
+    "t.69nuk3h4zyt8": "00eec29cc41787b2afc6f9f0818abb45dae3bbd451b90657e5a523fafa3e5aa4",
+    "t.p5vqlrzgpbt5": "af4287fa6ad9f04b91f6fe518c48453e939666d1e695cccc84c18e4d6118a552",
+    "t.1i5wqpu8xsw": "eef683e5c320245726add65bdb0b109e8692b37e9769a3ba9a9021156477c29a",
+    "t.pgdqdutlrhpb": "2e6923fdb2d3cc234ccbb32e078a2b1f5a4e206c4d780d85772f2054362fc5ed"
+  },
+  "preservedTabProofs": {
+    "t.0": "3503de0d258a54cd48d16ec7e0d908be1278e2a2f410839ad7f9833c3bbd2322",
+    "t.vwocc5k1v4db": "a298e76dde5458bb545077286a4c227a69e39401c38561dbe2f71de88e50c232",
+    "t.trloe1e36awc": "f033734605e34ba5f1f79a160d8f90c2434deee4559cda1e35c91075cc08335b"
+  },
+  "presentationNativeControlVerified": true
+}

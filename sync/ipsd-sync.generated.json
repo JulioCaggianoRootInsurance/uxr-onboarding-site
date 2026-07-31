@@ -1,0 +1,1647 @@
+{
+  "version": 1,
+  "direction": "website-to-google-doc",
+  "document": {
+    "id": "1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco",
+    "url": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
+    "expectedTitle": "Julio Intern Project Scope Document (IPSD) - UXR VOC"
+  },
+  "sourceHash": "e0d453fa4a1a3e0057e711461c7d1666573eec58aa58926bdd3fd10eddfbcf5b",
+  "protectedTabIds": [
+    "t.0"
+  ],
+  "targets": [
+    {
+      "tabId": "t.qa2itxq3djir",
+      "expectedTitle": "Working Notes",
+      "mode": "managed-block",
+      "managedRangeName": "UXR_HANDOFF_SYNC_STATUS",
+      "sourceKind": "site-index",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "UXR Handoff synchronization"
+        },
+        {
+          "type": "paragraph",
+          "text": "The UXR Handoff website is the source of truth for current project status and narrative detail. Only allowlisted report and deliverable tabs are synchronized; HR content, the quote-library source, the presentation-template native control, and the appendix are preserved."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Current site index"
+        },
+        {
+          "type": "bullet",
+          "text": "VOC Quarterly Report (Q1-26) — Delivered: The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework."
+        },
+        {
+          "type": "bullet",
+          "text": "VOC Quarterly Report (Q2-26) — In progress: This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August."
+        },
+        {
+          "type": "bullet",
+          "text": "VOC Dashboard — In progress: A nearly complete design prototype and an in-progress coded handoff for a living VOC website powered by a reviewed GitHub-to-Vercel workflow."
+        },
+        {
+          "type": "bullet",
+          "text": "VOC Customer Quote Library — Delivered: A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources."
+        },
+        {
+          "type": "bullet",
+          "text": "NPS Executive Report (Q1-26) — Delivered: An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
+        },
+        {
+          "type": "bullet",
+          "text": "UXR Documentation — In progress: An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
+        },
+        {
+          "type": "bullet",
+          "text": "Presentation Template — Delivered: I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+        },
+        {
+          "type": "bullet",
+          "text": "AI Skills — Delivered: To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops."
+        },
+        {
+          "type": "bullet",
+          "text": "Research Process — Delivered: An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions."
+        },
+        {
+          "type": "bullet",
+          "text": "Standard Operating Procedures (SOPs) — Delivered: The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff."
+        },
+        {
+          "type": "bullet",
+          "text": "Insights — Delivered: The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
+        },
+        {
+          "type": "bullet",
+          "text": "Transition Plan — In progress: A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
+        }
+      ],
+      "contentHash": "dfb5a522973658258221a04653a06af02c7f26527416aabaa66f8caa54d25ce7"
+    },
+    {
+      "tabId": "t.x2nebw360ab0",
+      "expectedTitle": "Q2-26 VOC Report Draft",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "q2-voc-report"
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "VOC Quarterly Report (Q2-26)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: In progress"
+        },
+        {
+          "type": "paragraph",
+          "text": "This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resources"
+        },
+        {
+          "type": "link",
+          "label": "Figma source",
+          "description": "Current Q2 report workspace and draft structure.",
+          "href": "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804"
+        },
+        {
+          "type": "link",
+          "label": "Q1 report reference",
+          "description": "The reporting framework that the Q2 draft builds upon.",
+          "href": "/q1-voc-report"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Current state"
+        },
+        {
+          "type": "callout",
+          "status": "In progress",
+          "title": "Waiting for stakeholder datasets",
+          "text": "Seven datasets must be collected and reviewed (10-10 Direct-to-Consumer Benchmark Survey, 10-10 Independent Agents Survey, app reviews, Marketing Brand Tracker, qualitative customer interviews, SPRIG Index Surveys, and VOC Auto Shopping Survey). We are waiting for stakeholders to share the remaining files before synthesis can continue."
+        },
+        {
+          "type": "paragraph",
+          "text": "To deliver the report during my final internship week, we are accelerating data collection and will use survey data that ends approximately two weeks earlier than the intended late-August cutoff. This timing tradeoff should be documented as a limitation. Future VOC reporting should operate as an ongoing monitoring program—independent of internship timelines—with fixed, comparable collection windows and precise cutoff dates across the May-to-late-August period.",
+          "emphasis": false
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "What it encompasses"
+        },
+        {
+          "type": "bullet",
+          "text": "Executive summary: The most decision-relevant findings, limitations, and next questions."
+        },
+        {
+          "type": "bullet",
+          "text": "Methodology and sources: A transparent record of data periods, samples, source types, and analytical boundaries."
+        },
+        {
+          "type": "bullet",
+          "text": "Key findings: Quantitative patterns separated from the qualitative mechanisms that help explain them."
+        },
+        {
+          "type": "bullet",
+          "text": "Next steps: Bounded opportunities connected to evidence, owners, and validation needs."
+        },
+        {
+          "type": "bullet",
+          "text": "Appendix: Supporting tables, definitions, source detail, and material that should remain available without crowding the main narrative."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Research Process"
+        },
+        {
+          "type": "paragraph",
+          "text": "My research process begins at the system level: I scan broad behavioral and attitudinal signals—such as a rise in negative app reviews—to identify where the customer experience may be changing. I then move from the quantitative “what” to the qualitative “why,” using interviews, customer conversations, and thematic analysis of verbatims to test competing explanations and surface context. Finally, I integrate evidence across sources, document contradictions and limitations, and translate the most defensible patterns into a clear narrative and focused questions for stakeholders.",
+          "emphasis": false
+        },
+        {
+          "type": "numbered",
+          "text": "Scan systemic signals: Find shifts across surveys, reviews, trackers, and behavioral data"
+        },
+        {
+          "type": "numbered",
+          "text": "Select what needs explaining: Prioritize consequential patterns, segments, and contradictions"
+        },
+        {
+          "type": "numbered",
+          "text": "Conduct customer conversations: Probe the context and mechanisms behind the quantitative signal"
+        },
+        {
+          "type": "numbered",
+          "text": "Develop verbatim themes: Code recurring language, tensions, and counterevidence"
+        },
+        {
+          "type": "numbered",
+          "text": "Integrate the evidence: Combine scale and meaning into a bounded narrative and next questions"
+        },
+        {
+          "type": "paragraph",
+          "text": "UX research adaptation of Creswell and Plano Clark’s explanatory sequential mixed-methods design: quantitative patterns → qualitative explanation → integrated interpretation.",
+          "emphasis": true
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "My contribution"
+        },
+        {
+          "type": "bullet",
+          "text": "Translated the new VOC storytelling framework into the Q2 2026 data."
+        },
+        {
+          "type": "bullet",
+          "text": "Reviewed prior-quarter evidence and documented the sources needed for the next synthesis."
+        },
+        {
+          "type": "bullet",
+          "text": "Established a clearer separation between findings, explanatory customer evidence, and future research questions."
+        },
+        {
+          "type": "bullet",
+          "text": "Created a reusable visual and narrative system through the presentation-template work."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Definition of done"
+        },
+        {
+          "type": "bullet",
+          "text": "All included metrics have a confirmed definition, period, sample base, source, and limitation."
+        },
+        {
+          "type": "bullet",
+          "text": "Every headline claim is traceable to evidence and has survived a second-person review."
+        },
+        {
+          "type": "bullet",
+          "text": "Quotes and clips have approved use, exact provenance, and a clear explanatory role."
+        },
+        {
+          "type": "bullet",
+          "text": "Recommendations distinguish observed evidence from proposed product action."
+        },
+        {
+          "type": "bullet",
+          "text": "The approved final deck and editable source are stored at canonical links with an owner."
+        }
+      ],
+      "contentHash": "e38785267f896f8cec16d86fef08b9068830502e8a2dd88ef3b440dd9a3397d2"
+    },
+    {
+      "tabId": "t.7momns81mgpm",
+      "expectedTitle": "Q1-26 VOC Report Draft",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "q1-voc-report"
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "VOC Quarterly Report (Q1-26)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: Delivered"
+        },
+        {
+          "type": "paragraph",
+          "text": "The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resources"
+        },
+        {
+          "type": "link",
+          "label": "Interactive prototype",
+          "description": "Navigate the completed Q1-26 presentation in prototype mode.",
+          "href": "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=311-2744&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=scale-down&content-scaling=fixed"
+        },
+        {
+          "type": "link",
+          "label": "Figma source",
+          "description": "Review or continue the report in the shared VOC workspace.",
+          "href": "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=311-2741&t=RN5pZmfOi8ZJ1s2r-1"
+        },
+        {
+          "type": "link",
+          "label": "Supporting files",
+          "description": "Shared research inputs and working artifacts for the report.",
+          "href": "https://drive.google.com/drive/folders/15YrTTyQ_I1F_-Tph1LR0bo3ZHjkoOpCc"
+        },
+        {
+          "type": "link",
+          "label": "Documentation",
+          "description": "Source notes and research context in the IPSD.",
+          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.7momns81mgpm"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Project Brief"
+        },
+        {
+          "type": "paragraph",
+          "text": "My primary internship objective was to improve the storytelling techniques and data accuracy of the VOC Quarterly Customer Report. To do so, I reviewed the existing research approach, documented its communication gaps, and translated that critique into a comprehensive direction for future research iterations.",
+          "emphasis": false
+        },
+        {
+          "type": "bullet",
+          "text": "Problem: Important findings competed for attention within a confusing narrative and data-analysis format."
+        },
+        {
+          "type": "bullet",
+          "text": "Target audience: Product leadership needed a quicker pathway from data interpretation to actionable product insights."
+        },
+        {
+          "type": "bullet",
+          "text": "My role: Audit the existing report, develop reporting standards, revise the data-analysis workflow, and prototype a clear storytelling direction."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "What I found"
+        },
+        {
+          "type": "bullet",
+          "text": "Storytelling hierarchy: Slides carried several disconnected messages, while critical findings did not consistently receive the strongest visual emphasis."
+        },
+        {
+          "type": "bullet",
+          "text": "Generalizability: Small qualitative samples sometimes appeared to carry the same explanatory weight as broader survey or review data."
+        },
+        {
+          "type": "bullet",
+          "text": "Data visualization: Some charts lacked descriptive questions, axis labels, response-scale definitions, or clear sample context."
+        },
+        {
+          "type": "bullet",
+          "text": "Actionability: Findings described customer sentiment but did not always connect the evidence to a prioritized problem or decision."
+        },
+        {
+          "type": "quote",
+          "label": "Working principle",
+          "text": "Quantitative evidence helped us identify broader phenomena that required attention. Qualitative evidence helped us understand the nuances and specific struggles customers were facing, which then informed our debriefs with Product Design stakeholders."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "The reporting framework"
+        },
+        {
+          "type": "numbered",
+          "text": "Find quantitative patterns: Start with trends and recurring signals."
+        },
+        {
+          "type": "numbered",
+          "text": "Investigate through qualitative evidence: Use customer evidence to understand why."
+        },
+        {
+          "type": "numbered",
+          "text": "Validate findings with stakeholders: Review the interpretation, limits, and priority."
+        },
+        {
+          "type": "numbered",
+          "text": "Report viable next steps for product development: Connect the evidence to a feasible product decision."
+        },
+        {
+          "type": "bullet",
+          "text": "Use NPS as a narrative spine where it fits, without treating it as the complete customer story."
+        },
+        {
+          "type": "bullet",
+          "text": "Take a defensible stance instead of relying on passive or overly cautious language."
+        },
+        {
+          "type": "bullet",
+          "text": "Separate the quantitative “what” from the qualitative “why.”"
+        },
+        {
+          "type": "bullet",
+          "text": "Use one primary message, one chart, and no more than three supporting points per slide."
+        },
+        {
+          "type": "bullet",
+          "text": "Label questions, scales, sources, sample bases, dates, and limitations consistently."
+        },
+        {
+          "type": "bullet",
+          "text": "Pair metrics with customer language while preserving conflicting evidence."
+        },
+        {
+          "type": "bullet",
+          "text": "Show trends and useful benchmarks, then connect findings to current or future roadmap decisions."
+        },
+        {
+          "type": "bullet",
+          "text": "Begin sections with a concise TL;DR so leadership can find the core implication quickly."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "What should happen next"
+        },
+        {
+          "type": "bullet",
+          "text": "Confirm the long-term owner responsible for applying this new framework to future report iterations."
+        },
+        {
+          "type": "bullet",
+          "text": "Continue improving and expanding long-term sources of data insight, such as the VOC Customer Quote Library."
+        },
+        {
+          "type": "bullet",
+          "text": "Strengthen the next-steps section by connecting recommendations directly to Product Design roadmaps through a dedicated communication channel or recurring review session with Clu and Ryan Farnham, Director of Product Design."
+        }
+      ],
+      "contentHash": "7341dc1e1f161bae9c9a3ce88730542bd6d2b71fc6419c199b1b8777b070db37"
+    },
+    {
+      "tabId": "t.eh4wx17fdlej",
+      "expectedTitle": "VOC Dashboard",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "voc-dashboard"
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "VOC Dashboard"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: In progress"
+        },
+        {
+          "type": "paragraph",
+          "text": "A nearly complete design prototype and an in-progress coded handoff for a living VOC website powered by a reviewed GitHub-to-Vercel workflow."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resources"
+        },
+        {
+          "type": "link",
+          "label": "Interactive prototype",
+          "description": "Interactive Lovable prototype used to test the website direction.",
+          "href": "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE"
+        },
+        {
+          "type": "link",
+          "label": "Figma source",
+          "description": "Latest high-fidelity design in the shared VOC workspace.",
+          "href": "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1563-2647&t=EIOlHXMAH4ey7MR5-1"
+        },
+        {
+          "type": "link",
+          "label": "Prototype PDF",
+          "description": "High-fidelity dashboard artifact in Google Drive.",
+          "href": "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view"
+        },
+        {
+          "type": "link",
+          "label": "Code handoff",
+          "description": "Implementation notes, QA status, and remaining code work.",
+          "href": "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view"
+        },
+        {
+          "type": "link",
+          "label": "Project record",
+          "description": "The dashboard brief and working notes in the IPSD.",
+          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.eh4wx17fdlej"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Current direction"
+        },
+        {
+          "type": "callout",
+          "status": "Prototype",
+          "title": "Prototype complete; code handoff in progress",
+          "text": "The dashboard experience is substantially designed and available as a Figma/Lovable prototype. The coded handoff, production data connection, access model, and repeatable update workflow are the active work."
+        },
+        {
+          "type": "paragraph",
+          "text": "I compared previous VOC documentation with the existing Mode experience to explore a faster, more visual, and more reusable way for product teams to inspect customer evidence between quarterly reports.",
+          "emphasis": false
+        },
+        {
+          "type": "bullet",
+          "text": "Designed a lightweight dashboard direction in Figma."
+        },
+        {
+          "type": "bullet",
+          "text": "Created a Lovable code preview to test the report as a website."
+        },
+        {
+          "type": "bullet",
+          "text": "Explored a reusable, non-variable slideshow system with responsive icons and an expanded photo library."
+        },
+        {
+          "type": "bullet",
+          "text": "Collected direction and feedback from Jill and Klew."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "How the website deployment should work"
+        },
+        {
+          "type": "callout",
+          "status": "Recommendation",
+          "title": "GitHub should become the source of truth",
+          "text": "The working website should be stored in a GitHub repository connected to Vercel. Code changes create reviewable versions, and approved changes to the production branch trigger deployment."
+        },
+        {
+          "type": "numbered",
+          "text": "Local + Codex: Draft and validate the change"
+        },
+        {
+          "type": "numbered",
+          "text": "Git branch: Create an isolated checkpoint"
+        },
+        {
+          "type": "numbered",
+          "text": "GitHub: Push and open a pull request"
+        },
+        {
+          "type": "numbered",
+          "text": "Vercel preview: Review a live private URL"
+        },
+        {
+          "type": "numbered",
+          "text": "Human approval: Verify content, data, and access"
+        },
+        {
+          "type": "numbered",
+          "text": "Merge to main: Approve the source change"
+        },
+        {
+          "type": "numbered",
+          "text": "Vercel production: Deploy automatically"
+        },
+        {
+          "type": "paragraph",
+          "text": "The repository records what changed, who changed it, and which version is live. Vercel watches the connected repository: branches and pull requests can produce preview deployments, while the configured production branch—usually main—publishes the approved site.",
+          "emphasis": false
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Git and origin essentials"
+        },
+        {
+          "type": "paragraph",
+          "text": "Origin is the conventional name for the remote GitHub repository connected to a local project. Local files are only a working copy; commits create durable checkpoints, and synchronization keeps that copy aligned with the shared repository.",
+          "emphasis": false
+        },
+        {
+          "type": "command",
+          "command": "git remote -v",
+          "label": "Confirm origin",
+          "description": "Shows which GitHub repository receives fetches and pushes."
+        },
+        {
+          "type": "command",
+          "command": "git fetch origin",
+          "label": "Inspect remote updates",
+          "description": "Downloads new remote history without changing the local working files."
+        },
+        {
+          "type": "command",
+          "command": "git pull origin main",
+          "label": "Integrate approved updates",
+          "description": "Fetches and combines the current production branch. Commit or safely set aside local work first."
+        },
+        {
+          "type": "command",
+          "command": "git add <reviewed-files>",
+          "label": "Stage intentionally",
+          "description": "Selects only the reviewed files for the next checkpoint; avoid staging secrets or unrelated work."
+        },
+        {
+          "type": "command",
+          "command": "git diff --staged",
+          "label": "Review before committing",
+          "description": "Shows exactly what the checkpoint will contain."
+        },
+        {
+          "type": "command",
+          "command": "git commit -m \"Describe the dashboard update\"",
+          "label": "Create a checkpoint",
+          "description": "Records an intentional local version with a readable explanation."
+        },
+        {
+          "type": "command",
+          "command": "git push origin <branch-name>",
+          "label": "Submit to GitHub",
+          "description": "Uploads the branch so it can be reviewed and deployed as a preview."
+        },
+        {
+          "type": "link",
+          "label": "Getting changes from GitHub",
+          "description": "Official explanation of clone, fetch, merge, and pull.",
+          "href": "https://docs.github.com/en/get-started/using-git/getting-changes-from-a-remote-repository"
+        },
+        {
+          "type": "link",
+          "label": "Pushing commits to GitHub",
+          "description": "Official guide to sending local commits to a remote.",
+          "href": "https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "GitHub to Vercel automation"
+        },
+        {
+          "type": "numbered",
+          "text": "Create or confirm the GitHub repository and make main the protected production branch."
+        },
+        {
+          "type": "numbered",
+          "text": "Import that repository into Vercel and keep the framework preset on Next.js."
+        },
+        {
+          "type": "numbered",
+          "text": "Add the required authentication settings to Vercel as protected environment variables."
+        },
+        {
+          "type": "numbered",
+          "text": "Push work to a separate branch so Vercel creates a private preview deployment."
+        },
+        {
+          "type": "numbered",
+          "text": "Review the preview with research, design, data, and access-control checks."
+        },
+        {
+          "type": "numbered",
+          "text": "Merge the approved pull request into main; Vercel then builds the production deployment automatically."
+        },
+        {
+          "type": "numbered",
+          "text": "If a deployment fails, use Vercel’s build log to diagnose it. If an approved release causes a problem, revert the Git commit or roll back the deployment."
+        },
+        {
+          "type": "link",
+          "label": "Deploying Git repositories with Vercel",
+          "description": "Official production and preview branch workflow.",
+          "href": "https://vercel.com/docs/git"
+        },
+        {
+          "type": "link",
+          "label": "Vercel for GitHub",
+          "description": "Automatic deployments, previews, and production-domain updates.",
+          "href": "https://vercel.com/docs/git/vercel-for-github"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Future AI-assisted update flow"
+        },
+        {
+          "type": "callout",
+          "status": "Recommendation",
+          "title": "Automate proposals—not unchecked production changes",
+          "text": "ChatGPT or Codex can help update code and content, but a researcher should verify every number, claim, quote, permission, and visual before merge."
+        },
+        {
+          "type": "numbered",
+          "text": "A researcher selects the new reporting period and provides approved, deidentified source material."
+        },
+        {
+          "type": "numbered",
+          "text": "ChatGPT or Codex proposes content, data, and code changes on a separate Git branch."
+        },
+        {
+          "type": "numbered",
+          "text": "Automated checks flag missing sample bases, citations, quote permissions, placeholder data, broken links, or failed builds."
+        },
+        {
+          "type": "numbered",
+          "text": "A human researcher reviews the code difference and the Vercel preview."
+        },
+        {
+          "type": "numbered",
+          "text": "After approval, the branch is merged into GitHub and Vercel deploys the accepted version."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Possible one-click experience"
+        },
+        {
+          "type": "paragraph",
+          "text": "A future “Update dashboard” button could collect a reporting period, approved files, and a change note, then ask a secured GitHub integration to create a branch and pull request. The button should stop at a reviewable preview; it should not overwrite production directly.",
+          "emphasis": false
+        },
+        {
+          "type": "bullet",
+          "text": "Required controls: Root authentication, least-privilege GitHub credentials, approved-source validation, audit logs, and a mandatory reviewer."
+        },
+        {
+          "type": "bullet",
+          "text": "What remains future work: The repository connection, automated checks, GitHub integration, one-click interface, and live data-refresh process."
+        },
+        {
+          "type": "bullet",
+          "text": "Definition of done: A repeatable update can move from approved evidence to private preview to reviewed production without copying files manually."
+        }
+      ],
+      "contentHash": "0ea9c2c789ebb100350e6474368a3f0a336b7eed1e09ce548868f042ac4e5ff0"
+    },
+    {
+      "tabId": "t.z582zky508qm",
+      "expectedTitle": "Additional Deliverable I (Documentation)",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "uxr-onboarding-documentation"
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "UXR Documentation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: In progress"
+        },
+        {
+          "type": "paragraph",
+          "text": "An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resources"
+        },
+        {
+          "type": "link",
+          "label": "Onboarding document",
+          "description": "Living Google Doc co-developed by the UXR interns.",
+          "href": "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Purpose"
+        },
+        {
+          "type": "callout",
+          "status": "In progress",
+          "title": "A living team playbook",
+          "text": "The source document and prototype content exist. Team review, durable ownership, and validation with a future new hire are the remaining steps before it should be treated as the canonical onboarding system."
+        },
+        {
+          "type": "paragraph",
+          "text": "Layilah Campbell and I developed this documentation to reduce the amount of critical research context that new hires must reconstruct through scattered conversations, Slack history, and repository searches.",
+          "emphasis": false
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "What it encompasses"
+        },
+        {
+          "type": "bullet",
+          "text": "Root and auto-insurance context for researchers who are new to the domain."
+        },
+        {
+          "type": "bullet",
+          "text": "Key research partners, team connections, and communication channels."
+        },
+        {
+          "type": "bullet",
+          "text": "Standard operating procedures for intake, planning, evidence handling, analysis, review, and handoff."
+        },
+        {
+          "type": "bullet",
+          "text": "The Voice of the Customer program, its source types, and the way quarterly evidence is processed."
+        },
+        {
+          "type": "bullet",
+          "text": "A worked NPS example that keeps small samples and generalizability visible."
+        },
+        {
+          "type": "bullet",
+          "text": "The customer quote library, retention context, Slack directories, and knowledge repositories."
+        },
+        {
+          "type": "bullet",
+          "text": "A governed workflow for applying the AI research skills to a new dataset."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "My contribution"
+        },
+        {
+          "type": "bullet",
+          "text": "Helped define the content architecture and chapter sequence."
+        },
+        {
+          "type": "bullet",
+          "text": "Documented the VOC processing workflow, evidence-story model, and technical QA expectations."
+        },
+        {
+          "type": "bullet",
+          "text": "Connected the customer-evidence library and AI-assisted research guidance to the onboarding journey."
+        },
+        {
+          "type": "bullet",
+          "text": "Translated the documentation into a reviewable website prototype before the internship handoff changed focus."
+        }
+      ],
+      "contentHash": "c30a624115b4c35eed990fa82a04d3956fcdd12b79679c759ad654104bb4ef6a"
+    },
+    {
+      "tabId": "t.69nuk3h4zyt8",
+      "expectedTitle": "Additional Deliverable II (Site Map)",
+      "mode": "managed-body",
+      "sourceKind": "site-map",
+      "blocks": [
+        {
+          "type": "title",
+          "text": "UXR Handoff Site Map"
+        },
+        {
+          "type": "paragraph",
+          "text": "The private handoff site is the canonical source for project status and narrative detail. This tab records the complete route map and the role of each page."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Deliverables"
+        },
+        {
+          "type": "bullet",
+          "text": "01 · VOC Quarterly Report (Q1-26) · Delivered · /q1-voc-report — The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework."
+        },
+        {
+          "type": "bullet",
+          "text": "02 · VOC Quarterly Report (Q2-26) · In progress · /q2-voc-report — This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August."
+        },
+        {
+          "type": "bullet",
+          "text": "03 · VOC Dashboard · In progress · /voc-dashboard — A nearly complete design prototype and an in-progress coded handoff for a living VOC website powered by a reviewed GitHub-to-Vercel workflow."
+        },
+        {
+          "type": "bullet",
+          "text": "04 · VOC Customer Quote Library · Delivered · /customer-quote-library — A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources."
+        },
+        {
+          "type": "bullet",
+          "text": "05 · NPS Executive Report (Q1-26) · Delivered · /nps-executive-report — An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
+        },
+        {
+          "type": "bullet",
+          "text": "06 · UXR Documentation · In progress · /uxr-onboarding-documentation — An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
+        },
+        {
+          "type": "bullet",
+          "text": "07 · Presentation Template · Delivered · /presentation-template-system — I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+        },
+        {
+          "type": "bullet",
+          "text": "08 · AI Skills · Delivered · /ai-research-skills — To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Research practice"
+        },
+        {
+          "type": "bullet",
+          "text": "09 · Research Process · Delivered · /research-process — An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions."
+        },
+        {
+          "type": "bullet",
+          "text": "10 · Standard Operating Procedures (SOPs) · Delivered · /standard-operating-procedures — The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff."
+        },
+        {
+          "type": "bullet",
+          "text": "11 · Insights · Delivered · /internship-reflection — The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Future"
+        },
+        {
+          "type": "bullet",
+          "text": "12 · Transition Plan · In progress · /handoff-next-steps — A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
+        }
+      ],
+      "contentHash": "b208696195865ef48074239c9e6d8bdd525170d326ef8ff2be3c6003bdc03ecf"
+    },
+    {
+      "tabId": "t.p5vqlrzgpbt5",
+      "expectedTitle": "Additional Deliverable III (NPS Executive Report)",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "nps-executive-report"
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "NPS Executive Report (Q1-26)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: Delivered"
+        },
+        {
+          "type": "paragraph",
+          "text": "An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resources"
+        },
+        {
+          "type": "link",
+          "label": "Final PDF",
+          "description": "Final Q1-26 executive report PDF in Google Drive.",
+          "href": "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view"
+        },
+        {
+          "type": "link",
+          "label": "VOC Figma workspace",
+          "description": "Shared design workspace containing the report work.",
+          "href": "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed"
+        },
+        {
+          "type": "link",
+          "label": "Project record",
+          "description": "Research process and delivery notes in the IPSD.",
+          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.p5vqlrzgpbt5"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "What it encompasses"
+        },
+        {
+          "type": "bullet",
+          "text": "Executive summary: A quick overview of the key findings and future steps for leadership."
+        },
+        {
+          "type": "bullet",
+          "text": "NPS segment views: Separate views of aggregate, current-customer, former-customer, and non-customer performance."
+        },
+        {
+          "type": "bullet",
+          "text": "Promoter and detractor themes: A directional review of the experiences shaping positive and negative sentiment."
+        },
+        {
+          "type": "bullet",
+          "text": "Methodology and sampling: Source definitions, sampling context, and limitations for the 10/10 Benchmark Survey and Marketing Brand Tracking Study."
+        },
+        {
+          "type": "bullet",
+          "text": "Follow-up strategy: A focused plan for explaining non-customer sentiment and strengthening future NPS data collection."
+        },
+        {
+          "type": "bullet",
+          "text": "Appendix: Carrier comparisons, segment distributions, and supporting tables for deeper review."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Research process"
+        },
+        {
+          "type": "numbered",
+          "text": "Segment: Separate current, former, and non-customers"
+        },
+        {
+          "type": "numbered",
+          "text": "Compare: Review carrier-level patterns across sources"
+        },
+        {
+          "type": "numbered",
+          "text": "Qualify: Surface small samples and source limitations"
+        },
+        {
+          "type": "numbered",
+          "text": "Interpret: Distinguish experience from reputation"
+        },
+        {
+          "type": "numbered",
+          "text": "Recommend: Name the next research question"
+        },
+        {
+          "type": "paragraph",
+          "text": "The central research workflow examined each NPS tracking source independently to clarify performance differences between current-customer and non-customer samples. Comparing results at the segment and study level helped explain the diverging scores and reconcile the apparent discrepancy between the Marketing Brand Tracking Study and the 10/10 Benchmark Survey.",
+          "emphasis": false
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "My contribution"
+        },
+        {
+          "type": "bullet",
+          "text": "Structured the report narrative for an executive audience that needed concise explanations and a clear follow-up strategy."
+        },
+        {
+          "type": "bullet",
+          "text": "Iterated the document’s storytelling and formatting through multiple rounds of review with leadership stakeholders."
+        },
+        {
+          "type": "bullet",
+          "text": "Investigated a common source of confusion across multiple NPS tracking studies and their diverging results."
+        },
+        {
+          "type": "bullet",
+          "text": "Compared and reconciled the 10/10 Benchmark Survey and Marketing Brand Tracking Study perspectives."
+        },
+        {
+          "type": "bullet",
+          "text": "Created the information hierarchy, charts, annotations, disclaimers, and appendix structure."
+        },
+        {
+          "type": "bullet",
+          "text": "Translated analytical limitations into visible reading guidance rather than hiding them in footnotes."
+        }
+      ],
+      "contentHash": "af4287fa6ad9f04b91f6fe518c48453e939666d1e695cccc84c18e4d6118a552"
+    },
+    {
+      "tabId": "t.1i5wqpu8xsw",
+      "expectedTitle": "Additional Deliverable V (AI Research Skills)",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "ai-research-skills"
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "AI Skills"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: Delivered"
+        },
+        {
+          "type": "paragraph",
+          "text": "To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resources"
+        },
+        {
+          "type": "link",
+          "label": "/research-viz",
+          "description": "Packaged workflow for research charts and visual communication.",
+          "href": "https://drive.google.com/file/d/14rJ2R0HVKT5mafL4txP91-2Cn7k_dmqt/view"
+        },
+        {
+          "type": "link",
+          "label": "/research-synthesis",
+          "description": "Packaged workflow for cross-source research synthesis.",
+          "href": "https://drive.google.com/file/d/1V_W6ERl6x_cYkLtVYy9-L_MF_p4A0tVW/view"
+        },
+        {
+          "type": "link",
+          "label": "/root-brand-voice",
+          "description": "Packaged writing guidance for Root’s updated voice.",
+          "href": "https://drive.google.com/file/d/1pLnFe6CPhkBGI-QKrk646YvkUfyFEQFc/view"
+        },
+        {
+          "type": "link",
+          "label": "Project Documentation",
+          "description": "Deliverable notes and package inventory in the IPSD.",
+          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.1i5wqpu8xsw"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Research Process"
+        },
+        {
+          "type": "numbered",
+          "text": "research-viz: Inspect and express the evidence"
+        },
+        {
+          "type": "numbered",
+          "text": "research-synthesis: Assemble supported findings"
+        },
+        {
+          "type": "numbered",
+          "text": "Human review: Challenge claims and edge cases"
+        },
+        {
+          "type": "numbered",
+          "text": "root-brand-voice: Refine approved communication"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Data-processing workflow"
+        },
+        {
+          "type": "numbered",
+          "text": "Frame the stakeholder decision, target population, and required evidence."
+        },
+        {
+          "type": "numbered",
+          "text": "Use only a Root-approved environment and provide the minimum necessary data."
+        },
+        {
+          "type": "numbered",
+          "text": "Profile fields, identifiers, missingness, duplicates, bases, and quality flags."
+        },
+        {
+          "type": "numbered",
+          "text": "Lock the metric definition, denominator, filters, segment rules, and rounding."
+        },
+        {
+          "type": "numbered",
+          "text": "Use AI to propose code or coding—not to replace evidence review."
+        },
+        {
+          "type": "numbered",
+          "text": "Review low-confidence cases, disagreements, and disconfirming evidence."
+        },
+        {
+          "type": "numbered",
+          "text": "Preserve reproducible transformations and a claim-to-source evidence matrix."
+        },
+        {
+          "type": "numbered",
+          "text": "Apply the brand-voice skill only after the claims are stable."
+        }
+      ],
+      "contentHash": "eef683e5c320245726add65bdb0b109e8692b37e9769a3ba9a9021156477c29a"
+    },
+    {
+      "tabId": "t.pgdqdutlrhpb",
+      "expectedTitle": "UXR Handoff — Practice & Transition",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "research-process",
+        "standard-operating-procedures",
+        "internship-reflection",
+        "handoff-next-steps"
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "UXR Handoff — Practice & Transition"
+        },
+        {
+          "type": "paragraph",
+          "text": "A streamlined companion to the UXR Handoff website covering the research operating model, reusable procedures, internship insights, and transition plan."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Research Process"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: Delivered"
+        },
+        {
+          "type": "paragraph",
+          "text": "An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions."
+        },
+        {
+          "type": "numbered",
+          "text": "Listen: Collect expectations and constraints"
+        },
+        {
+          "type": "numbered",
+          "text": "Compare: Audit reports, tools, and evidence"
+        },
+        {
+          "type": "numbered",
+          "text": "Translate: Turn feedback into design criteria"
+        },
+        {
+          "type": "numbered",
+          "text": "Prototype: Make the direction reviewable"
+        },
+        {
+          "type": "numbered",
+          "text": "Iterate: Implement feedback and improve"
+        },
+        {
+          "type": "paragraph",
+          "text": "My UX research workflow is experimental, iterative, and informed by established human-centered design methods.",
+          "emphasis": true
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Research philosophy"
+        },
+        {
+          "type": "paragraph",
+          "text": "My research approach is centered around observable behavior. I believe that, beyond self-reported metrics, being able to observe users in a natural setting—such as through moderated usability testing and qualitative surveys—remains one of the best ways to understand and collect user data.",
+          "emphasis": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The metrics that matter depend on the decision I am trying to support. I look at measures such as success rate, time on task, assistance required, error frequency, conversion or drop-off, retention signals, and how often customer problems recur. I also consider sample quality, segment differences, and the limitations of each source.",
+          "emphasis": false
+        },
+        {
+          "type": "paragraph",
+          "text": "For me, customer empathy is an active exercise. For example, when I want to understand whether a prototype makes sense, I would rather conduct an unmoderated usability test than ask users whether they feel the solution is appropriate. This lets me see whether, in practice and without supervision or support from the research team, users carry out the behavior we expected. I can then use follow-up questions to better understand what happened.",
+          "emphasis": false
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Standard Operating Procedures (SOPs)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: Delivered"
+        },
+        {
+          "type": "paragraph",
+          "text": "The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Operating rhythm"
+        },
+        {
+          "type": "bullet",
+          "text": "Start the week by confirming the decision, deliverable, dependencies, and definition of done."
+        },
+        {
+          "type": "bullet",
+          "text": "Use focused work blocks for deep analysis and design rather than fragmenting core synthesis across meetings."
+        },
+        {
+          "type": "bullet",
+          "text": "Share concise asynchronous progress updates so blockers and scope changes remain visible."
+        },
+        {
+          "type": "bullet",
+          "text": "Use scheduled critique or manager review to challenge the work before it becomes expensive to change."
+        },
+        {
+          "type": "bullet",
+          "text": "End the week by recording decisions, open questions, owners, links, and the next concrete step."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Intake and planning"
+        },
+        {
+          "type": "numbered",
+          "text": "Write the stakeholder decision the research or artifact must support."
+        },
+        {
+          "type": "numbered",
+          "text": "Define the target audience, research question, scope boundary, and delivery format."
+        },
+        {
+          "type": "numbered",
+          "text": "Inventory existing evidence before proposing new collection."
+        },
+        {
+          "type": "numbered",
+          "text": "Identify source owners, access constraints, review partners, and timing risks."
+        },
+        {
+          "type": "numbered",
+          "text": "Agree on what completion means and which claims require approval."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Data Analysis Workflow"
+        },
+        {
+          "type": "bullet",
+          "text": "Provenance: Preserve source, period, population, question wording, sample, filters, and exact locator."
+        },
+        {
+          "type": "bullet",
+          "text": "Quantitative QA: Confirm units, denominators, exclusions, missing values, segment definitions, and rounding before charting."
+        },
+        {
+          "type": "bullet",
+          "text": "Qualitative QA: Retain transcript or clip locators, consent boundaries, existing codes, contrary evidence, and researcher review."
+        },
+        {
+          "type": "bullet",
+          "text": "Evidence hierarchy: Use broad quantitative sources to establish patterns and qualitative sources to explain mechanisms and lived experience."
+        },
+        {
+          "type": "bullet",
+          "text": "Claim discipline: Keep observations, interpretations, recommendations, and unresolved questions visibly distinct."
+        },
+        {
+          "type": "numbered",
+          "text": "Self-review: Check evidence, logic, language, and accessibility"
+        },
+        {
+          "type": "numbered",
+          "text": "Peer review: Challenge claims and missing context"
+        },
+        {
+          "type": "numbered",
+          "text": "Stakeholder review: Confirm decision relevance and ownership"
+        },
+        {
+          "type": "numbered",
+          "text": "Artifact QA: Verify links, permissions, layouts, and data labels"
+        },
+        {
+          "type": "numbered",
+          "text": "Handoff: Record status, owner, source, and next step"
+        },
+        {
+          "type": "bullet",
+          "text": "Use a branch and preview for code changes; do not publish directly from an unreviewed AI session."
+        },
+        {
+          "type": "bullet",
+          "text": "Keep credentials, customer identifiers, unrestricted recordings, and private source data out of repositories and browser assets."
+        },
+        {
+          "type": "bullet",
+          "text": "Treat the editable source and approved final artifact as separate, canonical links."
+        },
+        {
+          "type": "bullet",
+          "text": "Record what changed after review so future researchers can distinguish accepted guidance from discarded exploration."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Insights"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: Delivered"
+        },
+        {
+          "type": "paragraph",
+          "text": "The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Product Roadmaps"
+        },
+        {
+          "type": "paragraph",
+          "text": "One of my most important lessons is that research findings represent the beginning of a product design journey. To create impact, I need to work closely with product partners to understand the current roadmap, its constraints, and the quickest credible opportunities to address immediate customer pain points. Learning to connect evidence with sequencing, feasibility, and ownership has made me a stronger researcher and a more thoughtful designer, especially because I work across both disciplines.",
+          "emphasis": false
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Data Visualization"
+        },
+        {
+          "type": "bullet",
+          "text": "Visible sample sizes, source labels, and limitations make a decisive story more credible—not less engaging."
+        },
+        {
+          "type": "bullet",
+          "text": "Separating the quantitative “what” from the qualitative “why” protects both forms of evidence."
+        },
+        {
+          "type": "bullet",
+          "text": "One primary message per view creates space for a stronger claim and clearer supporting context."
+        },
+        {
+          "type": "bullet",
+          "text": "A report should surface consequential friction even when the evidence is uncomfortable or incomplete."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Rapid Iteration"
+        },
+        {
+          "type": "paragraph",
+          "text": "During this internship, I experimented with sharing focused increments every two or three days instead of waiting to present a polished final deliverable for formal review. That rhythm gave my managers more opportunities to shape the work while decisions were still flexible. As an intern, I began with less organizational context than colleagues in full-time roles; frequent reviews helped close that gap, sharpen my understanding of Root, and improve the quality of each deliverable through continuous, incremental refinement.",
+          "emphasis": false
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Skills developed"
+        },
+        {
+          "type": "bullet",
+          "text": "Qualitative synthesis: Connecting customer language to broader patterns without treating a small sample as prevalence."
+        },
+        {
+          "type": "bullet",
+          "text": "Strategic storytelling: Moving from descriptive findings to bounded, decision-relevant narratives."
+        },
+        {
+          "type": "bullet",
+          "text": "Data communication: Clarifying questions, scales, labels, sample bases, and visual hierarchy."
+        },
+        {
+          "type": "bullet",
+          "text": "Stakeholder influence: Turning feedback into explicit reporting and dashboard criteria."
+        },
+        {
+          "type": "bullet",
+          "text": "Technical prototyping: Using Figma, Lovable, HTML/CSS, and AI-assisted coding to make research systems tangible."
+        },
+        {
+          "type": "bullet",
+          "text": "Handoff discipline: Separating delivered artifacts, prototypes, open work, and recommendations."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What I Want to Develop Next"
+        },
+        {
+          "type": "bullet",
+          "text": "Extend my AI practice beyond research and design into production, learning how to collaborate with engineering teams to carry work from findings through design iteration and into customer-facing implementation."
+        },
+        {
+          "type": "bullet",
+          "text": "Create artifacts that remain legible and useful across technical and non-technical audiences, adapting the same evidence for executives, product leaders, researchers, designers, and engineers without losing clarity or rigor."
+        },
+        {
+          "type": "bullet",
+          "text": "Expand my professional network and strengthen my confidence presenting work to broader groups, deliberately moving beyond my comfort zone as an introvert so I can communicate the value of my work more effectively."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Transition Plan"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: In progress"
+        },
+        {
+          "type": "paragraph",
+          "text": "A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Artifact status"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "VOC Quarterly Report (Q1-26)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Delivered: Completed Figma presentation, V7 export, and reusable reporting principles."
+        },
+        {
+          "type": "link",
+          "label": "VOC Quarterly Report (Q1-26)",
+          "description": "Completed Figma presentation, V7 export, and reusable reporting principles.",
+          "href": "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=311-2744&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=scale-down&content-scaling=fixed"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "VOC Quarterly Report (Q2-26)"
+        },
+        {
+          "type": "paragraph",
+          "text": "In progress: Working structure and source inventory established; findings and final review remain open."
+        },
+        {
+          "type": "link",
+          "label": "VOC Quarterly Report (Q2-26)",
+          "description": "Working structure and source inventory established; findings and final review remain open.",
+          "href": "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "VOC Dashboard · Prototype"
+        },
+        {
+          "type": "paragraph",
+          "text": "Prototype: High-fidelity Figma and Lovable direction; the current values remain placeholder data."
+        },
+        {
+          "type": "link",
+          "label": "VOC Dashboard · Prototype",
+          "description": "High-fidelity Figma and Lovable direction; the current values remain placeholder data.",
+          "href": "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "VOC Dashboard · Code Handoff"
+        },
+        {
+          "type": "paragraph",
+          "text": "In progress: Repository, production data, Vercel workflow, access, and maintenance SOP are active work."
+        },
+        {
+          "type": "link",
+          "label": "VOC Dashboard · Code Handoff",
+          "description": "Repository, production data, Vercel workflow, access, and maintenance SOP are active work.",
+          "href": "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "VOC Customer Quote Library"
+        },
+        {
+          "type": "paragraph",
+          "text": "Delivered: Multi-source evidence inventory and access points for 21 deidentified Q1 clips."
+        },
+        {
+          "type": "link",
+          "label": "VOC Customer Quote Library",
+          "description": "Multi-source evidence inventory and access points for 21 deidentified Q1 clips.",
+          "href": "/customer-quote-library"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "NPS Executive Report (Q1-26)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Delivered: Completed Q1 2026 executive report delivered to Jill."
+        },
+        {
+          "type": "link",
+          "label": "NPS Executive Report (Q1-26)",
+          "description": "Completed Q1 2026 executive report delivered to Jill.",
+          "href": "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "UXR Documentation"
+        },
+        {
+          "type": "paragraph",
+          "text": "In progress: Living onboarding and operating playbook co-developed with Layilah Campbell."
+        },
+        {
+          "type": "link",
+          "label": "UXR Documentation",
+          "description": "Living onboarding and operating playbook co-developed with Layilah Campbell.",
+          "href": "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Presentation Template"
+        },
+        {
+          "type": "paragraph",
+          "text": "Delivered: Completed Drive export, team-owned Figma template, and editable VOC design-system workspace."
+        },
+        {
+          "type": "link",
+          "label": "Presentation Template",
+          "description": "Completed Drive export, team-owned Figma template, and editable VOC design-system workspace.",
+          "href": "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "AI Skills"
+        },
+        {
+          "type": "paragraph",
+          "text": "Delivered: Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook."
+        },
+        {
+          "type": "link",
+          "label": "AI Skills",
+          "description": "Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook.",
+          "href": "/ai-research-skills"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Action Required"
+        },
+        {
+          "type": "numbered",
+          "text": "Confirm the long-term owner for every artifact."
+        },
+        {
+          "type": "numbered",
+          "text": "Verify access to Figma, Drive recordings, research notes, the AI Skills folder, the dashboard GitHub repository, and Vercel."
+        },
+        {
+          "type": "numbered",
+          "text": "Pilot the onboarding documentation with a new team member and assign chapter owners."
+        },
+        {
+          "type": "numbered",
+          "text": "Who will own the completed VOC presentation system and approve future changes?"
+        },
+        {
+          "type": "numbered",
+          "text": "Who will own the evidence library, onboarding playbook, and their permission or content reviews?"
+        },
+        {
+          "type": "numbered",
+          "text": "Which Q2 findings require another research round before publication?"
+        },
+        {
+          "type": "numbered",
+          "text": "Which data sources and metrics are approved for the first operational dashboard version?"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Closing note"
+        },
+        {
+          "type": "paragraph",
+          "text": "I’m deeply grateful for the opportunity to work with Root’s UX Research team. I have genuinely enjoyed contributing to the team and learned an extraordinary amount from the people, projects, and trust I was given. I’m excited about what comes next and hope to continue contributing to Root throughout my final year of university and after graduation.",
+          "emphasis": true
+        },
+        {
+          "type": "signature",
+          "text": "Julio Caggiano"
+        }
+      ],
+      "contentHash": "42ca0b1698d7e268a146a41a09e870d616648b4ca27f21afc05ca670f9bf8fb1"
+    }
+  ]
+}

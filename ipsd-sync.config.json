@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "direction": "website-to-google-doc",
+  "unknownTabPolicy": "preserve",
+  "document": {
+    "id": "1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco",
+    "url": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
+    "expectedTitle": "Julio Intern Project Scope Document (IPSD) - UXR VOC"
+  },
+  "tabs": [
+    {
+      "tabId": "t.0",
+      "expectedTitle": "IPSD",
+      "mode": "protected",
+      "reason": "Contains HR-specific information and must never be changed by the website sync."
+    },
+    {
+      "tabId": "t.qa2itxq3djir",
+      "expectedTitle": "Working Notes",
+      "mode": "managed-block",
+      "managedRangeName": "UXR_HANDOFF_SYNC_STATUS",
+      "sourceKind": "site-index"
+    },
+    {
+      "tabId": "t.x2nebw360ab0",
+      "expectedTitle": "Q2-26 VOC Report Draft",
+      "mode": "managed-body",
+      "sourceSlugs": ["q2-voc-report"]
+    },
+    {
+      "tabId": "t.7momns81mgpm",
+      "expectedTitle": "Q1-26 VOC Report Draft",
+      "mode": "managed-body",
+      "sourceSlugs": ["q1-voc-report"]
+    },
+    {
+      "tabId": "t.eh4wx17fdlej",
+      "expectedTitle": "VOC Dashboard",
+      "mode": "managed-body",
+      "sourceSlugs": ["voc-dashboard"]
+    },
+    {
+      "tabId": "t.vwocc5k1v4db",
+      "expectedTitle": "VOC Customer Quote Library",
+      "mode": "doc-to-site-source",
+      "sourceSlugs": ["customer-quote-library"]
+    },
+    {
+      "tabId": "t.z582zky508qm",
+      "expectedTitle": "Additional Deliverable I (Documentation)",
+      "mode": "managed-body",
+      "sourceSlugs": ["uxr-onboarding-documentation"]
+    },
+    {
+      "tabId": "t.69nuk3h4zyt8",
+      "expectedTitle": "Additional Deliverable II (Site Map)",
+      "mode": "managed-body",
+      "sourceKind": "site-map"
+    },
+    {
+      "tabId": "t.p5vqlrzgpbt5",
+      "expectedTitle": "Additional Deliverable III (NPS Executive Report)",
+      "mode": "managed-body",
+      "sourceSlugs": ["nps-executive-report"]
+    },
+    {
+      "tabId": "t.x1rjygdc0a3s",
+      "expectedTitle": "Additional Deliverable IV (Presentation Template)",
+      "mode": "verify-only",
+      "sourceSlugs": ["presentation-template-system"],
+      "reason": "Contains an opaque native control that must be preserved."
+    },
+    {
+      "tabId": "t.1i5wqpu8xsw",
+      "expectedTitle": "Additional Deliverable V (AI Research Skills)",
+      "mode": "managed-body",
+      "sourceSlugs": ["ai-research-skills"]
+    },
+    {
+      "tabId": "t.trloe1e36awc",
+      "expectedTitle": "Appendix",
+      "mode": "preserve-only"
+    },
+    {
+      "tabId": "t.pgdqdutlrhpb",
+      "expectedTitle": "UXR Handoff — Practice & Transition",
+      "mode": "managed-body",
+      "sourceSlugs": [
+        "research-process",
+        "standard-operating-procedures",
+        "internship-reflection",
+        "handoff-next-steps"
+      ]
+    }
+  ]
+}

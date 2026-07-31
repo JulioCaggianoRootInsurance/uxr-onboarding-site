@@ -988,7 +988,8 @@ export const handoffPages: HandoffPage[] = [
     group: "Research practice",
     order: 9,
     title: "Research Process",
-    summary: "",
+    summary:
+      "An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions.",
     status: "Delivered",
     updated: siteUpdated,
     sections: [
