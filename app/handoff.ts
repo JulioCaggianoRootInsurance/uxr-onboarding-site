@@ -226,7 +226,7 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "quote",
             label: "Working principle",
-            text: "Quantitative evidence establishes what is happening. On the other hand, qualitative evidence explains why it is happening and how customers experience it.",
+            text: "Quantitative evidence helped us identify broader phenomena that required attention. Qualitative evidence helped us understand the nuances and specific struggles customers were facing, which then informed our debriefs with Product Design stakeholders.",
           },
         ],
       },
@@ -234,19 +234,6 @@ export const handoffPages: HandoffPage[] = [
         id: "reporting-framework",
         title: "The reporting framework",
         blocks: [
-          {
-            kind: "list",
-            items: [
-              "Use NPS as a narrative spine where it fits, without treating it as the complete customer story.",
-              "Take a defensible stance instead of relying on passive or overly cautious language.",
-              "Separate the quantitative “what” from the qualitative “why.”",
-              "Use one primary message, one chart, and no more than three supporting points per slide.",
-              "Label questions, scales, sources, sample bases, dates, and limitations consistently.",
-              "Pair metrics with customer language while preserving conflicting evidence.",
-              "Show trends and useful benchmarks, then connect findings to current or future roadmap decisions.",
-              "Begin sections with a concise TL;DR so leadership can find the core implication quickly.",
-            ],
-          },
           {
             kind: "pipeline",
             items: [
@@ -266,6 +253,19 @@ export const handoffPages: HandoffPage[] = [
                 label: "Report viable next steps for product development",
                 detail: "Connect the evidence to a feasible product decision.",
               },
+            ],
+          },
+          {
+            kind: "list",
+            items: [
+              "Use NPS as a narrative spine where it fits, without treating it as the complete customer story.",
+              "Take a defensible stance instead of relying on passive or overly cautious language.",
+              "Separate the quantitative “what” from the qualitative “why.”",
+              "Use one primary message, one chart, and no more than three supporting points per slide.",
+              "Label questions, scales, sources, sample bases, dates, and limitations consistently.",
+              "Pair metrics with customer language while preserving conflicting evidence.",
+              "Show trends and useful benchmarks, then connect findings to current or future roadmap decisions.",
+              "Begin sections with a concise TL;DR so leadership can find the core implication quickly.",
             ],
           },
         ],
@@ -795,11 +795,6 @@ export const handoffPages: HandoffPage[] = [
         description: "Living Google Doc co-developed by the UXR interns.",
         href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
       },
-      {
-        label: "Project record",
-        description: "Scope, progress, and continuation notes in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.z582zky508qm",
-      },
     ],
     sections: [
       {
@@ -847,22 +842,6 @@ export const handoffPages: HandoffPage[] = [
               "Documented the VOC processing workflow, evidence-story model, and technical QA expectations.",
               "Connected the customer-evidence library and AI-assisted research guidance to the onboarding journey.",
               "Translated the documentation into a reviewable website prototype before the internship handoff changed focus.",
-            ],
-          },
-        ],
-      },
-      {
-        id: "how-it-was-built",
-        title: "How it was built",
-        blocks: [
-          {
-            kind: "pipeline",
-            items: [
-              { label: "Collect", detail: "Gather existing SOPs, links, and team context" },
-              { label: "Reconcile", detail: "Resolve conflicting or incomplete guidance" },
-              { label: "Structure", detail: "Move from first-day context to advanced practice" },
-              { label: "Prototype", detail: "Make the material scannable and navigable" },
-              { label: "Validate", detail: "Assign owners and test with a new hire" },
             ],
           },
         ],
@@ -1038,15 +1017,15 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "paragraph",
-            text: "My research approach begins with observable behavior. Self-reported attitudes can help explain meaning and motivation, but they are not a substitute for seeing what people actually do in context. I look first for behavioral phenomena—task completion, hesitation, errors, workarounds, abandonment, recurring support needs, and changes over time—then use interviews and open-ended feedback to understand the mechanisms behind those patterns.",
+            text: "My research approach is centered around observable behavior. I believe that, beyond self-reported metrics, being able to observe users in a natural setting—such as through moderated usability testing and qualitative surveys—remains one of the best ways to understand and collect user data.",
           },
           {
             kind: "paragraph",
-            text: "The metrics that matter depend on the decision, but I prioritize measures that connect experience to action: success rate, time on task, assistance required, error frequency, conversion or drop-off, retention signals, and the recurrence and severity of customer problems. I interpret these measures alongside sample quality, segment differences, and source limitations; a metric is useful only when its definition and relationship to the decision are clear.",
+            text: "The metrics that matter depend on the decision I am trying to support. I look at measures such as success rate, time on task, assistance required, error frequency, conversion or drop-off, retention signals, and how often customer problems recur. I also consider sample quality, segment differences, and the limitations of each source.",
           },
           {
             kind: "paragraph",
-            text: "I treat customer empathy as an active research practice rather than a statement of intent. For example, instead of asking whether a prototype seems appropriate, I would use an unmoderated usability study to observe whether participants can complete the intended behavior without guidance from the research team. Watching where they pause, adapt, or fail reveals friction that a direct opinion question may miss. Follow-up questions can then explain why the behavior occurred and what the experience meant to the participant.",
+            text: "For me, customer empathy is an active exercise. For example, when I want to understand whether a prototype makes sense, I would rather conduct an unmoderated usability test than ask users whether they feel the solution is appropriate. This lets me see whether, in practice and without supervision or support from the research team, users carry out the behavior we expected. I can then use follow-up questions to better understand what happened.",
           },
         ],
       },
@@ -1095,8 +1074,8 @@ export const handoffPages: HandoffPage[] = [
         ],
       },
       {
-        id: "evidence-and-analysis",
-        title: "Evidence and analysis",
+        id: "data-analysis-workflow",
+        title: "Data Analysis Workflow",
         blocks: [
           {
             kind: "list",
@@ -1108,17 +1087,6 @@ export const handoffPages: HandoffPage[] = [
               "Claim discipline: Keep observations, interpretations, recommendations, and unresolved questions visibly distinct.",
             ],
           },
-          {
-            kind: "quote",
-            label: "Review rule",
-            text: "A memorable quote can make a verified pattern understandable; it cannot establish prevalence by itself.",
-          },
-        ],
-      },
-      {
-        id: "review-and-publishing",
-        title: "Review and publishing",
-        blocks: [
           {
             kind: "pipeline",
             items: [
@@ -1136,27 +1104,6 @@ export const handoffPages: HandoffPage[] = [
               "Keep credentials, customer identifiers, unrestricted recordings, and private source data out of repositories and browser assets.",
               "Treat the editable source and approved final artifact as separate, canonical links.",
               "Record what changed after review so future researchers can distinguish accepted guidance from discarded exploration.",
-            ],
-          },
-        ],
-      },
-      {
-        id: "source-playbook",
-        title: "Source playbook",
-        blocks: [
-          {
-            kind: "links",
-            items: [
-              {
-                label: "UXR onboarding and SOP source",
-                description: "The living onboarding document containing the broader team operating guidance.",
-                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
-              },
-              {
-                label: "AI research workflow",
-                description: "The governed data-processing and synthesis sequence.",
-                href: "/ai-research-skills",
-              },
             ],
           },
         ],
@@ -1179,7 +1126,7 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "paragraph",
-            text: "One of my most important lessons is that a research finding is the beginning of a product journey, not its conclusion. To create impact, I need to work closely with product partners to understand the current roadmap, its constraints, and the quickest credible opportunities to address immediate customer pain points. Learning to connect evidence with sequencing, feasibility, and ownership has made me a stronger researcher and a more thoughtful designer, especially because I work across both disciplines.",
+            text: "One of my most important lessons is that research findings represent the beginning of a product design journey. To create impact, I need to work closely with product partners to understand the current roadmap, its constraints, and the quickest credible opportunities to address immediate customer pain points. Learning to connect evidence with sequencing, feasibility, and ownership has made me a stronger researcher and a more thoughtful designer, especially because I work across both disciplines.",
           },
         ],
       },
@@ -1205,16 +1152,6 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "paragraph",
             text: "During this internship, I experimented with sharing focused increments every two or three days instead of waiting to present a polished final deliverable for formal review. That rhythm gave my managers more opportunities to shape the work while decisions were still flexible. As an intern, I began with less organizational context than colleagues in full-time roles; frequent reviews helped close that gap, sharpen my understanding of Root, and improve the quality of each deliverable through continuous, incremental refinement.",
-          },
-        ],
-      },
-      {
-        id: "systematic-thinking",
-        title: "Systematic Thinking",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "The quarterly-report assignment expanded into a broader storytelling system with reusable structures, evidence practices, and visual standards. During a conversation with a senior engineering leader alongside other summer interns, I was encouraged to strengthen this kind of systems thinking. That advice became a defining lesson in how I approached the Voice of Customer program: not as a collection of isolated reports, but as a connected system that helps teams find evidence, communicate it consistently, and carry insights into decisions over time.",
           },
         ],
       },
@@ -1333,11 +1270,8 @@ export const handoffPages: HandoffPage[] = [
           {
             kind: "steps",
             items: [
-              "Confirm one canonical link and long-term owner for every artifact.",
-              "Complete the Q2 report’s evidence review, final claims, and approved artifact.",
+              "Confirm the long-term owner for every artifact.",
               "Verify access to Figma, Drive recordings, research notes, the AI Skills folder, the dashboard GitHub repository, and Vercel.",
-              "Connect the dashboard only to validated metrics and approved, deidentified sources.",
-              "Finish the dashboard repository, preview, authentication, CSV maintenance, and deployment SOP.",
               "Pilot the onboarding documentation with a new team member and assign chapter owners.",
             ],
           },
@@ -1347,9 +1281,7 @@ export const handoffPages: HandoffPage[] = [
               "Who will own the completed VOC presentation system and approve future changes?",
               "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
               "Which Q2 findings require another research round before publication?",
-              "Should the dashboard move from a presentation prototype to a maintained internal product?",
               "Which data sources and metrics are approved for the first operational dashboard version?",
-              "Where should the AI skill packages be installed, versioned, reviewed, and maintained?",
             ],
           },
         ],

@@ -87,7 +87,15 @@ test("defines the full internship handoff architecture", async () => {
   assert.doesNotMatch(content, /title: "The brief"/);
   assert.match(
     content,
-    /On the other hand, qualitative evidence explains why it is happening and how customers experience it/,
+    /Quantitative evidence helped us identify broader phenomena that required attention/,
+  );
+  assert.match(
+    content,
+    /specific struggles customers were facing, which then informed our debriefs with Product Design stakeholders/,
+  );
+  assert.doesNotMatch(
+    content,
+    /Quantitative evidence establishes what is happening/,
   );
   assert.doesNotMatch(content, /1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/);
   assert.match(
@@ -100,6 +108,19 @@ test("defines the full internship handoff architecture", async () => {
   assert.match(
     content,
     /label: "Report viable next steps for product development"/,
+  );
+  const q1Page = content.slice(
+    content.indexOf('slug: "q1-voc-report"'),
+    content.indexOf('slug: "q2-voc-report"'),
+  );
+  const reportingFramework = q1Page.slice(
+    q1Page.indexOf('id: "reporting-framework"'),
+    q1Page.indexOf('id: "continuation"'),
+  );
+  assert.ok(
+    reportingFramework.indexOf('kind: "pipeline"') <
+      reportingFramework.indexOf('kind: "list"'),
+    "the reporting-framework pipeline should appear before its guidance list",
   );
   assert.match(content, /VOC Quarterly Report \(Q2-26\)/);
   assert.match(content, /VOC Dashboard/);
@@ -161,7 +182,6 @@ test("frames the internship reflection as actionable insights", async () => {
     ["product-roadmaps", "Product Roadmaps"],
     ["data-visualization", "Data Visualization"],
     ["rapid-iteration", "Rapid Iteration"],
-    ["systematic-thinking", "Systematic Thinking"],
     ["skills-developed", "Skills developed"],
     ["what-i-want-to-develop-next", "What I Want to Develop Next"],
   ]) {
@@ -172,16 +192,17 @@ test("frames the internship reflection as actionable insights", async () => {
   }
   assert.match(
     insightsPage,
-    /research finding is the beginning of a product journey/,
+    /research findings represent the beginning of a product design journey/,
   );
   assert.match(insightsPage, /current roadmap, its constraints/);
   assert.match(insightsPage, /stronger researcher and a more thoughtful designer/);
   assert.match(insightsPage, /every two or three days/);
   assert.match(insightsPage, /less organizational context/);
   assert.match(insightsPage, /continuous, incremental refinement/);
-  assert.match(insightsPage, /broader storytelling system/);
-  assert.match(insightsPage, /senior engineering leader/);
-  assert.match(insightsPage, /Voice of Customer program/);
+  assert.doesNotMatch(
+    insightsPage,
+    /id: "systematic-thinking"|Systematic Thinking|broader storytelling system/,
+  );
   assert.match(
     insightsPage,
     /Visible sample sizes, source labels, and limitations/,
@@ -233,16 +254,25 @@ test("consolidates the transition plan and ends with an italic thank-you", async
     actionSection,
     /id: "immediate-actions",\s+title: "Action Required"/,
   );
+  for (const action of [
+    "Confirm the long-term owner for every artifact.",
+    "Verify access to Figma, Drive recordings, research notes, the AI Skills folder, the dashboard GitHub repository, and Vercel.",
+    "Pilot the onboarding documentation with a new team member and assign chapter owners.",
+  ]) {
+    assert.ok(actionSection.includes(action));
+  }
   for (const question of [
     "Who will own the completed VOC presentation system and approve future changes?",
     "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
     "Which Q2 findings require another research round before publication?",
-    "Should the dashboard move from a presentation prototype to a maintained internal product?",
     "Which data sources and metrics are approved for the first operational dashboard version?",
-    "Where should the AI skill packages be installed, versioned, reviewed, and maintained?",
   ]) {
     assert.ok(actionSection.includes(question));
   }
+  assert.doesNotMatch(
+    actionSection,
+    /one canonical link|Complete the Q2 report’s evidence review|Connect the dashboard only to validated metrics|Finish the dashboard repository|Should the dashboard move from a presentation prototype|Where should the AI skill packages be installed/,
+  );
   assert.equal((actionSection.match(/kind: "steps"/g) ?? []).length, 2);
   assert.doesNotMatch(actionSection, /kind: "list"/);
   assert.doesNotMatch(
@@ -435,6 +465,21 @@ test("frames the NPS report for product and executive audiences", async () => {
   assert.doesNotMatch(npsPage, /node-id=311-2741/);
 });
 
+test("keeps UXR documentation focused on the onboarding deliverable", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const onboardingPage = content.slice(
+    content.indexOf('slug: "uxr-onboarding-documentation"'),
+    content.indexOf('slug: "presentation-template-system"'),
+  );
+
+  assert.match(onboardingPage, /label: "Onboarding document"/);
+  assert.equal((onboardingPage.match(/\bhref:/g) ?? []).length, 1);
+  assert.doesNotMatch(
+    onboardingPage,
+    /label: "Project record"|Scope, progress, and continuation notes in the IPSD|id: "how-it-was-built"|title: "How it was built"/,
+  );
+});
+
 test("presents the reporting templates as one reusable system", async () => {
   const content = await readProjectFile("app/handoff.ts");
   const templatePage = content.slice(
@@ -612,11 +657,15 @@ test("keeps the research process focused on an iterative workflow", async () => 
   );
   assert.match(
     researchProcessPage,
-    /My research approach begins with observable behavior\./,
+    /My research approach is centered around observable behavior\./,
   );
   assert.match(
     researchProcessPage,
-    /Self-reported attitudes can help explain meaning and motivation/,
+    /being able to observe users in a natural setting—such as through moderated usability testing and qualitative surveys/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /My research approach begins with observable behavior|Self-reported attitudes can help explain meaning and motivation/,
   );
   assert.match(
     researchProcessPage,
@@ -624,11 +673,27 @@ test("keeps the research process focused on an iterative workflow", async () => 
   );
   assert.match(
     researchProcessPage,
-    /customer empathy as an active research practice/,
+    /sample quality, segment differences, and the limitations of each source\./,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /a metric is useful only when/,
   );
   assert.match(
     researchProcessPage,
-    /unmoderated usability study/,
+    /customer empathy is an active exercise/,
+  );
+  assert.match(
+    researchProcessPage,
+    /conduct an unmoderated usability test than ask users whether they feel the solution is appropriate/,
+  );
+  assert.match(
+    researchProcessPage,
+    /without supervision or support from the research team/,
+  );
+  assert.doesNotMatch(
+    researchProcessPage,
+    /Watching where they pause, adapt, or fail reveals friction|active research practice rather than a statement of intent/,
   );
   assert.doesNotMatch(
     researchProcessPage,
@@ -654,6 +719,31 @@ test("keeps the research process focused on an iterative workflow", async () => 
   assert.match(
     styles,
     /\.content-section-untitled > :first-child\s*\{\s*margin-top: 0;/s,
+  );
+});
+
+test("consolidates the SOP data-analysis and review workflow", async () => {
+  const content = await readProjectFile("app/handoff.ts");
+  const sopPage = content.slice(
+    content.indexOf('slug: "standard-operating-procedures"'),
+    content.indexOf('slug: "internship-reflection"'),
+  );
+
+  assert.match(
+    sopPage,
+    /id: "data-analysis-workflow",\s+title: "Data Analysis Workflow"/,
+  );
+  assert.match(sopPage, /Provenance: Preserve source, period, population/);
+  assert.match(sopPage, /label: "Self-review"/);
+  assert.match(sopPage, /label: "Handoff"/);
+  assert.match(sopPage, /Use a branch and preview for code changes/);
+  assert.doesNotMatch(
+    sopPage,
+    /id: "evidence-and-analysis"|id: "review-and-publishing"|Review rule|A memorable quote can make a verified pattern understandable/,
+  );
+  assert.doesNotMatch(
+    sopPage,
+    /id: "source-playbook"|Source playbook|UXR onboarding and SOP source|AI research workflow/,
   );
 });
 
