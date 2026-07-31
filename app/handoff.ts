@@ -102,6 +102,9 @@ export type HandoffPage = {
 
 export const siteUpdated = getSiteUpdated().label;
 
+const q1PrototypeHref =
+  "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=311-2744&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=scale-down&content-scaling=fixed";
+
 const q1CustomerRecordings: VideoCollection[] = [
   {
     participant: "Participant 1",
@@ -170,7 +173,7 @@ export const handoffPages: HandoffPage[] = [
       {
         label: "Interactive prototype",
         description: "Navigate the completed Q1-26 presentation in prototype mode.",
-        href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1305-1457&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=contain&content-scaling=fixed&starting-point-node-id=327%3A725",
+        href: q1PrototypeHref,
       },
       {
         label: "Figma source",
@@ -1269,7 +1272,7 @@ export const handoffPages: HandoffPage[] = [
                 status: "Delivered",
                 title: "VOC Quarterly Report (Q1-26)",
                 text: "Completed Figma presentation, V7 export, and reusable reporting principles.",
-                href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=1305-1457&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=contain&content-scaling=fixed&starting-point-node-id=327%3A725",
+                href: q1PrototypeHref,
               },
               {
                 status: "In progress",

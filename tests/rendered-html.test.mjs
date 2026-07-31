@@ -119,8 +119,11 @@ test("defines the full internship handoff architecture", async () => {
   );
   assert.equal((content.match(/primaryLinks: \[/g) ?? []).length, 8);
   assert.match(content, /label: "Interactive prototype"/);
-  assert.match(content, /node-id=1305-1457/);
-  assert.match(content, /starting-point-node-id=327%3A725/);
+  assert.match(content, /page-id=311%3A2741/);
+  assert.match(content, /node-id=311-2744/);
+  assert.doesNotMatch(content, /node-id=1305-1457/);
+  assert.doesNotMatch(content, /starting-point-node-id=/);
+  assert.equal((content.match(/href: q1PrototypeHref/g) ?? []).length, 2);
   assert.doesNotMatch(content, /node-id=1200-2707/);
   const primaryLinkBlocks =
     content.match(/primaryLinks: \[[\s\S]*?\n    \],\n    sections:/g) ?? [];
@@ -295,7 +298,7 @@ test("links every artifact status to its most useful destination", async () => {
   assert.match(content, /export type StatusItem = \{[\s\S]*href: string;/);
   assert.equal((statusInventory.match(/\bhref:/g) ?? []).length, 9);
   for (const [title, destination] of [
-    ["VOC Quarterly Report (Q1-26)", "node-id=1305-1457"],
+    ["VOC Quarterly Report (Q1-26)", "q1PrototypeHref"],
     ["VOC Quarterly Report (Q2-26)", "node-id=2546-1804"],
     ["VOC Dashboard · Prototype", "lovable.dev/preview/"],
     ["VOC Dashboard · Code Handoff", "1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs"],
@@ -692,6 +695,33 @@ test("shows the update date on the homepage but not expanded pages", async () =>
   assert.match(updater, /timeZone: "America\/Los_Angeles"/);
   assert.doesNotMatch(updater, /Jul 29, 2026/);
   assert.doesNotMatch(components, /\{page\.updated\}/);
+});
+
+test("publishes a minimal, host-aware social preview card", async () => {
+  const layout = await readProjectFile("app/layout.tsx");
+  const home = await readProjectFile("app/page.tsx");
+  const socialCard = await readFile(
+    path.join(projectRoot, "public", "og.png"),
+  );
+
+  assert.equal(socialCard.toString("ascii", 1, 4), "PNG");
+  assert.equal(socialCard.readUInt32BE(16), 1200);
+  assert.equal(socialCard.readUInt32BE(20), 630);
+  assert.match(layout, /export async function generateMetadata/);
+  assert.match(
+    layout,
+    /requestHeaders\s+\.get\("x-forwarded-host"\)/,
+  );
+  assert.match(layout, /requestHeaders\.get\("host"\)/);
+  assert.match(
+    layout,
+    /new URL\("\/og\.png", metadataOrigin\)\.toString\(\)/,
+  );
+  assert.match(layout, /width: 1200/);
+  assert.match(layout, /height: 630/);
+  assert.match(layout, /alt: "UX Research Internship Handoff"/);
+  assert.match(layout, /card: "summary_large_image"/);
+  assert.doesNotMatch(home, /openGraph:/);
 });
 
 test("places article metadata below the title with compact spacing", async () => {

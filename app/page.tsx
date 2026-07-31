@@ -12,11 +12,6 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
-  openGraph: {
-    title: "UXR Internship Handoff",
-    description: "A private Root research handoff.",
-    images: ["/og.png"],
-  },
 };
 
 export default async function Home() {
