@@ -4,6 +4,8 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import tsModule from "typescript";
+import { verificationParityText } from "./ipsd-live-safety.mjs";
+import { validateFormattingProfile } from "./ipsd-formatting.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const configPath = path.join(projectRoot, "ipsd-sync.config.json");
@@ -212,6 +214,7 @@ function consolidatedBlocks(pages) {
 }
 
 function validateConfig(config, pages) {
+  validateFormattingProfile(config.formatting);
   if (config.unknownTabPolicy !== "preserve") {
     throw new Error("unknownTabPolicy must be preserve");
   }
@@ -272,6 +275,21 @@ for (const tab of config.tabs) {
   targets.push({ ...tab, blocks });
 }
 
+const verificationTargets = config.tabs
+  .filter((tab) => tab.mode === "verify-only")
+  .map((tab) => {
+    const pages = (tab.sourceSlugs ?? []).map((slug) => {
+      const page = handoffPages.find((candidate) => candidate.slug === slug);
+      if (!page) throw new Error(`Missing verify-only source page: ${slug}`);
+      return page;
+    });
+    if (pages.length !== 1) throw new Error(`Verify-only tab ${tab.expectedTitle} must map exactly one page`);
+    const blocks = pageBlocks(pages[0]);
+    const target = { ...tab, blocks };
+    const parityText = verificationParityText(target);
+    return { ...target, parityText, contentHash: sha256(parityText) };
+  });
+
 const sourceText = await Promise.all([
   readFile(path.join(projectRoot, "app", "handoff.ts"), "utf8"),
   readFile(path.join(projectRoot, "app", "customer-quotes.ts"), "utf8"),
@@ -287,6 +305,7 @@ const payload = {
     ...target,
     contentHash: sha256(JSON.stringify(target.blocks)),
   })),
+  verificationTargets,
 };
 
 const rendered = stableJson(payload);

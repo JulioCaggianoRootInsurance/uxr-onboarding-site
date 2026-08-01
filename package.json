@@ -7,14 +7,20 @@
     "node": "22.x"
   },
   "scripts": {
+    "predev": "node scripts/build-ipsd-sync.mjs --check && node --test tests/ipsd-sync-contract.test.mjs",
     "dev": "next dev",
     "prebuild": "node scripts/build-ipsd-sync.mjs --check && node --test tests/ipsd-sync-contract.test.mjs",
     "build": "next build",
+    "prestart": "node scripts/build-ipsd-sync.mjs --check && node --test tests/ipsd-sync-contract.test.mjs",
     "start": "next start",
     "test": "node scripts/build-ipsd-sync.mjs --check && node --test tests/ipsd-sync-contract.test.mjs && next build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint .",
     "sync:ipsd:prepare": "node scripts/build-ipsd-sync.mjs",
-    "sync:ipsd:check": "node scripts/build-ipsd-sync.mjs --check && node --test tests/ipsd-sync-contract.test.mjs"
+    "sync:ipsd:check": "node scripts/build-ipsd-sync.mjs --check && node --test tests/ipsd-sync-contract.test.mjs",
+    "sync:ipsd:preflight": "node scripts/validate-ipsd-live-snapshot.mjs",
+    "sync:ipsd:format-plan": "node scripts/build-ipsd-format-repair-plan.mjs",
+    "sync:ipsd:validate-plan": "node scripts/validate-ipsd-apply-plan.mjs",
+    "sync:ipsd:record": "node scripts/record-ipsd-live-state.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

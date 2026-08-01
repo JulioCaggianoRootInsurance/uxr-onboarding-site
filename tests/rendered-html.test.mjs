@@ -613,7 +613,10 @@ test("keeps the research process focused on an iterative workflow", async () => 
     content.indexOf('slug: "standard-operating-procedures"'),
   );
 
-  assert.match(researchProcessPage, /title: "Research Process",\s+summary: ""/);
+  assert.match(
+    researchProcessPage,
+    /summary:\s+"An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions\."/,
+  );
   assert.doesNotMatch(
     researchProcessPage,
     /The repeatable path I used to turn an open brief/,

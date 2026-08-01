@@ -2,6 +2,35 @@
   "version": 1,
   "direction": "website-to-google-doc",
   "unknownTabPolicy": "preserve",
+  "formatting": {
+    "profileId": "root-uxr-doc-v1",
+    "fontFamily": "Proxima Nova",
+    "bodyFontSizePt": 11,
+    "bodyLineSpacing": 115,
+    "titleLineSpacing": 150,
+    "headingLineSpacing": 100,
+    "titleFontSizePt": 26,
+    "heading1FontSizePt": 14,
+    "heading2FontSizePt": 14,
+    "heading3FontSizePt": 12,
+    "heading1Border": {
+      "widthPt": 3,
+      "color": {
+        "red": 1,
+        "green": 0.34117648,
+        "blue": 0.08235294
+      }
+    },
+    "link": {
+      "bold": true,
+      "underline": false,
+      "color": {
+        "red": 0.12156863,
+        "green": 0.12156863,
+        "blue": 0.12156863
+      }
+    }
+  },
   "document": {
     "id": "1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco",
     "url": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
@@ -67,8 +96,9 @@
       "tabId": "t.x1rjygdc0a3s",
       "expectedTitle": "Additional Deliverable IV (Presentation Template)",
       "mode": "verify-only",
+      "managedRangeName": "UXR_HANDOFF_PRESENTATION_PARITY",
       "sourceSlugs": ["presentation-template-system"],
-      "reason": "Contains an opaque native control that must be preserved."
+      "reason": "Contains an opaque native control that must be preserved; only the named website-parity range is managed."
     },
     {
       "tabId": "t.1i5wqpu8xsw",

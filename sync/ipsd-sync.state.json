@@ -1,23 +1,330 @@
 {
-  "version": 1,
+  "version": 2,
   "lastAppliedOn": "2026-07-31",
-  "documentRevisionId": "AIroW36rAQ61KNJluUKCywhaAiaTPvCGjF1rY74k2SS1JXhKwXg3LkDRf_ao4sU_CtT4HU7Xkyd-t3MDVpBxfHxCDrgnu_Av8VkRRRzr8eE",
-  "sourceHash": "dc95a20b8b29bb5dfcea5082e5966110011c641bbc2eac1868c1ef8fd33bc78d",
+  "documentRevisionId": "AIroW35dx32SYCc8qIwVigu61zaA3-yNOqELYqFE-qzKHd5UlEfOaOO2pawmzykEZ8WCW73Y1WiV5flLer4QCJYCr4YN-QS52FxC5A-Xwgg",
+  "sourceHash": "e0d453fa4a1a3e0057e711461c7d1666573eec58aa58926bdd3fd10eddfbcf5b",
   "managedTargets": {
-    "t.qa2itxq3djir": "ac9e931a04ac4f7091d1e8499347f4192d32c71bc5b7656bd94983f69c2e9e08",
+    "t.qa2itxq3djir": "dfb5a522973658258221a04653a06af02c7f26527416aabaa66f8caa54d25ce7",
     "t.x2nebw360ab0": "e38785267f896f8cec16d86fef08b9068830502e8a2dd88ef3b440dd9a3397d2",
     "t.7momns81mgpm": "7341dc1e1f161bae9c9a3ce88730542bd6d2b71fc6419c199b1b8777b070db37",
     "t.eh4wx17fdlej": "0ea9c2c789ebb100350e6474368a3f0a336b7eed1e09ce548868f042ac4e5ff0",
     "t.z582zky508qm": "c30a624115b4c35eed990fa82a04d3956fcdd12b79679c759ad654104bb4ef6a",
-    "t.69nuk3h4zyt8": "00eec29cc41787b2afc6f9f0818abb45dae3bbd451b90657e5a523fafa3e5aa4",
+    "t.69nuk3h4zyt8": "b208696195865ef48074239c9e6d8bdd525170d326ef8ff2be3c6003bdc03ecf",
     "t.p5vqlrzgpbt5": "af4287fa6ad9f04b91f6fe518c48453e939666d1e695cccc84c18e4d6118a552",
     "t.1i5wqpu8xsw": "eef683e5c320245726add65bdb0b109e8692b37e9769a3ba9a9021156477c29a",
-    "t.pgdqdutlrhpb": "2e6923fdb2d3cc234ccbb32e078a2b1f5a4e206c4d780d85772f2054362fc5ed"
+    "t.pgdqdutlrhpb": "42ca0b1698d7e268a146a41a09e870d616648b4ca27f21afc05ca670f9bf8fb1"
+  },
+  "verificationTargets": {
+    "t.x1rjygdc0a3s": "705bd3a2ebcb5dbac0aac3ca2ab144e6b3a3467730175c84ff0798b4099078c9"
   },
   "preservedTabProofs": {
-    "t.0": "3503de0d258a54cd48d16ec7e0d908be1278e2a2f410839ad7f9833c3bbd2322",
-    "t.vwocc5k1v4db": "a298e76dde5458bb545077286a4c227a69e39401c38561dbe2f71de88e50c232",
-    "t.trloe1e36awc": "f033734605e34ba5f1f79a160d8f90c2434deee4559cda1e35c91075cc08335b"
+    "t.0": "f2f8fa869c0b55dd619876b6e5f90e5e514d4b57339b00ff87def9ebfa1cefb6",
+    "t.vwocc5k1v4db": "d9de390bda43e424af1a80bd1a6bbb93728aa6b0d71ee552c163582a401d6a21",
+    "t.trloe1e36awc": "d1b76a8794352ba81ec175ed2b530c59eb38af5380fac353ce386b1803abd97a"
   },
-  "presentationNativeControlVerified": true
+  "presentationNativeControlVerified": true,
+  "liveSnapshot": {
+    "documentId": "1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco",
+    "title": "Julio Intern Project Scope Document (IPSD) - UXR VOC",
+    "revisionId": "AIroW35dx32SYCc8qIwVigu61zaA3-yNOqELYqFE-qzKHd5UlEfOaOO2pawmzykEZ8WCW73Y1WiV5flLer4QCJYCr4YN-QS52FxC5A-Xwgg",
+    "topology": [
+      {
+        "tabId": "t.0",
+        "title": "IPSD",
+        "index": 0,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.qa2itxq3djir",
+        "title": "Working Notes",
+        "index": 1,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.x2nebw360ab0",
+        "title": "Q2-26 VOC Report Draft",
+        "index": 2,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.7momns81mgpm",
+        "title": "Q1-26 VOC Report Draft",
+        "index": 3,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.eh4wx17fdlej",
+        "title": "VOC Dashboard",
+        "index": 4,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.vwocc5k1v4db",
+        "title": "VOC Customer Quote Library",
+        "index": 5,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.z582zky508qm",
+        "title": "Additional Deliverable I (Documentation)",
+        "index": 6,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.69nuk3h4zyt8",
+        "title": "Additional Deliverable II (Site Map)",
+        "index": 7,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.p5vqlrzgpbt5",
+        "title": "Additional Deliverable III (NPS Executive Report)",
+        "index": 8,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.x1rjygdc0a3s",
+        "title": "Additional Deliverable IV (Presentation Template)",
+        "index": 9,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.1i5wqpu8xsw",
+        "title": "Additional Deliverable V (AI Research Skills)",
+        "index": 10,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.trloe1e36awc",
+        "title": "Appendix",
+        "index": 11,
+        "parentTabId": null
+      },
+      {
+        "tabId": "t.pgdqdutlrhpb",
+        "title": "UXR Handoff — Practice & Transition",
+        "index": 12,
+        "parentTabId": null
+      }
+    ],
+    "topologyHash": "ac2a161400273b1a3d1da765fb950ef2d46dfc5bcbd6107f202bda472bb5f0b3",
+    "tabs": {
+      "t.0": {
+        "title": "IPSD",
+        "semanticHash": "f2f8fa869c0b55dd619876b6e5f90e5e514d4b57339b00ff87def9ebfa1cefb6",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 1,
+          "richLink": 0,
+          "table": 8
+        },
+        "bodyEndIndex": 12840
+      },
+      "t.qa2itxq3djir": {
+        "title": "Working Notes",
+        "semanticHash": "002358f44cc8de046f3e0be207c18224bf152344d055e50a8afd488dbc0de8c8",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 9,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 0,
+          "table": 0
+        },
+        "bodyEndIndex": 16399
+      },
+      "t.x2nebw360ab0": {
+        "title": "Q2-26 VOC Report Draft",
+        "semanticHash": "371176a332ce506f9d8fbcd1c50c6401f0485d17967b7224131c3ae3040500da",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 0,
+          "table": 0
+        },
+        "bodyEndIndex": 3889
+      },
+      "t.7momns81mgpm": {
+        "title": "Q1-26 VOC Report Draft",
+        "semanticHash": "4a59d9547be6ce3ba921e7addf7bc99cd48daf0ce2eecf77c49e2b34cb098092",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 1,
+          "table": 0
+        },
+        "bodyEndIndex": 3520
+      },
+      "t.eh4wx17fdlej": {
+        "title": "VOC Dashboard",
+        "semanticHash": "84e85363b0c4769d31752e60aa61119e9a8a710ba6f709e23f5246fada58351b",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 1,
+          "table": 0
+        },
+        "bodyEndIndex": 5740
+      },
+      "t.vwocc5k1v4db": {
+        "title": "VOC Customer Quote Library",
+        "semanticHash": "d9de390bda43e424af1a80bd1a6bbb93728aa6b0d71ee552c163582a401d6a21",
+        "nativeElementCounts": {
+          "horizontalRule": 13,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 5,
+          "table": 0
+        },
+        "bodyEndIndex": 12319
+      },
+      "t.z582zky508qm": {
+        "title": "Additional Deliverable I (Documentation)",
+        "semanticHash": "595b6cfb98dabaaa2f95899d03f3033593187c2c5ffd8fa480eafcb98251adad",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 1,
+          "table": 0
+        },
+        "bodyEndIndex": 1707
+      },
+      "t.69nuk3h4zyt8": {
+        "title": "Additional Deliverable II (Site Map)",
+        "semanticHash": "86a656bf20de493800b6271d5298d6b0d465a36637a6d5872c9fb6522c9ea486",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 0,
+          "table": 0
+        },
+        "bodyEndIndex": 3777
+      },
+      "t.p5vqlrzgpbt5": {
+        "title": "Additional Deliverable III (NPS Executive Report)",
+        "semanticHash": "3fe4771b691d7a705b35a0b48d9d2590c4b0bf56adc5e6b99a7d40fb88b14321",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 1,
+          "table": 0
+        },
+        "bodyEndIndex": 2393
+      },
+      "t.x1rjygdc0a3s": {
+        "title": "Additional Deliverable IV (Presentation Template)",
+        "semanticHash": "4526c9ad40874c1033c24d8b988afa6cc7bbdddb77993a7716643e31550cada3",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 1,
+          "positionedObject": 0,
+          "richLink": 1,
+          "table": 0
+        },
+        "bodyEndIndex": 3723
+      },
+      "t.1i5wqpu8xsw": {
+        "title": "Additional Deliverable V (AI Research Skills)",
+        "semanticHash": "3d47b322a51e37fc4f0a0a9aa187a8f0b57309f4a169d5ec4007a66a4884ea45",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 1,
+          "table": 0
+        },
+        "bodyEndIndex": 1888
+      },
+      "t.trloe1e36awc": {
+        "title": "Appendix",
+        "semanticHash": "d1b76a8794352ba81ec175ed2b530c59eb38af5380fac353ce386b1803abd97a",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 13,
+          "positionedObject": 0,
+          "richLink": 2,
+          "table": 0
+        },
+        "bodyEndIndex": 56924
+      },
+      "t.pgdqdutlrhpb": {
+        "title": "UXR Handoff — Practice & Transition",
+        "semanticHash": "7b9d64a3f9a7fa1cedcd35a3f0890f35690d3d44304cb6faadff5277c3aa7838",
+        "nativeElementCounts": {
+          "horizontalRule": 0,
+          "inlineObjectElement": 0,
+          "person": 0,
+          "positionedObject": 0,
+          "richLink": 1,
+          "table": 0
+        },
+        "bodyEndIndex": 10392
+      }
+    },
+    "managedRange": {
+      "tabId": "t.qa2itxq3djir",
+      "name": "UXR_HANDOFF_SYNC_STATUS",
+      "namedRangeId": "kix.z4616xdkm7nf",
+      "range": {
+        "startIndex": 15,
+        "endIndex": 3533
+      },
+      "semanticHash": "a24f6fbd73b33f7b480a06ee450b1f6a909d98ca14cd0ef1eb4387498c721bcb",
+      "unmanagedSemanticHash": "14343de927efb9dfe141b2df4c1180b975b2c7cac385e3da2b14dd1645c8afe7"
+    },
+    "verificationRanges": {
+      "t.x1rjygdc0a3s": {
+        "tabId": "t.x1rjygdc0a3s",
+        "name": "UXR_HANDOFF_PRESENTATION_PARITY",
+        "namedRangeId": "kix.rp4qt29qf3v3",
+        "range": {
+          "startIndex": 1617,
+          "endIndex": 3722
+        },
+        "semanticHash": "3e740f4d3db4012735cc83fe1e818c063d845834b9b2f33c571ab2be7cd5e346",
+        "unmanagedSemanticHash": "335fc3dd431d8bcdc3cdcf483caefb4d108d2c3f58dfae0c371cf4234350f626"
+      }
+    },
+    "protectedControl": {
+      "tabId": "t.x1rjygdc0a3s",
+      "count": 1,
+      "signature": "3265fa76f427dcfc2fff2c130feff46c8df90593a9e9ee75f0972bfe2cd8acf7"
+    }
+  },
+  "verification": {
+    "preflightRevisionId": "AIroW34w3Ue_cUQUEM9EunI-ip1IKTwd4Orm2lyOKJqtXy2EFWdaun6wOUbX1Nj2kPFa-RyMqa2R0_pFVXh7p7Y8a_cdDe4OqMjOsBgMD0g",
+    "postflightRevisionId": "AIroW35dx32SYCc8qIwVigu61zaA3-yNOqELYqFE-qzKHd5UlEfOaOO2pawmzykEZ8WCW73Y1WiV5flLer4QCJYCr4YN-QS52FxC5A-Xwgg",
+    "verifiedTargetIds": [
+      "t.qa2itxq3djir",
+      "t.x2nebw360ab0",
+      "t.7momns81mgpm",
+      "t.eh4wx17fdlej",
+      "t.z582zky508qm",
+      "t.69nuk3h4zyt8",
+      "t.p5vqlrzgpbt5",
+      "t.1i5wqpu8xsw",
+      "t.pgdqdutlrhpb",
+      "t.x1rjygdc0a3s"
+    ],
+    "previousStateRevisionId": "AIroW37BrGYUyY5eSYlOmKFvc9fW8rnAfWY20CHxG4PoH_Yie-4lErutKl9EZzFuEAwt9ZNopXcqqqSciTVwQCN8mqPKVBp6edL_u1v5rE8",
+    "applyPlanDigest": "15a2b4912da9c25aaa3ccffa4c470fff1bb31c0fca1a5a27bf8b8368e5521bef"
+  }
 }

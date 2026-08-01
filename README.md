@@ -111,10 +111,17 @@ pnpm sync:ipsd:check
 The generator does not store Google credentials or write to Google directly.
 Codex applies the payload through the authenticated Drive connector with exact
 tab IDs, revision locks, and post-write readback. The HR-specific `IPSD` tab,
-the quote-library source tab, the presentation-template native-control tab,
-and the appendix are excluded from automatic rewrites. See
+the quote-library source tab, the original presentation-template content and
+native control, and the appendix are excluded from automatic rewrites. A named
+parity block safely mirrors the presentation website page. See
 `sync/README.md` and `ipsd-sync.config.json` for the complete policy.
 
-The standard `pnpm build` and `pnpm test` commands also enforce this contract.
-They fail if the prepared payload is stale or if the recorded verified live
-application does not match the current website source.
+Formatting-only drift is repaired with a generated, revision-locked plan via
+`pnpm sync:ipsd:format-plan`; the postflight verifier checks effective font
+sizes, paragraph roles, branded headings, emphasis, links, and native lists.
+
+The standard `pnpm dev`, `pnpm build`, `pnpm start`, and `pnpm test` commands
+also enforce this contract. They fail if the prepared payload is stale or if
+the recorded verified live application does not match the current website
+source. The live preflight and post-write recorder additionally detect
+collaborator drift, native elements, protected controls, and unscoped requests.

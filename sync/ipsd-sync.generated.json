@@ -1643,5 +1643,116 @@
       ],
       "contentHash": "42ca0b1698d7e268a146a41a09e870d616648b4ca27f21afc05ca670f9bf8fb1"
     }
+  ],
+  "verificationTargets": [
+    {
+      "tabId": "t.x1rjygdc0a3s",
+      "expectedTitle": "Additional Deliverable IV (Presentation Template)",
+      "mode": "verify-only",
+      "managedRangeName": "UXR_HANDOFF_PRESENTATION_PARITY",
+      "sourceSlugs": [
+        "presentation-template-system"
+      ],
+      "reason": "Contains an opaque native control that must be preserved; only the named website-parity range is managed.",
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Presentation Template"
+        },
+        {
+          "type": "paragraph",
+          "text": "Status: Delivered"
+        },
+        {
+          "type": "paragraph",
+          "text": "I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Resources"
+        },
+        {
+          "type": "link",
+          "label": "Google Slides Template",
+          "description": "Completed presentation-system export.",
+          "href": "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view"
+        },
+        {
+          "type": "link",
+          "label": "Figma Template",
+          "description": "Completed Figma presentation template.",
+          "href": "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1"
+        },
+        {
+          "type": "link",
+          "label": "Design System",
+          "description": "Editable component system and report workspace in Figma.",
+          "href": "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1"
+        },
+        {
+          "type": "link",
+          "label": "Project Documentation",
+          "description": "Deliverable notes and source context in the IPSD.",
+          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s"
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "What it encompasses"
+        },
+        {
+          "type": "bullet",
+          "text": "Reusable components and design elements for product and research teams."
+        },
+        {
+          "type": "bullet",
+          "text": "Executive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts."
+        },
+        {
+          "type": "bullet",
+          "text": "Chart patterns with places for research questions, sample bases, sources, scales, and limitations."
+        },
+        {
+          "type": "bullet",
+          "text": "An expansion of Root’s photography identity for non-commercial use, grounded in its brand principles."
+        },
+        {
+          "type": "bullet",
+          "text": "Two separate templates: Figma (for designers and technical team members) and Google Slides (for non-technical stakeholders, such as Human Resources partners)."
+        },
+        {
+          "type": "bullet",
+          "text": "Structural workflow guidance that clarifies storytelling by focusing each slide on one primary image or message, supported by concise text and visible methodological context."
+        },
+        {
+          "type": "heading",
+          "level": 1,
+          "text": "Design process"
+        },
+        {
+          "type": "numbered",
+          "text": "Audit: Review brand materials and existing report patterns"
+        },
+        {
+          "type": "numbered",
+          "text": "Define: Set hierarchy, chart, quote, and evidence rules"
+        },
+        {
+          "type": "numbered",
+          "text": "Componentize: Build reusable Figma structures"
+        },
+        {
+          "type": "numbered",
+          "text": "Package: Create team-owned Figma and Drive versions"
+        },
+        {
+          "type": "numbered",
+          "text": "Test: Use the components in real report work"
+        }
+      ],
+      "parityText": "UXR Handoff website parity\nPresentation Template\nStatus: Delivered\nI expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.\nResources\nGoogle Slides Template — Completed presentation-system export. — https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view\nFigma Template — Completed Figma presentation template. — https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1\nDesign System — Editable component system and report workspace in Figma. — https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1\nProject Documentation — Deliverable notes and source context in the IPSD. — https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s\nWhat it encompasses\nReusable components and design elements for product and research teams.\nExecutive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.\nChart patterns with places for research questions, sample bases, sources, scales, and limitations.\nAn expansion of Root’s photography identity for non-commercial use, grounded in its brand principles.\nTwo separate templates: Figma (for designers and technical team members) and Google Slides (for non-technical stakeholders, such as Human Resources partners).\nStructural workflow guidance that clarifies storytelling by focusing each slide on one primary image or message, supported by concise text and visible methodological context.\nDesign process\nAudit: Review brand materials and existing report patterns\nDefine: Set hierarchy, chart, quote, and evidence rules\nComponentize: Build reusable Figma structures\nPackage: Create team-owned Figma and Drive versions\nTest: Use the components in real report work",
+      "contentHash": "705bd3a2ebcb5dbac0aac3ca2ab144e6b3a3467730175c84ff0798b4099078c9"
+    }
   ]
 }
