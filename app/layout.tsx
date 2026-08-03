@@ -47,6 +47,15 @@ export async function generateMetadata(): Promise<Metadata> {
       template: "%s · Julio Caggiano",
     },
     description: "A private Root UX Research internship handoff.",
+    icons: {
+      icon: [
+        {
+          url: "/favicon.svg?v=orange-circle",
+          type: "image/svg+xml",
+          sizes: "any",
+        },
+      ],
+    },
     robots: {
       index: false,
       follow: false,
