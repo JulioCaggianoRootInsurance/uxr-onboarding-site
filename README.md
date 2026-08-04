@@ -100,8 +100,9 @@ node --test tests/rendered-html.test.mjs
 
 ## Keep the IPSD in sync
 
-The website content model is also the source for explicitly managed tabs in
-the internship IPSD. Prepare and validate the deterministic sync payload with:
+The website is the source of truth. Its content model is used to prepare a
+deterministic sync payload for explicitly managed IPSD tabs when the document
+is ready to catch up:
 
 ```bash
 pnpm sync:ipsd:prepare
@@ -121,7 +122,8 @@ Formatting-only drift is repaired with a generated, revision-locked plan via
 sizes, paragraph roles, branded headings, emphasis, links, and native lists.
 
 The standard `pnpm dev`, `pnpm build`, `pnpm start`, and `pnpm test` commands
-also enforce this contract. They fail if the prepared payload is stale or if
-the recorded verified live application does not match the current website
-source. The live preflight and post-write recorder additionally detect
-collaborator drift, native elements, protected controls, and unscoped requests.
+validate that the website and its generated sync payload are current. They do
+not require the IPSD's last verified live application to already match a newer
+website release. The live preflight and post-write recorder remain required
+when synchronizing the IPSD; they detect collaborator drift, native elements,
+protected controls, and unscoped requests.

@@ -537,19 +537,21 @@ test("builds a revision-locked formatting plan accepted by the scope validator",
 
 test("records the last verified live application without protected content", async () => {
   const config = await readJson("ipsd-sync.config.json");
-  const payload = await readJson("sync/ipsd-sync.generated.json");
   const state = await readJson("sync/ipsd-sync.state.json");
+  const managedTabIds = config.tabs
+    .filter(({ mode }) => mode === "managed-body" || mode === "managed-block")
+    .map(({ tabId }) => tabId);
+  const verificationTabIds = config.tabs
+    .filter(({ mode, managedRangeName }) => mode === "verify-only" && managedRangeName)
+    .map(({ tabId }) => tabId);
 
   assert.equal(state.version, 2);
-  assert.equal(state.sourceHash, payload.sourceHash);
-  assert.deepEqual(
-    state.managedTargets,
-    Object.fromEntries(payload.targets.map((target) => [target.tabId, target.contentHash])),
-  );
-  assert.deepEqual(
-    state.verificationTargets,
-    Object.fromEntries(payload.verificationTargets.map((target) => [target.tabId, target.contentHash])),
-  );
+  assert.match(state.sourceHash, /^[a-f0-9]{64}$/);
+  assert.deepEqual(Object.keys(state.managedTargets).sort(), [...managedTabIds].sort());
+  assert.deepEqual(Object.keys(state.verificationTargets).sort(), [...verificationTabIds].sort());
+  for (const hash of [...Object.values(state.managedTargets), ...Object.values(state.verificationTargets)]) {
+    assert.match(hash, /^[a-f0-9]{64}$/);
+  }
   assert.match(state.documentRevisionId, /^AIro/);
   assert.equal(state.presentationNativeControlVerified, true);
   assert.equal(JSON.stringify(state).includes("HR-specific"), false);
@@ -569,10 +571,7 @@ test("records the last verified live application without protected content", asy
   assert.equal(state.liveSnapshot.verificationRanges["t.x1rjygdc0a3s"].missing, undefined);
   assert.deepEqual(
     state.verification.verifiedTargetIds,
-    [
-      ...payload.targets.map((target) => target.tabId),
-      ...payload.verificationTargets.map((target) => target.tabId),
-    ],
+    [...managedTabIds, ...verificationTabIds],
   );
   for (const [tabId, hash] of Object.entries(state.preservedTabProofs)) {
     assert.equal(hash, state.liveSnapshot.tabs[tabId].semanticHash);

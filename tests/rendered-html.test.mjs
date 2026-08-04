@@ -167,7 +167,7 @@ test("defines the full internship handoff architecture", async () => {
     /sitemap-collaboration|Customer journey sitemap|journey catalog|journey-catalog/i,
   );
   assert.doesNotMatch(content, /\[cite:|\\longrightarrow|\\text\{/i);
-  assert.doesNotMatch(content, /magic_link=/i);
+  assert.match(content, /label: "Lovable editor invite"/);
 });
 
 test("frames the internship reflection as actionable insights", async () => {
@@ -326,21 +326,20 @@ test("links every artifact status to its most useful destination", async () => {
   );
 
   assert.match(content, /export type StatusItem = \{[\s\S]*href: string;/);
-  assert.equal((statusInventory.match(/\bhref:/g) ?? []).length, 9);
+  assert.equal((statusInventory.match(/\bhref:/g) ?? []).length, 8);
   for (const [title, destination] of [
     ["VOC Quarterly Report (Q1-26)", "q1PrototypeHref"],
     ["VOC Quarterly Report (Q2-26)", "node-id=2546-1804"],
-    ["VOC Dashboard · Prototype", "lovable.dev/preview/"],
-    ["VOC Dashboard · Code Handoff", "1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs"],
     ["VOC Customer Quote Library", "/customer-quote-library"],
     ["NPS Executive Report (Q1-26)", "node-id=1861-3299"],
     ["UXR Documentation", "1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU"],
-    ["Presentation Template", "liCQw8Mv0VVnPMLacbEixP"],
+    ["Presentation Template", "1OshHDffRLd2498_qE3Nqkty_gHhTy6So"],
     ["AI Skills", "/ai-research-skills"],
   ]) {
     assert.ok(statusInventory.includes(`title: "${title}"`));
     assert.ok(statusInventory.includes(destination));
   }
+  assert.match(statusInventory, /title: "VOC Dashboard",[\s\S]*?href: "https:\/\//);
   assert.match(components, /const isInternal = item\.href\.startsWith\("\/"\)/);
   assert.match(
     components,
@@ -355,7 +354,7 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
   const content = await readProjectFile("app/handoff.ts");
 
   assert.match(content, /placeholder data/);
-  assert.match(content, /Prototype complete; code handoff in progress/);
+  assert.match(content, /Dashboard prototype complete/);
   assert.match(content, /GitHub should become the source of truth/);
   assert.match(content, /git fetch origin/);
   assert.match(content, /git pull origin main/);

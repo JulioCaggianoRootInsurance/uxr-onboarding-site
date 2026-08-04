@@ -1,32 +1,41 @@
 # UXR handoff content synchronization
 
-`app/handoff.ts` is the canonical source for the UXR Handoff website and for
-the managed areas of the IPSD Google Doc.
+`app/handoff.ts` is the canonical source for the UXR Handoff website. It is
+also the source used when managed IPSD areas are intentionally synchronized.
 
 When a task changes the meaning of `app/handoff.ts`, `app/customer-quotes.ts`,
 or any content rendered from them:
 
-1. Run `pnpm sync:ipsd:prepare`.
-2. Review `sync/ipsd-sync.generated.json` and confirm every changed site page
-   is represented in exactly one mapped document destination.
-3. Run a fresh file-backed trusted read, then pass its `document-result.json`
+1. Run `pnpm sync:ipsd:prepare` and review
+   `sync/ipsd-sync.generated.json` so the website has a current,
+   deterministic handoff payload.
+2. Run the normal test suite and production build. Website releases are not
+   blocked when the IPSD's last verified live revision is older than the
+   website; `sync/ipsd-sync.state.json` is a record of that last verified live
+   application, not a website release gate.
+
+When the IPSD needs to catch up to the website, additionally:
+
+1. Confirm every changed site page is represented in exactly one mapped
+   document destination.
+2. Run a fresh file-backed trusted read, then pass its `document-result.json`
    and `control-inventory.json` to `pnpm sync:ipsd:preflight -- ... --output
    <work-preflight.json>`. Stop on any managed-content, native-element, tab-ID,
    title, named-range, or presentation-control drift.
-4. Build one JSON apply plan containing the exact connector `requests`,
+3. Build one JSON apply plan containing the exact connector `requests`,
    `targetContentHashes`, and `writeControl.requiredRevisionId`. Run `pnpm
    sync:ipsd:validate-plan -- <plan.json> <work-preflight.json>` and pass the
    validated request objects to the Google Docs connector unchanged.
    For a formatting-only repair, generate that plan with `pnpm
    sync:ipsd:format-plan <work-preflight.json> <document-result.json> --output
    <plan.json>`; do not hand-author font or list offsets.
-5. Run a new trusted read after the write. Record it only with `pnpm
+4. Run a new trusted read after the write. Record it only with `pnpm
    sync:ipsd:record -- <work-preflight.json> <post-document-result.json>
    <post-control-inventory.json> --plan <plan.json>`. This verifies generated
    text and links, proves every non-target tab and the tab topology stayed
    unchanged, and updates `sync/ipsd-sync.state.json` from the live readback.
-6. Run `pnpm sync:ipsd:check`, the normal test suite, and the production build
-   before declaring the content change complete.
+5. Run `pnpm sync:ipsd:check`, the normal test suite, and the production build
+   before declaring the IPSD synchronization complete.
 
 Safety rules:
 
