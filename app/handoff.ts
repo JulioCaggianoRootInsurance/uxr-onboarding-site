@@ -421,9 +421,14 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Customer support library",
-        description: "The source inventory and supporting links in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.vwocc5k1v4db",
+        label: "Customer quote library spreadsheet",
+        description: "The central spreadsheet for organizing and maintaining customer-quote evidence.",
+        href: "https://docs.google.com/spreadsheets/d/1Js0nphTvokImTGG0zJpUJ9EfD6kOlkqblX8X8uKBG00/edit?usp=sharing",
+      },
+      {
+        label: "Lovable dashboard preview",
+        description: "Open the completed VOC dashboard prototype for stakeholder review.",
+        href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e",
       },
       {
         label: "Customer interview reels",

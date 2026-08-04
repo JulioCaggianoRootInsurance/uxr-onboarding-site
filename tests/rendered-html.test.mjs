@@ -168,6 +168,21 @@ test("defines the full internship handoff architecture", async () => {
   );
   assert.doesNotMatch(content, /\[cite:|\\longrightarrow|\\text\{/i);
   assert.match(content, /label: "Lovable editor invite"/);
+  const quoteLibraryPage = content.slice(
+    content.indexOf('slug: "customer-quote-library"'),
+    content.indexOf('slug: "voc-dashboard"'),
+  );
+  const quoteLibraryLinks = quoteLibraryPage.slice(
+    quoteLibraryPage.indexOf("primaryLinks: ["),
+    quoteLibraryPage.indexOf("sections:"),
+  );
+  assert.match(quoteLibraryLinks, /Customer quote library spreadsheet/);
+  assert.match(quoteLibraryLinks, /Lovable dashboard preview/);
+  assert.doesNotMatch(quoteLibraryLinks, /docs\.google\.com\/document\/d\/1eMVc8li/i);
+  assert.ok(
+    quoteLibraryLinks.indexOf("Customer quote library spreadsheet") <
+      quoteLibraryLinks.indexOf("Lovable dashboard preview"),
+  );
 });
 
 test("frames the internship reflection as actionable insights", async () => {
@@ -941,7 +956,10 @@ test("keeps the customer quote library synchronized, ordered, and deidentified",
     content,
     /lookback\.io\/org\/root-inc-2\/projects\/root-voc-customer-interviews\/reels/,
   );
-  assert.match(content, /label: "Customer support library"/);
+  assert.match(content, /label: "Customer quote library spreadsheet"/);
+  assert.match(content, /label: "Lovable dashboard preview"/);
+  assert.match(content, /1Js0nphTvokImTGG0zJpUJ9EfD6kOlkqblX8X8uKBG00/);
+  assert.doesNotMatch(customerPage, /docs\.google\.com\/document\/d\/1eMVc8li/i);
   assert.match(content, /label: "Lookback reels and insights"/);
   assert.match(content, /Access the overall VOC-specific qualitative interviews/);
   assert.doesNotMatch(customerPage, /Embedded recordings/);
