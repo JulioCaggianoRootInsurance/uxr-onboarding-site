@@ -854,14 +854,14 @@ export const handoffPages: HandoffPage[] = [
     order: 7,
     title: "Presentation Template",
     summary:
-      "I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.",
+      "I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.",
     status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
         label: "Google Slides Template",
-        description: "Completed presentation-system export.",
-        href: "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view",
+        description: "Finalized and ready for stakeholder use.",
+        href: "https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663",
       },
       {
         label: "Figma Template",
@@ -1251,8 +1251,8 @@ export const handoffPages: HandoffPage[] = [
               {
                 status: "Delivered",
                 title: "Presentation Template",
-                text: "Completed Drive export, team-owned Figma template, and editable VOC design-system workspace.",
-                href: "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1",
+                text: "Finalized Google Slides template, team-owned Figma template, and editable VOC design-system workspace.",
+                href: "https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663",
               },
               {
                 status: "Delivered",

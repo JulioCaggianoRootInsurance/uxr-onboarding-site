@@ -6,7 +6,7 @@
     "url": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
     "expectedTitle": "Julio Intern Project Scope Document (IPSD) - UXR VOC"
   },
-  "sourceHash": "e0d453fa4a1a3e0057e711461c7d1666573eec58aa58926bdd3fd10eddfbcf5b",
+  "sourceHash": "893689fd6a68db2d8b04d3c1f4612900b2fc1f899a6177b50c691a6f930f879e",
   "protectedTabIds": [
     "t.0"
   ],
@@ -58,7 +58,7 @@
         },
         {
           "type": "bullet",
-          "text": "Presentation Template — Delivered: I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+          "text": "Presentation Template — Delivered: I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
         },
         {
           "type": "bullet",
@@ -81,7 +81,7 @@
           "text": "Transition Plan — In progress: A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
         }
       ],
-      "contentHash": "dfb5a522973658258221a04653a06af02c7f26527416aabaa66f8caa54d25ce7"
+      "contentHash": "a45a799ab05624017b96d91594cbd75f5aaeca28b58489105164fce3fd7f72a5"
     },
     {
       "tabId": "t.x2nebw360ab0",
@@ -860,7 +860,7 @@
         },
         {
           "type": "bullet",
-          "text": "07 · Presentation Template · Delivered · /presentation-template-system — I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+          "text": "07 · Presentation Template · Delivered · /presentation-template-system — I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
         },
         {
           "type": "bullet",
@@ -893,7 +893,7 @@
           "text": "12 · Transition Plan · In progress · /handoff-next-steps — A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
         }
       ],
-      "contentHash": "b208696195865ef48074239c9e6d8bdd525170d326ef8ff2be3c6003bdc03ecf"
+      "contentHash": "51b00a33384f78777109dc13427e1fc85931a54fdb199f5e49e1f29f5e718822"
     },
     {
       "tabId": "t.p5vqlrzgpbt5",
@@ -1570,13 +1570,13 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Completed Drive export, team-owned Figma template, and editable VOC design-system workspace."
+          "text": "Delivered: Finalized Google Slides template, team-owned Figma template, and editable VOC design-system workspace."
         },
         {
           "type": "link",
           "label": "Presentation Template",
-          "description": "Completed Drive export, team-owned Figma template, and editable VOC design-system workspace.",
-          "href": "https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1"
+          "description": "Finalized Google Slides template, team-owned Figma template, and editable VOC design-system workspace.",
+          "href": "https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663"
         },
         {
           "type": "heading",
@@ -1641,7 +1641,7 @@
           "text": "Julio Caggiano"
         }
       ],
-      "contentHash": "42ca0b1698d7e268a146a41a09e870d616648b4ca27f21afc05ca670f9bf8fb1"
+      "contentHash": "062f289e8698cc100d06b807a134befc3519dc6625f600d5bc424be90c0c45af"
     }
   ],
   "verificationTargets": [
@@ -1665,7 +1665,7 @@
         },
         {
           "type": "paragraph",
-          "text": "I expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+          "text": "I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
         },
         {
           "type": "heading",
@@ -1675,8 +1675,8 @@
         {
           "type": "link",
           "label": "Google Slides Template",
-          "description": "Completed presentation-system export.",
-          "href": "https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view"
+          "description": "Finalized and ready for stakeholder use.",
+          "href": "https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663"
         },
         {
           "type": "link",
@@ -1751,8 +1751,8 @@
           "text": "Test: Use the components in real report work"
         }
       ],
-      "parityText": "UXR Handoff website parity\nPresentation Template\nStatus: Delivered\nI expanded the rebrand into a practical system for yearly reporting. It provides repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.\nResources\nGoogle Slides Template — Completed presentation-system export. — https://drive.google.com/file/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/view\nFigma Template — Completed Figma presentation template. — https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1\nDesign System — Editable component system and report workspace in Figma. — https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1\nProject Documentation — Deliverable notes and source context in the IPSD. — https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s\nWhat it encompasses\nReusable components and design elements for product and research teams.\nExecutive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.\nChart patterns with places for research questions, sample bases, sources, scales, and limitations.\nAn expansion of Root’s photography identity for non-commercial use, grounded in its brand principles.\nTwo separate templates: Figma (for designers and technical team members) and Google Slides (for non-technical stakeholders, such as Human Resources partners).\nStructural workflow guidance that clarifies storytelling by focusing each slide on one primary image or message, supported by concise text and visible methodological context.\nDesign process\nAudit: Review brand materials and existing report patterns\nDefine: Set hierarchy, chart, quote, and evidence rules\nComponentize: Build reusable Figma structures\nPackage: Create team-owned Figma and Drive versions\nTest: Use the components in real report work",
-      "contentHash": "705bd3a2ebcb5dbac0aac3ca2ab144e6b3a3467730175c84ff0798b4099078c9"
+      "parityText": "UXR Handoff website parity\nPresentation Template\nStatus: Delivered\nI expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.\nResources\nGoogle Slides Template — Finalized and ready for stakeholder use. — https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663\nFigma Template — Completed Figma presentation template. — https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1\nDesign System — Editable component system and report workspace in Figma. — https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1\nProject Documentation — Deliverable notes and source context in the IPSD. — https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s\nWhat it encompasses\nReusable components and design elements for product and research teams.\nExecutive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.\nChart patterns with places for research questions, sample bases, sources, scales, and limitations.\nAn expansion of Root’s photography identity for non-commercial use, grounded in its brand principles.\nTwo separate templates: Figma (for designers and technical team members) and Google Slides (for non-technical stakeholders, such as Human Resources partners).\nStructural workflow guidance that clarifies storytelling by focusing each slide on one primary image or message, supported by concise text and visible methodological context.\nDesign process\nAudit: Review brand materials and existing report patterns\nDefine: Set hierarchy, chart, quote, and evidence rules\nComponentize: Build reusable Figma structures\nPackage: Create team-owned Figma and Drive versions\nTest: Use the components in real report work",
+      "contentHash": "280775bd1fb6292bfe558b5ec9945588f56de668a09caa623d741195c679fc4e"
     }
   ]
 }
