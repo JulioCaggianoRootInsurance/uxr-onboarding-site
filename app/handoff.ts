@@ -468,14 +468,19 @@ export const handoffPages: HandoffPage[] = [
     order: 3,
     title: "VOC Dashboard",
     summary:
-      "A nearly complete design prototype and an in-progress coded handoff for a living VOC website powered by a reviewed GitHub-to-Vercel workflow.",
-    status: "In progress",
+      "A completed Lovable dashboard prototype for reviewing VOC content, with a stakeholder preview and an editor-ready project workspace.",
+    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Interactive prototype",
-        description: "Interactive Lovable prototype used to test the website direction.",
-        href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
+        label: "Stakeholder dashboard preview",
+        description: "Completed Lovable dashboard prototype for stakeholder review.",
+        href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e#preview_url=https%3A%2F%2Fid-preview--739ad35a-f0ac-44a9-a1f6-3d56613a5a0e.lovable.app%3F__lovable_token%3DeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoieXQ0aUxBTmNXNmV1OVRjRnJHbjdOTkZrN1JCMyIsInByb2plY3RfaWQiOiI3MzlhZDM1YS1mMGFjLTQ0YTktYTFmNi0zZDU2NjEzYTVhMGUiLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6IjczOWFkMzVhLWYwYWMtNDRhOS1hMWY2LTNkNTY2MTNhNWEwZSIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODY0NzMzMjMsIm5iZiI6MTc4NTg2ODUyMywiaWF0IjoxNzg1ODY4NTIzLCJqdGkiOiIxMDJmZjU5OS1jOGM0LTRhOTctOGM0Yi00MjQwNTk1NDEzNTkifQ.pGLwCLVGizFTfSwwQ5xX2vLOEij-O3gfVCkLpNtLEwM_GlgWu3FzDYnHdc5RhkyZnq4zMhN_N2sqP9kvFIzmovvdyTOYyoNFKeFtP5yman988RjSnGMz5HrV1MuPyXvzcqPkq7qie0KAljMfR6xCrjKVz96ymC-U1E5PBEJVPTee6iJw5VaDK0Ruyuu1An-tPkGLHYq-ROaAAqME8uyxRvE1e4jeUUNozodwilRkig0wsOfH6K32flTRq8Vh_z6WXuNEm7dnz2Fx7KuH2Ok4L6xw5ScDz72NIbyCSoXuExKdV9R6f5wJfAKlw2mt8vdeqmamvKJr81ZlaLFrR9KYRiuRyLVjtMyG5Kn71z0ibf17FyvOBiI7pcSc2EJrJTq82bOUFeGpDTlPo6IcRA1ouX-MRB7klpE6JIj_EqQFw1swIYE--O9_aurh3-HS9hUNUGcbskXf5J-zZ0wcUanTEh9DYkDewn2tRcA0JnYdhcVCaxKhfiE7cnYfsm0MO2kSBBD8JP4cXupCyvUfoxb1Kyn101P3wW1-cyfVfNHT9VjW0NUHjTNIMxwu-cQn19GoY9-G-PUJ2fAbOsL-TVyedIjOM7g-jVFDkmsm20BbdxDvb3m9O3ymKxNYEU7RR_skYJz2Z5erTucdhGV3wW86KsXRl2ot6mH3Tbw-2-3qnWg",
+      },
+      {
+        label: "Lovable editor invite",
+        description: "Invite collaborators to edit the completed Lovable dashboard prototype.",
+        href: "https://lovable.dev/projects/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e?magic_link=mc_7b02f215-3bdb-4694-a298-8b1cc0a9415a",
       },
       {
         label: "Figma source",
@@ -486,11 +491,6 @@ export const handoffPages: HandoffPage[] = [
         label: "Prototype PDF",
         description: "High-fidelity dashboard artifact in Google Drive.",
         href: "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view",
-      },
-      {
-        label: "Code handoff",
-        description: "Implementation notes, QA status, and remaining code work.",
-        href: "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view",
       },
       {
         label: "Project record",
@@ -505,9 +505,9 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "callout",
-            status: "Prototype",
-            title: "Prototype complete; code handoff in progress",
-            text: "The dashboard experience is substantially designed and available as a Figma/Lovable prototype. The coded handoff, production data connection, access model, and repeatable update workflow are the active work.",
+            status: "Delivered",
+            title: "Dashboard prototype complete",
+            text: "The Lovable dashboard prototype is complete and ready for stakeholder review. The editor invite provides the team with a direct way to continue working in the project.",
           },
           {
             kind: "paragraph",
@@ -517,7 +517,7 @@ export const handoffPages: HandoffPage[] = [
             kind: "list",
             items: [
               "Designed a lightweight dashboard direction in Figma.",
-              "Created a Lovable code preview to test the report as a website.",
+              "Completed a Lovable dashboard prototype for stakeholder review.",
               "Explored a reusable, non-variable slideshow system with responsive icons and an expanded photo library.",
               "Collected direction and feedback from Jill and Klew.",
             ],
@@ -1219,16 +1219,10 @@ export const handoffPages: HandoffPage[] = [
                 href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804",
               },
               {
-                status: "Prototype",
-                title: "VOC Dashboard · Prototype",
-                text: "High-fidelity Figma and Lovable direction; the current values remain placeholder data.",
-                href: "https://lovable.dev/preview/hctAFpNwDdfYpSylhmUcuxPkCUtYQdHE",
-              },
-              {
-                status: "In progress",
-                title: "VOC Dashboard · Code Handoff",
-                text: "Repository, production data, Vercel workflow, access, and maintenance SOP are active work.",
-                href: "https://drive.google.com/file/d/1ybcIiBDlDmvNmnbr0hoJyQSgG8ZSgzBs/view",
+                status: "Delivered",
+                title: "VOC Dashboard",
+                text: "Completed Lovable dashboard prototype, ready for stakeholder review and editor collaboration.",
+                href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e#preview_url=https%3A%2F%2Fid-preview--739ad35a-f0ac-44a9-a1f6-3d56613a5a0e.lovable.app%3F__lovable_token%3DeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoieXQ0aUxBTmNXNmV1OVRjRnJHbjdOTkZrN1JCMyIsInByb2plY3RfaWQiOiI3MzlhZDM1YS1mMGFjLTQ0YTktYTFmNi0zZDU2NjEzYTVhMGUiLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6IjczOWFkMzVhLWYwYWMtNDRhOS1hMWY2LTNkNTY2MTNhNWEwZSIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODY0NzMzMjMsIm5iZiI6MTc4NTg2ODUyMywiaWF0IjoxNzg1ODY4NTIzLCJqdGkiOiIxMDJmZjU5OS1jOGM0LTRhOTctOGM0Yi00MjQwNTk1NDEzNTkifQ.pGLwCLVGizFTfSwwQ5xX2vLOEij-O3gfVCkLpNtLEwM_GlgWu3FzDYnHdc5RhkyZnq4zMhN_N2sqP9kvFIzmovvdyTOYyoNFKeFtP5yman988RjSnGMz5HrV1MuPyXvzcqPkq7qie0KAljMfR6xCrjKVz96ymC-U1E5PBEJVPTee6iJw5VaDK0Ruyuu1An-tPkGLHYq-ROaAAqME8uyxRvE1e4jeUUNozodwilRkig0wsOfH6K32flTRq8Vh_z6WXuNEm7dnz2Fx7KuH2Ok4L6xw5ScDz72NIbyCSoXuExKdV9R6f5wJfAKlw2mt8vdeqmamvKJr81ZlaLFrR9KYRiuRyLVjtMyG5Kn71z0ibf17FyvOBiI7pcSc2EJrJTq82bOUFeGpDTlPo6IcRA1ouX-MRB7klpE6JIj_EqQFw1swIYE--O9_aurh3-HS9hUNUGcbskXf5J-zZ0wcUanTEh9DYkDewn2tRcA0JnYdhcVCaxKhfiE7cnYfsm0MO2kSBBD8JP4cXupCyvUfoxb1Kyn101P3wW1-cyfVfNHT9VjW0NUHjTNIMxwu-cQn19GoY9-G-PUJ2fAbOsL-TVyedIjOM7g-jVFDkmsm20BbdxDvb3m9O3ymKxNYEU7RR_skYJz2Z5erTucdhGV3wW86KsXRl2ot6mH3Tbw-2-3qnWg",
               },
               {
                 status: "Delivered",
