@@ -98,6 +98,12 @@ function convertContentBlock(block, headingLevel = 2) {
         label: item.label,
         description: item.description,
       }));
+    case "copyablePrompt":
+      return [
+        { type: "heading", level: Math.min(3, headingLevel), text: block.title },
+        { type: "paragraph", text: block.introduction },
+        { type: "paragraph", text: block.prompt },
+      ];
     case "pipeline":
       return [
         ...block.items.map((item) => ({

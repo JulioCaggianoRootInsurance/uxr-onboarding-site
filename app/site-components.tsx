@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { signOut } from "@/auth";
 import { ArticleNavigation } from "./article-navigation";
+import { CopyablePrompt } from "./copyable-prompt";
 import { CustomerEvidenceLibrary } from "./customer-evidence-library";
 import {
   handoffGroups,
@@ -475,6 +476,16 @@ function Block({ block }: { block: ContentBlock }) {
           </article>
         ))}
       </div>
+    );
+  }
+
+  if (block.kind === "copyablePrompt") {
+    return (
+      <CopyablePrompt
+        introduction={block.introduction}
+        prompt={block.prompt}
+        title={block.title}
+      />
     );
   }
 

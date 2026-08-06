@@ -1733,6 +1733,65 @@ blockquote span {
   line-height: 0.95rem;
 }
 
+.copyable-prompt {
+  margin-top: 1.2rem;
+  border: 1px solid var(--line-strong);
+  background: #fbfaf7;
+}
+
+.copyable-prompt-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.copyable-prompt h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+}
+
+.copyable-prompt p {
+  max-width: 44rem;
+  padding-top: 0.35rem;
+  color: rgba(0, 0, 0, 0.56);
+  font-size: 0.75rem;
+  line-height: 1.1rem;
+}
+
+.copyable-prompt button {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.copyable-prompt button:hover,
+.copyable-prompt button:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.copyable-prompt pre {
+  max-height: 38rem;
+  margin: 0;
+  overflow: auto;
+  padding: 1rem;
+  white-space: pre-wrap;
+  color: #3b3733;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.6875rem;
+  line-height: 1.15rem;
+}
+
 .deployment-pipeline {
   margin-top: 1.15rem;
 }

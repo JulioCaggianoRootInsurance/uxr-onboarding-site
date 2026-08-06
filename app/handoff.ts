@@ -74,6 +74,7 @@ export type ContentBlock =
   | { kind: "videoLibrary"; collections: VideoCollection[] }
   | { kind: "statusGrid"; items: StatusItem[] }
   | { kind: "commands"; items: CommandItem[] }
+  | { kind: "copyablePrompt"; title: string; introduction: string; prompt: string }
   | { kind: "pipeline"; items: PipelineItem[]; caption?: string };
 
 export type HandoffGroup =
@@ -964,6 +965,36 @@ export const handoffPages: HandoffPage[] = [
               { label: "Human review", detail: "Challenge claims and edge cases" },
               { label: "root-brand-voice", detail: "Refine approved communication" },
             ],
+          },
+          {
+            kind: "copyablePrompt",
+            title: "Copy-ready analysis prompt",
+            introduction:
+              "Attach the new CSV files, then use this prompt to preserve the same evidence standards, QA checks, and reporting structure as the prior execution.",
+            prompt: `I’m attaching new CSV files. Recreate the same level of rigor and structure as this prior execution example:
+https://drive.google.com/drive/folders/1ahbPceqKm8xHHOoxxR0xuQSrjGccrU1N?usp=sharing
+
+Phase 1 — Descriptive analysis with \`research-viz\`:
+- Inspect every CSV before analyzing: row count, columns, embedded headers, missingness, duplicate IDs, date windows, inclusion/exclusion flags, and unit of analysis.
+- Use code for every count. Do not eyeball rows or type numbers manually.
+- Produce one descriptive report per source/file where appropriate.
+- Keep this phase descriptive only: no interpretation, theme claims, recommendations, or causal language.
+- Include: data summary, how to read the report, cleaning log, column dictionary, closed-question distributions, NPS/top-2-box metrics where applicable, existing tag/label counts where applicable, literal word/phrase counts for text, verbatim library, figures, and reproducibility notes.
+- Save artifacts: analysis code, results JSON/CSV, cleaning log, verbatim export, figures, and report output.
+- Run QA assertions: counts sum to denominators, percentages reconcile, NPS bands sum to n, verbatim rows match source text counts, and figures match computed tables.
+
+Phase 2 — Synthesis with \`research-synthesis\`:
+- Only after Phase 1 passes QA, synthesize findings across the descriptive outputs.
+- Separate strong evidence, directional evidence, and unresolved/low-confidence findings.
+- Every synthesis claim must cite the source file/report it came from.
+- Do not overgeneralize small samples or self-selected sources.
+
+Phase 3 — Final narrative with \`root-brand-voice\`:
+- Rewrite the final synthesis in Root’s internal VOC/reporting voice: plain, direct, evidence-backed, empathetic, and executive-readable.
+- Keep sample sizes, caveats, source attribution, and confidence levels intact.
+- Avoid slogans, marketing tone, unsupported recommendations, and AI-sounding flourish.
+
+Before starting, give me a short execution plan and list any column-mapping questions you need answered. If the columns are clear, proceed without asking.`,
           },
         ],
       },

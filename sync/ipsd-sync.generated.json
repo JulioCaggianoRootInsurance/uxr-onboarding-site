@@ -6,7 +6,7 @@
     "url": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
     "expectedTitle": "Julio Intern Project Scope Document (IPSD) - UXR VOC"
   },
-  "sourceHash": "ae73a93fcac79b49f8e7cfd15b97c28d8fab6841f23499bcca90b0e9ce8ca29d",
+  "sourceHash": "75a7b3251451bae0313bd67c3850f9c8fbb74d131c5656a19a4e951f447082e6",
   "protectedTabIds": [
     "t.0"
   ],
@@ -1101,6 +1101,19 @@
         },
         {
           "type": "heading",
+          "level": 2,
+          "text": "Copy-ready analysis prompt"
+        },
+        {
+          "type": "paragraph",
+          "text": "Attach the new CSV files, then use this prompt to preserve the same evidence standards, QA checks, and reporting structure as the prior execution."
+        },
+        {
+          "type": "paragraph",
+          "text": "I’m attaching new CSV files. Recreate the same level of rigor and structure as this prior execution example:\nhttps://drive.google.com/drive/folders/1ahbPceqKm8xHHOoxxR0xuQSrjGccrU1N?usp=sharing\n\nPhase 1 — Descriptive analysis with `research-viz`:\n- Inspect every CSV before analyzing: row count, columns, embedded headers, missingness, duplicate IDs, date windows, inclusion/exclusion flags, and unit of analysis.\n- Use code for every count. Do not eyeball rows or type numbers manually.\n- Produce one descriptive report per source/file where appropriate.\n- Keep this phase descriptive only: no interpretation, theme claims, recommendations, or causal language.\n- Include: data summary, how to read the report, cleaning log, column dictionary, closed-question distributions, NPS/top-2-box metrics where applicable, existing tag/label counts where applicable, literal word/phrase counts for text, verbatim library, figures, and reproducibility notes.\n- Save artifacts: analysis code, results JSON/CSV, cleaning log, verbatim export, figures, and report output.\n- Run QA assertions: counts sum to denominators, percentages reconcile, NPS bands sum to n, verbatim rows match source text counts, and figures match computed tables.\n\nPhase 2 — Synthesis with `research-synthesis`:\n- Only after Phase 1 passes QA, synthesize findings across the descriptive outputs.\n- Separate strong evidence, directional evidence, and unresolved/low-confidence findings.\n- Every synthesis claim must cite the source file/report it came from.\n- Do not overgeneralize small samples or self-selected sources.\n\nPhase 3 — Final narrative with `root-brand-voice`:\n- Rewrite the final synthesis in Root’s internal VOC/reporting voice: plain, direct, evidence-backed, empathetic, and executive-readable.\n- Keep sample sizes, caveats, source attribution, and confidence levels intact.\n- Avoid slogans, marketing tone, unsupported recommendations, and AI-sounding flourish.\n\nBefore starting, give me a short execution plan and list any column-mapping questions you need answered. If the columns are clear, proceed without asking."
+        },
+        {
+          "type": "heading",
           "level": 1,
           "text": "Data-processing workflow"
         },
@@ -1137,7 +1150,7 @@
           "text": "Apply the brand-voice skill only after the claims are stable."
         }
       ],
-      "contentHash": "eef683e5c320245726add65bdb0b109e8692b37e9769a3ba9a9021156477c29a"
+      "contentHash": "ca79e70db99d7ce793fe96dfc555307742255e561519a79f70f03e96ad51e73a"
     },
     {
       "tabId": "t.pgdqdutlrhpb",

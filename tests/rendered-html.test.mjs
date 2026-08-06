@@ -553,6 +553,8 @@ test("presents the reporting templates as one reusable system", async () => {
 test("keeps the AI skills page focused on the research process", async () => {
   const content = await readProjectFile("app/handoff.ts");
   const styles = await readProjectFile("app/globals.css");
+  const components = await readProjectFile("app/site-components.tsx");
+  const copyablePrompt = await readProjectFile("app/copyable-prompt.tsx");
   const aiSkillsPage = content.slice(
     content.indexOf('slug: "ai-research-skills"'),
     content.indexOf('slug: "research-process"'),
@@ -606,6 +608,15 @@ test("keeps the AI skills page focused on the research process", async () => {
   );
   assert.match(aiSkillsPage, /id: "data-processing-workflow"/);
   assert.match(aiSkillsPage, /title: "Data-processing workflow"/);
+  assert.match(aiSkillsPage, /kind: "copyablePrompt"/);
+  assert.match(aiSkillsPage, /title: "Copy-ready analysis prompt"/);
+  assert.match(aiSkillsPage, /Phase 1 — Descriptive analysis with \\`research-viz\\`/);
+  assert.match(aiSkillsPage, /Phase 2 — Synthesis with \\`research-synthesis\\`/);
+  assert.match(aiSkillsPage, /Phase 3 — Final narrative with \\`root-brand-voice\\`/);
+  assert.match(aiSkillsPage, /Before starting, give me a short execution plan/);
+  assert.match(components, /block\.kind === "copyablePrompt"/);
+  assert.match(copyablePrompt, /navigator\.clipboard\.writeText/);
+  assert.match(styles, /\.copyable-prompt \{/);
   assert.doesNotMatch(aiSkillsPage, /id: "skill-set"|The skill set/);
   assert.doesNotMatch(aiSkillsPage, /Three complementary roles/);
   assert.doesNotMatch(aiSkillsPage, /How they work together/);
