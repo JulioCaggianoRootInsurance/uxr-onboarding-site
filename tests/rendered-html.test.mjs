@@ -347,7 +347,7 @@ test("links every artifact status to its most useful destination", async () => {
     ["VOC Quarterly Report (Q2-26)", "node-id=2546-1804"],
     ["VOC Customer Quote Library", "/customer-quote-library"],
     ["NPS Executive Report (Q1-26)", "node-id=1861-3299"],
-    ["UXR Documentation", "1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU"],
+    ["UXR Documentation", "147235d4-c281-47cf-b008-6d33c4bf3bae"],
     ["Presentation Template", "1OshHDffRLd2498_qE3Nqkty_gHhTy6So"],
     ["AI Skills", "/ai-research-skills"],
   ]) {
@@ -389,9 +389,27 @@ test("keeps future dashboard work explicitly separate from completed work", asyn
 
 test("reflects the Q2 report’s stakeholder dependency and current Figma source", async () => {
   const content = await readProjectFile("app/handoff.ts");
+  const q2Page = content.slice(
+    content.indexOf('slug: "q2-voc-report"'),
+    content.indexOf('slug: "customer-quote-library"'),
+  );
+  const q2Links = q2Page.slice(
+    q2Page.indexOf("primaryLinks: ["),
+    q2Page.indexOf("sections: ["),
+  );
 
   assert.match(content, /delivery expected in mid-August/);
   assert.match(content, /node-id=2546-1804/);
+  assert.match(q2Links, /label: "Presentation visualization"/);
+  assert.match(q2Links, /node-id=2546-1805/);
+  assert.match(q2Links, /label: "Q2 report materials"/);
+  assert.match(q2Links, /label: "Data analysis"/);
+  assert.match(q2Links, /label: "Customer interview reels"/);
+  assert.match(q2Links, /label: "Raw data"/);
+  assert.match(q2Links, /label: "Q2 README"/);
+  assert.ok(
+    q2Links.indexOf("Presentation visualization") < q2Links.indexOf("Figma source"),
+  );
   assert.match(content, /title: "Waiting for stakeholder datasets"/);
   assert.match(content, /10-10 Direct-to-Consumer Benchmark Survey/);
   assert.match(content, /10-10 Independent Agents Survey/);
@@ -487,7 +505,11 @@ test("keeps UXR documentation focused on the onboarding deliverable", async () =
   );
 
   assert.match(onboardingPage, /label: "Onboarding document"/);
-  assert.equal((onboardingPage.match(/\bhref:/g) ?? []).length, 1);
+  assert.match(onboardingPage, /label: "Lovable project"/);
+  assert.match(onboardingPage, /147235d4-c281-47cf-b008-6d33c4bf3bae/);
+  assert.match(onboardingPage, /status: "Delivered"/);
+  assert.match(onboardingPage, /title: "Onboarding playbook delivered"/);
+  assert.equal((onboardingPage.match(/\bhref:/g) ?? []).length, 2);
   assert.doesNotMatch(
     onboardingPage,
     /label: "Project record"|Scope, progress, and continuation notes in the IPSD|id: "how-it-was-built"|title: "How it was built"/,

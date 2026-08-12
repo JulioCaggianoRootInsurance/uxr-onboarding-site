@@ -298,9 +298,39 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
+        label: "Presentation visualization",
+        description: "View the current Q2 report presentation in prototype mode.",
+        href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=2546%3A1804&node-id=2546-1805&viewport=168%2C490%2C0.06&t=1woACFjok5i2B4fg-1&scaling=contain&content-scaling=fixed",
+      },
+      {
         label: "Figma source",
         description: "Current Q2 report workspace and draft structure.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804",
+      },
+      {
+        label: "Q2 report materials",
+        description: "Main folder for the Q2 2026 VOC Quarterly Report.",
+        href: "https://drive.google.com/drive/folders/1i3yLP2P42e7An8iP0eZioQ7BZDDnWlHG?usp=sharing",
+      },
+      {
+        label: "Data analysis",
+        description: "Descriptive analyses and supporting report outputs.",
+        href: "https://drive.google.com/drive/folders/1tx00RU1XgBsQxiNY0dLX9wvkLSvuhQLa",
+      },
+      {
+        label: "Customer interview reels",
+        description: "Q2 customer interview recordings and supporting clips.",
+        href: "https://drive.google.com/drive/folders/1afioP8124RT-UMmXmsp1p5fxeblPQHRV",
+      },
+      {
+        label: "Raw data",
+        description: "Source datasets used for the Q2 report analysis.",
+        href: "https://drive.google.com/drive/folders/16G_ipRguhQ0MUBVoJJ0e2hltq3HXJ_mY",
+      },
+      {
+        label: "Q2 README",
+        description: "Guide to the Q2 report folder, contents, and use.",
+        href: "https://docs.google.com/document/d/1Hl-Yr7rIUZBPI8PhPS9vSI03flmIeobW0EIf7pH_sBg/edit?usp=drivesdk",
       },
       {
         label: "Q1 report reference",
@@ -792,14 +822,19 @@ export const handoffPages: HandoffPage[] = [
     order: 6,
     title: "UXR Documentation",
     summary:
-      "An in-progress onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices.",
-    status: "In progress",
+      "A completed onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices.",
+    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
         label: "Onboarding document",
         description: "Living Google Doc co-developed by the UXR interns.",
         href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
+      },
+      {
+        label: "Lovable project",
+        description: "UXR documentation project workspace and interactive implementation.",
+        href: "https://lovable.dev/projects/147235d4-c281-47cf-b008-6d33c4bf3bae",
       },
     ],
     sections: [
@@ -809,9 +844,9 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "callout",
-            status: "In progress",
-            title: "A living team playbook",
-            text: "The source document and prototype content exist. Team review, durable ownership, and validation with a future new hire are the remaining steps before it should be treated as the canonical onboarding system.",
+            status: "Delivered",
+            title: "Onboarding playbook delivered",
+            text: "The source document and interactive implementation are complete. The future owner can maintain and validate the playbook with new hires as the team evolves.",
           },
           {
             kind: "paragraph",
@@ -847,7 +882,7 @@ export const handoffPages: HandoffPage[] = [
               "Helped define the content architecture and chapter sequence.",
               "Documented the VOC processing workflow, evidence-story model, and technical QA expectations.",
               "Connected the customer-evidence library and AI-assisted research guidance to the onboarding journey.",
-              "Translated the documentation into a reviewable website prototype before the internship handoff changed focus.",
+              "Translated the documentation into an interactive Lovable project for future review and use.",
             ],
           },
         ],
@@ -1273,10 +1308,10 @@ Before starting, give me a short execution plan and list any column-mapping ques
                 href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed",
               },
               {
-                status: "In progress",
+                status: "Delivered",
                 title: "UXR Documentation",
-                text: "Living onboarding and operating playbook co-developed with Layilah Campbell.",
-                href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
+                text: "Completed onboarding and operating playbook with a supporting interactive project.",
+                href: "https://lovable.dev/projects/147235d4-c281-47cf-b008-6d33c4bf3bae",
               },
               {
                 status: "Delivered",
