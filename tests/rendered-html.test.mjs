@@ -154,11 +154,9 @@ test("defines the full internship handoff architecture", async () => {
   }
   assert.match(content, /1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm/);
   assert.doesNotMatch(content, /1mz6GdtOxh3LmALf4T3-jPHBmhvG1aTcZ/);
-  assert.match(content, /Delivered/);
   assert.match(content, /Prototype/);
-  assert.match(content, /In progress/);
   assert.match(content, /Recommendation/);
-  assert.match(content, /TBD/);
+  assert.doesNotMatch(content, /\bstatus:/);
 
   assert.doesNotMatch(content, /Insurance basics/);
   assert.doesNotMatch(content, /Meet the team/);
@@ -328,20 +326,20 @@ test("consolidates the transition plan and ends with an italic thank-you", async
   );
 });
 
-test("links every artifact status to its most useful destination", async () => {
+test("links every artifact to its most useful destination", async () => {
   const content = await readProjectFile("app/handoff.ts");
   const components = await readProjectFile("app/site-components.tsx");
   const styles = await readProjectFile("app/globals.css");
   const transitionPage = content.slice(
     content.indexOf('slug: "handoff-next-steps"'),
   );
-  const statusInventory = transitionPage.slice(
-    transitionPage.indexOf('id: "status-inventory"'),
+  const artifactInventory = transitionPage.slice(
+    transitionPage.indexOf('id: "artifact-inventory"'),
     transitionPage.indexOf('id: "immediate-actions"'),
   );
 
   assert.match(content, /export type StatusItem = \{[\s\S]*href: string;/);
-  assert.equal((statusInventory.match(/\bhref:/g) ?? []).length, 8);
+  assert.equal((artifactInventory.match(/\bhref:/g) ?? []).length, 8);
   for (const [title, destination] of [
     ["VOC Quarterly Report (Q1-26)", "q1PrototypeHref"],
     ["VOC Quarterly Report (Q2-26)", "node-id=2546-1804"],
@@ -351,10 +349,10 @@ test("links every artifact status to its most useful destination", async () => {
     ["Presentation Template", "1OshHDffRLd2498_qE3Nqkty_gHhTy6So"],
     ["AI Skills", "/ai-research-skills"],
   ]) {
-    assert.ok(statusInventory.includes(`title: "${title}"`));
-    assert.ok(statusInventory.includes(destination));
+    assert.ok(artifactInventory.includes(`title: "${title}"`));
+    assert.ok(artifactInventory.includes(destination));
   }
-  assert.match(statusInventory, /title: "VOC Dashboard",[\s\S]*?href: "https:\/\//);
+  assert.match(artifactInventory, /title: "VOC Dashboard",[\s\S]*?href: "https:\/\//);
   assert.match(components, /const isInternal = item\.href\.startsWith\("\/"\)/);
   assert.match(
     components,
@@ -402,27 +400,23 @@ test("reflects the Q2 report’s stakeholder dependency and current Figma source
   assert.match(content, /node-id=2546-1804/);
   assert.match(q2Links, /label: "Presentation visualization"/);
   assert.match(q2Links, /node-id=2546-1805/);
-  assert.match(q2Links, /label: "Q2 report materials"/);
   assert.match(q2Links, /label: "Data analysis"/);
-  assert.match(q2Links, /label: "Customer interview reels"/);
   assert.match(q2Links, /label: "Raw data"/);
-  assert.match(q2Links, /label: "Q2 README"/);
+  assert.doesNotMatch(
+    q2Links,
+    /label: "Q2 report materials"|label: "Customer interview reels"|label: "Q2 README"/,
+  );
+  assert.match(q2Links, /label: "Presentation visualization",[\s\S]*provider: "root"/);
   assert.ok(
     q2Links.indexOf("Presentation visualization") < q2Links.indexOf("Figma source"),
   );
-  assert.match(content, /title: "Waiting for stakeholder datasets"/);
-  assert.match(content, /10-10 Direct-to-Consumer Benchmark Survey/);
-  assert.match(content, /10-10 Independent Agents Survey/);
-  assert.match(content, /app reviews/);
-  assert.match(content, /Marketing Brand Tracker/);
-  assert.match(content, /qualitative customer interviews/);
-  assert.match(content, /SPRIG Index Surveys/);
-  assert.match(content, /VOC Auto Shopping Survey/);
-  assert.match(content, /approximately two weeks earlier/);
-  assert.match(content, /ongoing monitoring program/);
-  assert.match(content, /May-to-late-August period/);
+  assert.doesNotMatch(q2Page, /id: "current-state"|Waiting for stakeholder datasets/);
   assert.match(content, /begins at the system level/);
   assert.match(content, /quantitative “what” to the qualitative “why/);
+  assert.match(
+    content,
+    /Finally, I seek to integrate evidence across multiple sources and translate them into a clear narrative for the product design team to implement solutions\./,
+  );
   assert.match(content, /Scan systemic signals/);
   assert.match(content, /Conduct customer conversations/);
   assert.match(content, /Develop verbatim themes/);
@@ -448,8 +442,13 @@ test("frames the NPS report for product and executive audiences", async () => {
   );
   const figmaPrototype =
     "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed";
+  const presentationVisualization =
+    "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1861-3299&p=f&viewport=-325%2C-869%2C0.21&t=CFFTOwJyDkoNAzU4-1&scaling=contain&content-scaling=fixed&page-id=1861%3A3298";
 
   assert.ok(npsPage.includes(`href: "${figmaPrototype}"`));
+  assert.ok(npsPage.includes(`href: "${presentationVisualization}"`));
+  assert.match(npsPage, /label: "Presentation visualization"/);
+  assert.doesNotMatch(npsPage, /label: "Final PDF"|label: "Project record"/);
   assert.match(
     npsPage,
     /helps the product team navigate Root’s current NPS performance/,
@@ -504,12 +503,14 @@ test("keeps UXR documentation focused on the onboarding deliverable", async () =
     content.indexOf('slug: "presentation-template-system"'),
   );
 
-  assert.match(onboardingPage, /label: "Onboarding document"/);
   assert.match(onboardingPage, /label: "Lovable project"/);
   assert.match(onboardingPage, /147235d4-c281-47cf-b008-6d33c4bf3bae/);
-  assert.match(onboardingPage, /status: "Delivered"/);
-  assert.match(onboardingPage, /title: "Onboarding playbook delivered"/);
-  assert.equal((onboardingPage.match(/\bhref:/g) ?? []).length, 2);
+  assert.doesNotMatch(onboardingPage, /\bstatus:/);
+  assert.doesNotMatch(
+    onboardingPage,
+    /label: "Onboarding document"|title: "Onboarding playbook delivered"/,
+  );
+  assert.equal((onboardingPage.match(/\bhref:/g) ?? []).length, 1);
   assert.doesNotMatch(
     onboardingPage,
     /label: "Project record"|Scope, progress, and continuation notes in the IPSD|id: "how-it-was-built"|title: "How it was built"/,
@@ -524,13 +525,14 @@ test("presents the reporting templates as one reusable system", async () => {
   );
 
   assert.match(templatePage, /label: "Google Slides Template"/);
+  assert.match(templatePage, /provider: "slides"/);
   assert.match(templatePage, /label: "Figma Template"/);
   assert.match(
     templatePage,
     /description: "Completed Figma presentation template\."/,
   );
   assert.match(templatePage, /label: "Design System"/);
-  assert.match(templatePage, /label: "Project Documentation"/);
+  assert.doesNotMatch(templatePage, /label: "Project Documentation"/);
   assert.match(
     templatePage,
     /I expanded the rebrand into a practical system for yearly reporting/,
@@ -594,11 +596,11 @@ test("keeps the AI skills page focused on the research process", async () => {
     "/research-viz",
     "/research-synthesis",
     "/root-brand-voice",
-    "Project Documentation",
   ]) {
     assert.match(primaryLinks, new RegExp(`label: "${label}"`));
   }
-  assert.equal((primaryLinks.match(/^\s+label:/gm) ?? []).length, 4);
+  assert.equal((primaryLinks.match(/^\s+label:/gm) ?? []).length, 3);
+  assert.doesNotMatch(primaryLinks, /label: "Project Documentation"/);
   assert.doesNotMatch(primaryLinks, /label: "AI Skills folder"/);
   assert.doesNotMatch(primaryLinks, /label: "Project record"/);
   assert.doesNotMatch(primaryLinks, /label: "Research playbook"/);
@@ -870,8 +872,9 @@ test("places article metadata below the title with compact spacing", async () =>
 
   assert.match(
     components,
-    /<h1>\{page\.title\}<\/h1>\s+<div className="article-kicker">\s+<span className="article-group">\{page\.group\}<\/span>\s+<StatusPill status=\{page\.status\} \/>/,
+    /<h1>\{page\.title\}<\/h1>\s+<div className="article-kicker">\s+<span className="article-group">\{page\.group\}<\/span>\s+<\/div>/,
   );
+  assert.doesNotMatch(components, /StatusPill|page\.status|index-status/);
   assert.match(styles, /\.article-group \{/);
   assert.match(
     styles,
@@ -883,7 +886,6 @@ test("places article metadata below the title with compact spacing", async () =>
 
 test("reflects the refined Q1 brief without a redundant completion callout", async () => {
   const content = await readProjectFile("app/handoff.ts");
-  const styles = await readProjectFile("app/globals.css");
   const q1Page = content.slice(
     content.indexOf('slug: "q1-voc-report"'),
     content.indexOf('slug: "q2-voc-report"'),
@@ -907,10 +909,6 @@ test("reflects the refined Q1 brief without a redundant completion callout", asy
     q1Page,
     /Latest presentation complete|The current Q1 VOC presentation is complete in Figma/,
   );
-  assert.match(
-    styles,
-    /\.handoff-callout\.status-delivered::before \{[\s\S]*top: 0\.8rem;[\s\S]*bottom: 0\.1rem;[\s\S]*width: 1px;/,
-  );
   assert.doesNotMatch(content, /primary internship mandate/);
   assert.doesNotMatch(content, /Audience need:/);
   assert.doesNotMatch(content, /id: "artifacts"/);
@@ -931,11 +929,12 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(components, /className="resource-link-description"/);
   assert.doesNotMatch(components, /className="resource-link-url"/);
   assert.doesNotMatch(components, /resourceDisplayUrl/);
-  assert.match(components, /resourceProvider\(item\.href\)/);
+  assert.match(components, /resourceProvider\(item\.href, item\.provider\)/);
   assert.match(components, /provider-\$\{provider\.id\}/);
   assert.match(components, /\/provider-icons\/figma\.svg/);
   assert.match(components, /\/provider-icons\/google-drive\.png/);
   assert.match(components, /\/provider-icons\/google-docs\.png/);
+  assert.match(components, /\/provider-icons\/google-slides\.svg/);
   assert.match(components, /\/provider-icons\/lovable\.ico/);
   assert.match(components, /\/provider-icons\/root-official\.png/);
   assert.doesNotMatch(components, /icon: "\/favicon\.svg"/);
@@ -946,17 +945,17 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(styles, /\.resource-provider-icon \{[\s\S]*background: #f1f1ee/);
   assert.match(
     styles,
-    /\.provider-handoff img,\n\.provider-external img \{[\s\S]*width: 100%;[\s\S]*height: 100%;[\s\S]*object-fit: cover;/,
+    /\.provider-handoff img,\n\.provider-external img,\n\.provider-root img \{[\s\S]*width: 100%;[\s\S]*height: 100%;[\s\S]*object-fit: cover;/,
   );
   assert.match(
     styles,
-    /\.provider-handoff,\n\.provider-external \{[\s\S]*background: var\(--accent\);[\s\S]*box-shadow: none;/,
+    /\.provider-handoff,\n\.provider-external,\n\.provider-root \{[\s\S]*background: var\(--accent\);[\s\S]*box-shadow: none;/,
   );
   assert.doesNotMatch(styles, /\.resource-link-meta/);
   assert.match(styles, /\.resource-links \{[\s\S]*display: grid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*border-left: 1px solid/);
   assert.match(styles, /\.handoff-callout \{[\s\S]*background: transparent/);
-  assert.match(styles, /\.status-pill::before/);
+  assert.doesNotMatch(styles, /\.status-pill|\.index-status/);
   assert.match(styles, /\.resource-link:focus-visible \{[\s\S]*255, 103, 43/);
 });
 

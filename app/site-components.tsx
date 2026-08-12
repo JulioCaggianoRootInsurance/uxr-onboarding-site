@@ -9,20 +9,9 @@ import {
   handoffPages,
   type ContentBlock,
   type HandoffPage,
-  type HandoffStatus,
   type ResourceLink,
 } from "./handoff";
 import { getSiteUpdated } from "./site-updated";
-
-function statusClass(status: HandoffStatus): string {
-  return `status-${status.toLowerCase().replaceAll(" ", "-")}`;
-}
-
-function StatusPill({ status }: { status: HandoffStatus }) {
-  return (
-    <span className={`status-pill ${statusClass(status)}`}>{status}</span>
-  );
-}
 
 function SiteFooter() {
   return (
@@ -82,9 +71,6 @@ function IndexList() {
                         ) : null}
                       </span>
                       <span className="index-meta">
-                        <span className={`index-status ${statusClass(page.status)}`}>
-                          {page.status}
-                        </span>
                         <span className="index-number">
                           {String(page.order).padStart(2, "0")}
                         </span>
@@ -166,11 +152,38 @@ function splitLabel(text: string): ReactNode {
 
 type ResourceProvider = {
   icon: string;
-  id: "docs" | "drive" | "external" | "figma" | "handoff" | "lovable";
+  id:
+    | "docs"
+    | "drive"
+    | "external"
+    | "figma"
+    | "handoff"
+    | "lovable"
+    | "root"
+    | "slides";
   name: string;
 };
 
-function resourceProvider(href: string): ResourceProvider {
+function resourceProvider(
+  href: string,
+  providerOverride?: ResourceLink["provider"],
+): ResourceProvider {
+  if (providerOverride === "root") {
+    return {
+      icon: "/provider-icons/root-official.png",
+      id: "root",
+      name: "Root",
+    };
+  }
+
+  if (providerOverride === "slides") {
+    return {
+      icon: "/provider-icons/google-slides.svg",
+      id: "slides",
+      name: "Google Slides",
+    };
+  }
+
   if (href.startsWith("/")) {
     return {
       icon: "/provider-icons/root-official.png",
@@ -222,7 +235,7 @@ function ResourceLinks({ items }: { items: ResourceLink[] }) {
   return (
     <ul className="resource-links">
       {items.map((item) => {
-        const provider = resourceProvider(item.href);
+        const provider = resourceProvider(item.href, item.provider);
         const content = (
           <>
             <span
@@ -311,8 +324,7 @@ function Block({ block }: { block: ContentBlock }) {
 
   if (block.kind === "callout") {
     return (
-      <aside className={`handoff-callout ${statusClass(block.status)}`}>
-        <StatusPill status={block.status} />
+      <aside className="handoff-callout">
         <h3>{block.title}</h3>
         <p>{block.text}</p>
       </aside>
@@ -426,7 +438,6 @@ function Block({ block }: { block: ContentBlock }) {
           const isInternal = item.href.startsWith("/");
           const content = (
             <>
-              <StatusPill status={item.status} />
               <div className="status-card-heading">
                 <h3>{item.title}</h3>
                 <span aria-hidden="true" className="status-card-action">
@@ -442,7 +453,7 @@ function Block({ block }: { block: ContentBlock }) {
               aria-label={`${item.title}. ${item.text}. Open in this handoff.`}
               className="status-card"
               href={item.href}
-              key={`${item.status}-${item.title}`}
+              key={item.title}
             >
               {content}
             </Link>
@@ -451,7 +462,7 @@ function Block({ block }: { block: ContentBlock }) {
               aria-label={`${item.title}. ${item.text}. Opens in a new tab.`}
               className="status-card"
               href={item.href}
-              key={`${item.status}-${item.title}`}
+              key={item.title}
               rel="noreferrer"
               target="_blank"
             >
@@ -536,7 +547,6 @@ export function ArticlePage({
             <h1>{page.title}</h1>
             <div className="article-kicker">
               <span className="article-group">{page.group}</span>
-              <StatusPill status={page.status} />
             </div>
             {page.summary ? <p>{page.summary}</p> : null}
           </header>

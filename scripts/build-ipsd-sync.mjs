@@ -79,7 +79,6 @@ function convertContentBlock(block, headingLevel = 2) {
     case "callout":
       return [{
         type: "callout",
-        status: block.status,
         title: block.title,
         text: block.text,
       }];
@@ -88,7 +87,7 @@ function convertContentBlock(block, headingLevel = 2) {
     case "statusGrid":
       return block.items.flatMap((item) => [
         { type: "heading", level: Math.min(3, headingLevel), text: item.title },
-        { type: "paragraph", text: `${item.status}: ${item.text}` },
+        { type: "paragraph", text: item.text },
         { type: "link", label: item.title, description: item.text, href: item.href },
       ]);
     case "commands":
@@ -140,7 +139,6 @@ function convertContentBlock(block, headingLevel = 2) {
 function pageBlocks(page, { includeTitle = true, sectionLevel = 1 } = {}) {
   const blocks = [];
   if (includeTitle) blocks.push({ type: "title", text: page.title });
-  blocks.push({ type: "paragraph", text: `Status: ${page.status}` });
   blocks.push({ type: "paragraph", text: page.summary });
 
   if (page.primaryLinks?.length) {
@@ -174,7 +172,7 @@ function siteMapBlocks(pages, groups) {
     for (const page of pages.filter((candidate) => candidate.group === group).sort((a, b) => a.order - b.order)) {
       blocks.push({
         type: "bullet",
-        text: `${String(page.order).padStart(2, "0")} · ${page.title} · ${page.status} · /${page.slug} — ${page.summary}`,
+        text: `${String(page.order).padStart(2, "0")} · ${page.title} · /${page.slug} — ${page.summary}`,
       });
     }
   }
@@ -195,7 +193,7 @@ function workingNotesBlocks(pages) {
   for (const page of [...pages].sort((a, b) => a.order - b.order)) {
     blocks.push({
       type: "bullet",
-      text: `${page.title} — ${page.status}: ${page.summary}`,
+      text: `${page.title}: ${page.summary}`,
     });
   }
 

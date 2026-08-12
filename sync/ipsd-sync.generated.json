@@ -6,7 +6,7 @@
     "url": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit",
     "expectedTitle": "Julio Intern Project Scope Document (IPSD) - UXR VOC"
   },
-  "sourceHash": "3fd833da473d4362925d8ffaa8507bdd23312b07504f1f23fe846ac14c41c470",
+  "sourceHash": "9e11baa136f57d84a0717a278b704ee02da51ef6275e790cc448063c47b9bcc8",
   "protectedTabIds": [
     "t.0"
   ],
@@ -34,54 +34,54 @@
         },
         {
           "type": "bullet",
-          "text": "VOC Quarterly Report (Q1-26) — Delivered: The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework."
+          "text": "VOC Quarterly Report (Q1-26): The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework."
         },
         {
           "type": "bullet",
-          "text": "VOC Quarterly Report (Q2-26) — In progress: This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August."
+          "text": "VOC Quarterly Report (Q2-26): This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August."
         },
         {
           "type": "bullet",
-          "text": "VOC Dashboard — Delivered: A completed Lovable dashboard prototype for reviewing VOC content, with a stakeholder preview and an editor-ready project workspace."
+          "text": "VOC Dashboard: A completed Lovable dashboard prototype for reviewing VOC content, with a stakeholder preview and an editor-ready project workspace."
         },
         {
           "type": "bullet",
-          "text": "VOC Customer Quote Library — Delivered: A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources."
+          "text": "VOC Customer Quote Library: A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources."
         },
         {
           "type": "bullet",
-          "text": "NPS Executive Report (Q1-26) — Delivered: An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
+          "text": "NPS Executive Report (Q1-26): An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
         },
         {
           "type": "bullet",
-          "text": "UXR Documentation — Delivered: A completed onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
+          "text": "UXR Documentation: A completed onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
         },
         {
           "type": "bullet",
-          "text": "Presentation Template — Delivered: I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+          "text": "Presentation Template: I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
         },
         {
           "type": "bullet",
-          "text": "AI Skills — Delivered: To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops."
+          "text": "AI Skills: To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops."
         },
         {
           "type": "bullet",
-          "text": "Research Process — Delivered: An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions."
+          "text": "Research Process: An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions."
         },
         {
           "type": "bullet",
-          "text": "Standard Operating Procedures (SOPs) — Delivered: The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff."
+          "text": "Standard Operating Procedures (SOPs): The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff."
         },
         {
           "type": "bullet",
-          "text": "Insights — Delivered: The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
+          "text": "Insights: The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
         },
         {
           "type": "bullet",
-          "text": "Transition Plan — In progress: A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
+          "text": "Transition Plan: A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
         }
       ],
-      "contentHash": "4b08ee8af24d3b9e5275bfa1f19332f47313da51a37c165008c086b4e843a193"
+      "contentHash": "8afa6657570437bc37ceee25852266f5534b961a7f237c8608bc439baed301ab"
     },
     {
       "tabId": "t.x2nebw360ab0",
@@ -94,10 +94,6 @@
         {
           "type": "title",
           "text": "VOC Quarterly Report (Q2-26)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Status: In progress"
         },
         {
           "type": "paragraph",
@@ -122,21 +118,9 @@
         },
         {
           "type": "link",
-          "label": "Q2 report materials",
-          "description": "Main folder for the Q2 2026 VOC Quarterly Report.",
-          "href": "https://drive.google.com/drive/folders/1i3yLP2P42e7An8iP0eZioQ7BZDDnWlHG?usp=sharing"
-        },
-        {
-          "type": "link",
           "label": "Data analysis",
           "description": "Descriptive analyses and supporting report outputs.",
           "href": "https://drive.google.com/drive/folders/1tx00RU1XgBsQxiNY0dLX9wvkLSvuhQLa"
-        },
-        {
-          "type": "link",
-          "label": "Customer interview reels",
-          "description": "Q2 customer interview recordings and supporting clips.",
-          "href": "https://drive.google.com/drive/folders/1afioP8124RT-UMmXmsp1p5fxeblPQHRV"
         },
         {
           "type": "link",
@@ -146,31 +130,9 @@
         },
         {
           "type": "link",
-          "label": "Q2 README",
-          "description": "Guide to the Q2 report folder, contents, and use.",
-          "href": "https://docs.google.com/document/d/1Hl-Yr7rIUZBPI8PhPS9vSI03flmIeobW0EIf7pH_sBg/edit?usp=drivesdk"
-        },
-        {
-          "type": "link",
           "label": "Q1 report reference",
           "description": "The reporting framework that the Q2 draft builds upon.",
           "href": "/q1-voc-report"
-        },
-        {
-          "type": "heading",
-          "level": 1,
-          "text": "Current state"
-        },
-        {
-          "type": "callout",
-          "status": "In progress",
-          "title": "Waiting for stakeholder datasets",
-          "text": "Seven datasets must be collected and reviewed (10-10 Direct-to-Consumer Benchmark Survey, 10-10 Independent Agents Survey, app reviews, Marketing Brand Tracker, qualitative customer interviews, SPRIG Index Surveys, and VOC Auto Shopping Survey). We are waiting for stakeholders to share the remaining files before synthesis can continue."
-        },
-        {
-          "type": "paragraph",
-          "text": "To deliver the report during my final internship week, we are accelerating data collection and will use survey data that ends approximately two weeks earlier than the intended late-August cutoff. This timing tradeoff should be documented as a limitation. Future VOC reporting should operate as an ongoing monitoring program—independent of internship timelines—with fixed, comparable collection windows and precise cutoff dates across the May-to-late-August period.",
-          "emphasis": false
         },
         {
           "type": "heading",
@@ -204,7 +166,7 @@
         },
         {
           "type": "paragraph",
-          "text": "My research process begins at the system level: I scan broad behavioral and attitudinal signals—such as a rise in negative app reviews—to identify where the customer experience may be changing. I then move from the quantitative “what” to the qualitative “why,” using interviews, customer conversations, and thematic analysis of verbatims to test competing explanations and surface context. Finally, I integrate evidence across sources, document contradictions and limitations, and translate the most defensible patterns into a clear narrative and focused questions for stakeholders.",
+          "text": "My research process begins at the system level: I scan broad behavioral and attitudinal signals—such as a rise in negative app reviews—to identify where the customer experience may be changing. I then move from the quantitative “what” to the qualitative “why,” using interviews, customer conversations, and thematic analysis of verbatims to test competing explanations and surface context. Finally, I seek to integrate evidence across multiple sources and translate them into a clear narrative for the product design team to implement solutions.",
           "emphasis": false
         },
         {
@@ -279,7 +241,7 @@
           "text": "The approved final deck and editable source are stored at canonical links with an owner."
         }
       ],
-      "contentHash": "461b521c2b16490ce4ac53d8019fea5e96c4fc79003d2c8f87135bce1ee614dd"
+      "contentHash": "e26bf6d6d1c219d25b655220cd7bcd32079f2bb820d764d5c16a86809a983cc5"
     },
     {
       "tabId": "t.7momns81mgpm",
@@ -292,10 +254,6 @@
         {
           "type": "title",
           "text": "VOC Quarterly Report (Q1-26)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Status: Delivered"
         },
         {
           "type": "paragraph",
@@ -449,7 +407,7 @@
           "text": "Strengthen the next-steps section by connecting recommendations directly to Product Design roadmaps through a dedicated communication channel or recurring review session with Clu and Ryan Farnham, Director of Product Design."
         }
       ],
-      "contentHash": "7341dc1e1f161bae9c9a3ce88730542bd6d2b71fc6419c199b1b8777b070db37"
+      "contentHash": "caa8ce5256e7d85486f4e9ecf868eb4dc6fa5a754151b81392bd04db4563b8ad"
     },
     {
       "tabId": "t.eh4wx17fdlej",
@@ -465,10 +423,6 @@
         },
         {
           "type": "paragraph",
-          "text": "Status: Delivered"
-        },
-        {
-          "type": "paragraph",
           "text": "A completed Lovable dashboard prototype for reviewing VOC content, with a stakeholder preview and an editor-ready project workspace."
         },
         {
@@ -478,7 +432,7 @@
         },
         {
           "type": "link",
-          "label": "Stakeholder dashboard preview",
+          "label": "Stakeholder dashboard preview (Expires in 7 days)",
           "description": "Completed Lovable dashboard prototype for stakeholder review.",
           "href": "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e#preview_url=https%3A%2F%2Fid-preview--739ad35a-f0ac-44a9-a1f6-3d56613a5a0e.lovable.app%3F__lovable_token%3DeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoieXQ0aUxBTmNXNmV1OVRjRnJHbjdOTkZrN1JCMyIsInByb2plY3RfaWQiOiI3MzlhZDM1YS1mMGFjLTQ0YTktYTFmNi0zZDU2NjEzYTVhMGUiLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6IjczOWFkMzVhLWYwYWMtNDRhOS1hMWY2LTNkNTY2MTNhNWEwZSIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODY0NzMzMjMsIm5iZiI6MTc4NTg2ODUyMywiaWF0IjoxNzg1ODY4NTIzLCJqdGkiOiIxMDJmZjU5OS1jOGM0LTRhOTctOGM0Yi00MjQwNTk1NDEzNTkifQ.pGLwCLVGizFTfSwwQ5xX2vLOEij-O3gfVCkLpNtLEwM_GlgWu3FzDYnHdc5RhkyZnq4zMhN_N2sqP9kvFIzmovvdyTOYyoNFKeFtP5yman988RjSnGMz5HrV1MuPyXvzcqPkq7qie0KAljMfR6xCrjKVz96ymC-U1E5PBEJVPTee6iJw5VaDK0Ruyuu1An-tPkGLHYq-ROaAAqME8uyxRvE1e4jeUUNozodwilRkig0wsOfH6K32flTRq8Vh_z6WXuNEm7dnz2Fx7KuH2Ok4L6xw5ScDz72NIbyCSoXuExKdV9R6f5wJfAKlw2mt8vdeqmamvKJr81ZlaLFrR9KYRiuRyLVjtMyG5Kn71z0ibf17FyvOBiI7pcSc2EJrJTq82bOUFeGpDTlPo6IcRA1ouX-MRB7klpE6JIj_EqQFw1swIYE--O9_aurh3-HS9hUNUGcbskXf5J-zZ0wcUanTEh9DYkDewn2tRcA0JnYdhcVCaxKhfiE7cnYfsm0MO2kSBBD8JP4cXupCyvUfoxb1Kyn101P3wW1-cyfVfNHT9VjW0NUHjTNIMxwu-cQn19GoY9-G-PUJ2fAbOsL-TVyedIjOM7g-jVFDkmsm20BbdxDvb3m9O3ymKxNYEU7RR_skYJz2Z5erTucdhGV3wW86KsXRl2ot6mH3Tbw-2-3qnWg"
         },
@@ -501,19 +455,12 @@
           "href": "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view"
         },
         {
-          "type": "link",
-          "label": "Project record",
-          "description": "The dashboard brief and working notes in the IPSD.",
-          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.eh4wx17fdlej"
-        },
-        {
           "type": "heading",
           "level": 1,
           "text": "Current direction"
         },
         {
           "type": "callout",
-          "status": "Delivered",
           "title": "Dashboard prototype complete",
           "text": "The Lovable dashboard prototype is complete and ready for stakeholder review. The editor invite provides the team with a direct way to continue working in the project."
         },
@@ -545,7 +492,6 @@
         },
         {
           "type": "callout",
-          "status": "Recommendation",
           "title": "GitHub should become the source of truth",
           "text": "The working website should be stored in a GitHub repository connected to Vercel. Code changes create reviewable versions, and approved changes to the production branch trigger deployment."
         },
@@ -698,7 +644,6 @@
         },
         {
           "type": "callout",
-          "status": "Recommendation",
           "title": "Automate proposals—not unchecked production changes",
           "text": "ChatGPT or Codex can help update code and content, but a researcher should verify every number, claim, quote, permission, and visual before merge."
         },
@@ -745,7 +690,7 @@
           "text": "Definition of done: A repeatable update can move from approved evidence to private preview to reviewed production without copying files manually."
         }
       ],
-      "contentHash": "342d11e9414515c27d89d7874e32e6fcfc67158d79b604c43e880095bec77e73"
+      "contentHash": "161cc4bdbe879b57736aec842c6f5e8d7fa783a78e0323b10cf25ef80890d47e"
     },
     {
       "tabId": "t.z582zky508qm",
@@ -761,22 +706,12 @@
         },
         {
           "type": "paragraph",
-          "text": "Status: Delivered"
-        },
-        {
-          "type": "paragraph",
           "text": "A completed onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
         },
         {
           "type": "heading",
           "level": 1,
           "text": "Resources"
-        },
-        {
-          "type": "link",
-          "label": "Onboarding document",
-          "description": "Living Google Doc co-developed by the UXR interns.",
-          "href": "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit"
         },
         {
           "type": "link",
@@ -788,12 +723,6 @@
           "type": "heading",
           "level": 1,
           "text": "Purpose"
-        },
-        {
-          "type": "callout",
-          "status": "Delivered",
-          "title": "Onboarding playbook delivered",
-          "text": "The source document and interactive implementation are complete. The future owner can maintain and validate the playbook with new hires as the team evolves."
         },
         {
           "type": "paragraph",
@@ -855,7 +784,7 @@
           "text": "Translated the documentation into an interactive Lovable project for future review and use."
         }
       ],
-      "contentHash": "5f82fd8531cf62afa07ed5d71254e2b4e04596c47b704f629184c868dd5bef63"
+      "contentHash": "31adb46ea609ee7787c7244d5409fd75fef87fcc20accdc935fe524cec61950e"
     },
     {
       "tabId": "t.69nuk3h4zyt8",
@@ -878,35 +807,35 @@
         },
         {
           "type": "bullet",
-          "text": "01 · VOC Quarterly Report (Q1-26) · Delivered · /q1-voc-report — The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework."
+          "text": "01 · VOC Quarterly Report (Q1-26) · /q1-voc-report — The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework."
         },
         {
           "type": "bullet",
-          "text": "02 · VOC Quarterly Report (Q2-26) · In progress · /q2-voc-report — This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August."
+          "text": "02 · VOC Quarterly Report (Q2-26) · /q2-voc-report — This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August."
         },
         {
           "type": "bullet",
-          "text": "03 · VOC Dashboard · Delivered · /voc-dashboard — A completed Lovable dashboard prototype for reviewing VOC content, with a stakeholder preview and an editor-ready project workspace."
+          "text": "03 · VOC Dashboard · /voc-dashboard — A completed Lovable dashboard prototype for reviewing VOC content, with a stakeholder preview and an editor-ready project workspace."
         },
         {
           "type": "bullet",
-          "text": "04 · VOC Customer Quote Library · Delivered · /customer-quote-library — A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources."
+          "text": "04 · VOC Customer Quote Library · /customer-quote-library — A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources."
         },
         {
           "type": "bullet",
-          "text": "05 · NPS Executive Report (Q1-26) · Delivered · /nps-executive-report — An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
+          "text": "05 · NPS Executive Report (Q1-26) · /nps-executive-report — An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
         },
         {
           "type": "bullet",
-          "text": "06 · UXR Documentation · Delivered · /uxr-onboarding-documentation — A completed onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
+          "text": "06 · UXR Documentation · /uxr-onboarding-documentation — A completed onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices."
         },
         {
           "type": "bullet",
-          "text": "07 · Presentation Template · Delivered · /presentation-template-system — I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
+          "text": "07 · Presentation Template · /presentation-template-system — I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework."
         },
         {
           "type": "bullet",
-          "text": "08 · AI Skills · Delivered · /ai-research-skills — To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops."
+          "text": "08 · AI Skills · /ai-research-skills — To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops."
         },
         {
           "type": "heading",
@@ -915,15 +844,15 @@
         },
         {
           "type": "bullet",
-          "text": "09 · Research Process · Delivered · /research-process — An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions."
+          "text": "09 · Research Process · /research-process — An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions."
         },
         {
           "type": "bullet",
-          "text": "10 · Standard Operating Procedures (SOPs) · Delivered · /standard-operating-procedures — The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff."
+          "text": "10 · Standard Operating Procedures (SOPs) · /standard-operating-procedures — The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff."
         },
         {
           "type": "bullet",
-          "text": "11 · Insights · Delivered · /internship-reflection — The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
+          "text": "11 · Insights · /internship-reflection — The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
         },
         {
           "type": "heading",
@@ -932,10 +861,10 @@
         },
         {
           "type": "bullet",
-          "text": "12 · Transition Plan · In progress · /handoff-next-steps — A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
+          "text": "12 · Transition Plan · /handoff-next-steps — A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
         }
       ],
-      "contentHash": "ee2c2cd6b55219f7e5f433dbfeff49a67cc92db6ef5fa691276030e4d2587fbb"
+      "contentHash": "04daef3b7f04cdc7f444a3c73ad0e394dac0d98071e58e41d36665fd4e58447b"
     },
     {
       "tabId": "t.p5vqlrzgpbt5",
@@ -951,10 +880,6 @@
         },
         {
           "type": "paragraph",
-          "text": "Status: Delivered"
-        },
-        {
-          "type": "paragraph",
           "text": "An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program."
         },
         {
@@ -964,21 +889,15 @@
         },
         {
           "type": "link",
-          "label": "Final PDF",
-          "description": "Final Q1-26 executive report PDF in Google Drive.",
-          "href": "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view"
+          "label": "Presentation visualization",
+          "description": "View the Q1-26 executive report presentation in prototype mode.",
+          "href": "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1861-3299&p=f&viewport=-325%2C-869%2C0.21&t=CFFTOwJyDkoNAzU4-1&scaling=contain&content-scaling=fixed&page-id=1861%3A3298"
         },
         {
           "type": "link",
           "label": "VOC Figma workspace",
           "description": "Shared design workspace containing the report work.",
           "href": "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed"
-        },
-        {
-          "type": "link",
-          "label": "Project record",
-          "description": "Research process and delivery notes in the IPSD.",
-          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.p5vqlrzgpbt5"
         },
         {
           "type": "heading",
@@ -1069,7 +988,7 @@
           "text": "Translated analytical limitations into visible reading guidance rather than hiding them in footnotes."
         }
       ],
-      "contentHash": "af4287fa6ad9f04b91f6fe518c48453e939666d1e695cccc84c18e4d6118a552"
+      "contentHash": "d666ab28e3bdf157d66c21548f299faba5d49a6c5e8ca94463f1a15443ab9fcc"
     },
     {
       "tabId": "t.1i5wqpu8xsw",
@@ -1082,10 +1001,6 @@
         {
           "type": "title",
           "text": "AI Skills"
-        },
-        {
-          "type": "paragraph",
-          "text": "Status: Delivered"
         },
         {
           "type": "paragraph",
@@ -1113,12 +1028,6 @@
           "label": "/root-brand-voice",
           "description": "Packaged writing guidance for Root’s updated voice.",
           "href": "https://drive.google.com/file/d/1pLnFe6CPhkBGI-QKrk646YvkUfyFEQFc/view"
-        },
-        {
-          "type": "link",
-          "label": "Project Documentation",
-          "description": "Deliverable notes and package inventory in the IPSD.",
-          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.1i5wqpu8xsw"
         },
         {
           "type": "heading",
@@ -1192,7 +1101,7 @@
           "text": "Apply the brand-voice skill only after the claims are stable."
         }
       ],
-      "contentHash": "ca79e70db99d7ce793fe96dfc555307742255e561519a79f70f03e96ad51e73a"
+      "contentHash": "de6ebb2587ee2f201189270f265b7660590547a1f73dccb310483845e02f71f0"
     },
     {
       "tabId": "t.pgdqdutlrhpb",
@@ -1217,10 +1126,6 @@
           "type": "heading",
           "level": 1,
           "text": "Research Process"
-        },
-        {
-          "type": "paragraph",
-          "text": "Status: Delivered"
         },
         {
           "type": "paragraph",
@@ -1275,10 +1180,6 @@
           "type": "heading",
           "level": 1,
           "text": "Standard Operating Procedures (SOPs)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Status: Delivered"
         },
         {
           "type": "paragraph",
@@ -1402,10 +1303,6 @@
         },
         {
           "type": "paragraph",
-          "text": "Status: Delivered"
-        },
-        {
-          "type": "paragraph",
           "text": "The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use."
         },
         {
@@ -1502,16 +1399,12 @@
         },
         {
           "type": "paragraph",
-          "text": "Status: In progress"
-        },
-        {
-          "type": "paragraph",
           "text": "A clear inventory of what exists, what remains unfinished, and what the next owner should decide."
         },
         {
           "type": "heading",
           "level": 2,
-          "text": "Artifact status"
+          "text": "Artifact inventory"
         },
         {
           "type": "heading",
@@ -1520,7 +1413,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Completed Figma presentation, V7 export, and reusable reporting principles."
+          "text": "Completed Figma presentation, V7 export, and reusable reporting principles."
         },
         {
           "type": "link",
@@ -1535,7 +1428,7 @@
         },
         {
           "type": "paragraph",
-          "text": "In progress: Working structure and source inventory established; findings and final review remain open."
+          "text": "Working structure and source inventory established; findings and final review remain open."
         },
         {
           "type": "link",
@@ -1550,7 +1443,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Completed Lovable dashboard prototype, ready for stakeholder review and editor collaboration."
+          "text": "Completed Lovable dashboard prototype, ready for stakeholder review and editor collaboration."
         },
         {
           "type": "link",
@@ -1565,7 +1458,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Multi-source evidence inventory and access points for 21 deidentified Q1 clips."
+          "text": "Multi-source evidence inventory and access points for 21 deidentified Q1 clips."
         },
         {
           "type": "link",
@@ -1580,7 +1473,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Completed Q1 2026 executive report delivered to Jill."
+          "text": "Completed Q1 2026 executive report delivered to Jill."
         },
         {
           "type": "link",
@@ -1595,7 +1488,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Completed onboarding and operating playbook with a supporting interactive project."
+          "text": "Completed onboarding and operating playbook with a supporting interactive project."
         },
         {
           "type": "link",
@@ -1610,7 +1503,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Finalized Google Slides template, team-owned Figma template, and editable VOC design-system workspace."
+          "text": "Finalized Google Slides template, team-owned Figma template, and editable VOC design-system workspace."
         },
         {
           "type": "link",
@@ -1625,7 +1518,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Delivered: Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook."
+          "text": "Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook."
         },
         {
           "type": "link",
@@ -1681,7 +1574,7 @@
           "text": "Julio Caggiano"
         }
       ],
-      "contentHash": "71203efa7c32dc5a5e7de084c1174b536b8a98701ecda04a285f81ea0ec26a66"
+      "contentHash": "c6c1ae26ed27c84f1a70e5034cbecdfab43f87c3855d930599bc4d451af88cbf"
     }
   ],
   "verificationTargets": [
@@ -1698,10 +1591,6 @@
         {
           "type": "title",
           "text": "Presentation Template"
-        },
-        {
-          "type": "paragraph",
-          "text": "Status: Delivered"
         },
         {
           "type": "paragraph",
@@ -1729,12 +1618,6 @@
           "label": "Design System",
           "description": "Editable component system and report workspace in Figma.",
           "href": "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1"
-        },
-        {
-          "type": "link",
-          "label": "Project Documentation",
-          "description": "Deliverable notes and source context in the IPSD.",
-          "href": "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s"
         },
         {
           "type": "heading",
@@ -1791,8 +1674,8 @@
           "text": "Test: Use the components in real report work"
         }
       ],
-      "parityText": "UXR Handoff website parity\nPresentation Template\nStatus: Delivered\nI expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.\nResources\nGoogle Slides Template — Finalized and ready for stakeholder use. — https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663\nFigma Template — Completed Figma presentation template. — https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1\nDesign System — Editable component system and report workspace in Figma. — https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1\nProject Documentation — Deliverable notes and source context in the IPSD. — https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s\nWhat it encompasses\nReusable components and design elements for product and research teams.\nExecutive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.\nChart patterns with places for research questions, sample bases, sources, scales, and limitations.\nAn expansion of Root’s photography identity for non-commercial use, grounded in its brand principles.\nTwo separate templates: Figma (for designers and technical team members) and Google Slides (for non-technical stakeholders, such as Human Resources partners).\nStructural workflow guidance that clarifies storytelling by focusing each slide on one primary image or message, supported by concise text and visible methodological context.\nDesign process\nAudit: Review brand materials and existing report patterns\nDefine: Set hierarchy, chart, quote, and evidence rules\nComponentize: Build reusable Figma structures\nPackage: Create team-owned Figma and Drive versions\nTest: Use the components in real report work",
-      "contentHash": "280775bd1fb6292bfe558b5ec9945588f56de668a09caa623d741195c679fc4e"
+      "parityText": "UXR Handoff website parity\nPresentation Template\nI expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.\nResources\nGoogle Slides Template — Finalized and ready for stakeholder use. — https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663\nFigma Template — Completed Figma presentation template. — https://www.figma.com/design/liCQw8Mv0VVnPMLacbEixP/New-Brand-Figma-Slides-Template?node-id=59-2027&t=jLp3wOviYd34ZBgn-1\nDesign System — Editable component system and report workspace in Figma. — https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1\nWhat it encompasses\nReusable components and design elements for product and research teams.\nExecutive-summary, key-finding, data-analysis, customer-quote, video, and appendix layouts.\nChart patterns with places for research questions, sample bases, sources, scales, and limitations.\nAn expansion of Root’s photography identity for non-commercial use, grounded in its brand principles.\nTwo separate templates: Figma (for designers and technical team members) and Google Slides (for non-technical stakeholders, such as Human Resources partners).\nStructural workflow guidance that clarifies storytelling by focusing each slide on one primary image or message, supported by concise text and visible methodological context.\nDesign process\nAudit: Review brand materials and existing report patterns\nDefine: Set hierarchy, chart, quote, and evidence rules\nComponentize: Build reusable Figma structures\nPackage: Create team-owned Figma and Drive versions\nTest: Use the components in real report work",
+      "contentHash": "9ecc3908530258d75e66e40d3b9867eaf72ead17db94ced675b1f041f4cad75e"
     }
   ]
 }

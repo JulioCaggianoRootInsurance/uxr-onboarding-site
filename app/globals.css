@@ -581,30 +581,6 @@ ol {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 0.65rem;
-}
-
-.index-status {
-  color: rgba(0, 0, 0, 0.36);
-  font-size: 0.5625rem;
-  font-weight: 570;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.index-status.status-delivered {
-  color: rgba(0, 0, 0, 0.36);
-}
-
-.index-status.status-delivered::before {
-  content: "";
-  display: inline-block;
-  width: 0.2rem;
-  height: 0.2rem;
-  margin-right: 0.35rem;
-  border-radius: 50%;
-  background: var(--accent);
-  vertical-align: middle;
 }
 
 .index-link:hover .index-name::after {
@@ -925,50 +901,6 @@ ol {
   line-height: 1.15rem;
 }
 
-.status-pill {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 0.35rem;
-  min-height: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  color: rgba(0, 0, 0, 0.44);
-  background: transparent;
-  font-size: 0.5625rem;
-  font-weight: 560;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.status-pill::before {
-  content: "";
-  width: 0.22rem;
-  height: 0.22rem;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.24);
-}
-
-.status-pill.status-delivered {
-  border: 0;
-  color: rgba(0, 0, 0, 0.44);
-  background: transparent;
-}
-
-.status-pill.status-delivered::before {
-  background: var(--accent);
-}
-
-.status-pill.status-prototype,
-.status-pill.status-in-progress,
-.status-pill.status-recommendation,
-.status-pill.status-tbd {
-  border: 0;
-  color: rgba(0, 0, 0, 0.44);
-  background: transparent;
-}
-
 .handoff-callout {
   margin-top: 1.25rem;
   padding: 0.8rem 0 0.1rem 1rem;
@@ -978,35 +910,8 @@ ol {
   background: transparent;
 }
 
-.handoff-callout.status-delivered {
-  position: relative;
-  border-left-color: transparent;
-}
-
-.handoff-callout.status-delivered::before {
-  position: absolute;
-  top: 0.8rem;
-  bottom: 0.1rem;
-  left: -1px;
-  width: 1px;
-  background: rgba(255, 103, 43, 0.72);
-  content: "";
-}
-
-.handoff-callout.status-prototype {
-  border-left-color: #d9d9d5;
-}
-
-.handoff-callout.status-in-progress {
-  border-left-color: #d9d9d5;
-}
-
-.handoff-callout.status-recommendation {
-  border-left-color: #d9d9d5;
-}
-
 .handoff-callout h3 {
-  padding-top: 0.5rem;
+  padding-top: 0;
   font-size: 0.8125rem;
   font-weight: 560;
   line-height: 1rem;
@@ -1130,7 +1035,8 @@ blockquote span {
 }
 
 .provider-handoff img,
-.provider-external img {
+.provider-external img,
+.provider-root img {
   width: 100%;
   height: 100%;
   border-radius: inherit;
@@ -1138,7 +1044,8 @@ blockquote span {
 }
 
 .provider-handoff,
-.provider-external {
+.provider-external,
+.provider-root {
   overflow: hidden;
   background: var(--accent);
   box-shadow: none;
@@ -1651,7 +1558,7 @@ blockquote span {
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 0.55rem;
+  padding-top: 0;
 }
 
 .status-card h3 {
@@ -2622,10 +2529,6 @@ blockquote span {
 
   .index-number {
     margin-left: 0.35rem;
-  }
-
-  .index-status {
-    display: none;
   }
 
   .start-note {

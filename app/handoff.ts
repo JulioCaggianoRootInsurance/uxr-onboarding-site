@@ -3,17 +3,11 @@ import "server-only";
 import { customerQuotes } from "./customer-quotes";
 import { getSiteUpdated } from "./site-updated";
 
-export type HandoffStatus =
-  | "Delivered"
-  | "Prototype"
-  | "In progress"
-  | "Recommendation"
-  | "TBD";
-
 export type ResourceLink = {
   label: string;
   description: string;
   href: string;
+  provider?: "root" | "slides";
 };
 
 export type CustomerQuoteEntry = {
@@ -39,7 +33,6 @@ export type VideoCollection = {
 };
 
 export type StatusItem = {
-  status: HandoffStatus;
   title: string;
   text: string;
   href: string;
@@ -63,7 +56,7 @@ export type ContentBlock =
   | { kind: "steps"; items: string[] }
   | { kind: "subheading"; text: string }
   | { kind: "quote"; label: string; text: string }
-  | { kind: "callout"; status: HandoffStatus; title: string; text: string }
+  | { kind: "callout"; title: string; text: string }
   | { kind: "links"; items: ResourceLink[] }
   | {
       kind: "customerEvidenceLibrary";
@@ -95,7 +88,6 @@ export type HandoffPage = {
   order: number;
   title: string;
   summary: string;
-  status: HandoffStatus;
   updated: string;
   primaryLinks?: ResourceLink[];
   sections: HandoffSection[];
@@ -168,7 +160,6 @@ export const handoffPages: HandoffPage[] = [
     title: "VOC Quarterly Report (Q1-26)",
     summary:
       "The completed Q1 reporting redesign that turned a broad storytelling brief into an editable Figma presentation and reusable reporting framework.",
-    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
@@ -294,13 +285,13 @@ export const handoffPages: HandoffPage[] = [
     title: "VOC Quarterly Report (Q2-26)",
     summary:
       "This second quarterly report applies the updated storytelling system to a new round of evidence. It is currently in progress with the external stakeholders leading the core research, with delivery expected in mid-August.",
-    status: "In progress",
     updated: siteUpdated,
     primaryLinks: [
       {
         label: "Presentation visualization",
         description: "View the current Q2 report presentation in prototype mode.",
         href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=2546%3A1804&node-id=2546-1805&viewport=168%2C490%2C0.06&t=1woACFjok5i2B4fg-1&scaling=contain&content-scaling=fixed",
+        provider: "root",
       },
       {
         label: "Figma source",
@@ -308,29 +299,14 @@ export const handoffPages: HandoffPage[] = [
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804",
       },
       {
-        label: "Q2 report materials",
-        description: "Main folder for the Q2 2026 VOC Quarterly Report.",
-        href: "https://drive.google.com/drive/folders/1i3yLP2P42e7An8iP0eZioQ7BZDDnWlHG?usp=sharing",
-      },
-      {
         label: "Data analysis",
         description: "Descriptive analyses and supporting report outputs.",
         href: "https://drive.google.com/drive/folders/1tx00RU1XgBsQxiNY0dLX9wvkLSvuhQLa",
       },
       {
-        label: "Customer interview reels",
-        description: "Q2 customer interview recordings and supporting clips.",
-        href: "https://drive.google.com/drive/folders/1afioP8124RT-UMmXmsp1p5fxeblPQHRV",
-      },
-      {
         label: "Raw data",
         description: "Source datasets used for the Q2 report analysis.",
         href: "https://drive.google.com/drive/folders/16G_ipRguhQ0MUBVoJJ0e2hltq3HXJ_mY",
-      },
-      {
-        label: "Q2 README",
-        description: "Guide to the Q2 report folder, contents, and use.",
-        href: "https://docs.google.com/document/d/1Hl-Yr7rIUZBPI8PhPS9vSI03flmIeobW0EIf7pH_sBg/edit?usp=drivesdk",
       },
       {
         label: "Q1 report reference",
@@ -339,22 +315,6 @@ export const handoffPages: HandoffPage[] = [
       },
     ],
     sections: [
-      {
-        id: "current-state",
-        title: "Current state",
-        blocks: [
-          {
-            kind: "callout",
-            status: "In progress",
-            title: "Waiting for stakeholder datasets",
-            text: "Seven datasets must be collected and reviewed (10-10 Direct-to-Consumer Benchmark Survey, 10-10 Independent Agents Survey, app reviews, Marketing Brand Tracker, qualitative customer interviews, SPRIG Index Surveys, and VOC Auto Shopping Survey). We are waiting for stakeholders to share the remaining files before synthesis can continue.",
-          },
-          {
-            kind: "paragraph",
-            text: "To deliver the report during my final internship week, we are accelerating data collection and will use survey data that ends approximately two weeks earlier than the intended late-August cutoff. This timing tradeoff should be documented as a limitation. Future VOC reporting should operate as an ongoing monitoring program—independent of internship timelines—with fixed, comparable collection windows and precise cutoff dates across the May-to-late-August period.",
-          },
-        ],
-      },
       {
         id: "what-it-encompasses",
         title: "What it encompasses",
@@ -377,7 +337,7 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "paragraph",
-            text: "My research process begins at the system level: I scan broad behavioral and attitudinal signals—such as a rise in negative app reviews—to identify where the customer experience may be changing. I then move from the quantitative “what” to the qualitative “why,” using interviews, customer conversations, and thematic analysis of verbatims to test competing explanations and surface context. Finally, I integrate evidence across sources, document contradictions and limitations, and translate the most defensible patterns into a clear narrative and focused questions for stakeholders.",
+            text: "My research process begins at the system level: I scan broad behavioral and attitudinal signals—such as a rise in negative app reviews—to identify where the customer experience may be changing. I then move from the quantitative “what” to the qualitative “why,” using interviews, customer conversations, and thematic analysis of verbatims to test competing explanations and surface context. Finally, I seek to integrate evidence across multiple sources and translate them into a clear narrative for the product design team to implement solutions.",
           },
           {
             kind: "pipeline",
@@ -448,7 +408,6 @@ export const handoffPages: HandoffPage[] = [
     title: "VOC Customer Quote Library",
     summary:
       "A complete, organized customer quote library to support future quarterly reports, specifically the workflow of connecting quantitative data patterns to direct customer experiences. The library contains interviews, app reviews, long-form survey responses, customer feedback, and other research resources.",
-    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
@@ -505,11 +464,10 @@ export const handoffPages: HandoffPage[] = [
     title: "VOC Dashboard",
     summary:
       "A completed Lovable dashboard prototype for reviewing VOC content, with a stakeholder preview and an editor-ready project workspace.",
-    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Stakeholder dashboard preview",
+        label: "Stakeholder dashboard preview (Expires in 7 days)",
         description: "Completed Lovable dashboard prototype for stakeholder review.",
         href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e#preview_url=https%3A%2F%2Fid-preview--739ad35a-f0ac-44a9-a1f6-3d56613a5a0e.lovable.app%3F__lovable_token%3DeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoieXQ0aUxBTmNXNmV1OVRjRnJHbjdOTkZrN1JCMyIsInByb2plY3RfaWQiOiI3MzlhZDM1YS1mMGFjLTQ0YTktYTFmNi0zZDU2NjEzYTVhMGUiLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6IjczOWFkMzVhLWYwYWMtNDRhOS1hMWY2LTNkNTY2MTNhNWEwZSIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODY0NzMzMjMsIm5iZiI6MTc4NTg2ODUyMywiaWF0IjoxNzg1ODY4NTIzLCJqdGkiOiIxMDJmZjU5OS1jOGM0LTRhOTctOGM0Yi00MjQwNTk1NDEzNTkifQ.pGLwCLVGizFTfSwwQ5xX2vLOEij-O3gfVCkLpNtLEwM_GlgWu3FzDYnHdc5RhkyZnq4zMhN_N2sqP9kvFIzmovvdyTOYyoNFKeFtP5yman988RjSnGMz5HrV1MuPyXvzcqPkq7qie0KAljMfR6xCrjKVz96ymC-U1E5PBEJVPTee6iJw5VaDK0Ruyuu1An-tPkGLHYq-ROaAAqME8uyxRvE1e4jeUUNozodwilRkig0wsOfH6K32flTRq8Vh_z6WXuNEm7dnz2Fx7KuH2Ok4L6xw5ScDz72NIbyCSoXuExKdV9R6f5wJfAKlw2mt8vdeqmamvKJr81ZlaLFrR9KYRiuRyLVjtMyG5Kn71z0ibf17FyvOBiI7pcSc2EJrJTq82bOUFeGpDTlPo6IcRA1ouX-MRB7klpE6JIj_EqQFw1swIYE--O9_aurh3-HS9hUNUGcbskXf5J-zZ0wcUanTEh9DYkDewn2tRcA0JnYdhcVCaxKhfiE7cnYfsm0MO2kSBBD8JP4cXupCyvUfoxb1Kyn101P3wW1-cyfVfNHT9VjW0NUHjTNIMxwu-cQn19GoY9-G-PUJ2fAbOsL-TVyedIjOM7g-jVFDkmsm20BbdxDvb3m9O3ymKxNYEU7RR_skYJz2Z5erTucdhGV3wW86KsXRl2ot6mH3Tbw-2-3qnWg",
       },
@@ -528,11 +486,6 @@ export const handoffPages: HandoffPage[] = [
         description: "High-fidelity dashboard artifact in Google Drive.",
         href: "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view",
       },
-      {
-        label: "Project record",
-        description: "The dashboard brief and working notes in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.eh4wx17fdlej",
-      },
     ],
     sections: [
       {
@@ -541,7 +494,6 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "callout",
-            status: "Delivered",
             title: "Dashboard prototype complete",
             text: "The Lovable dashboard prototype is complete and ready for stakeholder review. The editor invite provides the team with a direct way to continue working in the project.",
           },
@@ -566,7 +518,6 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "callout",
-            status: "Recommendation",
             title: "GitHub should become the source of truth",
             text: "The working website should be stored in a GitHub repository connected to Vercel. Code changes create reviewable versions, and approved changes to the production branch trigger deployment.",
           },
@@ -699,7 +650,6 @@ export const handoffPages: HandoffPage[] = [
         blocks: [
           {
             kind: "callout",
-            status: "Recommendation",
             title: "Automate proposals—not unchecked production changes",
             text: "ChatGPT or Codex can help update code and content, but a researcher should verify every number, claim, quote, permission, and visual before merge.",
           },
@@ -740,23 +690,17 @@ export const handoffPages: HandoffPage[] = [
     title: "NPS Executive Report (Q1-26)",
     summary:
       "An additional project that helps the product team navigate Root’s current NPS performance beyond the broader quarterly Voice of Customer monitoring program.",
-    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Final PDF",
-        description: "Final Q1-26 executive report PDF in Google Drive.",
-        href: "https://drive.google.com/file/d/1NCnSRL9ncpFiGmOJthbPzuqRwW8x1CIY/view",
+        label: "Presentation visualization",
+        description: "View the Q1-26 executive report presentation in prototype mode.",
+        href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1861-3299&p=f&viewport=-325%2C-869%2C0.21&t=CFFTOwJyDkoNAzU4-1&scaling=contain&content-scaling=fixed&page-id=1861%3A3298",
       },
       {
         label: "VOC Figma workspace",
         description: "Shared design workspace containing the report work.",
         href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed",
-      },
-      {
-        label: "Project record",
-        description: "Research process and delivery notes in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.p5vqlrzgpbt5",
       },
     ],
     sections: [
@@ -823,14 +767,8 @@ export const handoffPages: HandoffPage[] = [
     title: "UXR Documentation",
     summary:
       "A completed onboarding playbook co-developed with Layilah Campbell to help future researchers understand Root, the team, and its operating practices.",
-    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
-      {
-        label: "Onboarding document",
-        description: "Living Google Doc co-developed by the UXR interns.",
-        href: "https://docs.google.com/document/d/1spAyv8Q9Oj2MyvjcpxYI0Ou-Sx-I8XVNuYTMudAXjNU/edit",
-      },
       {
         label: "Lovable project",
         description: "UXR documentation project workspace and interactive implementation.",
@@ -842,12 +780,6 @@ export const handoffPages: HandoffPage[] = [
         id: "purpose",
         title: "Purpose",
         blocks: [
-          {
-            kind: "callout",
-            status: "Delivered",
-            title: "Onboarding playbook delivered",
-            text: "The source document and interactive implementation are complete. The future owner can maintain and validate the playbook with new hires as the team evolves.",
-          },
           {
             kind: "paragraph",
             text: "Layilah Campbell and I developed this documentation to reduce the amount of critical research context that new hires must reconstruct through scattered conversations, Slack history, and repository searches.",
@@ -896,13 +828,13 @@ export const handoffPages: HandoffPage[] = [
     title: "Presentation Template",
     summary:
       "I expanded the rebrand into a practical system for yearly reporting. The finalized presentation template is now ready for stakeholder use, with repeatable structures for executive summaries, key findings, charts, customer quotes, section breaks, and references. Its primary objective is to help research stakeholders and product partners communicate ideas through a cohesive presentation and storytelling framework.",
-    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
         label: "Google Slides Template",
         description: "Finalized and ready for stakeholder use.",
         href: "https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663",
+        provider: "slides",
       },
       {
         label: "Figma Template",
@@ -913,11 +845,6 @@ export const handoffPages: HandoffPage[] = [
         label: "Design System",
         description: "Editable component system and report workspace in Figma.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=59-2027&t=iyC0FSCAptPUCIpU-1",
-      },
-      {
-        label: "Project Documentation",
-        description: "Deliverable notes and source context in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.x1rjygdc0a3s",
       },
     ],
     sections: [
@@ -963,7 +890,6 @@ export const handoffPages: HandoffPage[] = [
     title: "AI Skills",
     summary:
       "To streamline research across diverse data sources, I developed reusable AI-assisted workflows for standardized data preparation and analysis, with an emphasis on Python-based visualization and reliable handling of CSV files.\nThe packages accelerate early-stage cleaning, quality checks, statistical calculations, and visualization so researchers can spend more time interpreting results, investigating the phenomena behind the data, and connecting evidence to decisions. As an additional deliverable, I created a Root brand-voice skill grounded in the company’s brand guidelines. It remains an evolving experiment and may still produce recognizably AI-written language, so its output should be reviewed and refined as the technology develops.",
-    status: "Delivered",
     updated: siteUpdated,
     primaryLinks: [
       {
@@ -980,11 +906,6 @@ export const handoffPages: HandoffPage[] = [
         label: "/root-brand-voice",
         description: "Packaged writing guidance for Root’s updated voice.",
         href: "https://drive.google.com/file/d/1pLnFe6CPhkBGI-QKrk646YvkUfyFEQFc/view",
-      },
-      {
-        label: "Project Documentation",
-        description: "Deliverable notes and package inventory in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.1i5wqpu8xsw",
       },
     ],
     sections: [
@@ -1061,7 +982,6 @@ Before starting, give me a short execution plan and list any column-mapping ques
     title: "Research Process",
     summary:
       "An iterative, behavior-centered workflow for turning stakeholder inputs and observable evidence into reviewable research decisions.",
-    status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
@@ -1110,7 +1030,6 @@ Before starting, give me a short execution plan and list any column-mapping ques
     title: "Standard Operating Procedures (SOPs)",
     summary:
       "The working routines and quality gates I used for planning, evidence handling, analysis, review, communication, and technical handoff.",
-    status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
@@ -1189,7 +1108,6 @@ Before starting, give me a short execution plan and list any column-mapping ques
     title: "Insights",
     summary:
       "The most important lessons I developed about connecting evidence to product decisions, communicating data clearly, iterating with stakeholders, and building research systems that others can use.",
-    status: "Delivered",
     updated: siteUpdated,
     sections: [
       {
@@ -1267,60 +1185,51 @@ Before starting, give me a short execution plan and list any column-mapping ques
     title: "Transition Plan",
     summary:
       "A clear inventory of what exists, what remains unfinished, and what the next owner should decide.",
-    status: "In progress",
     updated: siteUpdated,
     sections: [
       {
-        id: "status-inventory",
-        title: "Artifact status",
+        id: "artifact-inventory",
+        title: "Artifact inventory",
         blocks: [
           {
             kind: "statusGrid",
             items: [
               {
-                status: "Delivered",
                 title: "VOC Quarterly Report (Q1-26)",
                 text: "Completed Figma presentation, V7 export, and reusable reporting principles.",
                 href: q1PrototypeHref,
               },
               {
-                status: "In progress",
                 title: "VOC Quarterly Report (Q2-26)",
                 text: "Working structure and source inventory established; findings and final review remain open.",
                 href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804",
               },
               {
-                status: "Delivered",
                 title: "VOC Dashboard",
                 text: "Completed Lovable dashboard prototype, ready for stakeholder review and editor collaboration.",
                 href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e#preview_url=https%3A%2F%2Fid-preview--739ad35a-f0ac-44a9-a1f6-3d56613a5a0e.lovable.app%3F__lovable_token%3DeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoieXQ0aUxBTmNXNmV1OVRjRnJHbjdOTkZrN1JCMyIsInByb2plY3RfaWQiOiI3MzlhZDM1YS1mMGFjLTQ0YTktYTFmNi0zZDU2NjEzYTVhMGUiLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6IjczOWFkMzVhLWYwYWMtNDRhOS1hMWY2LTNkNTY2MTNhNWEwZSIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODY0NzMzMjMsIm5iZiI6MTc4NTg2ODUyMywiaWF0IjoxNzg1ODY4NTIzLCJqdGkiOiIxMDJmZjU5OS1jOGM0LTRhOTctOGM0Yi00MjQwNTk1NDEzNTkifQ.pGLwCLVGizFTfSwwQ5xX2vLOEij-O3gfVCkLpNtLEwM_GlgWu3FzDYnHdc5RhkyZnq4zMhN_N2sqP9kvFIzmovvdyTOYyoNFKeFtP5yman988RjSnGMz5HrV1MuPyXvzcqPkq7qie0KAljMfR6xCrjKVz96ymC-U1E5PBEJVPTee6iJw5VaDK0Ruyuu1An-tPkGLHYq-ROaAAqME8uyxRvE1e4jeUUNozodwilRkig0wsOfH6K32flTRq8Vh_z6WXuNEm7dnz2Fx7KuH2Ok4L6xw5ScDz72NIbyCSoXuExKdV9R6f5wJfAKlw2mt8vdeqmamvKJr81ZlaLFrR9KYRiuRyLVjtMyG5Kn71z0ibf17FyvOBiI7pcSc2EJrJTq82bOUFeGpDTlPo6IcRA1ouX-MRB7klpE6JIj_EqQFw1swIYE--O9_aurh3-HS9hUNUGcbskXf5J-zZ0wcUanTEh9DYkDewn2tRcA0JnYdhcVCaxKhfiE7cnYfsm0MO2kSBBD8JP4cXupCyvUfoxb1Kyn101P3wW1-cyfVfNHT9VjW0NUHjTNIMxwu-cQn19GoY9-G-PUJ2fAbOsL-TVyedIjOM7g-jVFDkmsm20BbdxDvb3m9O3ymKxNYEU7RR_skYJz2Z5erTucdhGV3wW86KsXRl2ot6mH3Tbw-2-3qnWg",
               },
               {
-                status: "Delivered",
                 title: "VOC Customer Quote Library",
                 text: "Multi-source evidence inventory and access points for 21 deidentified Q1 clips.",
                 href: "/customer-quote-library",
               },
               {
-                status: "Delivered",
                 title: "NPS Executive Report (Q1-26)",
                 text: "Completed Q1 2026 executive report delivered to Jill.",
                 href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=1861%3A3298&node-id=1861-3299&p=f&viewport=-168%2C128%2C0.17&t=gF482mM1I1lkZy3Z-1&scaling=contain&content-scaling=fixed",
               },
               {
-                status: "Delivered",
                 title: "UXR Documentation",
                 text: "Completed onboarding and operating playbook with a supporting interactive project.",
                 href: "https://lovable.dev/projects/147235d4-c281-47cf-b008-6d33c4bf3bae",
               },
               {
-                status: "Delivered",
                 title: "Presentation Template",
                 text: "Finalized Google Slides template, team-owned Figma template, and editable VOC design-system workspace.",
                 href: "https://docs.google.com/presentation/d/1OshHDffRLd2498_qE3Nqkty_gHhTy6So/edit?slide=id.g3f5ad54fc94_3_663#slide=id.g3f5ad54fc94_3_663",
               },
               {
-                status: "Delivered",
                 title: "AI Skills",
                 text: "Packaged research-viz, research-synthesis, and root-brand-voice skills with a governed playbook.",
                 href: "/ai-research-skills",
