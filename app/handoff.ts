@@ -425,11 +425,6 @@ export const handoffPages: HandoffPage[] = [
         description: "Shared Drive folder containing the P1, P2, and P3 recordings.",
         href: "https://drive.google.com/drive/folders/1LK-sDBk7s94LY6uet1-ys1QsUBhrdBDm",
       },
-      {
-        label: "Lookback reels and insights",
-        description: "Access the overall VOC-specific qualitative interviews.",
-        href: "https://lookback.io/org/root-inc-2/projects/root-voc-customer-interviews/reels",
-      },
     ],
     sections: [
       {

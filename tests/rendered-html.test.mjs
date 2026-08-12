@@ -176,6 +176,7 @@ test("defines the full internship handoff architecture", async () => {
   );
   assert.match(quoteLibraryLinks, /Customer quote library spreadsheet/);
   assert.match(quoteLibraryLinks, /Lovable dashboard preview/);
+  assert.doesNotMatch(quoteLibraryLinks, /Lookback reels and insights/);
   assert.doesNotMatch(quoteLibraryLinks, /docs\.google\.com\/document\/d\/1eMVc8li/i);
   assert.ok(
     quoteLibraryLinks.indexOf("Customer quote library spreadsheet") <
@@ -934,6 +935,7 @@ test("surfaces canonical deliverable links as Notion-style bookmarks", async () 
   assert.match(components, /\/provider-icons\/figma\.svg/);
   assert.match(components, /\/provider-icons\/google-drive\.png/);
   assert.match(components, /\/provider-icons\/google-docs\.png/);
+  assert.match(components, /\/provider-icons\/google-sheets\.svg/);
   assert.match(components, /\/provider-icons\/google-slides\.svg/);
   assert.match(components, /\/provider-icons\/lovable\.ico/);
   assert.match(components, /\/provider-icons\/root-official\.png/);
@@ -984,16 +986,12 @@ test("keeps the customer quote library synchronized, ordered, and deidentified",
   assert.match(content, /lookback\.io\/play\/qpzK47AyZGPfTzDE7/);
   assert.match(content, /lookback\.io\/play\/PAg8bd26jergevcv5/);
   assert.match(content, /lookback\.io\/play\/hbdMNbJCUJm3LMxhH/);
-  assert.match(
-    content,
-    /lookback\.io\/org\/root-inc-2\/projects\/root-voc-customer-interviews\/reels/,
-  );
   assert.match(content, /label: "Customer quote library spreadsheet"/);
   assert.match(content, /label: "Lovable dashboard preview"/);
   assert.match(content, /1Js0nphTvokImTGG0zJpUJ9EfD6kOlkqblX8X8uKBG00/);
   assert.doesNotMatch(customerPage, /docs\.google\.com\/document\/d\/1eMVc8li/i);
-  assert.match(content, /label: "Lookback reels and insights"/);
-  assert.match(content, /Access the overall VOC-specific qualitative interviews/);
+  assert.doesNotMatch(customerPage, /label: "Lookback reels and insights"/);
+  assert.doesNotMatch(customerPage, /Access the overall VOC-specific qualitative interviews/);
   assert.doesNotMatch(customerPage, /Embedded recordings/);
   assert.doesNotMatch(
     customerPage,

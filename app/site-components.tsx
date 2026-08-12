@@ -161,6 +161,7 @@ type ResourceProvider = {
     | "handoff"
     | "lovable"
     | "root"
+    | "sheets"
     | "slides";
   name: string;
 };
@@ -198,6 +199,14 @@ function resourceProvider(
       icon: "/provider-icons/figma.svg",
       id: "figma",
       name: "Figma",
+    };
+  }
+
+  if (href.includes("docs.google.com/spreadsheets")) {
+    return {
+      icon: "/provider-icons/google-sheets.svg",
+      id: "sheets",
+      name: "Google Sheets",
     };
   }
 
