@@ -95,6 +95,43 @@ const quoteGroups: QuoteGroup[] = [
     ],
   },
   {
+    source: "10/10 Independent Agents Survey · Detractors",
+    period: "Q2 2026",
+    items: [
+      {
+        theme: "Agent servicing control",
+        quote:
+          "As the agent, all you can do is view the policy. We cannot make changes, take payments...",
+      },
+      {
+        theme: "Policy & endorsement flexibility",
+        quote:
+          "Your system is restrictive. I can’t put a liability vehicle and a full coverage vehicle on the same policy. Agents are also unable to process their own endorsements",
+      },
+    ],
+  },
+  {
+    source: "10/10 Independent Agents Survey",
+    period: "Q2 2026",
+    items: [
+      {
+        theme: "Portal data & usability",
+        quote:
+          "I’d like to see if tickets showed up on MVR. Also, I'm unable to copy their email from the main screen because it's a link, and no email shows when I'm in a policy",
+      },
+      {
+        theme: "Agent servicing control",
+        quote:
+          "Agents don't have servicing independence, which is extremely upsetting",
+      },
+      {
+        theme: "Quote workflow & coverage options",
+        quote:
+          "You have to go to a different site to add a leinholder. That’s a hassle when literally everyone else has it during the quote. Also you can't add SR22. I know you guys have it, but clients can’t wait for the paperwork",
+      },
+    ],
+  },
+  {
     source: "Rebrand Consumer Interview · Participant 1",
     period: "Q2 2026",
     items: [
@@ -216,6 +253,86 @@ const quoteGroups: QuoteGroup[] = [
     ],
   },
   {
+    source: "10/10 DTC Benchmark Survey · NPS detractors",
+    period: "Q2 2026",
+    items: [
+      {
+        theme: "Rate increases",
+        quote:
+          "I have no accidents or tickets with the last 5 years and my rates continue to go up. I actually plan on leaving within the next 30 days",
+      },
+      {
+        theme: "Loyalty & rewards",
+        quote:
+          "There is no loyal customer discount. There are no rewards and/or discounts for anything",
+      },
+    ],
+  },
+  {
+    source: "App reviews · Platform not specified",
+    period: "Q2 2026",
+    items: [
+      {
+        theme: "Telematics fairness",
+        quote:
+          "I don't believe their driving data accurately reflects my actual driving, yet they continue using it to justify significant premium increases",
+      },
+      {
+        theme: "Human support",
+        quote:
+          "The rates are competitive; however, all communication is handled through the app, and meaningful interaction becomes nonexistent after enrollment",
+      },
+      {
+        theme: "Telematics trip classification",
+        quote:
+          "My autistic son has my phone playing a game to keep him calm in the car when I'm driving and I notice my score going down as if I'm using my phone. How can we correct this?",
+      },
+      {
+        theme: "Telematics feature education",
+        quote:
+          "I was really excited to switch to this insurance and was fully prepared to do well on their driving test. However, because I drive for Uber, my distraction score ended up ruining my average. They then decided to inform me that there is a \"passenger button.\" Nobody explained that feature to me beforehand, and by then, it was already too late",
+      },
+    ],
+  },
+  {
+    source: "Google Play Store · 1-star reviews",
+    period: "Q2 2026",
+    items: [
+      {
+        theme: "Rate increases",
+        quote:
+          "They will increase your rate every time you renew regardless of accidents, driving habits, etc. They doubled my rates even though I'd had no infractions, accidents, or late payments and said it was because of my credit utilization had gone up and because of where I live... (I've lived here for 4 years) scummy and predatory business that baits you with low rates and then raises them. I switched to a bigger company and it's $37 cheaper than Root before they raised my rate.",
+      },
+      {
+        theme: "Claims communication",
+        quote:
+          "I had an accident back in November of 25 and as of April 26 my car is still not fixed. I finally got the car in the shop but lack of communication has it sitting in the shop right now waiting on supplemental work. I have tried to get their management to talk to me so I can see what happened with communication but even they are not reaching out. I would not recommend this insurance anymore. After 10 years of being with them, mostly good, this has been the worst experience with an accident.",
+      },
+    ],
+  },
+  {
+    source: "Google Play Store · 3-star review",
+    period: "Q2 2026",
+    items: [
+      {
+        theme: "Account access",
+        quote:
+          "Getting the insurance was super easy, but the problem is that when I wanted to go on the app to see when is my due date, I was not able to login it wants me to do everything all over like if I never had the insurance in the first place. now how can I be driving around with my kids thinking im covered when in reality im not \"apparently\"",
+      },
+    ],
+  },
+  {
+    source: "Apple App Store · 1-star review · NPS 6 detractor",
+    period: "Q2 2026",
+    items: [
+      {
+        theme: "Account access & customer service",
+        quote:
+          "If I could give Root zero stars, I would! They were actually a decent company several years ago. I’m not sure what happened but now, you’re lucky to receive a response from them within a days (forget about a same day response). They will raise your rates significantly every 6 months, whether you’re a safe driver or not. Their app is absolute garbage. Any time I would try to log in on the app or desktop, it will treat you as a new customer and just keep loading to try and get you a new quote. Absolutely NO way to access your account, payment history, or insurance docs. When I notified Root of this, they made it seem like it was MY fault (um hello, check out the hundreds of other reviews stating the exact same problem). Hire some new web developers! I am so thankful I wasn’t in an accident because I literally would not have been able to access my insurance card. To top it all off, I initiated cancelling my policy and they took so long to get back to me that it renewed. Luckily I had already notified my bank so they didn’t take more of my money. I’m still going back and forth with them about cancelling because according to them I’m not the primary policy holder (absolute lie). Overall, stay very, very far away",
+      },
+    ],
+  },
+  {
     source: "In-App Survey Pilot at Sprig",
     period: "Q2 2026",
     items: [
@@ -253,6 +370,30 @@ const quoteGroups: QuoteGroup[] = [
         theme: "Rate increases",
         quote:
           "My score is 8/10, and I’m rewarded with a higher rate? Lolol. Guess this will be the last month with you. Geezus",
+      },
+      {
+        theme: "Rate increases",
+        quote:
+          "They are raising rates exponentially. I have zero insurance claims in over five years and my rates are still going up",
+      },
+      {
+        theme: "Payment authorization",
+        quote:
+          "I did not give you permission to take a payment today. You just put my account in the negative and caused a $30.00 overdraft fee",
+      },
+      {
+        theme: "Rate increases",
+        quote:
+          "I called yesterday to make a payment and noticed my insurance policy was increasing for its renewal. I told them I was going to cancel it and go with somebody else since they were not able to get it back down to where it was before and now this morning, I noticed a payment came out of my account automatically.!!!! I want my policy canceled immediately and my money refunded immediately!!!!",
+      },
+      {
+        theme: "Cancellation issues",
+        quote: "Why did you guys take 62$ from me when I canceled my insurance?",
+      },
+      {
+        theme: "Logout function",
+        quote:
+          "There needs to definitely be a logout button or sign out button. This is insane. It takes me 30 minutes to an hour to figure out how to sign up this app",
       },
       {
         theme: "Customer service",

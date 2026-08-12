@@ -98,6 +98,9 @@ export const siteUpdated = getSiteUpdated().label;
 const q1PrototypeHref =
   "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?page-id=311%3A2741&node-id=311-2744&p=f&viewport=-267%2C-45%2C0.16&t=xgUWguhbtJRImnrf-1&scaling=scale-down&content-scaling=fixed";
 
+const dashboardPreviewHref =
+  "https://lovable.dev/preview/tH8LUsFZk8vhXteqSZ1xswd9oirLnW5a";
+
 const q1CustomerRecordings: VideoCollection[] = [
   {
     participant: "Participant 1",
@@ -163,9 +166,10 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
-        label: "Interactive prototype",
+        label: "Presentation",
         description: "Navigate the completed Q1-26 presentation in prototype mode.",
         href: q1PrototypeHref,
+        provider: "root",
       },
       {
         label: "Figma source",
@@ -176,11 +180,6 @@ export const handoffPages: HandoffPage[] = [
         label: "Supporting files",
         description: "Shared research inputs and working artifacts for the report.",
         href: "https://drive.google.com/drive/folders/15YrTTyQ_I1F_-Tph1LR0bo3ZHjkoOpCc",
-      },
-      {
-        label: "Documentation",
-        description: "Source notes and research context in the IPSD.",
-        href: "https://docs.google.com/document/d/1eMVc8liDi-s3PGIdXN9lVaM9uOZOJGLGmbuBbt4DCco/edit?tab=t.7momns81mgpm",
       },
     ],
     sections: [
@@ -299,19 +298,9 @@ export const handoffPages: HandoffPage[] = [
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=2546-1804",
       },
       {
-        label: "Data analysis",
-        description: "Descriptive analyses and supporting report outputs.",
-        href: "https://drive.google.com/drive/folders/1tx00RU1XgBsQxiNY0dLX9wvkLSvuhQLa",
-      },
-      {
-        label: "Raw data",
-        description: "Source datasets used for the Q2 report analysis.",
-        href: "https://drive.google.com/drive/folders/16G_ipRguhQ0MUBVoJJ0e2hltq3HXJ_mY",
-      },
-      {
-        label: "Q1 report reference",
-        description: "The reporting framework that the Q2 draft builds upon.",
-        href: "/q1-voc-report",
+        label: "Supporting files",
+        description: "Main folder for the Q2 2026 VOC Quarterly Report.",
+        href: "https://drive.google.com/drive/folders/1i3yLP2P42e7An8iP0eZioQ7BZDDnWlHG?usp=sharing",
       },
     ],
     sections: [
@@ -411,14 +400,14 @@ export const handoffPages: HandoffPage[] = [
     updated: siteUpdated,
     primaryLinks: [
       {
+        label: "Lovable dashboard preview",
+        description: "Open the completed VOC dashboard prototype for stakeholder review.",
+        href: dashboardPreviewHref,
+      },
+      {
         label: "Customer quote library spreadsheet",
         description: "The central spreadsheet for organizing and maintaining customer-quote evidence.",
         href: "https://docs.google.com/spreadsheets/d/1Js0nphTvokImTGG0zJpUJ9EfD6kOlkqblX8X8uKBG00/edit?usp=sharing",
-      },
-      {
-        label: "Lovable dashboard preview",
-        description: "Open the completed VOC dashboard prototype for stakeholder review.",
-        href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e",
       },
       {
         label: "Customer interview reels",
@@ -464,7 +453,7 @@ export const handoffPages: HandoffPage[] = [
       {
         label: "Stakeholder dashboard preview (Expires in 7 days)",
         description: "Completed Lovable dashboard prototype for stakeholder review.",
-        href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e#preview_url=https%3A%2F%2Fid-preview--739ad35a-f0ac-44a9-a1f6-3d56613a5a0e.lovable.app%3F__lovable_token%3DeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoieXQ0aUxBTmNXNmV1OVRjRnJHbjdOTkZrN1JCMyIsInByb2plY3RfaWQiOiI3MzlhZDM1YS1mMGFjLTQ0YTktYTFmNi0zZDU2NjEzYTVhMGUiLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6IjczOWFkMzVhLWYwYWMtNDRhOS1hMWY2LTNkNTY2MTNhNWEwZSIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODY0NzMzMjMsIm5iZiI6MTc4NTg2ODUyMywiaWF0IjoxNzg1ODY4NTIzLCJqdGkiOiIxMDJmZjU5OS1jOGM0LTRhOTctOGM0Yi00MjQwNTk1NDEzNTkifQ.pGLwCLVGizFTfSwwQ5xX2vLOEij-O3gfVCkLpNtLEwM_GlgWu3FzDYnHdc5RhkyZnq4zMhN_N2sqP9kvFIzmovvdyTOYyoNFKeFtP5yman988RjSnGMz5HrV1MuPyXvzcqPkq7qie0KAljMfR6xCrjKVz96ymC-U1E5PBEJVPTee6iJw5VaDK0Ruyuu1An-tPkGLHYq-ROaAAqME8uyxRvE1e4jeUUNozodwilRkig0wsOfH6K32flTRq8Vh_z6WXuNEm7dnz2Fx7KuH2Ok4L6xw5ScDz72NIbyCSoXuExKdV9R6f5wJfAKlw2mt8vdeqmamvKJr81ZlaLFrR9KYRiuRyLVjtMyG5Kn71z0ibf17FyvOBiI7pcSc2EJrJTq82bOUFeGpDTlPo6IcRA1ouX-MRB7klpE6JIj_EqQFw1swIYE--O9_aurh3-HS9hUNUGcbskXf5J-zZ0wcUanTEh9DYkDewn2tRcA0JnYdhcVCaxKhfiE7cnYfsm0MO2kSBBD8JP4cXupCyvUfoxb1Kyn101P3wW1-cyfVfNHT9VjW0NUHjTNIMxwu-cQn19GoY9-G-PUJ2fAbOsL-TVyedIjOM7g-jVFDkmsm20BbdxDvb3m9O3ymKxNYEU7RR_skYJz2Z5erTucdhGV3wW86KsXRl2ot6mH3Tbw-2-3qnWg",
+        href: dashboardPreviewHref,
       },
       {
         label: "Lovable editor invite",
@@ -476,22 +465,12 @@ export const handoffPages: HandoffPage[] = [
         description: "Latest high-fidelity design in the shared VOC workspace.",
         href: "https://www.figma.com/design/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1563-2647&t=EIOlHXMAH4ey7MR5-1",
       },
-      {
-        label: "Prototype PDF",
-        description: "High-fidelity dashboard artifact in Google Drive.",
-        href: "https://drive.google.com/file/d/1h_J_vqX8rwL3Nt3TZzDC-a8L9bmTzTDe/view",
-      },
     ],
     sections: [
       {
         id: "current-direction",
         title: "Current direction",
         blocks: [
-          {
-            kind: "callout",
-            title: "Dashboard prototype complete",
-            text: "The Lovable dashboard prototype is complete and ready for stakeholder review. The editor invite provides the team with a direct way to continue working in the project.",
-          },
           {
             kind: "paragraph",
             text: "I compared previous VOC documentation with the existing Mode experience to explore a faster, more visual, and more reusable way for product teams to inspect customer evidence between quarterly reports.",
@@ -502,176 +481,7 @@ export const handoffPages: HandoffPage[] = [
               "Designed a lightweight dashboard direction in Figma.",
               "Completed a Lovable dashboard prototype for stakeholder review.",
               "Explored a reusable, non-variable slideshow system with responsive icons and an expanded photo library.",
-              "Collected direction and feedback from Jill and Klew.",
-            ],
-          },
-        ],
-      },
-      {
-        id: "deployment-model",
-        title: "How the website deployment should work",
-        blocks: [
-          {
-            kind: "callout",
-            title: "GitHub should become the source of truth",
-            text: "The working website should be stored in a GitHub repository connected to Vercel. Code changes create reviewable versions, and approved changes to the production branch trigger deployment.",
-          },
-          {
-            kind: "pipeline",
-            items: [
-              { label: "Local + Codex", detail: "Draft and validate the change" },
-              { label: "Git branch", detail: "Create an isolated checkpoint" },
-              { label: "GitHub", detail: "Push and open a pull request" },
-              { label: "Vercel preview", detail: "Review a live private URL" },
-              { label: "Human approval", detail: "Verify content, data, and access" },
-              { label: "Merge to main", detail: "Approve the source change" },
-              { label: "Vercel production", detail: "Deploy automatically" },
-            ],
-          },
-          {
-            kind: "paragraph",
-            text: "The repository records what changed, who changed it, and which version is live. Vercel watches the connected repository: branches and pull requests can produce preview deployments, while the configured production branch—usually main—publishes the approved site.",
-          },
-        ],
-      },
-      {
-        id: "git-essentials",
-        title: "Git and origin essentials",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "Origin is the conventional name for the remote GitHub repository connected to a local project. Local files are only a working copy; commits create durable checkpoints, and synchronization keeps that copy aligned with the shared repository.",
-          },
-          {
-            kind: "commands",
-            items: [
-              {
-                command: "git remote -v",
-                label: "Confirm origin",
-                description:
-                  "Shows which GitHub repository receives fetches and pushes.",
-              },
-              {
-                command: "git fetch origin",
-                label: "Inspect remote updates",
-                description:
-                  "Downloads new remote history without changing the local working files.",
-              },
-              {
-                command: "git pull origin main",
-                label: "Integrate approved updates",
-                description:
-                  "Fetches and combines the current production branch. Commit or safely set aside local work first.",
-              },
-              {
-                command: "git add <reviewed-files>",
-                label: "Stage intentionally",
-                description:
-                  "Selects only the reviewed files for the next checkpoint; avoid staging secrets or unrelated work.",
-              },
-              {
-                command: "git diff --staged",
-                label: "Review before committing",
-                description:
-                  "Shows exactly what the checkpoint will contain.",
-              },
-              {
-                command: 'git commit -m "Describe the dashboard update"',
-                label: "Create a checkpoint",
-                description:
-                  "Records an intentional local version with a readable explanation.",
-              },
-              {
-                command: "git push origin <branch-name>",
-                label: "Submit to GitHub",
-                description:
-                  "Uploads the branch so it can be reviewed and deployed as a preview.",
-              },
-            ],
-          },
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Getting changes from GitHub",
-                description: "Official explanation of clone, fetch, merge, and pull.",
-                href: "https://docs.github.com/en/get-started/using-git/getting-changes-from-a-remote-repository",
-              },
-              {
-                label: "Pushing commits to GitHub",
-                description: "Official guide to sending local commits to a remote.",
-                href: "https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "github-vercel",
-        title: "GitHub to Vercel automation",
-        blocks: [
-          {
-            kind: "steps",
-            items: [
-              "Create or confirm the GitHub repository and make main the protected production branch.",
-              "Import that repository into Vercel and keep the framework preset on Next.js.",
-              "Add the required authentication settings to Vercel as protected environment variables.",
-              "Push work to a separate branch so Vercel creates a private preview deployment.",
-              "Review the preview with research, design, data, and access-control checks.",
-              "Merge the approved pull request into main; Vercel then builds the production deployment automatically.",
-              "If a deployment fails, use Vercel’s build log to diagnose it. If an approved release causes a problem, revert the Git commit or roll back the deployment.",
-            ],
-          },
-          {
-            kind: "links",
-            items: [
-              {
-                label: "Deploying Git repositories with Vercel",
-                description: "Official production and preview branch workflow.",
-                href: "https://vercel.com/docs/git",
-              },
-              {
-                label: "Vercel for GitHub",
-                description: "Automatic deployments, previews, and production-domain updates.",
-                href: "https://vercel.com/docs/git/vercel-for-github",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "ai-assisted-updates",
-        title: "Future AI-assisted update flow",
-        blocks: [
-          {
-            kind: "callout",
-            title: "Automate proposals—not unchecked production changes",
-            text: "ChatGPT or Codex can help update code and content, but a researcher should verify every number, claim, quote, permission, and visual before merge.",
-          },
-          {
-            kind: "steps",
-            items: [
-              "A researcher selects the new reporting period and provides approved, deidentified source material.",
-              "ChatGPT or Codex proposes content, data, and code changes on a separate Git branch.",
-              "Automated checks flag missing sample bases, citations, quote permissions, placeholder data, broken links, or failed builds.",
-              "A human researcher reviews the code difference and the Vercel preview.",
-              "After approval, the branch is merged into GitHub and Vercel deploys the accepted version.",
-            ],
-          },
-          {
-            kind: "subheading",
-            text: "Possible one-click experience",
-          },
-          {
-            kind: "paragraph",
-            text: "A future “Update dashboard” button could collect a reporting period, approved files, and a change note, then ask a secured GitHub integration to create a branch and pull request. The button should stop at a reviewable preview; it should not overwrite production directly.",
-          },
-          {
-            kind: "list",
-            items: [
-              "Required controls: Root authentication, least-privilege GitHub credentials, approved-source validation, audit logs, and a mandatory reviewer.",
-              "What remains future work: The repository connection, automated checks, GitHub integration, one-click interface, and live data-refresh process.",
-              "Definition of done: A repeatable update can move from approved evidence to private preview to reviewed production without copying files manually.",
+              "Collected direction and feedback from Jill.",
             ],
           },
         ],
@@ -691,6 +501,7 @@ export const handoffPages: HandoffPage[] = [
         label: "Presentation visualization",
         description: "View the Q1-26 executive report presentation in prototype mode.",
         href: "https://www.figma.com/proto/cN9IgxIRTOnBOMJf4tKMeH/Voice-of-Customer--VOC-?node-id=1861-3299&p=f&viewport=-325%2C-869%2C0.21&t=CFFTOwJyDkoNAzU4-1&scaling=contain&content-scaling=fixed&page-id=1861%3A3298",
+        provider: "root",
       },
       {
         label: "VOC Figma workspace",
@@ -1202,7 +1013,7 @@ Before starting, give me a short execution plan and list any column-mapping ques
               {
                 title: "VOC Dashboard",
                 text: "Completed Lovable dashboard prototype, ready for stakeholder review and editor collaboration.",
-                href: "https://lovable.dev/share-preview/739ad35a-f0ac-44a9-a1f6-3d56613a5a0e#preview_url=https%3A%2F%2Fid-preview--739ad35a-f0ac-44a9-a1f6-3d56613a5a0e.lovable.app%3F__lovable_token%3DeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoieXQ0aUxBTmNXNmV1OVRjRnJHbjdOTkZrN1JCMyIsInByb2plY3RfaWQiOiI3MzlhZDM1YS1mMGFjLTQ0YTktYTFmNi0zZDU2NjEzYTVhMGUiLCJhY2Nlc3NfdHlwZSI6InByb2plY3QiLCJpc3MiOiJsb3ZhYmxlLWFwaSIsInN1YiI6IjczOWFkMzVhLWYwYWMtNDRhOS1hMWY2LTNkNTY2MTNhNWEwZSIsImF1ZCI6WyJsb3ZhYmxlLWFwcCJdLCJleHAiOjE3ODY0NzMzMjMsIm5iZiI6MTc4NTg2ODUyMywiaWF0IjoxNzg1ODY4NTIzLCJqdGkiOiIxMDJmZjU5OS1jOGM0LTRhOTctOGM0Yi00MjQwNTk1NDEzNTkifQ.pGLwCLVGizFTfSwwQ5xX2vLOEij-O3gfVCkLpNtLEwM_GlgWu3FzDYnHdc5RhkyZnq4zMhN_N2sqP9kvFIzmovvdyTOYyoNFKeFtP5yman988RjSnGMz5HrV1MuPyXvzcqPkq7qie0KAljMfR6xCrjKVz96ymC-U1E5PBEJVPTee6iJw5VaDK0Ruyuu1An-tPkGLHYq-ROaAAqME8uyxRvE1e4jeUUNozodwilRkig0wsOfH6K32flTRq8Vh_z6WXuNEm7dnz2Fx7KuH2Ok4L6xw5ScDz72NIbyCSoXuExKdV9R6f5wJfAKlw2mt8vdeqmamvKJr81ZlaLFrR9KYRiuRyLVjtMyG5Kn71z0ibf17FyvOBiI7pcSc2EJrJTq82bOUFeGpDTlPo6IcRA1ouX-MRB7klpE6JIj_EqQFw1swIYE--O9_aurh3-HS9hUNUGcbskXf5J-zZ0wcUanTEh9DYkDewn2tRcA0JnYdhcVCaxKhfiE7cnYfsm0MO2kSBBD8JP4cXupCyvUfoxb1Kyn101P3wW1-cyfVfNHT9VjW0NUHjTNIMxwu-cQn19GoY9-G-PUJ2fAbOsL-TVyedIjOM7g-jVFDkmsm20BbdxDvb3m9O3ymKxNYEU7RR_skYJz2Z5erTucdhGV3wW86KsXRl2ot6mH3Tbw-2-3qnWg",
+                href: dashboardPreviewHref,
               },
               {
                 title: "VOC Customer Quote Library",
@@ -1243,15 +1054,10 @@ Before starting, give me a short execution plan and list any column-mapping ques
               "Confirm the long-term owner for every artifact.",
               "Verify access to Figma, Drive recordings, research notes, the AI Skills folder, the dashboard GitHub repository, and Vercel.",
               "Pilot the onboarding documentation with a new team member and assign chapter owners.",
-            ],
-          },
-          {
-            kind: "steps",
-            items: [
               "Who will own the completed VOC presentation system and approve future changes?",
               "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
               "Which Q2 findings require another research round before publication?",
-              "Which data sources and metrics are approved for the first operational dashboard version?",
+              "Confirm which data sources and metrics are approved for the first operational dashboard version, then identify who can help publish the VOC dashboard at a permanent URL so stakeholders are not dependent on a seven-day preview link.",
             ],
           },
         ],

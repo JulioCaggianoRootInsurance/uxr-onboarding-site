@@ -98,10 +98,6 @@ test("defines the full internship handoff architecture", async () => {
     /Quantitative evidence establishes what is happening/,
   );
   assert.doesNotMatch(content, /1EoVJcaMvR5RmDN-6xGxzY0ljRDiurFCQ/);
-  assert.match(
-    content,
-    /label: "Documentation",\n\s+description: "Source notes and research context in the IPSD\."/,
-  );
   assert.match(content, /label: "Find quantitative patterns"/);
   assert.match(content, /label: "Investigate through qualitative evidence"/);
   assert.match(content, /label: "Validate findings with stakeholders"/);
@@ -139,7 +135,13 @@ test("defines the full internship handoff architecture", async () => {
     /"internship-insights": "internship-reflection"/,
   );
   assert.equal((content.match(/primaryLinks: \[/g) ?? []).length, 8);
-  assert.match(content, /label: "Interactive prototype"/);
+  assert.match(
+    q1Page,
+    /label: "Presentation",\s+description: "Navigate the completed Q1-26 presentation in prototype mode\."[\s\S]*?href: q1PrototypeHref,\s+provider: "root"/,
+  );
+  assert.doesNotMatch(q1Page, /label: "Interactive prototype"/);
+  assert.doesNotMatch(q1Page, /label: "Documentation"/);
+  assert.doesNotMatch(q1Page, /Source notes and research context in the IPSD/);
   assert.match(content, /page-id=311%3A2741/);
   assert.match(content, /node-id=311-2744/);
   assert.doesNotMatch(content, /node-id=1305-1457/);
@@ -176,11 +178,15 @@ test("defines the full internship handoff architecture", async () => {
   );
   assert.match(quoteLibraryLinks, /Customer quote library spreadsheet/);
   assert.match(quoteLibraryLinks, /Lovable dashboard preview/);
+  assert.match(
+    quoteLibraryLinks,
+    /href: dashboardPreviewHref/,
+  );
   assert.doesNotMatch(quoteLibraryLinks, /Lookback reels and insights/);
   assert.doesNotMatch(quoteLibraryLinks, /docs\.google\.com\/document\/d\/1eMVc8li/i);
   assert.ok(
-    quoteLibraryLinks.indexOf("Customer quote library spreadsheet") <
-      quoteLibraryLinks.indexOf("Lovable dashboard preview"),
+    quoteLibraryLinks.indexOf("Lovable dashboard preview") <
+      quoteLibraryLinks.indexOf("Customer quote library spreadsheet"),
   );
 });
 
@@ -279,7 +285,7 @@ test("consolidates the transition plan and ends with an italic thank-you", async
     "Who will own the completed VOC presentation system and approve future changes?",
     "Who will own the evidence library, onboarding playbook, and their permission or content reviews?",
     "Which Q2 findings require another research round before publication?",
-    "Which data sources and metrics are approved for the first operational dashboard version?",
+    "Confirm which data sources and metrics are approved for the first operational dashboard version, then identify who can help publish the VOC dashboard at a permanent URL so stakeholders are not dependent on a seven-day preview link.",
   ]) {
     assert.ok(actionSection.includes(question));
   }
@@ -287,7 +293,11 @@ test("consolidates the transition plan and ends with an italic thank-you", async
     actionSection,
     /one canonical link|Complete the Q2 report’s evidence review|Connect the dashboard only to validated metrics|Finish the dashboard repository|Should the dashboard move from a presentation prototype|Where should the AI skill packages be installed/,
   );
-  assert.equal((actionSection.match(/kind: "steps"/g) ?? []).length, 2);
+  const actionItems = [
+    ...actionSection.matchAll(/^\s+"([^"]+)",?$/gm),
+  ].map((match) => match[1]);
+  assert.equal((actionSection.match(/kind: "steps"/g) ?? []).length, 1);
+  assert.equal(actionItems.length, 7);
   assert.doesNotMatch(actionSection, /kind: "list"/);
   assert.doesNotMatch(
     transitionPage,
@@ -344,6 +354,7 @@ test("links every artifact to its most useful destination", async () => {
   for (const [title, destination] of [
     ["VOC Quarterly Report (Q1-26)", "q1PrototypeHref"],
     ["VOC Quarterly Report (Q2-26)", "node-id=2546-1804"],
+    ["VOC Dashboard", "dashboardPreviewHref"],
     ["VOC Customer Quote Library", "/customer-quote-library"],
     ["NPS Executive Report (Q1-26)", "node-id=1861-3299"],
     ["UXR Documentation", "147235d4-c281-47cf-b008-6d33c4bf3bae"],
@@ -353,7 +364,17 @@ test("links every artifact to its most useful destination", async () => {
     assert.ok(artifactInventory.includes(`title: "${title}"`));
     assert.ok(artifactInventory.includes(destination));
   }
-  assert.match(artifactInventory, /title: "VOC Dashboard",[\s\S]*?href: "https:\/\//);
+  assert.match(
+    content,
+    /const dashboardPreviewHref =\s+"https:\/\/lovable\.dev\/preview\/tH8LUsFZk8vhXteqSZ1xswd9oirLnW5a";/,
+  );
+  assert.equal((content.match(/href: dashboardPreviewHref/g) ?? []).length, 3);
+  assert.doesNotMatch(content, /OH6fVVf0Sn1lo6TZdg3k7e9ZrxJ5NULr/);
+  assert.doesNotMatch(content, /lovable\.dev\/share-preview\/739ad35a/);
+  assert.match(
+    artifactInventory,
+    /title: "VOC Dashboard",[\s\S]*?href: dashboardPreviewHref/,
+  );
   assert.match(components, /const isInternal = item\.href\.startsWith\("\/"\)/);
   assert.match(
     components,
@@ -364,19 +385,29 @@ test("links every artifact to its most useful destination", async () => {
   assert.match(styles, /\.status-card:hover[\s\S]*\.status-card:focus-visible/);
 });
 
-test("keeps future dashboard work explicitly separate from completed work", async () => {
+test("keeps the VOC Dashboard page focused on the project direction", async () => {
   const content = await readProjectFile("app/handoff.ts");
+  const dashboardPage = content.slice(
+    content.indexOf('slug: "voc-dashboard"'),
+    content.indexOf('slug: "nps-executive-report"'),
+  );
 
-  assert.match(content, /placeholder data/);
-  assert.match(content, /Dashboard prototype complete/);
-  assert.match(content, /GitHub should become the source of truth/);
-  assert.match(content, /git fetch origin/);
-  assert.match(content, /git pull origin main/);
-  assert.match(content, /git push origin <branch-name>/);
-  assert.match(content, /Vercel preview/);
-  assert.match(content, /Future AI-assisted update flow/);
-  assert.match(content, /should not overwrite production directly/);
-  assert.match(content, /human researcher reviews/i);
+  assert.match(dashboardPage, /id: "current-direction"/);
+  assert.match(dashboardPage, /Collected direction and feedback from Jill\./);
+  assert.equal((dashboardPage.match(/^\s+id: "/gm) ?? []).length, 1);
+  assert.doesNotMatch(dashboardPage, /kind: "callout"/);
+  assert.doesNotMatch(dashboardPage, /Dashboard prototype complete/);
+  assert.doesNotMatch(dashboardPage, /Prototype PDF|High-fidelity dashboard artifact/);
+  assert.doesNotMatch(dashboardPage, /Jill and Klew/);
+  assert.doesNotMatch(dashboardPage, /id: "deployment-model"/);
+  assert.doesNotMatch(dashboardPage, /id: "git-essentials"/);
+  assert.doesNotMatch(dashboardPage, /id: "github-vercel"/);
+  assert.doesNotMatch(dashboardPage, /id: "ai-assisted-updates"/);
+  assert.doesNotMatch(dashboardPage, /Getting changes from GitHub/);
+  assert.doesNotMatch(dashboardPage, /Pushing commits to GitHub/);
+  assert.doesNotMatch(dashboardPage, /Deploying Git repositories with Vercel/);
+  assert.doesNotMatch(dashboardPage, /Vercel for GitHub/);
+  assert.doesNotMatch(dashboardPage, /Future AI-assisted update flow/);
   assert.match(content, /VOC Quarterly Report \(Q2-26\)/);
   assert.match(content, /Completed Q1 2026 executive report delivered to Jill/);
   assert.match(content, /practical system for yearly reporting/);
@@ -401,8 +432,13 @@ test("reflects the Q2 report’s stakeholder dependency and current Figma source
   assert.match(content, /node-id=2546-1804/);
   assert.match(q2Links, /label: "Presentation visualization"/);
   assert.match(q2Links, /node-id=2546-1805/);
-  assert.match(q2Links, /label: "Data analysis"/);
-  assert.match(q2Links, /label: "Raw data"/);
+  assert.match(
+    q2Links,
+    /label: "Supporting files",\s+description: "Main folder for the Q2 2026 VOC Quarterly Report\."[\s\S]*?1i3yLP2P42e7An8iP0eZioQ7BZDDnWlHG/,
+  );
+  assert.doesNotMatch(q2Links, /label: "Data analysis"/);
+  assert.doesNotMatch(q2Links, /label: "Raw data"/);
+  assert.doesNotMatch(q2Links, /label: "Q1 report reference"/);
   assert.doesNotMatch(
     q2Links,
     /label: "Q2 report materials"|label: "Customer interview reels"|label: "Q2 README"/,
@@ -411,6 +447,7 @@ test("reflects the Q2 report’s stakeholder dependency and current Figma source
   assert.ok(
     q2Links.indexOf("Presentation visualization") < q2Links.indexOf("Figma source"),
   );
+  assert.ok(q2Links.indexOf("Figma source") < q2Links.indexOf("Supporting files"));
   assert.doesNotMatch(q2Page, /id: "current-state"|Waiting for stakeholder datasets/);
   assert.match(content, /begins at the system level/);
   assert.match(content, /quantitative “what” to the qualitative “why/);
@@ -448,7 +485,10 @@ test("frames the NPS report for product and executive audiences", async () => {
 
   assert.ok(npsPage.includes(`href: "${figmaPrototype}"`));
   assert.ok(npsPage.includes(`href: "${presentationVisualization}"`));
-  assert.match(npsPage, /label: "Presentation visualization"/);
+  assert.match(
+    npsPage,
+    /label: "Presentation visualization",[\s\S]*?href: "https:\/\/www\.figma\.com\/proto\/[^"]+",\s+provider: "root"/,
+  );
   assert.doesNotMatch(npsPage, /label: "Final PDF"|label: "Project record"/);
   assert.match(
     npsPage,
@@ -1029,13 +1069,25 @@ test("keeps the customer quote library synchronized, ordered, and deidentified",
     customerPage,
     /Governance still required|A useful library also needs rules|Playback access is only one layer|Confirm consent and approved use|Preserve exact source locators|Record the connected quantitative pattern|Treat memorable quotes as illustrations/,
   );
-  assert.equal(quoteRecords.length, 45);
+  assert.equal(quoteRecords.length, 65);
   assert.match(quotes, /tabId: "t\.vwocc5k1v4db"/);
   assert.match(quotes, /syncedOn: "2026-07-30"/);
   assert.match(quotes, /VOC Customer Interview · Participant 1/);
   assert.match(quotes, /Q1 VOC Report · App reviews/);
   assert.match(quotes, /Rebrand Consumer Interview · Participant 8/);
   assert.match(quotes, /In-App Survey Pilot at Sprig/);
+  assert.match(quotes, /10\/10 Independent Agents Survey · Detractors/);
+  assert.match(quotes, /10\/10 DTC Benchmark Survey · NPS detractors/);
+  assert.match(quotes, /App reviews · Platform not specified/);
+  assert.match(quotes, /Google Play Store · 1-star reviews/);
+  assert.match(quotes, /Google Play Store · 3-star review/);
+  assert.match(quotes, /Apple App Store · 1-star review · NPS 6 detractor/);
+  assert.match(quotes, /Agents don't have servicing independence/);
+  assert.match(quotes, /There is no loyal customer discount/);
+  assert.match(quotes, /passenger button/);
+  assert.match(quotes, /Why did you guys take 62\$ from me/);
+  assert.match(quotes, /If I could give Root zero stars/);
+  assert.equal((quotes.match(/pulled over three times now/g) ?? []).length, 1);
   assert.match(quotes, /Customer Survey/);
   assert.match(quotes, /Customer Choice Survey/);
   assert.match(quotes, /Billing and Payments Vision Research/);

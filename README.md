@@ -83,10 +83,9 @@ Legacy article slugs continue to resolve through aliases in `app/handoff.ts`.
   routes before rendering, and each private page verifies the session again.
 - The customer evidence library preserves 21 deidentified, Drive-hosted clips
   and their existing Drive permissions.
-- The deliverables index distinguishes completed artifacts from in-progress
-  work, including separate dashboard prototype and code-handoff states.
-- The VOC dashboard chapter documents the proposed local → GitHub → Vercel
-  workflow and a future human-reviewed ChatGPT/Codex update flow.
+- The deliverables index links each artifact to its expanded handoff chapter.
+- The VOC dashboard chapter keeps the stakeholder prototype, editor handoff,
+  source artifacts, and project direction together.
 - The generic, non-sensitive social-preview image is `public/og.png`.
 - Pages opt out of search indexing.
 
