@@ -21,6 +21,7 @@ function SiteFooter() {
         <div className="footer-copy">
           <p>Prepared by Julio Caggiano</p>
           <small>Root internal · Password protected</small>
+          <small>Design system credit: Benji Taylor · SpaceX (SpaceX AI)</small>
         </div>
         <form
           action={async () => {
